@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "componentPackage": "@qhkg/react",
-  "componentVersion": "0.2.0",
+  "componentVersion": "0.3.0",
   "components": [
     {
       "name": "Alert",
