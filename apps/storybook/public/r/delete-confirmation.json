@@ -4,7 +4,7 @@
   "title": "Delete Confirmation",
   "description": "Accessible destructive confirmation pattern built with QH AlertDialog.",
   "dependencies": [
-    "@qhkg/react@^0.1.0"
+    "@qhkg/react@^0.2.0"
   ],
   "files": [
     {
