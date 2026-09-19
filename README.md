@@ -41,6 +41,6 @@ QH Design System 是面向多个 React + TypeScript 项目的公共组件库。�
 - DeleteConfirmation：高风险删除确认
 - MobileBottomActionBar：适配安全区的移动端底部操作栏
 
-Pattern 通过公开 shadcn Registry 交付，安装后代码归业务项目所有；它们组合 `@qh-design/react` 核心组件，但不复制核心组件实现。安装与接入方式见 [Registry 使用说明](registry/README.md)。
+Pattern 通过公开 shadcn Registry 交付，安装后代码归业务项目所有；它们组合 `@qhkg/react` 核心组件，但不复制核心组件实现。安装与接入方式见 [Registry 使用说明](registry/README.md)。
 
 所有核心组件均包含 TypeScript 类型、Story、测试和 AI 元数据；Pattern 包含可交互 Story、Registry 元数据和 AI 接入说明。`design.qihao.dev` 由 Cloudflare Pages 托管，`/mcp` 由独立 Cloudflare Worker 提供 Storybook 文档工具。仓库已具备跨浏览器 CI、部署检查、发布包契约检查和 npm OIDC 发布工作流；首次 npm Trusted Publisher 配置和公共包发布仍待完成。

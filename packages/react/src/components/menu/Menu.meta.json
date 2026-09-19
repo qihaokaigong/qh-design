@@ -2,7 +2,7 @@
   "name": "Menu",
   "summary": "从触发器打开一组临时操作或可选设置",
   "status": "beta",
-  "import": "import { Menu } from '@qh-design/react'",
+  "import": "import { Menu } from '@qhkg/react'",
   "storybookId": "navigation-menu",
   "whenToUse": ["收纳与当前对象相关的操作", "提供短列表式的临时选择"],
   "avoidWhen": ["用户需要持续看到所有选项", "承载复杂表单或长篇内容"],

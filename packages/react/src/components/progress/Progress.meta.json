@@ -2,7 +2,7 @@
   "name": "Progress",
   "summary": "显示一个持续任务的完成比例或未知时长状态",
   "status": "beta",
-  "import": "import { Progress } from '@qh-design/react'",
+  "import": "import { Progress } from '@qhkg/react'",
   "storybookId": "feedback-progress",
   "whenToUse": ["任务有可量化进度", "需要表达正在处理但时长未知"],
   "avoidWhen": ["只需要表示按钮正在提交", "任务已经立即完成"],

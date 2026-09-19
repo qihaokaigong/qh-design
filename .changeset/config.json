@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [["@qh-design/react", "@qh-design/tokens"]],
+  "linked": [["@qhkg/react", "@qhkg/tokens"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

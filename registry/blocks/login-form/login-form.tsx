@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Card, Checkbox, Field, Input, Stack } from "@qh-design/react";
+import { Button, Card, Checkbox, Field, Input, Stack } from "@qhkg/react";
 import type { FormEvent } from "react";
 
 export interface LoginFormProps {

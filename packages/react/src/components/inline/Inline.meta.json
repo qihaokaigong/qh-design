@@ -2,7 +2,7 @@
   "name": "Inline",
   "summary": "使用设计 Token 间距横向排列并按需换行",
   "status": "beta",
-  "import": "import { Inline } from '@qh-design/react'",
+  "import": "import { Inline } from '@qhkg/react'",
   "storybookId": "layout-inline",
   "whenToUse": ["操作按钮横向排列", "标签和元数据需要自动换行"],
   "avoidWhen": ["内容应纵向排列", "需要严格二维列结构"],

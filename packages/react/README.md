@@ -1,16 +1,16 @@
-# @qh-design/react
+# @qhkg/react
 
 QH Design System 的公共 React + TypeScript 组件包。
 
 ```bash
-pnpm add @qh-design/react
+pnpm add @qhkg/react
 ```
 
 在应用入口导入完整样式：
 
 ```tsx
-import "@qh-design/react/styles.css";
-import { Button, Field, Input } from "@qh-design/react";
+import "@qhkg/react/styles.css";
+import { Button, Field, Input } from "@qhkg/react";
 
 export function SaveAction() {
   return (
@@ -31,7 +31,7 @@ export function SaveAction() {
 浮层组件使用复合 API，并在内部统一处理 Portal、层级、Escape 和焦点还原：
 
 ```tsx
-import { Button, Dialog } from "@qh-design/react";
+import { Button, Dialog } from "@qhkg/react";
 
 <Dialog>
   <Dialog.Trigger asChild>
@@ -55,7 +55,7 @@ import { Button, Dialog } from "@qh-design/react";
 数据表格使用原生表格语义，并把移动端横向滚动限制在组件自身范围内：
 
 ```tsx
-import { Table } from "@qh-design/react";
+import { Table } from "@qhkg/react";
 
 <Table minWidth="md">
   <Table.Caption>最近订单</Table.Caption>

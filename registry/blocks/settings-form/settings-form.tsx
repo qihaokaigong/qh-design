@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Card, Field, Input, Select, Switch } from "@qh-design/react";
+import { Button, Card, Field, Input, Select, Switch } from "@qhkg/react";
 import type { FormEvent } from "react";
 
 export interface SettingsFormProps {

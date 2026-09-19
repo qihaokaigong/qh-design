@@ -2,7 +2,7 @@
   "name": "Switch",
   "summary": "立即开启或关闭一个设置",
   "status": "beta",
-  "import": "import { Switch } from '@qh-design/react'",
+  "import": "import { Switch } from '@qhkg/react'",
   "storybookId": "forms-switch",
   "whenToUse": ["切换会立即生效的设置", "表达清晰的开关状态"],
   "avoidWhen": ["需要提交表单后才生效", "一组选项需要多选"],

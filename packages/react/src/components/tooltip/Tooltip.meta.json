@@ -2,7 +2,7 @@
   "name": "Tooltip",
   "summary": "在悬停或键盘聚焦时显示简短的非交互说明",
   "status": "beta",
-  "import": "import { Tooltip } from '@qh-design/react'",
+  "import": "import { Tooltip } from '@qhkg/react'",
   "storybookId": "overlays-tooltip",
   "whenToUse": ["解释图标按钮或陌生术语", "补充一句不影响任务的说明"],
   "avoidWhen": ["提示包含按钮或链接", "信息对完成任务至关重要"],

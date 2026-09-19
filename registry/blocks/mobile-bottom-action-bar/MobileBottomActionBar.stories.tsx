@@ -1,4 +1,4 @@
-import { Button } from "@qh-design/react";
+import { Button } from "@qhkg/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
 

@@ -2,7 +2,7 @@
   "name": "Toast",
   "summary": "短暂反馈后台结果，并允许可选的轻量后续操作",
   "status": "beta",
-  "import": "import { Toast } from '@qh-design/react'",
+  "import": "import { Toast } from '@qhkg/react'",
   "storybookId": "feedback-toast",
   "whenToUse": ["操作结果无需阻断当前任务", "反馈会自动消失且不要求立即处理"],
   "avoidWhen": ["错误必须持续可见", "操作需要用户确认后才能继续"],

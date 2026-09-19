@@ -2,7 +2,7 @@
   "name": "Table",
   "summary": "使用原生表格语义展示需要按行列比较的结构化数据",
   "status": "beta",
-  "import": "import { Table } from '@qh-design/react'",
+  "import": "import { Table } from '@qhkg/react'",
   "storybookId": "data-table",
   "whenToUse": ["用户需要比较多个对象的相同字段", "数据具有清晰的行列关系"],
   "avoidWhen": [

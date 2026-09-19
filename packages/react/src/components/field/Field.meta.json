@@ -2,7 +2,7 @@
   "name": "Field",
   "summary": "组合表单标签、说明、错误信息和控件的可访问容器",
   "status": "beta",
-  "import": "import { Field } from '@qh-design/react'",
+  "import": "import { Field } from '@qhkg/react'",
   "storybookId": "forms-field",
   "whenToUse": ["为表单控件提供可见标签", "统一展示说明与校验错误"],
   "avoidWhen": ["展示与表单无关的文本", "替代完整的表单校验方案"],

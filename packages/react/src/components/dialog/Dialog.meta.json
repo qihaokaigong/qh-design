@@ -2,7 +2,7 @@
   "name": "Dialog",
   "summary": "在模态窗口中承载需要集中完成的普通任务",
   "status": "beta",
-  "import": "import { Dialog } from '@qh-design/react'",
+  "import": "import { Dialog } from '@qhkg/react'",
   "storybookId": "overlays-dialog",
   "whenToUse": [
     "用户需要完成一个短任务而不离开当前页面",

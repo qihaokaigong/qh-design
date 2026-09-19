@@ -18,7 +18,7 @@
 
 ## Component rules
 
-- Reuse `@qh-design/react` before creating application-local UI primitives.
+- Reuse `@qhkg/react` before creating application-local UI primitives.
 - Core components live only in the npm package. Registry items compose them and never copy their implementation.
 - `Button` performs an action. `ButtonLink` navigates. `AlertDialog` confirms dangerous actions.
 - Use `className` for layout, positioning and page-level sizing, not to replace component colors, focus, radius or internal spacing.

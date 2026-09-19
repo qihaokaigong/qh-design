@@ -2,7 +2,7 @@
   "name": "Button",
   "summary": "触发当前页面中的动作或提交表单",
   "status": "beta",
-  "import": "import { Button } from '@qh-design/react'",
+  "import": "import { Button } from '@qhkg/react'",
   "storybookId": "actions-button",
   "whenToUse": ["提交表单", "触发页面内动作", "打开弹层"],
   "avoidWhen": ["导航到另一个 URL", "仅展示状态"],

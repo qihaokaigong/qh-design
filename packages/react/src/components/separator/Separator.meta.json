@@ -2,7 +2,7 @@
   "name": "Separator",
   "summary": "在相邻内容区域之间提供视觉或语义分隔",
   "status": "beta",
-  "import": "import { Separator } from '@qh-design/react'",
+  "import": "import { Separator } from '@qhkg/react'",
   "storybookId": "surfaces-separator",
   "whenToUse": ["相邻内容需要轻量分组", "工具栏项目需要垂直分隔"],
   "avoidWhen": ["应通过间距表达层级", "需要新的内容容器"],

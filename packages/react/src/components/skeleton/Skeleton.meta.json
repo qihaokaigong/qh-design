@@ -2,7 +2,7 @@
   "name": "Skeleton",
   "summary": "在内容加载时保留大致布局并降低视觉跳动",
   "status": "beta",
-  "import": "import { Skeleton } from '@qh-design/react'",
+  "import": "import { Skeleton } from '@qhkg/react'",
   "storybookId": "feedback-skeleton",
   "whenToUse": ["已知内容的大致形状", "加载时间足以感知且需要保留布局"],
   "avoidWhen": ["有真实可量化进度", "加载几乎立即完成"],

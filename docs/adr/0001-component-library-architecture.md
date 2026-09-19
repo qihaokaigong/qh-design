@@ -25,9 +25,9 @@ QH 需要一套被多个 React + TypeScript 项目共同使用的组件库。它
 ```text
 Design Tokens
     ↓
-@qh-design/tokens
+@qhkg/tokens
     ↓
-Radix Primitives → @qh-design/react → 各 React 项目
+Radix Primitives → @qhkg/react → 各 React 项目
                          ↓
                     Storybook
                     ↙       ↘
@@ -35,7 +35,7 @@ Radix Primitives → @qh-design/react → 各 React 项目
                          ↓
                AI 查询、预览、测试
 
-@qh-design/react → QH Registry → 页面区块 / Pattern / Agent 规则
+@qhkg/react → QH Registry → 页面区块 / Pattern / Agent 规则
 ```
 
 核心原则：
@@ -91,11 +91,11 @@ qh-design/
 └── .changeset/                    # 版本与变更说明
 ```
 
-v1 不建立 `@qh-design/mcp` 自定义服务器。只有当 Storybook MCP 无法表达 QH Pattern、Token 查询或 lint 能力时，才通过新 ADR 评估专用 MCP。
+v1 不建立 `@qhkg/mcp` 自定义服务器。只有当 Storybook MCP 无法表达 QH Pattern、Token 查询或 lint 能力时，才通过新 ADR 评估专用 MCP。
 
 ## 包边界与导入契约
 
-### `@qh-design/tokens`
+### `@qhkg/tokens`
 
 职责：
 
@@ -107,12 +107,12 @@ v1 不建立 `@qh-design/mcp` 自定义服务器。只有当 Storybook MCP 无�
 导出：
 
 ```text
-@qh-design/tokens/theme.css
-@qh-design/tokens/tailwind.css
-@qh-design/tokens/tokens.json
+@qhkg/tokens/theme.css
+@qhkg/tokens/tailwind.css
+@qhkg/tokens/tokens.json
 ```
 
-### `@qh-design/react`
+### `@qhkg/react`
 
 职责：
 
@@ -124,16 +124,16 @@ v1 不建立 `@qh-design/mcp` 自定义服务器。只有当 Storybook MCP 无�
 导出：
 
 ```text
-@qh-design/react
-@qh-design/react/styles.css       # Token + 组件样式，默认入口
-@qh-design/react/components.css   # 仅组件样式，高级入口
+@qhkg/react
+@qhkg/react/styles.css       # Token + 组件样式，默认入口
+@qhkg/react/components.css   # 仅组件样式，高级入口
 ```
 
 默认接入：
 
 ```tsx
-import "@qh-design/react/styles.css";
-import { Button } from "@qh-design/react";
+import "@qhkg/react/styles.css";
+import { Button } from "@qhkg/react";
 ```
 
 React 和 React DOM 为 peer dependencies。Radix、CVA、clsx 等实现依赖由组件包管理，不要求使用方手工保持相同版本。
@@ -151,7 +151,7 @@ React 和 React DOM 为 peer dependencies。Radix、CVA、clsx 等实现依赖�
 
 ### Tailwind bridge 的用途
 
-`@qh-design/tokens/tailwind.css` 只服务于：
+`@qhkg/tokens/tailwind.css` 只服务于：
 
 - 使用项目自己的布局和页面样式。
 - Registry 页面区块。
@@ -281,7 +281,7 @@ Registry 只发布：
 - `AGENTS.md`/AI 规则。
 - 迁移和 codemod 文件。
 
-Registry item 必须明确依赖的 `@qh-design/react` 版本范围。发布的 tag 或版本化 URL 必须可复现；`latest` 只用于人工浏览，不用于生产锁定。
+Registry item 必须明确依赖的 `@qhkg/react` 版本范围。发布的 tag 或版本化 URL 必须可复现；`latest` 只用于人工浏览，不用于生产锁定。
 
 ## 测试与质量门槛
 
@@ -315,7 +315,7 @@ Registry item 必须明确依赖的 `@qh-design/react` 版本范围。发布的 
 ## 发布与版本
 
 - 所有包发布到公共 npm。
-- npm scope 固定为 `@qh-design`。
+- npm scope 固定为 `@qhkg`。
 - 公开源码使用 MIT License。
 - 默认 dist-tag 为 `latest`；预发布使用 `next`。
 - 使用 Changesets 生成版本和 changelog。
@@ -341,7 +341,7 @@ Token 版本延续既有规范：新增兼容 Token 为 minor；已发布视觉�
 ## 暂不纳入 v1
 
 - 暗色主题。
-- 自定义 `@qh-design/mcp`。
+- 自定义 `@qhkg/mcp`。
 - React Native、Vue 或 Web Components 适配。
 - 完整图表色系和专业图表组件。
 - 富文本编辑器。
@@ -378,7 +378,7 @@ Token 版本延续既有规范：新增兼容 Token 为 minor；已发布视觉�
 - [x] 接受 Storybook MCP preview。
 - [x] 完成开源案例审计。
 - [x] 确定总体架构和组件 API 规范。
-- [x] npm scope 与包名固定为 `@qh-design/react`、`@qh-design/tokens`。
+- [x] npm scope 与包名固定为 `@qhkg/react`、`@qhkg/tokens`。
 - [x] 公开源码使用 MIT License。
 - [x] Storybook、Registry 与 AI 入口使用 `design.qihao.dev`。
 - [x] 冻结 v1 首批组件清单与验收顺序。

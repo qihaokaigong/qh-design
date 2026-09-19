@@ -1,5 +1,5 @@
 ---
-"@qh-design/react": minor
+"@qhkg/react": minor
 ---
 
 Add the Batch 2 surface, feedback, and layout foundations: Card, Badge,

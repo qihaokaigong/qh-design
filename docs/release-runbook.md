@@ -10,7 +10,7 @@
 - `.github/workflows/ci.yml` 在 Pull Request 和 `main` 更新时运行完整质量检查、发布包契约检查，以及 Chromium、Firefox、WebKit 端到端测试。
 - `.github/workflows/release.yml` 在 `main` 更新时判断当前处于版本 PR、npm 发布或无需动作三种状态。
 - Changesets 生成版本 PR；合并版本 PR 后，通过 npm Trusted Publishing 发布公共包、创建 Git tag 和 GitHub Release。
-- `version-packages` 会同步 Registry 中的 `@qh-design/react` 依赖范围，避免 npm 与 Registry 版本错位。
+- `version-packages` 会同步 Registry 中的 `@qhkg/react` 依赖范围，避免 npm 与 Registry 版本错位。
 - `.github/workflows/deploy-storybook.yml` 构建 Storybook、部署 Cloudflare Pages，并更新 `design.qihao.dev/mcp` 对应的 MCP Worker。该工作流默认关闭，只有配置部署密钥并设置 `CLOUDFLARE_PAGES_ENABLED=true` 后才会运行。
 
 ## 首次启用清单
@@ -26,7 +26,7 @@
 
 ### npm
 
-为 `@qh-design/react` 和 `@qh-design/tokens` 配置 Trusted Publisher：
+为 `@qhkg/react` 和 `@qhkg/tokens` 配置 Trusted Publisher：
 
 - Provider：GitHub Actions
 - GitHub repository：实际公开仓库

@@ -1,5 +1,5 @@
 ---
-"@qh-design/react": minor
+"@qhkg/react": minor
 ---
 
 Add the Batch 3 navigation and overlay components: Tabs, Menu, Popover,

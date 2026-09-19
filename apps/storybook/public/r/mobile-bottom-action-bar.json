@@ -4,7 +4,7 @@
   "title": "Mobile Bottom Action Bar",
   "description": "Safe-area-aware bottom action bar that becomes an inline panel on wider screens.",
   "dependencies": [
-    "@qh-design/react@^0.1.0"
+    "@qhkg/react@^0.1.0"
   ],
   "files": [
     {

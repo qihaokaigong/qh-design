@@ -52,7 +52,7 @@ Install patterns through the public shadcn Registry. Inspect the pattern documen
 
 展示需要用户注意的持久反馈或状态说明
 
-Import: `import { Alert } from '@qh-design/react'`
+Import: `import { Alert } from '@qhkg/react'`
 Status: beta
 
 Use when: 反馈需要持续可见；说明当前页面或操作状态
@@ -65,7 +65,7 @@ Related: Badge, Toast, AlertDialog
 
 要求用户明确确认或取消高风险、不可逆操作
 
-Import: `import { AlertDialog } from '@qh-design/react'`
+Import: `import { AlertDialog } from '@qhkg/react'`
 Status: beta
 
 Use when: 操作不可逆或会造成明显损失；必须阻止误触并要求明确选择
@@ -78,7 +78,7 @@ Related: Dialog, Alert, Toast
 
 用紧凑标签显示状态、类别或少量元数据
 
-Import: `import { Badge } from '@qh-design/react'`
+Import: `import { Badge } from '@qhkg/react'`
 Status: beta
 
 Use when: 显示对象状态；展示简短类别或属性
@@ -91,7 +91,7 @@ Related: Alert, Button
 
 触发当前页面中的动作或提交表单
 
-Import: `import { Button } from '@qh-design/react'`
+Import: `import { Button } from '@qhkg/react'`
 Status: beta
 
 Use when: 提交表单；触发页面内动作；打开弹层
@@ -104,7 +104,7 @@ Related: ButtonLink, AlertDialog
 
 以按钮视觉层级导航到一个 URL
 
-Import: `import { ButtonLink } from '@qh-design/react'`
+Import: `import { ButtonLink } from '@qhkg/react'`
 Status: beta
 
 Use when: 主要或次要导航需要按钮视觉层级
@@ -117,7 +117,7 @@ Related: Button, Link
 
 将一组相关信息和操作组织成独立表面
 
-Import: `import { Card } from '@qh-design/react'`
+Import: `import { Card } from '@qhkg/react'`
 Status: beta
 
 Use when: 信息需要独立分组；列表项目包含标题、正文和操作
@@ -130,7 +130,7 @@ Related: Separator, Stack, Grid
 
 选择可独立开启或关闭的一个或多个选项
 
-Import: `import { Checkbox } from '@qh-design/react'`
+Import: `import { Checkbox } from '@qhkg/react'`
 Status: beta
 
 Use when: 多个选项可以同时选择；用户需要确认一个独立条件
@@ -143,7 +143,7 @@ Related: RadioGroup, Switch, Field
 
 在模态窗口中承载需要集中完成的普通任务
 
-Import: `import { Dialog } from '@qh-design/react'`
+Import: `import { Dialog } from '@qhkg/react'`
 Status: beta
 
 Use when: 用户需要完成一个短任务而不离开当前页面；需要暂时阻断背景交互
@@ -156,7 +156,7 @@ Related: AlertDialog, Drawer, Popover
 
 从屏幕底部展开适合移动端的模态任务面板
 
-Import: `import { Drawer } from '@qh-design/react'`
+Import: `import { Drawer } from '@qhkg/react'`
 Status: beta
 
 Use when: 移动端需要展示筛选、分享或短表单；内容比 Popover 多但仍属于当前上下文
@@ -169,7 +169,7 @@ Related: Dialog, Popover
 
 解释没有内容的原因并提供明确的下一步
 
-Import: `import { EmptyState } from '@qh-design/react'`
+Import: `import { EmptyState } from '@qhkg/react'`
 Status: beta
 
 Use when: 列表或页面暂时没有内容；筛选结果为空并需要恢复建议
@@ -182,7 +182,7 @@ Related: Skeleton, Alert, Button
 
 组合表单标签、说明、错误信息和控件的可访问容器
 
-Import: `import { Field } from '@qh-design/react'`
+Import: `import { Field } from '@qhkg/react'`
 Status: beta
 
 Use when: 为表单控件提供可见标签；统一展示说明与校验错误
@@ -195,7 +195,7 @@ Related: Input, Textarea, Select, RadioGroup
 
 以移动端优先的受控列数排列二维内容
 
-Import: `import { Grid } from '@qh-design/react'`
+Import: `import { Grid } from '@qhkg/react'`
 Status: beta
 
 Use when: 卡片或数据块需要二维排列；列数需要在标准断点变化
@@ -208,7 +208,7 @@ Related: Stack, Inline, PageContainer, Card
 
 以单个图标触发空间受限区域中的常用动作
 
-Import: `import { IconButton } from '@qh-design/react'`
+Import: `import { IconButton } from '@qhkg/react'`
 Status: beta
 
 Use when: 工具栏中的熟悉动作；空间有限且图标含义清晰
@@ -221,7 +221,7 @@ Related: Button, Tooltip
 
 使用设计 Token 间距横向排列并按需换行
 
-Import: `import { Inline } from '@qh-design/react'`
+Import: `import { Inline } from '@qhkg/react'`
 Status: beta
 
 Use when: 操作按钮横向排列；标签和元数据需要自动换行
@@ -234,7 +234,7 @@ Related: Stack, Grid
 
 输入单行文本、邮箱、密码及其他原生输入值
 
-Import: `import { Input } from '@qh-design/react'`
+Import: `import { Input } from '@qhkg/react'`
 Status: beta
 
 Use when: 输入单行文本；需要保留原生 input 表单能力
@@ -247,7 +247,7 @@ Related: Field, Textarea, Select
 
 从触发器打开一组临时操作或可选设置
 
-Import: `import { Menu } from '@qh-design/react'`
+Import: `import { Menu } from '@qhkg/react'`
 Status: beta
 
 Use when: 收纳与当前对象相关的操作；提供短列表式的临时选择
@@ -260,7 +260,7 @@ Related: Popover, Select, Button
 
 限制页面内容宽度并提供移动端优先的标准页边距
 
-Import: `import { PageContainer } from '@qh-design/react'`
+Import: `import { PageContainer } from '@qhkg/react'`
 Status: beta
 
 Use when: 页面主体需要居中和统一边距；长文本需要受控阅读宽度
@@ -273,7 +273,7 @@ Related: Stack, Grid
 
 在触发器附近展示可交互的补充内容
 
-Import: `import { Popover } from '@qh-design/react'`
+Import: `import { Popover } from '@qhkg/react'`
 Status: beta
 
 Use when: 展示与触发器相关的少量信息或控件；内容需要接收键盘焦点
@@ -286,7 +286,7 @@ Related: Tooltip, Menu, Dialog
 
 显示一个持续任务的完成比例或未知时长状态
 
-Import: `import { Progress } from '@qh-design/react'`
+Import: `import { Progress } from '@qhkg/react'`
 Status: beta
 
 Use when: 任务有可量化进度；需要表达正在处理但时长未知
@@ -299,7 +299,7 @@ Related: Skeleton, Button
 
 从一组互斥选项中选择一个值
 
-Import: `import { RadioGroup } from '@qh-design/react'`
+Import: `import { RadioGroup } from '@qhkg/react'`
 Status: beta
 
 Use when: 选项互斥且需要同时展示；选项数量较少并需要快速比较
@@ -312,7 +312,7 @@ Related: Checkbox, Select, Field
 
 从较短的固定选项列表中选择一个值
 
-Import: `import { Select } from '@qh-design/react'`
+Import: `import { Select } from '@qhkg/react'`
 Status: beta
 
 Use when: 选项固定且数量较少；需要原生表单提交能力
@@ -325,7 +325,7 @@ Related: Field, RadioGroup, Switch
 
 在相邻内容区域之间提供视觉或语义分隔
 
-Import: `import { Separator } from '@qh-design/react'`
+Import: `import { Separator } from '@qhkg/react'`
 Status: beta
 
 Use when: 相邻内容需要轻量分组；工具栏项目需要垂直分隔
@@ -338,7 +338,7 @@ Related: Card, Stack, Inline
 
 在内容加载时保留大致布局并降低视觉跳动
 
-Import: `import { Skeleton } from '@qh-design/react'`
+Import: `import { Skeleton } from '@qhkg/react'`
 Status: beta
 
 Use when: 已知内容的大致形状；加载时间足以感知且需要保留布局
@@ -351,7 +351,7 @@ Related: Progress, Card
 
 使用设计 Token 间距纵向排列一组元素
 
-Import: `import { Stack } from '@qh-design/react'`
+Import: `import { Stack } from '@qhkg/react'`
 Status: beta
 
 Use when: 表单字段纵向排列；卡片或页面区块需要一致垂直间距
@@ -364,7 +364,7 @@ Related: Inline, Grid, PageContainer
 
 立即开启或关闭一个设置
 
-Import: `import { Switch } from '@qh-design/react'`
+Import: `import { Switch } from '@qhkg/react'`
 Status: beta
 
 Use when: 切换会立即生效的设置；表达清晰的开关状态
@@ -377,7 +377,7 @@ Related: Checkbox, Field
 
 使用原生表格语义展示需要按行列比较的结构化数据
 
-Import: `import { Table } from '@qh-design/react'`
+Import: `import { Table } from '@qhkg/react'`
 Status: beta
 
 Use when: 用户需要比较多个对象的相同字段；数据具有清晰的行列关系
@@ -390,7 +390,7 @@ Related: Badge, EmptyState, Checkbox
 
 在同一页面区域内切换并列内容视图
 
-Import: `import { Tabs } from '@qh-design/react'`
+Import: `import { Tabs } from '@qhkg/react'`
 Status: beta
 
 Use when: 内容属于同一级别且用户需要快速切换；切换不会改变页面地址
@@ -403,7 +403,7 @@ Related: Menu, Button
 
 输入可换行的较长文本内容
 
-Import: `import { Textarea } from '@qh-design/react'`
+Import: `import { Textarea } from '@qhkg/react'`
 Status: beta
 
 Use when: 输入备注、描述或反馈；内容可能包含多行文本
@@ -416,7 +416,7 @@ Related: Field, Input
 
 短暂反馈后台结果，并允许可选的轻量后续操作
 
-Import: `import { Toast } from '@qh-design/react'`
+Import: `import { Toast } from '@qhkg/react'`
 Status: beta
 
 Use when: 操作结果无需阻断当前任务；反馈会自动消失且不要求立即处理
@@ -429,7 +429,7 @@ Related: Alert, AlertDialog
 
 在悬停或键盘聚焦时显示简短的非交互说明
 
-Import: `import { Tooltip } from '@qh-design/react'`
+Import: `import { Tooltip } from '@qhkg/react'`
 Status: beta
 
 Use when: 解释图标按钮或陌生术语；补充一句不影响任务的说明
@@ -442,7 +442,7 @@ Related: Popover, IconButton
 
 在视觉上隐藏内容，同时保留辅助技术可访问性
 
-Import: `import { VisuallyHidden } from '@qh-design/react'`
+Import: `import { VisuallyHidden } from '@qhkg/react'`
 Status: stable
 
 Use when: 图标控件需要额外可访问文本；可见上下文不足以表达语义
@@ -455,7 +455,7 @@ Related: Button
 
 Configure the namespace with `pnpm dlx shadcn@latest registry add @qh=https://design.qihao.dev/r/{name}.json`, then install a pattern with `pnpm dlx shadcn@latest add @qh/<name>`.
 Registry patterns are application-owned source. Keep their QH component imports, then adapt business copy, state, validation, routing, and data access inside the consuming project.
-Import `@qh-design/react/styles.css` once in the application and include `@qh-design/tokens/tailwind.css` in the Tailwind v4 stylesheet.
+Import `@qhkg/react/styles.css` once in the application and include `@qhkg/tokens/tailwind.css` in the Tailwind v4 stylesheet.
 
 ### Delete Confirmation
 
@@ -488,7 +488,7 @@ Install: `pnpm dlx shadcn@latest add @qh/login-form`
 Status: beta
 Mobile-first: yes
 Uses: Card, Field, Input, Checkbox, Button
-Integration guidance: Import @qh-design/react/styles.css once at the application entry. Connect onSubmit to the application's authentication service; do not place credentials or data fetching in this pattern.
+Integration guidance: Import @qhkg/react/styles.css once at the application entry. Connect onSubmit to the application's authentication service; do not place credentials or data fetching in this pattern.
 
 ### Mobile Bottom Action Bar
 

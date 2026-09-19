@@ -22,7 +22,7 @@ importers:
       '@playwright/test':
         specifier: 1.63.0
         version: 1.63.0
-      '@qh-design/react':
+      '@qhkg/react':
         specifier: workspace:*
         version: link:packages/react
       '@storybook/react-vite':
@@ -95,10 +95,10 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@qh-design/react':
+      '@qhkg/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@qh-design/tokens':
+      '@qhkg/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
       react:
@@ -171,7 +171,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@qh-design/tokens':
+      '@qhkg/tokens':
         specifier: workspace:^
         version: link:../tokens
       class-variance-authority:

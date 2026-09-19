@@ -1,5 +1,5 @@
 {
-  "name": "@qh-design/storybook",
+  "name": "@qhkg/storybook",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,8 +11,8 @@
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@qh-design/react": "workspace:*",
-    "@qh-design/tokens": "workspace:*",
+    "@qhkg/react": "workspace:*",
+    "@qhkg/tokens": "workspace:*",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
