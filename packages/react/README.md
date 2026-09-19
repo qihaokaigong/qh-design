@@ -2,6 +2,14 @@
 
 QH Design System 的公共 React + TypeScript 组件包。
 
+新项目或已有项目推荐通过统一接入命令安装依赖、Registry 配置和与当前组件版本一致的 AI Skill：
+
+```bash
+npx @qhkg/create-qh-design@latest
+```
+
+命令不会修改应用源码。完成后让 AI 使用 `$qh-design`，按当前项目自己的约定完成样式入口与组件实现。
+
 ```bash
 pnpm add @qhkg/react
 ```

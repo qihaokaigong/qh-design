@@ -10,6 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packageDirectories = [
   path.join(root, "packages/tokens"),
   path.join(root, "packages/react"),
+  path.join(root, "packages/create-qh-design"),
 ];
 
 function collectExportTargets(value) {
@@ -31,6 +32,10 @@ async function verifyPackage(packageDirectory) {
   const exportTargets = collectExportTargets(manifest.exports).map((target) =>
     target.replace(/^\.\//, ""),
   );
+  const binTargets = Object.values(manifest.bin ?? {}).map((target) =>
+    target.replace(/^\.\//, ""),
+  );
+  const packageTargets = [...exportTargets, ...binTargets];
 
   assert.equal(
     manifest.publishConfig?.access,
@@ -43,7 +48,7 @@ async function verifyPackage(packageDirectory) {
     manifest.name + " must request npm provenance",
   );
 
-  for (const target of exportTargets) {
+  for (const target of packageTargets) {
     await assertFile(
       path.join(packageDirectory, target),
       manifest.name + " is missing export target " + target,
@@ -58,7 +63,7 @@ async function verifyPackage(packageDirectory) {
   const [pack] = JSON.parse(stdout);
   const packedPaths = new Set(pack.files.map((file) => file.path));
 
-  for (const target of exportTargets) {
+  for (const target of packageTargets) {
     assert(
       packedPaths.has(target),
       manifest.name + " tarball is missing export target " + target,
@@ -87,6 +92,14 @@ for (const packageDirectory of packageDirectories) {
 
 const reactPackage = await readJson(
   path.join(root, "packages/react/package.json"),
+);
+const skillManifest = await readJson(
+  path.join(root, "packages/react/skills/qh-design/references/manifest.json"),
+);
+assert.equal(
+  skillManifest.componentVersion,
+  reactPackage.version,
+  "Packaged QH Design Skill must match the React package version",
 );
 const registry = await readJson(path.join(root, "registry/registry.json"));
 const generatedRegistryRoot = path.join(root, "apps/storybook/public/r");
@@ -134,6 +147,20 @@ assert(
 await import(
   pathToFileURL(path.join(root, "packages/react/dist/index.js")).href +
     "?release-verify"
+);
+
+const reactPack = packages.find((entry) => entry.name === "@qhkg/react");
+assert(reactPack, "React package verification result is missing");
+
+const { stdout: reactPackOutput } = await execFileAsync(
+  "npm",
+  ["pack", "--dry-run", "--json"],
+  { cwd: path.join(root, "packages/react"), maxBuffer: 10 * 1024 * 1024 },
+);
+const [packedReact] = JSON.parse(reactPackOutput);
+assert(
+  packedReact.files.some((file) => file.path === "skills/qh-design/SKILL.md"),
+  "React tarball is missing the QH Design Skill",
 );
 
 console.log(

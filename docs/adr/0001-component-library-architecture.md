@@ -20,7 +20,7 @@ QH 需要一套被多个 React + TypeScript 项目共同使用的组件库。它
 
 ## 决策摘要
 
-采用一个公开 monorepo，核心组件通过公共 npm 包集中发布，页面区块和 AI 初始化内容通过 shadcn-compatible Registry 发布。
+采用一个公开 monorepo，核心组件通过公共 npm 包集中发布，页面区块通过 shadcn-compatible Registry 发布，并通过 QH Design 专用接入包安装同版本的项目级 Agent Skill。
 
 ```text
 Design Tokens
@@ -35,13 +35,15 @@ Radix Primitives → @qhkg/react → 各 React 项目
                          ↓
                AI 查询、预览、测试
 
-@qhkg/react → QH Registry → 页面区块 / Pattern / Agent 规则
+@qhkg/react → QH Registry → 页面区块 / Pattern
+      ↓
+@qhkg/create-qh-design → 依赖 + Registry 配置 + 项目级 qh-design Skill
 ```
 
 核心原则：
 
 1. npm 包是核心组件唯一事实源。
-2. Registry 不复制核心组件，只分发组合区块、规则和初始化文件。
+2. Registry 不复制核心组件，只分发组合区块；AI 规则由版本化 Skill 交付。
 3. npm 包直接交付编译 CSS，不要求使用方扫描 Tailwind class。
 4. Story、文档、测试和 AI 元数据与组件实现共置。
 5. Storybook MCP 可以使用 preview 能力，但必须有静态降级入口。
@@ -60,7 +62,8 @@ Radix Primitives → @qhkg/react → 各 React 项目
 | 工作区         | pnpm workspace + Turborepo                                                                |
 | 构建           | Vite library mode + TypeScript declarations；保留 `use client` 指令和可 tree-shake 的 ESM |
 | 文档与 Demo    | Storybook 10.6+，React + Vite builder                                                     |
-| AI 文档        | Storybook MCP + shadcn MCP + 静态元数据 + `llms.txt` + `AGENTS.md`                        |
+| AI 文档        | 项目级 Agent Skill + Storybook MCP + 静态元数据 + `llms.txt` + `AGENTS.md`                |
+| 项目接入       | `@qhkg/create-qh-design`，只安装依赖、Registry 配置和同版本 Skill                         |
 | 组件测试       | Storybook Test/Vitest + Testing Library                                                   |
 | 浏览器测试     | Playwright，Chromium、Firefox、WebKit                                                     |
 | 可访问性       | Storybook a11y/axe + 手工键盘与读屏验收                                                   |
@@ -77,7 +80,8 @@ qh-design/
 │   └── storybook/                 # Demo、文档、状态和 Pattern
 ├── packages/
 │   ├── tokens/                    # Design Token 与 Tailwind bridge
-│   └── react/                     # 核心 React 组件
+│   ├── react/                     # 核心 React 组件与版本化 Agent Skill
+│   └── create-qh-design/          # 确定性项目接入命令
 ├── registry/
 │   ├── blocks/                    # 登录、设置、筛选等页面区块
 │   ├── rules/                     # Agent 规则和项目约束
@@ -91,7 +95,7 @@ qh-design/
 └── .changeset/                    # 版本与变更说明
 ```
 
-v1 不建立 `@qhkg/mcp` 自定义服务器。只有当 Storybook MCP 无法表达 QH Pattern、Token 查询或 lint 能力时，才通过新 ADR 评估专用 MCP。
+MCP 是公开文档的增强入口；项目内随包安装的版本化 Skill 是稳定降级来源，不能要求 AI 仅依赖在线 MCP 才能理解组件库。
 
 ## 包边界与导入契约
 
@@ -203,6 +207,16 @@ Field、Select、Tabs、Menu、Popover、Dialog、AlertDialog、Drawer、Alert�
 
 ## AI 使用体系
 
+### 项目接入边界
+
+`npx @qhkg/create-qh-design@latest` 可用于新建后或已有的 React + TypeScript 项目。接入命令仅负责：
+
+- 使用项目已声明的包管理器安装 `@qhkg/react` 与 `@qhkg/tokens`。
+- 合并 `@qh` Registry namespace，不覆盖其他 Registry 配置。
+- 从已安装的 `@qhkg/react` 复制同版本 Skill 到 `.agents/skills/qh-design`。
+
+接入命令不得检测 Vite、Next.js、路由方案或源码目录，不得选择全局样式入口，也不得修改应用源码。Skill 先读取项目自己的规则，再检查实际文件并描述所需结果；当项目结构不能唯一判断时，由项目开发者决定。组件库和接入命令均不接管项目架构。
+
 ### 稳定事实源
 
 每个组件目录必须包含：
@@ -228,11 +242,12 @@ Button/
 ### AI 入口
 
 1. Storybook MCP：查询组件、Story 和文档，预览并运行测试。
-2. shadcn MCP：搜索和安装 QH Registry 中的 blocks、rules 和 templates。
-3. `llms.txt`：组件与文档短索引。
-4. `llms-full.txt`：离线完整文档。
-5. `AGENTS.md`：项目级不可违反规则。
-6. 公共 TypeScript 类型和 JSON 元数据：MCP 不可用时的降级入口。
+2. 项目级 `qh-design` Skill：承载与 npm 组件版本一致的组件、Pattern、Token 和接入知识。
+3. shadcn Registry：搜索和安装 QH Registry 中的 blocks。
+4. `llms.txt`：组件与文档短索引。
+5. `llms-full.txt`：离线完整文档。
+6. `AGENTS.md`：项目级不可违反规则。
+7. 公共 TypeScript 类型和 JSON 元数据：MCP 不可用时的降级入口。
 
 ### AI 安全规则
 
@@ -275,10 +290,8 @@ https://design.qihao.dev/mcp                  Storybook MCP
 
 Registry 只发布：
 
-- `qh-init`：安装 npm 包、样式入口和基础规则。
 - 页面 blocks。
 - Pattern 示例。
-- `AGENTS.md`/AI 规则。
 - 迁移和 codemod 文件。
 
 Registry item 必须明确依赖的 `@qhkg/react` 版本范围。发布的 tag 或版本化 URL 必须可复现；`latest` 只用于人工浏览，不用于生产锁定。
