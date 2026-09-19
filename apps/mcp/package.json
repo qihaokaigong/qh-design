@@ -1,0 +1,19 @@
+{
+  "name": "@qh-design/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "wrangler deploy --config wrangler.jsonc --dry-run --outdir dist",
+    "deploy:worker": "wrangler deploy --config wrangler.jsonc",
+    "typecheck": "tsc -p tsconfig.json",
+    "types": "wrangler types --config wrangler.jsonc"
+  },
+  "dependencies": {
+    "@storybook/mcp": "10.6.0"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3",
+    "wrangler": "^4.134.0"
+  }
+}

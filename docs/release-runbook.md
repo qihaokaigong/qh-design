@@ -1,9 +1,9 @@
 # QH Design System 发布手册
 
-日期：2026-09-18  
-状态：Ready for external configuration
+日期：2026-09-19
+状态：Storybook、Registry、AI 文档与 MCP 已上线；npm 首次发布待配置
 
-本手册描述公共 npm 包和 Storybook 的发布边界。仓库已经具备本地检查和 GitHub Actions 工作流；首次发布前仍需在 GitHub、npm 和托管平台完成外部配置。
+本手册描述公共 npm 包、Storybook 与 MCP 的发布边界。公开仓库、Cloudflare Pages、自定义域名和 MCP Worker 已启用；首次 npm 发布前仍需完成 Trusted Publisher 配置。
 
 ## 自动化范围
 
@@ -11,7 +11,7 @@
 - `.github/workflows/release.yml` 在 `main` 更新时判断当前处于版本 PR、npm 发布或无需动作三种状态。
 - Changesets 生成版本 PR；合并版本 PR 后，通过 npm Trusted Publishing 发布公共包、创建 Git tag 和 GitHub Release。
 - `version-packages` 会同步 Registry 中的 `@qh-design/react` 依赖范围，避免 npm 与 Registry 版本错位。
-- Storybook 构建产物位于 `apps/storybook/storybook-static`，但本工作流暂不选择或调用托管供应商。
+- `.github/workflows/deploy-storybook.yml` 构建 Storybook、部署 Cloudflare Pages，并更新 `design.qihao.dev/mcp` 对应的 MCP Worker。该工作流默认关闭，只有配置部署密钥并设置 `CLOUDFLARE_PAGES_ENABLED=true` 后才会运行。
 
 ## 首次启用清单
 
@@ -36,19 +36,39 @@
 
 Trusted Publishing 使用 OIDC 短期凭证，不在仓库中保存长期 `NPM_TOKEN`。公共仓库发布公共包时，npm 会自动生成 provenance。
 
-### Storybook 与域名
+### Storybook、域名与 MCP
 
-1. 将 `apps/storybook/storybook-static` 部署到选定的静态托管平台。
-2. 确认以下路径均返回 200：
-   - `/`
-   - `/r/registry.json`
-   - `/llms.txt`
-   - `/llms-full.txt`
-   - `/qh-components.json`
-3. 将 `design.qihao.dev` 指向托管平台。
-4. 在公开地址重新运行 Registry 安装、MCP、移动端和缓存策略验收。
+当前生产配置：
 
-托管平台确定前，不应创建携带未知账户、项目 ID 或密钥名称的部署工作流。
+- Cloudflare Pages 项目：`qh-design`
+- Pages 回退地址：`https://qh-design.pages.dev`
+- 生产域名：`https://design.qihao.dev`
+- MCP Worker：`qh-design-mcp`
+- MCP 路由：`https://design.qihao.dev/mcp`
+
+部署后确认以下入口可用：
+
+- `/`
+- `/r/registry.json`
+- `/llms.txt`
+- `/llms-full.txt`
+- `/qh-components.json`
+- `/mcp`
+
+本地人工部署：
+
+```bash
+pnpm deploy:storybook
+pnpm mcp:deploy
+```
+
+启用 GitHub 自动部署：
+
+1. 创建最小权限的 Cloudflare API Token，并保存为 GitHub Actions secret `CLOUDFLARE_API_TOKEN`。
+2. 创建 Repository variable `CLOUDFLARE_ACCOUNT_ID`。
+3. 创建 Repository variable `CLOUDFLARE_PAGES_ENABLED=true`。
+
+不要把 Cloudflare API Token 写入仓库、Wrangler 配置或普通变量。
 
 ## 本地发布前检查
 
@@ -67,6 +87,7 @@ pnpm release:verify
 - React 构建产物可以在 Node 环境导入。
 - Registry 依赖版本与 React 包版本一致。
 - Storybook 静态产物包含 Registry 和 AI 文档入口。
+- MCP Worker 可被 Wrangler 成功打包，且只接管 `design.qihao.dev/mcp*`。
 
 ## 日常发布流程
 
@@ -92,3 +113,5 @@ pnpm release:verify
 - [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers/)
 - [GitHub 发布 Node.js 包](https://docs.github.com/en/actions/tutorials/publish-packages/publish-nodejs-packages)
 - [Playwright CI](https://playwright.dev/docs/ci)
+- [Cloudflare Pages Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/)
+- [Storybook MCP 共享](https://storybook.js.org/docs/ai/mcp/sharing)

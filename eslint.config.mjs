@@ -5,7 +5,14 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["**/dist/**", "**/storybook-static/**", "**/coverage/**"] },
+  {
+    ignores: [
+      "**/dist/**",
+      "**/storybook-static/**",
+      "**/coverage/**",
+      "**/worker-configuration.d.ts",
+    ],
+  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   {

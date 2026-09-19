@@ -12,11 +12,14 @@
     "build": "pnpm ai:docs && pnpm registry:build && turbo run build",
     "changeset": "changeset",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "deploy:storybook": "pnpm build && wrangler pages deploy apps/storybook/storybook-static --project-name qh-design --branch main",
     "dev": "turbo run dev --parallel",
     "e2e:prepare": "pnpm ai:docs && pnpm registry:build && turbo run build --filter=@qh-design/react",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
+    "mcp:deploy": "pnpm --filter @qh-design/mcp run deploy:worker",
+    "mcp:types": "pnpm --filter @qh-design/mcp types",
     "registry:build": "shadcn build registry/registry.json --output apps/storybook/public/r",
     "release": "pnpm check && pnpm release:verify && pnpm release:packages",
     "release:packages": "changeset publish",
@@ -50,11 +53,15 @@
     "storybook": "10.6.0",
     "turbo": "2.10.13",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.70.0"
+    "typescript-eslint": "8.70.0",
+    "wrangler": "^4.134.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "patchedDependencies": {
+      "@storybook/mcp@10.6.0": "patches/@storybook__mcp@10.6.0.patch"
+    }
   }
 }

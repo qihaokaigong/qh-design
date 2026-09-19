@@ -72,7 +72,7 @@ Radix Primitives → @qh-design/react → 各 React 项目
 ## 仓库结构
 
 ```text
-blue-design/
+qh-design/
 ├── apps/
 │   └── storybook/                 # Demo、文档、状态和 Pattern
 ├── packages/

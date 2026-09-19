@@ -6,11 +6,11 @@
   "homepage": "https://design.qihao.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qihaokaigong/blue-design.git",
+    "url": "git+https://github.com/qihaokaigong/qh-design.git",
     "directory": "packages/react"
   },
   "bugs": {
-    "url": "https://github.com/qihaokaigong/blue-design/issues"
+    "url": "https://github.com/qihaokaigong/qh-design/issues"
   },
   "type": "module",
   "sideEffects": [

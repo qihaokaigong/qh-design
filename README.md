@@ -2,7 +2,7 @@
 
 QH Design System 是面向多个 React + TypeScript 项目的公共组件库。项目采用移动端优先设计，并把“人类可读、AI 可查询、示例可执行”作为同一套文档体系的要求。
 
-当前状态：**Batch 0 已完成，Batch 1–4 组件与首批业务 Pattern 已进入 beta。**
+当前状态：**Batch 0–4 与首批业务 Pattern 已进入 beta；Storybook、Registry、AI 文档和 Storybook MCP 已公开部署。**
 
 ## 决策文档
 
@@ -43,4 +43,4 @@ QH Design System 是面向多个 React + TypeScript 项目的公共组件库。�
 
 Pattern 通过公开 shadcn Registry 交付，安装后代码归业务项目所有；它们组合 `@qh-design/react` 核心组件，但不复制核心组件实现。安装与接入方式见 [Registry 使用说明](registry/README.md)。
 
-所有核心组件均包含 TypeScript 类型、Story、测试和 AI 元数据；Pattern 包含可交互 Story、Registry 元数据和 AI 接入说明。仓库已具备跨浏览器 CI、发布包契约检查和 npm OIDC 发布工作流；实际 npm Trusted Publisher、托管平台与 `design.qihao.dev` 仍需在外部平台启用。
+所有核心组件均包含 TypeScript 类型、Story、测试和 AI 元数据；Pattern 包含可交互 Story、Registry 元数据和 AI 接入说明。`design.qihao.dev` 由 Cloudflare Pages 托管，`/mcp` 由独立 Cloudflare Worker 提供 Storybook 文档工具。仓库已具备跨浏览器 CI、部署检查、发布包契约检查和 npm OIDC 发布工作流；首次 npm Trusted Publisher 配置和公共包发布仍待完成。

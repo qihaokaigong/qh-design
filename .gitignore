@@ -6,6 +6,7 @@ test-results/
 playwright-report/
 blob-report/
 .turbo/
+.wrangler/
 .DS_Store
 *.log
 .env
