@@ -1,9 +1,9 @@
 # QH Design System 发布手册
 
 日期：2026-09-19
-状态：Storybook、Registry、AI 文档与 MCP 已上线；npm 首次发布待配置
+状态：Storybook、Registry、AI 文档与 MCP 已上线；`@qhkg/react@0.1.0` 与 `@qhkg/tokens@0.1.0` 已公开发布；Trusted Publisher 待启用
 
-本手册描述公共 npm 包、Storybook 与 MCP 的发布边界。公开仓库、Cloudflare Pages、自定义域名和 MCP Worker 已启用；首次 npm 发布前仍需完成 Trusted Publisher 配置。
+本手册描述公共 npm 包、Storybook 与 MCP 的发布边界。公开仓库、Cloudflare Pages、自定义域名、MCP Worker 与 npm 首发包均已启用；后续自动发布仍需完成 Trusted Publisher 配置。
 
 ## 自动化范围
 
@@ -32,9 +32,10 @@
 - GitHub repository：实际公开仓库
 - Workflow：`.github/workflows/release.yml`
 - Environment：`npm`
-- Allowed action：允许本工作流使用的 Changesets publish action
+- Allowed action：启用 `Allow npm publish`，供 Changesets 发布流程直接发布
 
 Trusted Publishing 使用 OIDC 短期凭证，不在仓库中保存长期 `NPM_TOKEN`。公共仓库发布公共包时，npm 会自动生成 provenance。
+发布 Job 显式安装 `npm@11.19.1`，满足 Trusted Publishing 对 npm CLI 11.5.1 及以上版本的要求，避免依赖 GitHub Runner 预装版本。
 
 ### Storybook、域名与 MCP
 
