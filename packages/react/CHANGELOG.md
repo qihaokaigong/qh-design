@@ -1,5 +1,11 @@
 # @qhkg/react
 
+## 0.3.0
+
+### Minor Changes
+
+- 6d1c0d6: Add deterministic one-command QH Design onboarding and ship the matching project-local Agent Skill with the React package.
+
 ## 0.2.0
 
 ### Minor Changes
