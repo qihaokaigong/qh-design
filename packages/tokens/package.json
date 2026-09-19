@@ -1,6 +1,6 @@
 {
   "name": "@qhkg/tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "QH Design System tokens and Tailwind CSS bridge",
   "license": "MIT",
   "homepage": "https://design.qihao.dev",
