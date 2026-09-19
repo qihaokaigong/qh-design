@@ -2,7 +2,7 @@
   "name": "Alert",
   "summary": "展示需要用户注意的持久反馈或状态说明",
   "status": "beta",
-  "import": "import { Alert } from '@qh-design/react'",
+  "import": "import { Alert } from '@qhkg/react'",
   "storybookId": "feedback-alert",
   "whenToUse": ["反馈需要持续可见", "说明当前页面或操作状态"],
   "avoidWhen": ["短暂且无需处理的成功提示", "确认不可逆操作"],

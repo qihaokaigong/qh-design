@@ -2,7 +2,7 @@
   "name": "Checkbox",
   "summary": "选择可独立开启或关闭的一个或多个选项",
   "status": "beta",
-  "import": "import { Checkbox } from '@qh-design/react'",
+  "import": "import { Checkbox } from '@qhkg/react'",
   "storybookId": "forms-checkbox",
   "whenToUse": ["多个选项可以同时选择", "用户需要确认一个独立条件"],
   "avoidWhen": ["一组选项只能选择一个", "立即控制系统功能的开关"],

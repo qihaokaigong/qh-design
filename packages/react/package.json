@@ -1,5 +1,5 @@
 {
-  "name": "@qh-design/react",
+  "name": "@qhkg/react",
   "version": "0.1.0",
   "description": "Accessible React components for the QH Design System",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@qh-design/tokens": "workspace:^",
+    "@qhkg/tokens": "workspace:^",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-react": "1.47.0",

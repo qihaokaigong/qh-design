@@ -2,7 +2,7 @@
   "name": "Select",
   "summary": "从较短的固定选项列表中选择一个值",
   "status": "beta",
-  "import": "import { Select } from '@qh-design/react'",
+  "import": "import { Select } from '@qhkg/react'",
   "storybookId": "forms-select",
   "whenToUse": ["选项固定且数量较少", "需要原生表单提交能力"],
   "avoidWhen": [

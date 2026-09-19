@@ -9,12 +9,12 @@ const reactPackage = JSON.parse(
 );
 const registryPath = path.join(root, "registry/registry.json");
 const registry = JSON.parse(await readFile(registryPath, "utf8"));
-const dependency = "@qh-design/react@^" + reactPackage.version;
+const dependency = "@qhkg/react@^" + reactPackage.version;
 let changed = false;
 
 for (const item of registry.items) {
   item.dependencies = (item.dependencies ?? []).map((value) => {
-    if (!value.startsWith("@qh-design/react@")) return value;
+    if (!value.startsWith("@qhkg/react@")) return value;
     if (value === dependency) return value;
     changed = true;
     return dependency;

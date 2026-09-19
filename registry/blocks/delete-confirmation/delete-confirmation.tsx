@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertDialog, Button } from "@qh-design/react";
+import { AlertDialog, Button } from "@qhkg/react";
 
 export interface DeleteConfirmationProps {
   itemName: string;

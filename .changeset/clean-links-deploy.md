@@ -1,7 +1,7 @@
 ---
-"@qh-design/react": patch
-"@qh-design/tokens": patch
+"@qhkg/react": patch
+"@qhkg/tokens": patch
 ---
 
-Update the package repository and issue links after the public GitHub repository
-was renamed to `qihaokaigong/qh-design`.
+Publish the packages under the final `@qhkg` npm scope and update repository
+links after the public GitHub repository was renamed to `qihaokaigong/qh-design`.

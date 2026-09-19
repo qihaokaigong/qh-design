@@ -1,5 +1,5 @@
 ---
-"@qh-design/react": minor
+"@qhkg/react": minor
 ---
 
 Add the Batch 4 Table component with native table semantics, numeric alignment,

@@ -2,7 +2,7 @@
   "name": "IconButton",
   "summary": "以单个图标触发空间受限区域中的常用动作",
   "status": "beta",
-  "import": "import { IconButton } from '@qh-design/react'",
+  "import": "import { IconButton } from '@qhkg/react'",
   "storybookId": "actions-iconbutton",
   "whenToUse": ["工具栏中的熟悉动作", "空间有限且图标含义清晰"],
   "avoidWhen": ["动作含义无法由常见图标表达", "需要同时解释动作结果"],

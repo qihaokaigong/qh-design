@@ -2,7 +2,7 @@
   "name": "Popover",
   "summary": "在触发器附近展示可交互的补充内容",
   "status": "beta",
-  "import": "import { Popover } from '@qh-design/react'",
+  "import": "import { Popover } from '@qhkg/react'",
   "storybookId": "overlays-popover",
   "whenToUse": ["展示与触发器相关的少量信息或控件", "内容需要接收键盘焦点"],
   "avoidWhen": ["只需显示一句非交互提示", "内容需要阻断页面并要求完成任务"],

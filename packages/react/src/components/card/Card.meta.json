@@ -2,7 +2,7 @@
   "name": "Card",
   "summary": "将一组相关信息和操作组织成独立表面",
   "status": "beta",
-  "import": "import { Card } from '@qh-design/react'",
+  "import": "import { Card } from '@qhkg/react'",
   "storybookId": "surfaces-card",
   "whenToUse": ["信息需要独立分组", "列表项目包含标题、正文和操作"],
   "avoidWhen": ["仅需要分隔相邻内容", "整页都放入同一张卡片"],

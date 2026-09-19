@@ -2,7 +2,7 @@
   "name": "RadioGroup",
   "summary": "从一组互斥选项中选择一个值",
   "status": "beta",
-  "import": "import { RadioGroup } from '@qh-design/react'",
+  "import": "import { RadioGroup } from '@qhkg/react'",
   "storybookId": "forms-radiogroup",
   "whenToUse": ["选项互斥且需要同时展示", "选项数量较少并需要快速比较"],
   "avoidWhen": ["允许同时选择多个选项", "选项很多或需要搜索"],

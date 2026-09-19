@@ -92,7 +92,7 @@ const fullIndex = [
   "",
   "Configure the namespace with `pnpm dlx shadcn@latest registry add @qh=https://design.qihao.dev/r/{name}.json`, then install a pattern with `pnpm dlx shadcn@latest add @qh/<name>`.",
   "Registry patterns are application-owned source. Keep their QH component imports, then adapt business copy, state, validation, routing, and data access inside the consuming project.",
-  "Import `@qh-design/react/styles.css` once in the application and include `@qh-design/tokens/tailwind.css` in the Tailwind v4 stylesheet.",
+  "Import `@qhkg/react/styles.css` once in the application and include `@qhkg/tokens/tailwind.css` in the Tailwind v4 stylesheet.",
   "",
   ...patterns.flatMap((pattern) => [
     `### ${pattern.title}`,

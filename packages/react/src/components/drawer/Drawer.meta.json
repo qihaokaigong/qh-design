@@ -2,7 +2,7 @@
   "name": "Drawer",
   "summary": "从屏幕底部展开适合移动端的模态任务面板",
   "status": "beta",
-  "import": "import { Drawer } from '@qh-design/react'",
+  "import": "import { Drawer } from '@qhkg/react'",
   "storybookId": "overlays-drawer",
   "whenToUse": [
     "移动端需要展示筛选、分享或短表单",

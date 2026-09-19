@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Field, Input, Select } from "@qh-design/react";
+import { Button, Field, Input, Select } from "@qhkg/react";
 import type { FormEvent } from "react";
 
 export interface FilterBarProps {

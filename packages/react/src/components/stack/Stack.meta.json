@@ -2,7 +2,7 @@
   "name": "Stack",
   "summary": "使用设计 Token 间距纵向排列一组元素",
   "status": "beta",
-  "import": "import { Stack } from '@qh-design/react'",
+  "import": "import { Stack } from '@qhkg/react'",
   "storybookId": "layout-stack",
   "whenToUse": ["表单字段纵向排列", "卡片或页面区块需要一致垂直间距"],
   "avoidWhen": ["元素主要横向排列", "需要二维网格"],

@@ -87,7 +87,7 @@ shadcn Registry 能够分发组件、页面、主题、规则、文档、配置�
 QH 将 Registry 用作组合层：
 
 - 发布 `init`、页面区块、Pattern、Agent 规则和迁移工具。
-- Registry 中的页面区块依赖 `@qh-design/react`。
+- Registry 中的页面区块依赖 `@qhkg/react`。
 - 不在 Registry 中复制 Button、Input、Dialog 等核心组件实现。
 - 核心组件的版本始终由 npm 依赖决定。
 

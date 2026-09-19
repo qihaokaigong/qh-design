@@ -2,7 +2,7 @@
   "name": "AlertDialog",
   "summary": "要求用户明确确认或取消高风险、不可逆操作",
   "status": "beta",
-  "import": "import { AlertDialog } from '@qh-design/react'",
+  "import": "import { AlertDialog } from '@qhkg/react'",
   "storybookId": "overlays-alertdialog",
   "whenToUse": ["操作不可逆或会造成明显损失", "必须阻止误触并要求明确选择"],
   "avoidWhen": ["只是告知结果", "任务是普通编辑或设置"],

@@ -94,7 +94,7 @@ const builtStorybookRoot = path.join(root, "apps/storybook/storybook-static");
 
 for (const item of registry.items) {
   assert(
-    item.dependencies?.includes("@qh-design/react@^" + reactPackage.version),
+    item.dependencies?.includes("@qhkg/react@^" + reactPackage.version),
     item.name + " must pin the current compatible React package range",
   );
 

@@ -17,9 +17,7 @@ export default defineConfig({
   },
   webServer: {
     command:
-      "pnpm --filter @qh-design/storybook exec storybook dev -p " +
-      port +
-      " --ci",
+      "pnpm --filter @qhkg/storybook exec storybook dev -p " + port + " --ci",
     reuseExistingServer: false,
     timeout: 120_000,
     url: baseURL,

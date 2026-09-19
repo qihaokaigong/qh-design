@@ -2,7 +2,7 @@
   "name": "PageContainer",
   "summary": "限制页面内容宽度并提供移动端优先的标准页边距",
   "status": "beta",
-  "import": "import { PageContainer } from '@qh-design/react'",
+  "import": "import { PageContainer } from '@qhkg/react'",
   "storybookId": "layout-pagecontainer",
   "whenToUse": ["页面主体需要居中和统一边距", "长文本需要受控阅读宽度"],
   "avoidWhen": ["组件内部的局部间距", "需要排列兄弟元素"],

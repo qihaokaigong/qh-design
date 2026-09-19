@@ -202,7 +202,7 @@ Loading 规则：
   "name": "AlertDialog",
   "summary": "确认不可逆或高风险操作",
   "status": "stable",
-  "import": "import { AlertDialog } from '@qh-design/react'",
+  "import": "import { AlertDialog } from '@qhkg/react'",
   "storybookId": "overlays-alertdialog",
   "whenToUse": ["删除无法恢复的数据"],
   "avoidWhen": ["普通信息展示", "可安全撤销的轻量操作"],
@@ -249,7 +249,7 @@ AI 在生成 UI 时遵循：
 
 ## 18. 新组件准入
 
-新组件进入 `@qh-design/react` 前必须满足：
+新组件进入 `@qhkg/react` 前必须满足：
 
 - 至少两个真实项目或两个明确场景需要，基础无业务组件除外。
 - 无现有组件或 Pattern 能合理覆盖。

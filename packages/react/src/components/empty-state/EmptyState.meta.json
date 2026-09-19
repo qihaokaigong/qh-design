@@ -2,7 +2,7 @@
   "name": "EmptyState",
   "summary": "解释没有内容的原因并提供明确的下一步",
   "status": "beta",
-  "import": "import { EmptyState } from '@qh-design/react'",
+  "import": "import { EmptyState } from '@qhkg/react'",
   "storybookId": "feedback-emptystate",
   "whenToUse": ["列表或页面暂时没有内容", "筛选结果为空并需要恢复建议"],
   "avoidWhen": ["内容仍在加载", "发生需要立即处理的错误"],

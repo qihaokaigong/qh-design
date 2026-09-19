@@ -2,7 +2,7 @@
   "name": "ButtonLink",
   "summary": "以按钮视觉层级导航到一个 URL",
   "status": "beta",
-  "import": "import { ButtonLink } from '@qh-design/react'",
+  "import": "import { ButtonLink } from '@qhkg/react'",
   "storybookId": "actions-button",
   "whenToUse": ["主要或次要导航需要按钮视觉层级"],
   "avoidWhen": ["提交表单", "执行无 URL 的页面动作"],

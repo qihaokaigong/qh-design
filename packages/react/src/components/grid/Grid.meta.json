@@ -2,7 +2,7 @@
   "name": "Grid",
   "summary": "以移动端优先的受控列数排列二维内容",
   "status": "beta",
-  "import": "import { Grid } from '@qh-design/react'",
+  "import": "import { Grid } from '@qhkg/react'",
   "storybookId": "layout-grid",
   "whenToUse": ["卡片或数据块需要二维排列", "列数需要在标准断点变化"],
   "avoidWhen": ["只有单一纵向内容流", "项目宽度完全由内容决定"],

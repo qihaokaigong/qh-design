@@ -1,5 +1,5 @@
 {
-  "name": "@qh-design/tokens",
+  "name": "@qhkg/tokens",
   "version": "0.1.0",
   "description": "QH Design System tokens and Tailwind CSS bridge",
   "license": "MIT",
