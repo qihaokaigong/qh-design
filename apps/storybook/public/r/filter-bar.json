@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "filter-bar",
+  "title": "Filter Bar",
+  "description": "Responsive project filter bar that stacks on mobile and expands on wider screens.",
+  "dependencies": [
+    "@qh-design/react@^0.1.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/filter-bar/filter-bar.tsx",
+      "content": "\"use client\";\n\nimport { Button, Field, Input, Select } from \"@qh-design/react\";\nimport type { FormEvent } from \"react\";\n\nexport interface FilterBarProps {\n  onApply?: (event: FormEvent<HTMLFormElement>) => void;\n  onClear?: () => void;\n}\n\nexport function FilterBar({ onApply, onClear }: FilterBarProps) {\n  return (\n    <form\n      aria-label=\"项目筛选\"\n      className=\"grid gap-3 rounded-lg border border-border bg-surface p-4 md:grid-cols-[minmax(12rem,1fr)_12rem_auto] md:items-end\"\n      onSubmit={onApply}\n    >\n      <Field>\n        <Field.Label>搜索项目</Field.Label>\n        <Input name=\"query\" type=\"search\" placeholder=\"名称或负责人\" />\n      </Field>\n      <Field>\n        <Field.Label>状态</Field.Label>\n        <Select name=\"status\" defaultValue=\"all\">\n          <option value=\"all\">全部状态</option>\n          <option value=\"active\">进行中</option>\n          <option value=\"completed\">已完成</option>\n          <option value=\"archived\">已归档</option>\n        </Select>\n      </Field>\n      <div className=\"grid grid-cols-2 gap-2 md:flex\">\n        <Button type=\"button\" variant=\"secondary\" onClick={onClear}>\n          清除\n        </Button>\n        <Button type=\"submit\">应用筛选</Button>\n      </div>\n    </form>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/filter-bar.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "Field",
+      "Input",
+      "Select",
+      "Button"
+    ]
+  },
+  "docs": "Use URL search parameters or application state as the source of truth. The pattern intentionally does not fetch data or assume a router.",
+  "categories": [
+    "filter",
+    "data"
+  ],
+  "type": "registry:block"
+}

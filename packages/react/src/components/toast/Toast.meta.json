@@ -1,0 +1,17 @@
+{
+  "name": "Toast",
+  "summary": "短暂反馈后台结果，并允许可选的轻量后续操作",
+  "status": "beta",
+  "import": "import { Toast } from '@qh-design/react'",
+  "storybookId": "feedback-toast",
+  "whenToUse": ["操作结果无需阻断当前任务", "反馈会自动消失且不要求立即处理"],
+  "avoidWhen": ["错误必须持续可见", "操作需要用户确认后才能继续"],
+  "mobile": ["通知位于安全区域上方并占据可用宽度", "支持向右滑动关闭"],
+  "accessibility": [
+    "应用根部放置一个 Toast.Provider",
+    "Action 必须提供描述替代操作方式的 altText",
+    "F8 可把焦点移动到通知区域"
+  ],
+  "related": ["Alert", "AlertDialog"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

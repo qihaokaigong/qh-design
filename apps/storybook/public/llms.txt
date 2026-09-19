@@ -1,0 +1,47 @@
+# QH Design System
+
+Public React component documentation: https://design.qihao.dev/
+Before using a component, inspect its API and examples through Storybook MCP or the linked docs.
+Do not invent props, colors, dark mode, or replacements for existing QH components.
+
+- Alert: 展示需要用户注意的持久反馈或状态说明 — https://design.qihao.dev/?path=/docs/feedback-alert--docs
+- AlertDialog: 要求用户明确确认或取消高风险、不可逆操作 — https://design.qihao.dev/?path=/docs/overlays-alertdialog--docs
+- Badge: 用紧凑标签显示状态、类别或少量元数据 — https://design.qihao.dev/?path=/docs/data-display-badge--docs
+- Button: 触发当前页面中的动作或提交表单 — https://design.qihao.dev/?path=/docs/actions-button--docs
+- ButtonLink: 以按钮视觉层级导航到一个 URL — https://design.qihao.dev/?path=/docs/actions-button--docs
+- Card: 将一组相关信息和操作组织成独立表面 — https://design.qihao.dev/?path=/docs/surfaces-card--docs
+- Checkbox: 选择可独立开启或关闭的一个或多个选项 — https://design.qihao.dev/?path=/docs/forms-checkbox--docs
+- Dialog: 在模态窗口中承载需要集中完成的普通任务 — https://design.qihao.dev/?path=/docs/overlays-dialog--docs
+- Drawer: 从屏幕底部展开适合移动端的模态任务面板 — https://design.qihao.dev/?path=/docs/overlays-drawer--docs
+- EmptyState: 解释没有内容的原因并提供明确的下一步 — https://design.qihao.dev/?path=/docs/feedback-emptystate--docs
+- Field: 组合表单标签、说明、错误信息和控件的可访问容器 — https://design.qihao.dev/?path=/docs/forms-field--docs
+- Grid: 以移动端优先的受控列数排列二维内容 — https://design.qihao.dev/?path=/docs/layout-grid--docs
+- IconButton: 以单个图标触发空间受限区域中的常用动作 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
+- Inline: 使用设计 Token 间距横向排列并按需换行 — https://design.qihao.dev/?path=/docs/layout-inline--docs
+- Input: 输入单行文本、邮箱、密码及其他原生输入值 — https://design.qihao.dev/?path=/docs/forms-input--docs
+- Menu: 从触发器打开一组临时操作或可选设置 — https://design.qihao.dev/?path=/docs/navigation-menu--docs
+- PageContainer: 限制页面内容宽度并提供移动端优先的标准页边距 — https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
+- Popover: 在触发器附近展示可交互的补充内容 — https://design.qihao.dev/?path=/docs/overlays-popover--docs
+- Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
+- RadioGroup: 从一组互斥选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
+- Select: 从较短的固定选项列表中选择一个值 — https://design.qihao.dev/?path=/docs/forms-select--docs
+- Separator: 在相邻内容区域之间提供视觉或语义分隔 — https://design.qihao.dev/?path=/docs/surfaces-separator--docs
+- Skeleton: 在内容加载时保留大致布局并降低视觉跳动 — https://design.qihao.dev/?path=/docs/feedback-skeleton--docs
+- Stack: 使用设计 Token 间距纵向排列一组元素 — https://design.qihao.dev/?path=/docs/layout-stack--docs
+- Switch: 立即开启或关闭一个设置 — https://design.qihao.dev/?path=/docs/forms-switch--docs
+- Table: 使用原生表格语义展示需要按行列比较的结构化数据 — https://design.qihao.dev/?path=/docs/data-table--docs
+- Tabs: 在同一页面区域内切换并列内容视图 — https://design.qihao.dev/?path=/docs/navigation-tabs--docs
+- Textarea: 输入可换行的较长文本内容 — https://design.qihao.dev/?path=/docs/forms-textarea--docs
+- Toast: 短暂反馈后台结果，并允许可选的轻量后续操作 — https://design.qihao.dev/?path=/docs/feedback-toast--docs
+- Tooltip: 在悬停或键盘聚焦时显示简短的非交互说明 — https://design.qihao.dev/?path=/docs/overlays-tooltip--docs
+- VisuallyHidden: 在视觉上隐藏内容，同时保留辅助技术可访问性 — https://design.qihao.dev/?path=/docs/foundation-visuallyhidden--docs
+
+## Registry patterns
+
+Install patterns through the public shadcn Registry. Inspect the pattern documentation and source before connecting application data or services.
+
+- Delete Confirmation: Accessible destructive confirmation pattern built with QH AlertDialog. — https://design.qihao.dev/r/delete-confirmation.json
+- Filter Bar: Responsive project filter bar that stacks on mobile and expands on wider screens. — https://design.qihao.dev/r/filter-bar.json
+- Login Form: Mobile-first email and password login form using QH Field and form controls. — https://design.qihao.dev/r/login-form.json
+- Mobile Bottom Action Bar: Safe-area-aware bottom action bar that becomes an inline panel on wider screens. — https://design.qihao.dev/r/mobile-bottom-action-bar.json
+- Settings Form: Project settings form with native submission and QH validation relationships. — https://design.qihao.dev/r/settings-form.json

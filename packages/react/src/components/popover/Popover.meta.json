@@ -1,0 +1,17 @@
+{
+  "name": "Popover",
+  "summary": "在触发器附近展示可交互的补充内容",
+  "status": "beta",
+  "import": "import { Popover } from '@qh-design/react'",
+  "storybookId": "overlays-popover",
+  "whenToUse": ["展示与触发器相关的少量信息或控件", "内容需要接收键盘焦点"],
+  "avoidWhen": ["只需显示一句非交互提示", "内容需要阻断页面并要求完成任务"],
+  "mobile": ["内容自动避让视口边缘", "最大高度使用动态视口并允许滚动"],
+  "accessibility": [
+    "触发器和内容由 Radix 自动关联",
+    "Escape 和外部点击会关闭",
+    "关闭后焦点返回触发器"
+  ],
+  "related": ["Tooltip", "Menu", "Dialog"],
+  "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+}

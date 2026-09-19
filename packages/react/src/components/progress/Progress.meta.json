@@ -1,0 +1,24 @@
+{
+  "name": "Progress",
+  "summary": "显示一个持续任务的完成比例或未知时长状态",
+  "status": "beta",
+  "import": "import { Progress } from '@qh-design/react'",
+  "storybookId": "feedback-progress",
+  "whenToUse": ["任务有可量化进度", "需要表达正在处理但时长未知"],
+  "avoidWhen": ["只需要表示按钮正在提交", "任务已经立即完成"],
+  "mobile": ["自动适应容器宽度", "长标签与百分比保持可读"],
+  "accessibility": [
+    "label 是必填的可访问名称",
+    "null value 表示不确定进度",
+    "尊重减少动态效果设置"
+  ],
+  "related": ["Skeleton", "Button"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Indeterminate",
+    "LongContent",
+    "Mobile"
+  ]
+}

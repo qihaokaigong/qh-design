@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import "../../../packages/tokens/src/tailwind.css";
+@source "../../../registry";
+
+html,
+body {
+  margin: 0;
+  background: var(--qh-color-canvas);
+  color: var(--qh-color-text);
+  font-family: var(--qh-font-sans);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.qh-story-canvas {
+  min-block-size: 100vh;
+  padding: var(--qh-page-gutter);
+  background: var(--qh-color-canvas);
+  color: var(--qh-color-text);
+  font-size: var(--qh-text-base);
+  line-height: var(--qh-leading-body);
+}

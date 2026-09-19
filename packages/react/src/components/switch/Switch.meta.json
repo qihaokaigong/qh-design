@@ -1,0 +1,24 @@
+{
+  "name": "Switch",
+  "summary": "立即开启或关闭一个设置",
+  "status": "beta",
+  "import": "import { Switch } from '@qh-design/react'",
+  "storybookId": "forms-switch",
+  "whenToUse": ["切换会立即生效的设置", "表达清晰的开关状态"],
+  "avoidWhen": ["需要提交表单后才生效", "一组选项需要多选"],
+  "mobile": ["标签与开关组成不少于 44px 高的点击区域"],
+  "accessibility": [
+    "使用 switch 语义并公开 checked 状态",
+    "children 提供可见且可点击的名称"
+  ],
+  "related": ["Checkbox", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "VisuallyHidden",
+  "summary": "在视觉上隐藏内容，同时保留辅助技术可访问性",
+  "status": "stable",
+  "import": "import { VisuallyHidden } from '@qh-design/react'",
+  "storybookId": "foundation-visuallyhidden",
+  "whenToUse": ["图标控件需要额外可访问文本", "可见上下文不足以表达语义"],
+  "avoidWhen": ["内容也必须对视觉用户可见", "隐藏交互控件"],
+  "mobile": ["行为不随视口变化"],
+  "accessibility": ["只隐藏视觉呈现，不使用 display none 或 visibility hidden"],
+  "related": ["Button"],
+  "stories": ["Default"]
+}

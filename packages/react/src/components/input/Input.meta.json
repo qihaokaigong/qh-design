@@ -1,0 +1,28 @@
+{
+  "name": "Input",
+  "summary": "输入单行文本、邮箱、密码及其他原生输入值",
+  "status": "beta",
+  "import": "import { Input } from '@qh-design/react'",
+  "storybookId": "forms-input",
+  "whenToUse": ["输入单行文本", "需要保留原生 input 表单能力"],
+  "avoidWhen": ["输入多行内容", "从固定选项中选择"],
+  "mobile": [
+    "字号不小于 16px，避免移动端自动缩放",
+    "默认高度为 44px 且宽度适应容器"
+  ],
+  "accessibility": [
+    "必须搭配可见 Label 或 aria-label",
+    "invalid 时设置 aria-invalid",
+    "保留原生 autocomplete、name 和 inputMode"
+  ],
+  "related": ["Field", "Textarea", "Select"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

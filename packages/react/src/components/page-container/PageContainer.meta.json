@@ -1,0 +1,16 @@
+{
+  "name": "PageContainer",
+  "summary": "限制页面内容宽度并提供移动端优先的标准页边距",
+  "status": "beta",
+  "import": "import { PageContainer } from '@qh-design/react'",
+  "storybookId": "layout-pagecontainer",
+  "whenToUse": ["页面主体需要居中和统一边距", "长文本需要受控阅读宽度"],
+  "avoidWhen": ["组件内部的局部间距", "需要排列兄弟元素"],
+  "mobile": ["默认使用 16px 页面边距", "在更宽视口自动增加边距"],
+  "accessibility": [
+    "不自动添加 main 等地标语义",
+    "调用方负责选择正确的页面结构元素"
+  ],
+  "related": ["Stack", "Grid"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

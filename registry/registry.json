@@ -1,0 +1,112 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "qh-design",
+  "homepage": "https://design.qihao.dev",
+  "items": [
+    {
+      "name": "login-form",
+      "type": "registry:block",
+      "title": "Login Form",
+      "description": "Mobile-first email and password login form using QH Field and form controls.",
+      "dependencies": ["@qh-design/react@^0.1.0"],
+      "files": [
+        {
+          "path": "registry/blocks/login-form/login-form.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/login-form.tsx"
+        }
+      ],
+      "categories": ["authentication", "form"],
+      "docs": "Import @qh-design/react/styles.css once at the application entry. Connect onSubmit to the application's authentication service; do not place credentials or data fetching in this pattern.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Card", "Field", "Input", "Checkbox", "Button"]
+      }
+    },
+    {
+      "name": "settings-form",
+      "type": "registry:block",
+      "title": "Settings Form",
+      "description": "Project settings form with native submission and QH validation relationships.",
+      "dependencies": ["@qh-design/react@^0.1.0"],
+      "files": [
+        {
+          "path": "registry/blocks/settings-form/settings-form.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/settings-form.tsx"
+        }
+      ],
+      "categories": ["settings", "form"],
+      "docs": "Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Card", "Field", "Input", "Select", "Switch", "Button"]
+      }
+    },
+    {
+      "name": "filter-bar",
+      "type": "registry:block",
+      "title": "Filter Bar",
+      "description": "Responsive project filter bar that stacks on mobile and expands on wider screens.",
+      "dependencies": ["@qh-design/react@^0.1.0"],
+      "files": [
+        {
+          "path": "registry/blocks/filter-bar/filter-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/filter-bar.tsx"
+        }
+      ],
+      "categories": ["filter", "data"],
+      "docs": "Use URL search parameters or application state as the source of truth. The pattern intentionally does not fetch data or assume a router.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Field", "Input", "Select", "Button"]
+      }
+    },
+    {
+      "name": "delete-confirmation",
+      "type": "registry:block",
+      "title": "Delete Confirmation",
+      "description": "Accessible destructive confirmation pattern built with QH AlertDialog.",
+      "dependencies": ["@qh-design/react@^0.1.0"],
+      "files": [
+        {
+          "path": "registry/blocks/delete-confirmation/delete-confirmation.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/delete-confirmation.tsx"
+        }
+      ],
+      "categories": ["confirmation", "destructive-action"],
+      "docs": "Use only for irreversible or high-risk deletion. Keep the cancel action as the initial focus and execute deletion only from onConfirm.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["AlertDialog", "Button"]
+      }
+    },
+    {
+      "name": "mobile-bottom-action-bar",
+      "type": "registry:block",
+      "title": "Mobile Bottom Action Bar",
+      "description": "Safe-area-aware bottom action bar that becomes an inline panel on wider screens.",
+      "dependencies": ["@qh-design/react@^0.1.0"],
+      "files": [
+        {
+          "path": "registry/blocks/mobile-bottom-action-bar/mobile-bottom-action-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/mobile-bottom-action-bar.tsx"
+        }
+      ],
+      "categories": ["mobile", "actions"],
+      "docs": "Add bottom padding to the page content when this bar is fixed so the final content is not covered. Pass QH Button elements as actions.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Button"]
+      }
+    }
+  ]
+}

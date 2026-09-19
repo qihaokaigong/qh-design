@@ -1,0 +1,24 @@
+{
+  "name": "Skeleton",
+  "summary": "在内容加载时保留大致布局并降低视觉跳动",
+  "status": "beta",
+  "import": "import { Skeleton } from '@qh-design/react'",
+  "storybookId": "feedback-skeleton",
+  "whenToUse": ["已知内容的大致形状", "加载时间足以感知且需要保留布局"],
+  "avoidWhen": ["有真实可量化进度", "加载几乎立即完成"],
+  "mobile": ["宽度默认适应容器", "形状应与最终移动端布局接近"],
+  "accessibility": [
+    "Skeleton 自身始终对辅助技术隐藏",
+    "加载容器应设置 aria-busy 和可访问名称",
+    "尊重减少动态效果设置"
+  ],
+  "related": ["Progress", "Card"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Static",
+    "LongContent",
+    "Mobile"
+  ]
+}

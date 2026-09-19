@@ -1,0 +1,25 @@
+{
+  "name": "IconButton",
+  "summary": "以单个图标触发空间受限区域中的常用动作",
+  "status": "beta",
+  "import": "import { IconButton } from '@qh-design/react'",
+  "storybookId": "actions-iconbutton",
+  "whenToUse": ["工具栏中的熟悉动作", "空间有限且图标含义清晰"],
+  "avoidWhen": ["动作含义无法由常见图标表达", "需要同时解释动作结果"],
+  "mobile": ["默认触控区域为 44px 方形", "不能只在悬停时显示"],
+  "accessibility": [
+    "aria-label 是必填的类型属性",
+    "图标本身从辅助技术中隐藏",
+    "loading 时阻止重复激活"
+  ],
+  "related": ["Button", "Tooltip"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Loading",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

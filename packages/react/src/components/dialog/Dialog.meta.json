@@ -1,0 +1,24 @@
+{
+  "name": "Dialog",
+  "summary": "在模态窗口中承载需要集中完成的普通任务",
+  "status": "beta",
+  "import": "import { Dialog } from '@qh-design/react'",
+  "storybookId": "overlays-dialog",
+  "whenToUse": [
+    "用户需要完成一个短任务而不离开当前页面",
+    "需要暂时阻断背景交互"
+  ],
+  "avoidWhen": ["确认不可逆或高风险操作", "内容复杂到需要独立页面"],
+  "mobile": [
+    "宽度保留 16px 视口边距",
+    "最大高度使用动态视口并在内容区滚动",
+    "操作按钮在窄屏纵向排列"
+  ],
+  "accessibility": [
+    "必须同时提供 Dialog.Title 和 Dialog.Description",
+    "打开后锁定焦点，Escape 关闭",
+    "关闭后焦点返回触发器"
+  ],
+  "related": ["AlertDialog", "Drawer", "Popover"],
+  "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+}

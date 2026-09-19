@@ -1,0 +1,93 @@
+.root {
+  min-inline-size: 0;
+  color: var(--qh-color-text);
+  font-family: var(--qh-font-sans);
+}
+
+.list {
+  display: flex;
+  gap: var(--qh-space-1);
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border-block-end: var(--qh-border-width) solid var(--qh-color-border);
+  scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.trigger {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--qh-control-md);
+  padding: var(--qh-space-2) var(--qh-space-3);
+  color: var(--qh-color-text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: var(--qh-radius-md) var(--qh-radius-md) 0 0;
+  font: inherit;
+  font-weight: var(--qh-weight-medium);
+  cursor: pointer;
+  transition:
+    color var(--qh-duration-fast) var(--qh-ease),
+    background-color var(--qh-duration-fast) var(--qh-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trigger::after {
+  position: absolute;
+  inset-inline: var(--qh-space-2);
+  inset-block-end: -1px;
+  block-size: 2px;
+  background: transparent;
+  border-radius: var(--qh-radius-full);
+  content: "";
+}
+
+.trigger[data-state="active"] {
+  color: var(--qh-color-action);
+}
+
+.trigger[data-state="active"]::after {
+  background: var(--qh-color-action);
+}
+
+.trigger:focus-visible {
+  z-index: 1;
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: calc(var(--qh-focus-offset) * -1);
+}
+
+.trigger:disabled {
+  color: var(--qh-color-disabled-text);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (hover: hover) {
+  .trigger:hover:not(:disabled) {
+    color: var(--qh-color-text);
+    background: var(--qh-color-surface-subtle);
+  }
+}
+
+.content {
+  padding-block: var(--qh-space-4);
+  outline: none;
+}
+
+.content:focus-visible {
+  border-radius: var(--qh-radius-md);
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: var(--qh-focus-offset);
+}
+
+@media (min-width: 768px) {
+  .trigger {
+    padding-inline: var(--qh-space-4);
+  }
+}

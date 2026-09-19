@@ -1,0 +1,41 @@
+{
+  "name": "@qh-design/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --dir ../.. ai:docs && storybook build",
+    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest run --project storybook",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@qh-design/react": "workspace:*",
+    "@qh-design/tokens": "workspace:*",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@storybook/addon-a11y": "10.6.0",
+    "@storybook/addon-docs": "10.6.0",
+    "@storybook/addon-mcp": "10.6.0",
+    "@storybook/addon-vitest": "10.6.0",
+    "@storybook/react-vite": "10.6.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@testing-library/jest-dom": "7.0.1",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.1.1",
+    "@vitest/browser-playwright": "4.1.11",
+    "chromatic": "18.9.4",
+    "lucide-react": "1.47.0",
+    "playwright": "1.63.0",
+    "radix-ui": "1.6.7",
+    "storybook": "10.6.0",
+    "tailwindcss": "4.3.3",
+    "vite": "8.3.0",
+    "vitest": "4.1.11"
+  }
+}

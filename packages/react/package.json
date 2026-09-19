@@ -1,0 +1,70 @@
+{
+  "name": "@qh-design/react",
+  "version": "0.1.0",
+  "description": "Accessible React components for the QH Design System",
+  "license": "MIT",
+  "homepage": "https://design.qihao.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qihaokaigong/blue-design.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/qihaokaigong/blue-design/issues"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./components.css": "./dist/components.css"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json && node scripts/finalize-css.mjs",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@qh-design/tokens": "workspace:^",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.47.0",
+    "radix-ui": "1.6.7"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
+    "@storybook/react-vite": "10.6.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.1.1",
+    "happy-dom": "20.14.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "rollup-preserve-directives": "1.1.3",
+    "storybook": "10.6.0",
+    "vite": "8.3.0",
+    "vitest": "4.1.11"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Field",
+  "summary": "组合表单标签、说明、错误信息和控件的可访问容器",
+  "status": "beta",
+  "import": "import { Field } from '@qh-design/react'",
+  "storybookId": "forms-field",
+  "whenToUse": ["为表单控件提供可见标签", "统一展示说明与校验错误"],
+  "avoidWhen": ["展示与表单无关的文本", "替代完整的表单校验方案"],
+  "mobile": ["默认纵向排列并适应容器宽度", "错误信息不会依赖悬停展示"],
+  "accessibility": [
+    "自动关联 Label 与控件",
+    "自动通过 aria-describedby 关联说明和错误",
+    "错误信息使用 alert 语义"
+  ],
+  "related": ["Input", "Textarea", "Select", "RadioGroup"],
+  "stories": [
+    "Default",
+    "Playground",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

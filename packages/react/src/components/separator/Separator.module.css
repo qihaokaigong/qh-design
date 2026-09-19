@@ -1,0 +1,15 @@
+.root {
+  flex: none;
+  background: var(--qh-color-border);
+}
+
+.root[data-orientation="horizontal"] {
+  inline-size: 100%;
+  block-size: var(--qh-border-width);
+}
+
+.root[data-orientation="vertical"] {
+  inline-size: var(--qh-border-width);
+  block-size: 100%;
+  min-block-size: var(--qh-control-sm);
+}

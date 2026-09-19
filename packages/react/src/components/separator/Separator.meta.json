@@ -1,0 +1,16 @@
+{
+  "name": "Separator",
+  "summary": "在相邻内容区域之间提供视觉或语义分隔",
+  "status": "beta",
+  "import": "import { Separator } from '@qh-design/react'",
+  "storybookId": "surfaces-separator",
+  "whenToUse": ["相邻内容需要轻量分组", "工具栏项目需要垂直分隔"],
+  "avoidWhen": ["应通过间距表达层级", "需要新的内容容器"],
+  "mobile": ["横向分隔线自动适应容器宽度"],
+  "accessibility": [
+    "默认 decorative 为 true",
+    "只有分隔具有结构含义时才设置 decorative false"
+  ],
+  "related": ["Card", "Stack", "Inline"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

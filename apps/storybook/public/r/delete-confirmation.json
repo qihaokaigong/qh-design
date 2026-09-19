@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "delete-confirmation",
+  "title": "Delete Confirmation",
+  "description": "Accessible destructive confirmation pattern built with QH AlertDialog.",
+  "dependencies": [
+    "@qh-design/react@^0.1.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/delete-confirmation/delete-confirmation.tsx",
+      "content": "\"use client\";\n\nimport { AlertDialog, Button } from \"@qh-design/react\";\n\nexport interface DeleteConfirmationProps {\n  itemName: string;\n  onConfirm: () => void;\n  triggerLabel?: string;\n}\n\nexport function DeleteConfirmation({\n  itemName,\n  onConfirm,\n  triggerLabel = \"删除\",\n}: DeleteConfirmationProps) {\n  return (\n    <AlertDialog>\n      <AlertDialog.Trigger asChild>\n        <Button variant=\"danger\">{triggerLabel}</Button>\n      </AlertDialog.Trigger>\n      <AlertDialog.Content>\n        <AlertDialog.Title>确定删除“{itemName}”？</AlertDialog.Title>\n        <AlertDialog.Description>\n          删除后无法恢复，与该项目关联的文件和操作记录也会被永久移除。\n        </AlertDialog.Description>\n        <AlertDialog.Footer>\n          <AlertDialog.Cancel asChild>\n            <Button variant=\"secondary\">取消</Button>\n          </AlertDialog.Cancel>\n          <AlertDialog.Action asChild>\n            <Button variant=\"danger\" onClick={onConfirm}>\n              确认删除\n            </Button>\n          </AlertDialog.Action>\n        </AlertDialog.Footer>\n      </AlertDialog.Content>\n    </AlertDialog>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/delete-confirmation.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "AlertDialog",
+      "Button"
+    ]
+  },
+  "docs": "Use only for irreversible or high-risk deletion. Keep the cancel action as the initial focus and execute deletion only from onConfirm.",
+  "categories": [
+    "confirmation",
+    "destructive-action"
+  ],
+  "type": "registry:block"
+}

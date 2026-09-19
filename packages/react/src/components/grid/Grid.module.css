@@ -1,0 +1,44 @@
+.root {
+  display: grid;
+  grid-template-columns: repeat(var(--qh-grid-columns-base), minmax(0, 1fr));
+}
+
+.gap1 {
+  gap: var(--qh-space-1);
+}
+.gap2 {
+  gap: var(--qh-space-2);
+}
+.gap3 {
+  gap: var(--qh-space-3);
+}
+.gap4 {
+  gap: var(--qh-space-4);
+}
+.gap6 {
+  gap: var(--qh-space-6);
+}
+.gap8 {
+  gap: var(--qh-space-8);
+}
+
+@media (min-width: 768px) {
+  .root {
+    grid-template-columns: repeat(
+      var(--qh-grid-columns-md, var(--qh-grid-columns-base)),
+      minmax(0, 1fr)
+    );
+  }
+}
+
+@media (min-width: 1024px) {
+  .root {
+    grid-template-columns: repeat(
+      var(
+        --qh-grid-columns-lg,
+        var(--qh-grid-columns-md, var(--qh-grid-columns-base))
+      ),
+      minmax(0, 1fr)
+    );
+  }
+}

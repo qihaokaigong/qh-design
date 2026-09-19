@@ -1,0 +1,10 @@
+node_modules
+dist
+storybook-static
+apps/storybook/public/r
+coverage
+test-results
+playwright-report
+blob-report
+.turbo
+pnpm-lock.yaml

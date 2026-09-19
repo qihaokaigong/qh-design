@@ -1,0 +1,37 @@
+.content {
+  z-index: var(--qh-z-dropdown);
+  box-sizing: border-box;
+  inline-size: max-content;
+  min-inline-size: 12rem;
+  max-inline-size: min(22rem, calc(100vw - var(--qh-space-8)));
+  max-block-size: min(70dvh, var(--radix-popover-content-available-height));
+  padding: var(--qh-space-4);
+  overflow-y: auto;
+  color: var(--qh-color-text);
+  background: var(--qh-color-surface);
+  border: var(--qh-border-width) solid var(--qh-color-border);
+  border-radius: var(--qh-radius-lg);
+  box-shadow: var(--qh-shadow-popover);
+  font-family: var(--qh-font-sans);
+  line-height: var(--qh-leading-ui);
+  transform-origin: var(--radix-popover-content-transform-origin);
+  animation: qh-popover-in var(--qh-duration-fast) var(--qh-ease);
+}
+
+.content:focus-visible {
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: var(--qh-focus-offset);
+}
+
+.arrow {
+  fill: var(--qh-color-surface);
+  stroke: var(--qh-color-border);
+  stroke-width: var(--qh-border-width);
+}
+
+@keyframes qh-popover-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}

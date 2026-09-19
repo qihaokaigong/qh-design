@@ -1,0 +1,29 @@
+.root {
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.root[data-size="sm"] {
+  inline-size: var(--qh-control-sm);
+}
+
+.root[data-size="md"] {
+  inline-size: var(--qh-control-md);
+}
+
+.root[data-size="lg"] {
+  inline-size: var(--qh-control-lg);
+}
+
+.icon {
+  display: inline-flex;
+  inline-size: var(--qh-icon-md);
+  block-size: var(--qh-icon-md);
+  align-items: center;
+  justify-content: center;
+}
+
+.icon > svg {
+  inline-size: 100%;
+  block-size: 100%;
+}

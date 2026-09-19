@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "settings-form",
+  "title": "Settings Form",
+  "description": "Project settings form with native submission and QH validation relationships.",
+  "dependencies": [
+    "@qh-design/react@^0.1.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/settings-form/settings-form.tsx",
+      "content": "\"use client\";\n\nimport { Button, Card, Field, Input, Select, Switch } from \"@qh-design/react\";\nimport type { FormEvent } from \"react\";\n\nexport interface SettingsFormProps {\n  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;\n}\n\nexport function SettingsForm({ onSubmit }: SettingsFormProps) {\n  return (\n    <Card className=\"w-full max-w-2xl\">\n      <Card.Header>\n        <Card.Title>项目设置</Card.Title>\n        <Card.Description>管理项目名称、可见范围和通知。</Card.Description>\n      </Card.Header>\n      <Card.Content>\n        <form className=\"grid gap-6\" onSubmit={onSubmit}>\n          <Field required>\n            <Field.Label>项目名称</Field.Label>\n            <Input name=\"name\" defaultValue=\"移动端应用\" />\n            <Field.Description>\n              成员将在项目列表中看到这个名称。\n            </Field.Description>\n          </Field>\n          <Field>\n            <Field.Label>可见范围</Field.Label>\n            <Select name=\"visibility\" defaultValue=\"team\">\n              <option value=\"team\">团队成员</option>\n              <option value=\"private\">仅受邀成员</option>\n            </Select>\n          </Field>\n          <Switch name=\"notifications\" defaultChecked>\n            项目更新时发送通知\n          </Switch>\n          <div className=\"grid gap-2 sm:flex sm:justify-end\">\n            <Button type=\"reset\" variant=\"secondary\">\n              重置\n            </Button>\n            <Button type=\"submit\">保存设置</Button>\n          </div>\n        </form>\n      </Card.Content>\n    </Card>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/settings-form.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "Card",
+      "Field",
+      "Input",
+      "Select",
+      "Switch",
+      "Button"
+    ]
+  },
+  "docs": "Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails.",
+  "categories": [
+    "settings",
+    "form"
+  ],
+  "type": "registry:block"
+}

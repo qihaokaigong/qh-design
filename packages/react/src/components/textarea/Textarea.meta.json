@@ -1,0 +1,24 @@
+{
+  "name": "Textarea",
+  "summary": "输入可换行的较长文本内容",
+  "status": "beta",
+  "import": "import { Textarea } from '@qh-design/react'",
+  "storybookId": "forms-textarea",
+  "whenToUse": ["输入备注、描述或反馈", "内容可能包含多行文本"],
+  "avoidWhen": ["输入简短的单行值", "编辑富文本内容"],
+  "mobile": ["使用 16px 字号并适应容器宽度", "默认允许用户纵向调整高度"],
+  "accessibility": [
+    "必须搭配可见 Label 或 aria-label",
+    "错误信息由 Field 自动关联"
+  ],
+  "related": ["Field", "Input"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

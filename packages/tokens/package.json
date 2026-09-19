@@ -1,0 +1,37 @@
+{
+  "name": "@qh-design/tokens",
+  "version": "0.1.0",
+  "description": "QH Design System tokens and Tailwind CSS bridge",
+  "license": "MIT",
+  "homepage": "https://design.qihao.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qihaokaigong/blue-design.git",
+    "directory": "packages/tokens"
+  },
+  "bugs": {
+    "url": "https://github.com/qihaokaigong/blue-design/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./theme.css": "./dist/theme.css",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node --watch scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "node --check scripts/build.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap1 {
+  gap: var(--qh-space-1);
+}
+.gap2 {
+  gap: var(--qh-space-2);
+}
+.gap3 {
+  gap: var(--qh-space-3);
+}
+.gap4 {
+  gap: var(--qh-space-4);
+}
+.gap6 {
+  gap: var(--qh-space-6);
+}
+.gap8 {
+  gap: var(--qh-space-8);
+}
+
+.start {
+  align-items: flex-start;
+}
+.center {
+  align-items: center;
+}
+.end {
+  align-items: flex-end;
+}
+.stretch {
+  align-items: stretch;
+}

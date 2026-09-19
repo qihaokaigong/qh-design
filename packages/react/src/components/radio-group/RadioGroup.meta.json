@@ -1,0 +1,24 @@
+{
+  "name": "RadioGroup",
+  "summary": "从一组互斥选项中选择一个值",
+  "status": "beta",
+  "import": "import { RadioGroup } from '@qh-design/react'",
+  "storybookId": "forms-radiogroup",
+  "whenToUse": ["选项互斥且需要同时展示", "选项数量较少并需要快速比较"],
+  "avoidWhen": ["允许同时选择多个选项", "选项很多或需要搜索"],
+  "mobile": ["每个选项整行可点击且触控高度不少于 44px", "长标签允许自然换行"],
+  "accessibility": [
+    "支持方向键在选项间移动",
+    "必须通过 Field.Label 或 aria-label 提供组名称"
+  ],
+  "related": ["Checkbox", "Select", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

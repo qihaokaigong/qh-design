@@ -1,0 +1,57 @@
+.wrapper {
+  display: grid;
+  gap: var(--qh-space-2);
+  inline-size: 100%;
+  color: var(--qh-color-text);
+  font-family: var(--qh-font-sans);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--qh-space-3);
+  font-size: var(--qh-text-sm);
+  line-height: var(--qh-leading-ui);
+}
+
+.value {
+  color: var(--qh-color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.root {
+  position: relative;
+  overflow: hidden;
+  inline-size: 100%;
+  block-size: var(--qh-space-2);
+  background: var(--qh-color-border);
+  border-radius: var(--qh-radius-full);
+}
+
+.indicator {
+  inline-size: 100%;
+  block-size: 100%;
+  background: var(--qh-color-action);
+  border-radius: inherit;
+  transform: translateX(calc(-100% + var(--qh-progress-value) * 1%));
+  transition: transform var(--qh-duration-normal) var(--qh-ease);
+}
+
+.root[data-state="indeterminate"] .indicator {
+  inline-size: 40%;
+  animation: qh-progress-indeterminate 1.4s var(--qh-ease) infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes qh-progress-indeterminate {
+  to {
+    transform: translateX(350%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root[data-state="indeterminate"] .indicator {
+    animation: none;
+    transform: translateX(75%);
+  }
+}

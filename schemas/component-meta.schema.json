@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://design.qihao.dev/schemas/component-meta.schema.json",
+  "title": "QH component metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "summary",
+    "status",
+    "import",
+    "storybookId",
+    "whenToUse",
+    "avoidWhen",
+    "mobile",
+    "accessibility",
+    "related",
+    "stories"
+  ],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "status": {
+      "enum": ["experimental", "beta", "stable", "deprecated"]
+    },
+    "import": { "type": "string", "minLength": 1 },
+    "storybookId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "whenToUse": { "$ref": "#/$defs/nonEmptyStrings" },
+    "avoidWhen": { "$ref": "#/$defs/nonEmptyStrings" },
+    "mobile": { "$ref": "#/$defs/nonEmptyStrings" },
+    "accessibility": { "$ref": "#/$defs/nonEmptyStrings" },
+    "related": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "stories": { "$ref": "#/$defs/nonEmptyStrings" }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  }
+}

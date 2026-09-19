@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light;
+
+  /* Brand references */
+  --qh-ref-blue: #3a98c1;
+  --qh-ref-warm: #f6f0e3;
+  --qh-ref-ink: #232524;
+  --qh-ref-paper: #fcfaf5;
+  --qh-ref-border: #ebe3d4;
+  --qh-ref-blue-dark: #277392;
+
+  /* Functional references */
+  --qh-ref-blue-hover: #20617b;
+  --qh-ref-blue-pressed: #194e64;
+  --qh-ref-blue-soft: #e7f1f4;
+  --qh-ref-neutral-muted: #686a64;
+  --qh-ref-neutral-control: #85847d;
+  --qh-ref-danger: #b43c32;
+  --qh-ref-danger-hover: #963128;
+  --qh-ref-danger-pressed: #7b2822;
+  --qh-ref-danger-soft: #f9eae6;
+  --qh-ref-success: #28734f;
+  --qh-ref-success-soft: #e8f2ea;
+  --qh-ref-warning: #875a12;
+  --qh-ref-warning-soft: #fbf0d7;
+
+  /* Semantic colors */
+  --qh-color-canvas: var(--qh-ref-paper);
+  --qh-color-surface: var(--qh-ref-paper);
+  --qh-color-surface-subtle: var(--qh-ref-warm);
+  --qh-color-text: var(--qh-ref-ink);
+  --qh-color-text-muted: var(--qh-ref-neutral-muted);
+  --qh-color-brand: var(--qh-ref-blue);
+  --qh-color-on-brand: var(--qh-ref-ink);
+  --qh-color-action: var(--qh-ref-blue-dark);
+  --qh-color-on-action: var(--qh-ref-paper);
+  --qh-color-action-hover: var(--qh-ref-blue-hover);
+  --qh-color-action-pressed: var(--qh-ref-blue-pressed);
+  --qh-color-link: var(--qh-ref-blue-dark);
+  --qh-color-link-hover: var(--qh-ref-blue-hover);
+  --qh-color-selected: var(--qh-ref-blue-soft);
+  --qh-color-on-selected: var(--qh-ref-blue-dark);
+  --qh-color-border: var(--qh-ref-border);
+  --qh-color-border-control: var(--qh-ref-neutral-control);
+  --qh-color-focus: var(--qh-ref-blue-dark);
+  --qh-color-focus-inverse: var(--qh-ref-paper);
+  --qh-color-disabled-bg: var(--qh-ref-border);
+  --qh-color-disabled-text: var(--qh-ref-neutral-muted);
+  --qh-color-danger: var(--qh-ref-danger);
+  --qh-color-danger-hover: var(--qh-ref-danger-hover);
+  --qh-color-danger-pressed: var(--qh-ref-danger-pressed);
+  --qh-color-danger-soft: var(--qh-ref-danger-soft);
+  --qh-color-success: var(--qh-ref-success);
+  --qh-color-success-soft: var(--qh-ref-success-soft);
+  --qh-color-warning: var(--qh-ref-warning);
+  --qh-color-warning-soft: var(--qh-ref-warning-soft);
+  --qh-color-info: var(--qh-ref-blue-dark);
+  --qh-color-info-soft: var(--qh-ref-blue-soft);
+  --qh-color-overlay: rgb(35 37 36 / 40%);
+
+  /* Typography */
+  --qh-font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  --qh-font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --qh-text-xs: 0.75rem;
+  --qh-text-sm: 0.875rem;
+  --qh-text-base: 1rem;
+  --qh-text-lg: 1.25rem;
+  --qh-text-h2: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --qh-text-h1: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --qh-leading-body: 1.75;
+  --qh-leading-ui: 1.5;
+  --qh-leading-h1: 1.2;
+  --qh-leading-h2: 1.3;
+  --qh-leading-h3: 1.4;
+  --qh-weight-regular: 400;
+  --qh-weight-medium: 500;
+  --qh-weight-semibold: 600;
+
+  /* Spacing, radius and sizing */
+  --qh-space-1: 0.25rem;
+  --qh-space-2: 0.5rem;
+  --qh-space-3: 0.75rem;
+  --qh-space-4: 1rem;
+  --qh-space-6: 1.5rem;
+  --qh-space-8: 2rem;
+  --qh-space-12: 3rem;
+  --qh-space-16: 4rem;
+  --qh-space-24: 6rem;
+  --qh-radius-sm: 0.25rem;
+  --qh-radius-md: 0.5rem;
+  --qh-radius-lg: 0.75rem;
+  --qh-radius-xl: 1rem;
+  --qh-radius-full: 9999px;
+  --qh-control-sm: 2.25rem;
+  --qh-control-md: 2.75rem;
+  --qh-control-lg: 3rem;
+  --qh-icon-sm: 1rem;
+  --qh-icon-md: 1.25rem;
+  --qh-icon-lg: 1.5rem;
+  --qh-border-width: 1px;
+  --qh-focus-width: 2px;
+  --qh-focus-offset: 2px;
+  --qh-width-reading: 45rem;
+  --qh-width-content: 75rem;
+  --qh-page-gutter: var(--qh-space-4);
+
+  /* Effects and layers */
+  --qh-shadow-popover: 0 4px 16px rgb(35 37 36 / 8%);
+  --qh-shadow-dialog: 0 16px 48px rgb(35 37 36 / 14%);
+  --qh-duration-fast: 120ms;
+  --qh-duration-normal: 180ms;
+  --qh-duration-slow: 240ms;
+  --qh-ease: cubic-bezier(0.2, 0, 0, 1);
+  --qh-z-sticky: 10;
+  --qh-z-dropdown: 20;
+  --qh-z-overlay: 40;
+  --qh-z-dialog: 50;
+  --qh-z-toast: 60;
+  --qh-z-tooltip: 70;
+
+  /* Component aliases */
+  --qh-button-primary-bg: var(--qh-color-action);
+  --qh-button-primary-fg: var(--qh-color-on-action);
+  --qh-button-primary-hover: var(--qh-color-action-hover);
+  --qh-button-primary-pressed: var(--qh-color-action-pressed);
+  --qh-button-radius: var(--qh-radius-md);
+  --qh-input-bg: var(--qh-color-surface);
+  --qh-input-border: var(--qh-color-border-control);
+  --qh-input-radius: var(--qh-radius-md);
+  --qh-card-bg: var(--qh-color-surface);
+  --qh-card-border: var(--qh-color-border);
+  --qh-card-radius: var(--qh-radius-lg);
+  --qh-card-padding: var(--qh-space-6);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --qh-page-gutter: var(--qh-space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --qh-page-gutter: var(--qh-space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --qh-duration-fast: 0ms;
+    --qh-duration-normal: 0ms;
+    --qh-duration-slow: 0ms;
+  }
+}

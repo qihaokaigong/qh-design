@@ -1,0 +1,98 @@
+.overlay {
+  position: fixed;
+  z-index: var(--qh-z-overlay);
+  inset: 0;
+  background: var(--qh-color-overlay);
+  animation: qh-drawer-fade-in var(--qh-duration-normal) var(--qh-ease);
+}
+
+.content {
+  position: fixed;
+  z-index: var(--qh-z-dialog);
+  inset-inline: 0;
+  inset-block-end: 0;
+  box-sizing: border-box;
+  display: grid;
+  gap: var(--qh-space-4);
+  max-block-size: min(90dvh, 48rem);
+  padding: var(--qh-space-3) var(--qh-page-gutter)
+    calc(var(--qh-space-6) + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--qh-color-text);
+  background: var(--qh-color-surface);
+  border-block-start: var(--qh-border-width) solid var(--qh-color-border);
+  border-radius: var(--qh-radius-xl) var(--qh-radius-xl) 0 0;
+  box-shadow: var(--qh-shadow-dialog);
+  font-family: var(--qh-font-sans);
+  animation: qh-drawer-content-in var(--qh-duration-slow) var(--qh-ease);
+}
+
+.content:focus-visible {
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: calc(var(--qh-focus-offset) * -1);
+}
+
+.handle {
+  inline-size: var(--qh-space-12);
+  block-size: var(--qh-space-1);
+  margin-inline: auto;
+  background: var(--qh-color-border-control);
+  border-radius: var(--qh-radius-full);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--qh-text-lg);
+  font-weight: var(--qh-weight-semibold);
+  line-height: var(--qh-leading-h3);
+}
+
+.description {
+  margin: 0;
+  color: var(--qh-color-text-muted);
+  line-height: var(--qh-leading-body);
+}
+
+.footer {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--qh-space-2);
+  padding-block-start: var(--qh-space-2);
+  background: var(--qh-color-surface);
+}
+
+.footer > * {
+  inline-size: 100%;
+}
+
+@media (min-width: 768px) {
+  .content {
+    inset-inline-start: 50%;
+    inline-size: min(calc(100vw - var(--qh-space-12)), 42rem);
+    transform: translateX(-50%);
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .footer > * {
+    inline-size: auto;
+  }
+}
+
+@keyframes qh-drawer-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes qh-drawer-content-in {
+  from {
+    transform: translateY(100%);
+  }
+}

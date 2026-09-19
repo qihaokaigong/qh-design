@@ -1,0 +1,25 @@
+{
+  "name": "Checkbox",
+  "summary": "选择可独立开启或关闭的一个或多个选项",
+  "status": "beta",
+  "import": "import { Checkbox } from '@qh-design/react'",
+  "storybookId": "forms-checkbox",
+  "whenToUse": ["多个选项可以同时选择", "用户需要确认一个独立条件"],
+  "avoidWhen": ["一组选项只能选择一个", "立即控制系统功能的开关"],
+  "mobile": ["整行标签均可点击且触控高度不少于 44px"],
+  "accessibility": [
+    "children 提供可见且可点击的名称",
+    "支持 checked 和 indeterminate 语义",
+    "使用 Space 键切换"
+  ],
+  "related": ["RadioGroup", "Switch", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

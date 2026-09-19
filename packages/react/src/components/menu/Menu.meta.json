@@ -1,0 +1,24 @@
+{
+  "name": "Menu",
+  "summary": "从触发器打开一组临时操作或可选设置",
+  "status": "beta",
+  "import": "import { Menu } from '@qh-design/react'",
+  "storybookId": "navigation-menu",
+  "whenToUse": ["收纳与当前对象相关的操作", "提供短列表式的临时选择"],
+  "avoidWhen": ["用户需要持续看到所有选项", "承载复杂表单或长篇内容"],
+  "mobile": ["条目触控高度至少 44px", "菜单宽度和高度不会超出可见视口"],
+  "accessibility": [
+    "使用 Menu.Trigger 关联触发器",
+    "支持方向键、Home、End、Enter 和 Escape",
+    "关闭后焦点返回触发器"
+  ],
+  "related": ["Popover", "Select", "Button"],
+  "stories": [
+    "Default",
+    "Playground",
+    "KeyboardNavigation",
+    "CheckboxItems",
+    "LongContent",
+    "Mobile"
+  ]
+}

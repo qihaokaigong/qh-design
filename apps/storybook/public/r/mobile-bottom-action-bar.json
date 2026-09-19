@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mobile-bottom-action-bar",
+  "title": "Mobile Bottom Action Bar",
+  "description": "Safe-area-aware bottom action bar that becomes an inline panel on wider screens.",
+  "dependencies": [
+    "@qh-design/react@^0.1.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/mobile-bottom-action-bar/mobile-bottom-action-bar.tsx",
+      "content": "import type { ReactNode } from \"react\";\n\nexport interface MobileBottomActionBarProps {\n  primaryAction: ReactNode;\n  secondaryAction?: ReactNode;\n  /** Short context shown above the actions on narrow screens. */\n  summary?: ReactNode;\n}\n\nexport function MobileBottomActionBar({\n  primaryAction,\n  secondaryAction,\n  summary,\n}: MobileBottomActionBarProps) {\n  return (\n    <aside\n      aria-label=\"页面操作\"\n      className=\"fixed inset-x-0 bottom-0 z-10 border-t border-border bg-surface px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:static md:rounded-lg md:border md:p-4\"\n    >\n      <div className=\"mx-auto grid w-full max-w-5xl gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-center\">\n        {summary ? (\n          <div className=\"text-sm text-muted-foreground\">{summary}</div>\n        ) : (\n          <span />\n        )}\n        <div className=\"grid grid-cols-2 gap-2 md:flex md:justify-end\">\n          {secondaryAction ?? <span />}\n          {primaryAction}\n        </div>\n      </div>\n    </aside>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/mobile-bottom-action-bar.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "Button"
+    ]
+  },
+  "docs": "Add bottom padding to the page content when this bar is fixed so the final content is not covered. Pass QH Button elements as actions.",
+  "categories": [
+    "mobile",
+    "actions"
+  ],
+  "type": "registry:block"
+}

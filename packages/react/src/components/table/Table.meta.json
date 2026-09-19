@@ -1,0 +1,31 @@
+{
+  "name": "Table",
+  "summary": "使用原生表格语义展示需要按行列比较的结构化数据",
+  "status": "beta",
+  "import": "import { Table } from '@qh-design/react'",
+  "storybookId": "data-table",
+  "whenToUse": ["用户需要比较多个对象的相同字段", "数据具有清晰的行列关系"],
+  "avoidWhen": [
+    "移动端只需要展示少量互不比较的字段",
+    "需要完整的数据网格、排序或虚拟滚动行为"
+  ],
+  "mobile": [
+    "使用 minWidth 控制列宽并只在 Table 容器内横向滚动",
+    "不会造成页面级横向溢出"
+  ],
+  "accessibility": [
+    "使用 Caption 提供表格名称或说明",
+    "横向滚动容器可通过键盘聚焦和滚动，使用 scrollContainerLabel 提供区域名称",
+    "列标题使用 Table.Head，行标题设置 scope=row",
+    "numeric 只负责对齐，不替代字段标题"
+  ],
+  "related": ["Badge", "EmptyState", "Checkbox"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Empty",
+    "LongContent",
+    "Mobile"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Select",
+  "summary": "从较短的固定选项列表中选择一个值",
+  "status": "beta",
+  "import": "import { Select } from '@qh-design/react'",
+  "storybookId": "forms-select",
+  "whenToUse": ["选项固定且数量较少", "需要原生表单提交能力"],
+  "avoidWhen": [
+    "选项需要搜索",
+    "允许选择多个复杂对象",
+    "选项只有开和关两种状态"
+  ],
+  "mobile": ["使用系统原生选择体验", "默认高度 44px 且宽度适应容器"],
+  "accessibility": [
+    "必须搭配可见 Label 或 aria-label",
+    "保留原生键盘和触屏行为"
+  ],
+  "related": ["Field", "RadioGroup", "Switch"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

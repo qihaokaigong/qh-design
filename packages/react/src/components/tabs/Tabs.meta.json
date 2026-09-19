@@ -1,0 +1,24 @@
+{
+  "name": "Tabs",
+  "summary": "在同一页面区域内切换并列内容视图",
+  "status": "beta",
+  "import": "import { Tabs } from '@qh-design/react'",
+  "storybookId": "navigation-tabs",
+  "whenToUse": ["内容属于同一级别且用户需要快速切换", "切换不会改变页面地址"],
+  "avoidWhen": ["步骤有严格先后顺序", "内容需要独立链接和浏览器历史"],
+  "mobile": ["标签列表可水平滚动", "触发区域至少 44px 高"],
+  "accessibility": [
+    "Tabs.List 必须提供可访问名称",
+    "方向键移动焦点并在默认模式下激活标签",
+    "禁用标签会从键盘导航中跳过"
+  ],
+  "related": ["Menu", "Button"],
+  "stories": [
+    "Default",
+    "Playground",
+    "KeyboardNavigation",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

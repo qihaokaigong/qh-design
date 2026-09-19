@@ -1,0 +1,26 @@
+.content {
+  z-index: var(--qh-z-tooltip);
+  max-inline-size: min(18rem, calc(100vw - var(--qh-space-6)));
+  padding: var(--qh-space-2) var(--qh-space-3);
+  color: var(--qh-color-on-action);
+  background: var(--qh-color-text);
+  border-radius: var(--qh-radius-md);
+  box-shadow: var(--qh-shadow-popover);
+  font-family: var(--qh-font-sans);
+  font-size: var(--qh-text-xs);
+  line-height: var(--qh-leading-ui);
+  text-wrap: balance;
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+  animation: qh-tooltip-in var(--qh-duration-fast) var(--qh-ease);
+}
+
+.arrow {
+  fill: var(--qh-color-text);
+}
+
+@keyframes qh-tooltip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}

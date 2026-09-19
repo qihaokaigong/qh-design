@@ -1,0 +1,20 @@
+{
+  "name": "Button",
+  "summary": "触发当前页面中的动作或提交表单",
+  "status": "beta",
+  "import": "import { Button } from '@qh-design/react'",
+  "storybookId": "actions-button",
+  "whenToUse": ["提交表单", "触发页面内动作", "打开弹层"],
+  "avoidWhen": ["导航到另一个 URL", "仅展示状态"],
+  "mobile": [
+    "默认 md 尺寸为 44px 高",
+    "主要操作区域在窄屏可以由页面布局设为全宽"
+  ],
+  "accessibility": [
+    "默认 type 为 button",
+    "loading 时设置 aria-busy 并阻止重复激活",
+    "保留可见的 focus-visible 轮廓"
+  ],
+  "related": ["ButtonLink", "AlertDialog"],
+  "stories": ["Default", "Variants", "Loading", "Disabled", "Mobile"]
+}

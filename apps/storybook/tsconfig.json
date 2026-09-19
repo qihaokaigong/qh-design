@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node", "vite/client"]
+  },
+  "include": [
+    ".storybook",
+    "../../packages/react/src/**/*.stories.tsx",
+    "../../registry/**/*.ts",
+    "../../registry/**/*.tsx"
+  ]
+}

@@ -1,0 +1,46 @@
+.root {
+  overflow: hidden;
+  background: var(--qh-color-border);
+}
+
+.text {
+  inline-size: 100%;
+  block-size: 1em;
+  border-radius: var(--qh-radius-sm);
+}
+
+.rectangular {
+  inline-size: 100%;
+  min-block-size: var(--qh-control-lg);
+  border-radius: var(--qh-radius-md);
+}
+
+.circular {
+  inline-size: var(--qh-control-md);
+  block-size: var(--qh-control-md);
+  border-radius: var(--qh-radius-full);
+}
+
+.animated {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--qh-color-surface-subtle),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: qh-skeleton-shimmer 1.6s linear infinite;
+}
+
+@keyframes qh-skeleton-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated {
+    animation: none;
+    background-image: none;
+  }
+}

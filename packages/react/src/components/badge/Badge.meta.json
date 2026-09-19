@@ -1,0 +1,13 @@
+{
+  "name": "Badge",
+  "summary": "用紧凑标签显示状态、类别或少量元数据",
+  "status": "beta",
+  "import": "import { Badge } from '@qh-design/react'",
+  "storybookId": "data-display-badge",
+  "whenToUse": ["显示对象状态", "展示简短类别或属性"],
+  "avoidWhen": ["触发动作", "承载完整句子或关键错误说明"],
+  "mobile": ["保持紧凑并允许外部布局换行"],
+  "accessibility": ["状态文本必须独立于颜色可理解", "Badge 本身不具有按钮语义"],
+  "related": ["Alert", "Button"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

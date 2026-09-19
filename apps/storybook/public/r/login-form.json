@@ -1,0 +1,34 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-form",
+  "title": "Login Form",
+  "description": "Mobile-first email and password login form using QH Field and form controls.",
+  "dependencies": [
+    "@qh-design/react@^0.1.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/login-form/login-form.tsx",
+      "content": "\"use client\";\n\nimport { Button, Card, Checkbox, Field, Input, Stack } from \"@qh-design/react\";\nimport type { FormEvent } from \"react\";\n\nexport interface LoginFormProps {\n  /** Called after native validation succeeds. */\n  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;\n  /** Optional destination for password recovery. */\n  forgotPasswordHref?: string;\n}\n\nexport function LoginForm({\n  forgotPasswordHref = \"/forgot-password\",\n  onSubmit,\n}: LoginFormProps) {\n  return (\n    <Card className=\"mx-auto w-full max-w-md\">\n      <Card.Header>\n        <Card.Title>登录</Card.Title>\n        <Card.Description>使用你的工作邮箱继续。</Card.Description>\n      </Card.Header>\n      <Card.Content>\n        <form\n          className=\"grid gap-4\"\n          onSubmit={(event) => {\n            onSubmit?.(event);\n          }}\n        >\n          <Field required>\n            <Field.Label>邮箱</Field.Label>\n            <Input\n              name=\"email\"\n              type=\"email\"\n              autoComplete=\"email\"\n              inputMode=\"email\"\n            />\n          </Field>\n          <Field required>\n            <Field.Label>密码</Field.Label>\n            <Input\n              name=\"password\"\n              type=\"password\"\n              autoComplete=\"current-password\"\n            />\n          </Field>\n          <Stack gap=\"3\">\n            <Checkbox name=\"remember\">保持登录</Checkbox>\n            <a\n              className=\"w-fit text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus\"\n              href={forgotPasswordHref}\n            >\n              忘记密码？\n            </a>\n          </Stack>\n          <Button className=\"w-full\" type=\"submit\">\n            登录\n          </Button>\n        </form>\n      </Card.Content>\n    </Card>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/login-form.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "Card",
+      "Field",
+      "Input",
+      "Checkbox",
+      "Button"
+    ]
+  },
+  "docs": "Import @qh-design/react/styles.css once at the application entry. Connect onSubmit to the application's authentication service; do not place credentials or data fetching in this pattern.",
+  "categories": [
+    "authentication",
+    "form"
+  ],
+  "type": "registry:block"
+}

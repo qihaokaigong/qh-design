@@ -1,0 +1,17 @@
+{
+  "name": "EmptyState",
+  "summary": "解释没有内容的原因并提供明确的下一步",
+  "status": "beta",
+  "import": "import { EmptyState } from '@qh-design/react'",
+  "storybookId": "feedback-emptystate",
+  "whenToUse": ["列表或页面暂时没有内容", "筛选结果为空并需要恢复建议"],
+  "avoidWhen": ["内容仍在加载", "发生需要立即处理的错误"],
+  "mobile": ["内容居中并保持紧凑", "主要操作保持至少 44px 触控高度"],
+  "accessibility": [
+    "title 使用标题语义",
+    "图标默认作为装饰隐藏",
+    "操作使用真实 Button 或 ButtonLink"
+  ],
+  "related": ["Skeleton", "Alert", "Button"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}
