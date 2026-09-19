@@ -1,0 +1,407 @@
+# Component index
+
+Generated from QH component metadata for `@qhkg/react@0.2.0`.
+Use this index to choose a component, then confirm exact props from the installed TypeScript declarations or Storybook MCP.
+
+## Alert
+
+展示需要用户注意的持久反馈或状态说明
+
+- Import: `import { Alert } from '@qhkg/react'`
+- Status: beta
+- Use when: 反馈需要持续可见；说明当前页面或操作状态
+- Avoid when: 短暂且无需处理的成功提示；确认不可逆操作
+- Mobile: 图标与文字保持两列，内容自然换行；操作区域不会依赖悬停
+- Accessibility: danger 默认使用 alert 语义；其他 tone 默认使用 status 语义；状态不能只通过颜色表达
+- Related: Badge, Toast, AlertDialog
+- Storybook: https://design.qihao.dev/?path=/docs/feedback-alert--docs
+
+## AlertDialog
+
+要求用户明确确认或取消高风险、不可逆操作
+
+- Import: `import { AlertDialog } from '@qhkg/react'`
+- Status: beta
+- Use when: 操作不可逆或会造成明显损失；必须阻止误触并要求明确选择
+- Avoid when: 只是告知结果；任务是普通编辑或设置
+- Mobile: 危险操作与取消操作纵向排列；安全的取消操作在视觉和焦点上优先
+- Accessibility: 必须提供 Title 和 Description；打开后默认聚焦 Cancel；Escape 等同取消且不会执行 Action
+- Related: Dialog, Alert, Toast
+- Storybook: https://design.qihao.dev/?path=/docs/overlays-alertdialog--docs
+
+## Badge
+
+用紧凑标签显示状态、类别或少量元数据
+
+- Import: `import { Badge } from '@qhkg/react'`
+- Status: beta
+- Use when: 显示对象状态；展示简短类别或属性
+- Avoid when: 触发动作；承载完整句子或关键错误说明
+- Mobile: 保持紧凑并允许外部布局换行
+- Accessibility: 状态文本必须独立于颜色可理解；Badge 本身不具有按钮语义
+- Related: Alert, Button
+- Storybook: https://design.qihao.dev/?path=/docs/data-display-badge--docs
+
+## Button
+
+触发当前页面中的动作或提交表单
+
+- Import: `import { Button } from '@qhkg/react'`
+- Status: beta
+- Use when: 提交表单；触发页面内动作；打开弹层
+- Avoid when: 导航到另一个 URL；仅展示状态
+- Mobile: 默认 md 尺寸为 44px 高；主要操作区域在窄屏可以由页面布局设为全宽
+- Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓
+- Related: ButtonLink, AlertDialog
+- Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
+
+## ButtonLink
+
+以按钮视觉层级导航到一个 URL
+
+- Import: `import { ButtonLink } from '@qhkg/react'`
+- Status: beta
+- Use when: 主要或次要导航需要按钮视觉层级
+- Avoid when: 提交表单；执行无 URL 的页面动作
+- Mobile: 默认 md 尺寸为 44px 高
+- Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接
+- Related: Button, Link
+- Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
+
+## Card
+
+将一组相关信息和操作组织成独立表面
+
+- Import: `import { Card } from '@qhkg/react'`
+- Status: beta
+- Use when: 信息需要独立分组；列表项目包含标题、正文和操作
+- Avoid when: 仅需要分隔相邻内容；整页都放入同一张卡片
+- Mobile: 默认适应容器宽度；Footer 操作允许自动换行
+- Accessibility: 不会自动改变内容语义；Card.Title 默认使用三级标题，页面需保持标题层级合理
+- Related: Separator, Stack, Grid
+- Storybook: https://design.qihao.dev/?path=/docs/surfaces-card--docs
+
+## Checkbox
+
+选择可独立开启或关闭的一个或多个选项
+
+- Import: `import { Checkbox } from '@qhkg/react'`
+- Status: beta
+- Use when: 多个选项可以同时选择；用户需要确认一个独立条件
+- Avoid when: 一组选项只能选择一个；立即控制系统功能的开关
+- Mobile: 整行标签均可点击且触控高度不少于 44px
+- Accessibility: children 提供可见且可点击的名称；支持 checked 和 indeterminate 语义；使用 Space 键切换
+- Related: RadioGroup, Switch, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-checkbox--docs
+
+## Dialog
+
+在模态窗口中承载需要集中完成的普通任务
+
+- Import: `import { Dialog } from '@qhkg/react'`
+- Status: beta
+- Use when: 用户需要完成一个短任务而不离开当前页面；需要暂时阻断背景交互
+- Avoid when: 确认不可逆或高风险操作；内容复杂到需要独立页面
+- Mobile: 宽度保留 16px 视口边距；最大高度使用动态视口并在内容区滚动；操作按钮在窄屏纵向排列
+- Accessibility: 必须同时提供 Dialog.Title 和 Dialog.Description；打开后锁定焦点，Escape 关闭；关闭后焦点返回触发器
+- Related: AlertDialog, Drawer, Popover
+- Storybook: https://design.qihao.dev/?path=/docs/overlays-dialog--docs
+
+## Drawer
+
+从屏幕底部展开适合移动端的模态任务面板
+
+- Import: `import { Drawer } from '@qhkg/react'`
+- Status: beta
+- Use when: 移动端需要展示筛选、分享或短表单；内容比 Popover 多但仍属于当前上下文
+- Avoid when: 只是显示一句提示；桌面端需要复杂且长期存在的侧栏
+- Mobile: 从底部进入并适配安全区域；最大高度使用动态视口且内容可滚动；操作区域保持在内容底部
+- Accessibility: 语义和焦点行为与 Dialog 一致；必须提供 Title 和 Description；Escape 与关闭操作会还原焦点
+- Related: Dialog, Popover
+- Storybook: https://design.qihao.dev/?path=/docs/overlays-drawer--docs
+
+## EmptyState
+
+解释没有内容的原因并提供明确的下一步
+
+- Import: `import { EmptyState } from '@qhkg/react'`
+- Status: beta
+- Use when: 列表或页面暂时没有内容；筛选结果为空并需要恢复建议
+- Avoid when: 内容仍在加载；发生需要立即处理的错误
+- Mobile: 内容居中并保持紧凑；主要操作保持至少 44px 触控高度
+- Accessibility: title 使用标题语义；图标默认作为装饰隐藏；操作使用真实 Button 或 ButtonLink
+- Related: Skeleton, Alert, Button
+- Storybook: https://design.qihao.dev/?path=/docs/feedback-emptystate--docs
+
+## Field
+
+组合表单标签、说明、错误信息和控件的可访问容器
+
+- Import: `import { Field } from '@qhkg/react'`
+- Status: beta
+- Use when: 为表单控件提供可见标签；统一展示说明与校验错误
+- Avoid when: 展示与表单无关的文本；替代完整的表单校验方案
+- Mobile: 默认纵向排列并适应容器宽度；错误信息不会依赖悬停展示
+- Accessibility: 自动关联 Label 与控件；自动通过 aria-describedby 关联说明和错误；错误信息使用 alert 语义
+- Related: Input, Textarea, Select, RadioGroup
+- Storybook: https://design.qihao.dev/?path=/docs/forms-field--docs
+
+## Grid
+
+以移动端优先的受控列数排列二维内容
+
+- Import: `import { Grid } from '@qhkg/react'`
+- Status: beta
+- Use when: 卡片或数据块需要二维排列；列数需要在标准断点变化
+- Avoid when: 只有单一纵向内容流；项目宽度完全由内容决定
+- Mobile: base 默认一列；md 从 768px、lg 从 1024px 生效
+- Accessibility: 视觉列数不会改变 DOM 和阅读顺序
+- Related: Stack, Inline, PageContainer, Card
+- Storybook: https://design.qihao.dev/?path=/docs/layout-grid--docs
+
+## IconButton
+
+以单个图标触发空间受限区域中的常用动作
+
+- Import: `import { IconButton } from '@qhkg/react'`
+- Status: beta
+- Use when: 工具栏中的熟悉动作；空间有限且图标含义清晰
+- Avoid when: 动作含义无法由常见图标表达；需要同时解释动作结果
+- Mobile: 默认触控区域为 44px 方形；不能只在悬停时显示
+- Accessibility: aria-label 是必填的类型属性；图标本身从辅助技术中隐藏；loading 时阻止重复激活
+- Related: Button, Tooltip
+- Storybook: https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
+
+## Inline
+
+使用设计 Token 间距横向排列并按需换行
+
+- Import: `import { Inline } from '@qhkg/react'`
+- Status: beta
+- Use when: 操作按钮横向排列；标签和元数据需要自动换行
+- Avoid when: 内容应纵向排列；需要严格二维列结构
+- Mobile: 默认允许换行，避免页面横向溢出
+- Accessibility: 只负责视觉排列，不改变阅读顺序
+- Related: Stack, Grid
+- Storybook: https://design.qihao.dev/?path=/docs/layout-inline--docs
+
+## Input
+
+输入单行文本、邮箱、密码及其他原生输入值
+
+- Import: `import { Input } from '@qhkg/react'`
+- Status: beta
+- Use when: 输入单行文本；需要保留原生 input 表单能力
+- Avoid when: 输入多行内容；从固定选项中选择
+- Mobile: 字号不小于 16px，避免移动端自动缩放；默认高度为 44px 且宽度适应容器
+- Accessibility: 必须搭配可见 Label 或 aria-label；invalid 时设置 aria-invalid；保留原生 autocomplete、name 和 inputMode
+- Related: Field, Textarea, Select
+- Storybook: https://design.qihao.dev/?path=/docs/forms-input--docs
+
+## Menu
+
+从触发器打开一组临时操作或可选设置
+
+- Import: `import { Menu } from '@qhkg/react'`
+- Status: beta
+- Use when: 收纳与当前对象相关的操作；提供短列表式的临时选择
+- Avoid when: 用户需要持续看到所有选项；承载复杂表单或长篇内容
+- Mobile: 条目触控高度至少 44px；菜单宽度和高度不会超出可见视口
+- Accessibility: 使用 Menu.Trigger 关联触发器；支持方向键、Home、End、Enter 和 Escape；关闭后焦点返回触发器
+- Related: Popover, Select, Button
+- Storybook: https://design.qihao.dev/?path=/docs/navigation-menu--docs
+
+## PageContainer
+
+限制页面内容宽度并提供移动端优先的标准页边距
+
+- Import: `import { PageContainer } from '@qhkg/react'`
+- Status: beta
+- Use when: 页面主体需要居中和统一边距；长文本需要受控阅读宽度
+- Avoid when: 组件内部的局部间距；需要排列兄弟元素
+- Mobile: 默认使用 16px 页面边距；在更宽视口自动增加边距
+- Accessibility: 不自动添加 main 等地标语义；调用方负责选择正确的页面结构元素
+- Related: Stack, Grid
+- Storybook: https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
+
+## Popover
+
+在触发器附近展示可交互的补充内容
+
+- Import: `import { Popover } from '@qhkg/react'`
+- Status: beta
+- Use when: 展示与触发器相关的少量信息或控件；内容需要接收键盘焦点
+- Avoid when: 只需显示一句非交互提示；内容需要阻断页面并要求完成任务
+- Mobile: 内容自动避让视口边缘；最大高度使用动态视口并允许滚动
+- Accessibility: 触发器和内容由 Radix 自动关联；Escape 和外部点击会关闭；关闭后焦点返回触发器
+- Related: Tooltip, Menu, Dialog
+- Storybook: https://design.qihao.dev/?path=/docs/overlays-popover--docs
+
+## Progress
+
+显示一个持续任务的完成比例或未知时长状态
+
+- Import: `import { Progress } from '@qhkg/react'`
+- Status: beta
+- Use when: 任务有可量化进度；需要表达正在处理但时长未知
+- Avoid when: 只需要表示按钮正在提交；任务已经立即完成
+- Mobile: 自动适应容器宽度；长标签与百分比保持可读
+- Accessibility: label 是必填的可访问名称；null value 表示不确定进度；尊重减少动态效果设置
+- Related: Skeleton, Button
+- Storybook: https://design.qihao.dev/?path=/docs/feedback-progress--docs
+
+## RadioGroup
+
+从一组互斥选项中选择一个值
+
+- Import: `import { RadioGroup } from '@qhkg/react'`
+- Status: beta
+- Use when: 选项互斥且需要同时展示；选项数量较少并需要快速比较
+- Avoid when: 允许同时选择多个选项；选项很多或需要搜索
+- Mobile: 每个选项整行可点击且触控高度不少于 44px；长标签允许自然换行
+- Accessibility: 支持方向键在选项间移动；必须通过 Field.Label 或 aria-label 提供组名称
+- Related: Checkbox, Select, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
+
+## Select
+
+从较短的固定选项列表中选择一个值
+
+- Import: `import { Select } from '@qhkg/react'`
+- Status: beta
+- Use when: 选项固定且数量较少；需要原生表单提交能力
+- Avoid when: 选项需要搜索；允许选择多个复杂对象；选项只有开和关两种状态
+- Mobile: 使用系统原生选择体验；默认高度 44px 且宽度适应容器
+- Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为
+- Related: Field, RadioGroup, Switch
+- Storybook: https://design.qihao.dev/?path=/docs/forms-select--docs
+
+## Separator
+
+在相邻内容区域之间提供视觉或语义分隔
+
+- Import: `import { Separator } from '@qhkg/react'`
+- Status: beta
+- Use when: 相邻内容需要轻量分组；工具栏项目需要垂直分隔
+- Avoid when: 应通过间距表达层级；需要新的内容容器
+- Mobile: 横向分隔线自动适应容器宽度
+- Accessibility: 默认 decorative 为 true；只有分隔具有结构含义时才设置 decorative false
+- Related: Card, Stack, Inline
+- Storybook: https://design.qihao.dev/?path=/docs/surfaces-separator--docs
+
+## Skeleton
+
+在内容加载时保留大致布局并降低视觉跳动
+
+- Import: `import { Skeleton } from '@qhkg/react'`
+- Status: beta
+- Use when: 已知内容的大致形状；加载时间足以感知且需要保留布局
+- Avoid when: 有真实可量化进度；加载几乎立即完成
+- Mobile: 宽度默认适应容器；形状应与最终移动端布局接近
+- Accessibility: Skeleton 自身始终对辅助技术隐藏；加载容器应设置 aria-busy 和可访问名称；尊重减少动态效果设置
+- Related: Progress, Card
+- Storybook: https://design.qihao.dev/?path=/docs/feedback-skeleton--docs
+
+## Stack
+
+使用设计 Token 间距纵向排列一组元素
+
+- Import: `import { Stack } from '@qhkg/react'`
+- Status: beta
+- Use when: 表单字段纵向排列；卡片或页面区块需要一致垂直间距
+- Avoid when: 元素主要横向排列；需要二维网格
+- Mobile: 纵向布局天然适配窄屏
+- Accessibility: 只负责布局，不改变子元素语义和顺序
+- Related: Inline, Grid, PageContainer
+- Storybook: https://design.qihao.dev/?path=/docs/layout-stack--docs
+
+## Switch
+
+立即开启或关闭一个设置
+
+- Import: `import { Switch } from '@qhkg/react'`
+- Status: beta
+- Use when: 切换会立即生效的设置；表达清晰的开关状态
+- Avoid when: 需要提交表单后才生效；一组选项需要多选
+- Mobile: 标签与开关组成不少于 44px 高的点击区域
+- Accessibility: 使用 switch 语义并公开 checked 状态；children 提供可见且可点击的名称
+- Related: Checkbox, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-switch--docs
+
+## Table
+
+使用原生表格语义展示需要按行列比较的结构化数据
+
+- Import: `import { Table } from '@qhkg/react'`
+- Status: beta
+- Use when: 用户需要比较多个对象的相同字段；数据具有清晰的行列关系
+- Avoid when: 移动端只需要展示少量互不比较的字段；需要完整的数据网格、排序或虚拟滚动行为
+- Mobile: 使用 minWidth 控制列宽并只在 Table 容器内横向滚动；不会造成页面级横向溢出
+- Accessibility: 使用 Caption 提供表格名称或说明；横向滚动容器可通过键盘聚焦和滚动，使用 scrollContainerLabel 提供区域名称；列标题使用 Table.Head，行标题设置 scope=row；numeric 只负责对齐，不替代字段标题
+- Related: Badge, EmptyState, Checkbox
+- Storybook: https://design.qihao.dev/?path=/docs/data-table--docs
+
+## Tabs
+
+在同一页面区域内切换并列内容视图
+
+- Import: `import { Tabs } from '@qhkg/react'`
+- Status: beta
+- Use when: 内容属于同一级别且用户需要快速切换；切换不会改变页面地址
+- Avoid when: 步骤有严格先后顺序；内容需要独立链接和浏览器历史
+- Mobile: 标签列表可水平滚动；触发区域至少 44px 高
+- Accessibility: Tabs.List 必须提供可访问名称；方向键移动焦点并在默认模式下激活标签；禁用标签会从键盘导航中跳过
+- Related: Menu, Button
+- Storybook: https://design.qihao.dev/?path=/docs/navigation-tabs--docs
+
+## Textarea
+
+输入可换行的较长文本内容
+
+- Import: `import { Textarea } from '@qhkg/react'`
+- Status: beta
+- Use when: 输入备注、描述或反馈；内容可能包含多行文本
+- Avoid when: 输入简短的单行值；编辑富文本内容
+- Mobile: 使用 16px 字号并适应容器宽度；默认允许用户纵向调整高度
+- Accessibility: 必须搭配可见 Label 或 aria-label；错误信息由 Field 自动关联
+- Related: Field, Input
+- Storybook: https://design.qihao.dev/?path=/docs/forms-textarea--docs
+
+## Toast
+
+短暂反馈后台结果，并允许可选的轻量后续操作
+
+- Import: `import { Toast } from '@qhkg/react'`
+- Status: beta
+- Use when: 操作结果无需阻断当前任务；反馈会自动消失且不要求立即处理
+- Avoid when: 错误必须持续可见；操作需要用户确认后才能继续
+- Mobile: 通知位于安全区域上方并占据可用宽度；支持向右滑动关闭
+- Accessibility: 应用根部放置一个 Toast.Provider；Action 必须提供描述替代操作方式的 altText；F8 可把焦点移动到通知区域
+- Related: Alert, AlertDialog
+- Storybook: https://design.qihao.dev/?path=/docs/feedback-toast--docs
+
+## Tooltip
+
+在悬停或键盘聚焦时显示简短的非交互说明
+
+- Import: `import { Tooltip } from '@qhkg/react'`
+- Status: beta
+- Use when: 解释图标按钮或陌生术语；补充一句不影响任务的说明
+- Avoid when: 提示包含按钮或链接；信息对完成任务至关重要
+- Mobile: 不把 Tooltip 作为触屏用户获取关键信息的唯一方式；内容自动避让视口边缘
+- Accessibility: 键盘聚焦与悬停都可触发；内容通过描述关系关联触发器；Tooltip 内不放交互控件
+- Related: Popover, IconButton
+- Storybook: https://design.qihao.dev/?path=/docs/overlays-tooltip--docs
+
+## VisuallyHidden
+
+在视觉上隐藏内容，同时保留辅助技术可访问性
+
+- Import: `import { VisuallyHidden } from '@qhkg/react'`
+- Status: stable
+- Use when: 图标控件需要额外可访问文本；可见上下文不足以表达语义
+- Avoid when: 内容也必须对视觉用户可见；隐藏交互控件
+- Mobile: 行为不随视口变化
+- Accessibility: 只隐藏视觉呈现，不使用 display none 或 visibility hidden
+- Related: Button
+- Storybook: https://design.qihao.dev/?path=/docs/foundation-visuallyhidden--docs

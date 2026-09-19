@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "componentPackage": "@qhkg/react",
+  "componentVersion": "0.2.0",
+  "components": [
+    {
+      "name": "Alert",
+      "summary": "展示需要用户注意的持久反馈或状态说明",
+      "status": "beta",
+      "import": "import { Alert } from '@qhkg/react'",
+      "storybookId": "feedback-alert",
+      "whenToUse": ["反馈需要持续可见", "说明当前页面或操作状态"],
+      "avoidWhen": ["短暂且无需处理的成功提示", "确认不可逆操作"],
+      "mobile": ["图标与文字保持两列，内容自然换行", "操作区域不会依赖悬停"],
+      "accessibility": [
+        "danger 默认使用 alert 语义",
+        "其他 tone 默认使用 status 语义",
+        "状态不能只通过颜色表达"
+      ],
+      "related": ["Badge", "Toast", "AlertDialog"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "WithAction",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "AlertDialog",
+      "summary": "要求用户明确确认或取消高风险、不可逆操作",
+      "status": "beta",
+      "import": "import { AlertDialog } from '@qhkg/react'",
+      "storybookId": "overlays-alertdialog",
+      "whenToUse": ["操作不可逆或会造成明显损失", "必须阻止误触并要求明确选择"],
+      "avoidWhen": ["只是告知结果", "任务是普通编辑或设置"],
+      "mobile": [
+        "危险操作与取消操作纵向排列",
+        "安全的取消操作在视觉和焦点上优先"
+      ],
+      "accessibility": [
+        "必须提供 Title 和 Description",
+        "打开后默认聚焦 Cancel",
+        "Escape 等同取消且不会执行 Action"
+      ],
+      "related": ["Dialog", "Alert", "Toast"],
+      "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Badge",
+      "summary": "用紧凑标签显示状态、类别或少量元数据",
+      "status": "beta",
+      "import": "import { Badge } from '@qhkg/react'",
+      "storybookId": "data-display-badge",
+      "whenToUse": ["显示对象状态", "展示简短类别或属性"],
+      "avoidWhen": ["触发动作", "承载完整句子或关键错误说明"],
+      "mobile": ["保持紧凑并允许外部布局换行"],
+      "accessibility": [
+        "状态文本必须独立于颜色可理解",
+        "Badge 本身不具有按钮语义"
+      ],
+      "related": ["Alert", "Button"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Button",
+      "summary": "触发当前页面中的动作或提交表单",
+      "status": "beta",
+      "import": "import { Button } from '@qhkg/react'",
+      "storybookId": "actions-button",
+      "whenToUse": ["提交表单", "触发页面内动作", "打开弹层"],
+      "avoidWhen": ["导航到另一个 URL", "仅展示状态"],
+      "mobile": [
+        "默认 md 尺寸为 44px 高",
+        "主要操作区域在窄屏可以由页面布局设为全宽"
+      ],
+      "accessibility": [
+        "默认 type 为 button",
+        "loading 时设置 aria-busy 并阻止重复激活",
+        "保留可见的 focus-visible 轮廓"
+      ],
+      "related": ["ButtonLink", "AlertDialog"],
+      "stories": ["Default", "Variants", "Loading", "Disabled", "Mobile"]
+    },
+    {
+      "name": "ButtonLink",
+      "summary": "以按钮视觉层级导航到一个 URL",
+      "status": "beta",
+      "import": "import { ButtonLink } from '@qhkg/react'",
+      "storybookId": "actions-button",
+      "whenToUse": ["主要或次要导航需要按钮视觉层级"],
+      "avoidWhen": ["提交表单", "执行无 URL 的页面动作"],
+      "mobile": ["默认 md 尺寸为 44px 高"],
+      "accessibility": ["保留原生链接语义和 href", "不模拟 disabled 链接"],
+      "related": ["Button", "Link"],
+      "stories": ["AsLink"]
+    },
+    {
+      "name": "Card",
+      "summary": "将一组相关信息和操作组织成独立表面",
+      "status": "beta",
+      "import": "import { Card } from '@qhkg/react'",
+      "storybookId": "surfaces-card",
+      "whenToUse": ["信息需要独立分组", "列表项目包含标题、正文和操作"],
+      "avoidWhen": ["仅需要分隔相邻内容", "整页都放入同一张卡片"],
+      "mobile": ["默认适应容器宽度", "Footer 操作允许自动换行"],
+      "accessibility": [
+        "不会自动改变内容语义",
+        "Card.Title 默认使用三级标题，页面需保持标题层级合理"
+      ],
+      "related": ["Separator", "Stack", "Grid"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Checkbox",
+      "summary": "选择可独立开启或关闭的一个或多个选项",
+      "status": "beta",
+      "import": "import { Checkbox } from '@qhkg/react'",
+      "storybookId": "forms-checkbox",
+      "whenToUse": ["多个选项可以同时选择", "用户需要确认一个独立条件"],
+      "avoidWhen": ["一组选项只能选择一个", "立即控制系统功能的开关"],
+      "mobile": ["整行标签均可点击且触控高度不少于 44px"],
+      "accessibility": [
+        "children 提供可见且可点击的名称",
+        "支持 checked 和 indeterminate 语义",
+        "使用 Space 键切换"
+      ],
+      "related": ["RadioGroup", "Switch", "Field"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Dialog",
+      "summary": "在模态窗口中承载需要集中完成的普通任务",
+      "status": "beta",
+      "import": "import { Dialog } from '@qhkg/react'",
+      "storybookId": "overlays-dialog",
+      "whenToUse": [
+        "用户需要完成一个短任务而不离开当前页面",
+        "需要暂时阻断背景交互"
+      ],
+      "avoidWhen": ["确认不可逆或高风险操作", "内容复杂到需要独立页面"],
+      "mobile": [
+        "宽度保留 16px 视口边距",
+        "最大高度使用动态视口并在内容区滚动",
+        "操作按钮在窄屏纵向排列"
+      ],
+      "accessibility": [
+        "必须同时提供 Dialog.Title 和 Dialog.Description",
+        "打开后锁定焦点，Escape 关闭",
+        "关闭后焦点返回触发器"
+      ],
+      "related": ["AlertDialog", "Drawer", "Popover"],
+      "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Drawer",
+      "summary": "从屏幕底部展开适合移动端的模态任务面板",
+      "status": "beta",
+      "import": "import { Drawer } from '@qhkg/react'",
+      "storybookId": "overlays-drawer",
+      "whenToUse": [
+        "移动端需要展示筛选、分享或短表单",
+        "内容比 Popover 多但仍属于当前上下文"
+      ],
+      "avoidWhen": ["只是显示一句提示", "桌面端需要复杂且长期存在的侧栏"],
+      "mobile": [
+        "从底部进入并适配安全区域",
+        "最大高度使用动态视口且内容可滚动",
+        "操作区域保持在内容底部"
+      ],
+      "accessibility": [
+        "语义和焦点行为与 Dialog 一致",
+        "必须提供 Title 和 Description",
+        "Escape 与关闭操作会还原焦点"
+      ],
+      "related": ["Dialog", "Popover"],
+      "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+    },
+    {
+      "name": "EmptyState",
+      "summary": "解释没有内容的原因并提供明确的下一步",
+      "status": "beta",
+      "import": "import { EmptyState } from '@qhkg/react'",
+      "storybookId": "feedback-emptystate",
+      "whenToUse": ["列表或页面暂时没有内容", "筛选结果为空并需要恢复建议"],
+      "avoidWhen": ["内容仍在加载", "发生需要立即处理的错误"],
+      "mobile": ["内容居中并保持紧凑", "主要操作保持至少 44px 触控高度"],
+      "accessibility": [
+        "title 使用标题语义",
+        "图标默认作为装饰隐藏",
+        "操作使用真实 Button 或 ButtonLink"
+      ],
+      "related": ["Skeleton", "Alert", "Button"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Field",
+      "summary": "组合表单标签、说明、错误信息和控件的可访问容器",
+      "status": "beta",
+      "import": "import { Field } from '@qhkg/react'",
+      "storybookId": "forms-field",
+      "whenToUse": ["为表单控件提供可见标签", "统一展示说明与校验错误"],
+      "avoidWhen": ["展示与表单无关的文本", "替代完整的表单校验方案"],
+      "mobile": ["默认纵向排列并适应容器宽度", "错误信息不会依赖悬停展示"],
+      "accessibility": [
+        "自动关联 Label 与控件",
+        "自动通过 aria-describedby 关联说明和错误",
+        "错误信息使用 alert 语义"
+      ],
+      "related": ["Input", "Textarea", "Select", "RadioGroup"],
+      "stories": [
+        "Default",
+        "Playground",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Grid",
+      "summary": "以移动端优先的受控列数排列二维内容",
+      "status": "beta",
+      "import": "import { Grid } from '@qhkg/react'",
+      "storybookId": "layout-grid",
+      "whenToUse": ["卡片或数据块需要二维排列", "列数需要在标准断点变化"],
+      "avoidWhen": ["只有单一纵向内容流", "项目宽度完全由内容决定"],
+      "mobile": ["base 默认一列", "md 从 768px、lg 从 1024px 生效"],
+      "accessibility": ["视觉列数不会改变 DOM 和阅读顺序"],
+      "related": ["Stack", "Inline", "PageContainer", "Card"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "IconButton",
+      "summary": "以单个图标触发空间受限区域中的常用动作",
+      "status": "beta",
+      "import": "import { IconButton } from '@qhkg/react'",
+      "storybookId": "actions-iconbutton",
+      "whenToUse": ["工具栏中的熟悉动作", "空间有限且图标含义清晰"],
+      "avoidWhen": ["动作含义无法由常见图标表达", "需要同时解释动作结果"],
+      "mobile": ["默认触控区域为 44px 方形", "不能只在悬停时显示"],
+      "accessibility": [
+        "aria-label 是必填的类型属性",
+        "图标本身从辅助技术中隐藏",
+        "loading 时阻止重复激活"
+      ],
+      "related": ["Button", "Tooltip"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Loading",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Inline",
+      "summary": "使用设计 Token 间距横向排列并按需换行",
+      "status": "beta",
+      "import": "import { Inline } from '@qhkg/react'",
+      "storybookId": "layout-inline",
+      "whenToUse": ["操作按钮横向排列", "标签和元数据需要自动换行"],
+      "avoidWhen": ["内容应纵向排列", "需要严格二维列结构"],
+      "mobile": ["默认允许换行，避免页面横向溢出"],
+      "accessibility": ["只负责视觉排列，不改变阅读顺序"],
+      "related": ["Stack", "Grid"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Input",
+      "summary": "输入单行文本、邮箱、密码及其他原生输入值",
+      "status": "beta",
+      "import": "import { Input } from '@qhkg/react'",
+      "storybookId": "forms-input",
+      "whenToUse": ["输入单行文本", "需要保留原生 input 表单能力"],
+      "avoidWhen": ["输入多行内容", "从固定选项中选择"],
+      "mobile": [
+        "字号不小于 16px，避免移动端自动缩放",
+        "默认高度为 44px 且宽度适应容器"
+      ],
+      "accessibility": [
+        "必须搭配可见 Label 或 aria-label",
+        "invalid 时设置 aria-invalid",
+        "保留原生 autocomplete、name 和 inputMode"
+      ],
+      "related": ["Field", "Textarea", "Select"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Menu",
+      "summary": "从触发器打开一组临时操作或可选设置",
+      "status": "beta",
+      "import": "import { Menu } from '@qhkg/react'",
+      "storybookId": "navigation-menu",
+      "whenToUse": ["收纳与当前对象相关的操作", "提供短列表式的临时选择"],
+      "avoidWhen": ["用户需要持续看到所有选项", "承载复杂表单或长篇内容"],
+      "mobile": ["条目触控高度至少 44px", "菜单宽度和高度不会超出可见视口"],
+      "accessibility": [
+        "使用 Menu.Trigger 关联触发器",
+        "支持方向键、Home、End、Enter 和 Escape",
+        "关闭后焦点返回触发器"
+      ],
+      "related": ["Popover", "Select", "Button"],
+      "stories": [
+        "Default",
+        "Playground",
+        "KeyboardNavigation",
+        "CheckboxItems",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "PageContainer",
+      "summary": "限制页面内容宽度并提供移动端优先的标准页边距",
+      "status": "beta",
+      "import": "import { PageContainer } from '@qhkg/react'",
+      "storybookId": "layout-pagecontainer",
+      "whenToUse": ["页面主体需要居中和统一边距", "长文本需要受控阅读宽度"],
+      "avoidWhen": ["组件内部的局部间距", "需要排列兄弟元素"],
+      "mobile": ["默认使用 16px 页面边距", "在更宽视口自动增加边距"],
+      "accessibility": [
+        "不自动添加 main 等地标语义",
+        "调用方负责选择正确的页面结构元素"
+      ],
+      "related": ["Stack", "Grid"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Popover",
+      "summary": "在触发器附近展示可交互的补充内容",
+      "status": "beta",
+      "import": "import { Popover } from '@qhkg/react'",
+      "storybookId": "overlays-popover",
+      "whenToUse": ["展示与触发器相关的少量信息或控件", "内容需要接收键盘焦点"],
+      "avoidWhen": ["只需显示一句非交互提示", "内容需要阻断页面并要求完成任务"],
+      "mobile": ["内容自动避让视口边缘", "最大高度使用动态视口并允许滚动"],
+      "accessibility": [
+        "触发器和内容由 Radix 自动关联",
+        "Escape 和外部点击会关闭",
+        "关闭后焦点返回触发器"
+      ],
+      "related": ["Tooltip", "Menu", "Dialog"],
+      "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Progress",
+      "summary": "显示一个持续任务的完成比例或未知时长状态",
+      "status": "beta",
+      "import": "import { Progress } from '@qhkg/react'",
+      "storybookId": "feedback-progress",
+      "whenToUse": ["任务有可量化进度", "需要表达正在处理但时长未知"],
+      "avoidWhen": ["只需要表示按钮正在提交", "任务已经立即完成"],
+      "mobile": ["自动适应容器宽度", "长标签与百分比保持可读"],
+      "accessibility": [
+        "label 是必填的可访问名称",
+        "null value 表示不确定进度",
+        "尊重减少动态效果设置"
+      ],
+      "related": ["Skeleton", "Button"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Indeterminate",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "summary": "从一组互斥选项中选择一个值",
+      "status": "beta",
+      "import": "import { RadioGroup } from '@qhkg/react'",
+      "storybookId": "forms-radiogroup",
+      "whenToUse": ["选项互斥且需要同时展示", "选项数量较少并需要快速比较"],
+      "avoidWhen": ["允许同时选择多个选项", "选项很多或需要搜索"],
+      "mobile": [
+        "每个选项整行可点击且触控高度不少于 44px",
+        "长标签允许自然换行"
+      ],
+      "accessibility": [
+        "支持方向键在选项间移动",
+        "必须通过 Field.Label 或 aria-label 提供组名称"
+      ],
+      "related": ["Checkbox", "Select", "Field"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Select",
+      "summary": "从较短的固定选项列表中选择一个值",
+      "status": "beta",
+      "import": "import { Select } from '@qhkg/react'",
+      "storybookId": "forms-select",
+      "whenToUse": ["选项固定且数量较少", "需要原生表单提交能力"],
+      "avoidWhen": [
+        "选项需要搜索",
+        "允许选择多个复杂对象",
+        "选项只有开和关两种状态"
+      ],
+      "mobile": ["使用系统原生选择体验", "默认高度 44px 且宽度适应容器"],
+      "accessibility": [
+        "必须搭配可见 Label 或 aria-label",
+        "保留原生键盘和触屏行为"
+      ],
+      "related": ["Field", "RadioGroup", "Switch"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Separator",
+      "summary": "在相邻内容区域之间提供视觉或语义分隔",
+      "status": "beta",
+      "import": "import { Separator } from '@qhkg/react'",
+      "storybookId": "surfaces-separator",
+      "whenToUse": ["相邻内容需要轻量分组", "工具栏项目需要垂直分隔"],
+      "avoidWhen": ["应通过间距表达层级", "需要新的内容容器"],
+      "mobile": ["横向分隔线自动适应容器宽度"],
+      "accessibility": [
+        "默认 decorative 为 true",
+        "只有分隔具有结构含义时才设置 decorative false"
+      ],
+      "related": ["Card", "Stack", "Inline"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Skeleton",
+      "summary": "在内容加载时保留大致布局并降低视觉跳动",
+      "status": "beta",
+      "import": "import { Skeleton } from '@qhkg/react'",
+      "storybookId": "feedback-skeleton",
+      "whenToUse": ["已知内容的大致形状", "加载时间足以感知且需要保留布局"],
+      "avoidWhen": ["有真实可量化进度", "加载几乎立即完成"],
+      "mobile": ["宽度默认适应容器", "形状应与最终移动端布局接近"],
+      "accessibility": [
+        "Skeleton 自身始终对辅助技术隐藏",
+        "加载容器应设置 aria-busy 和可访问名称",
+        "尊重减少动态效果设置"
+      ],
+      "related": ["Progress", "Card"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Static",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Stack",
+      "summary": "使用设计 Token 间距纵向排列一组元素",
+      "status": "beta",
+      "import": "import { Stack } from '@qhkg/react'",
+      "storybookId": "layout-stack",
+      "whenToUse": ["表单字段纵向排列", "卡片或页面区块需要一致垂直间距"],
+      "avoidWhen": ["元素主要横向排列", "需要二维网格"],
+      "mobile": ["纵向布局天然适配窄屏"],
+      "accessibility": ["只负责布局，不改变子元素语义和顺序"],
+      "related": ["Inline", "Grid", "PageContainer"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Switch",
+      "summary": "立即开启或关闭一个设置",
+      "status": "beta",
+      "import": "import { Switch } from '@qhkg/react'",
+      "storybookId": "forms-switch",
+      "whenToUse": ["切换会立即生效的设置", "表达清晰的开关状态"],
+      "avoidWhen": ["需要提交表单后才生效", "一组选项需要多选"],
+      "mobile": ["标签与开关组成不少于 44px 高的点击区域"],
+      "accessibility": [
+        "使用 switch 语义并公开 checked 状态",
+        "children 提供可见且可点击的名称"
+      ],
+      "related": ["Checkbox", "Field"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Table",
+      "summary": "使用原生表格语义展示需要按行列比较的结构化数据",
+      "status": "beta",
+      "import": "import { Table } from '@qhkg/react'",
+      "storybookId": "data-table",
+      "whenToUse": ["用户需要比较多个对象的相同字段", "数据具有清晰的行列关系"],
+      "avoidWhen": [
+        "移动端只需要展示少量互不比较的字段",
+        "需要完整的数据网格、排序或虚拟滚动行为"
+      ],
+      "mobile": [
+        "使用 minWidth 控制列宽并只在 Table 容器内横向滚动",
+        "不会造成页面级横向溢出"
+      ],
+      "accessibility": [
+        "使用 Caption 提供表格名称或说明",
+        "横向滚动容器可通过键盘聚焦和滚动，使用 scrollContainerLabel 提供区域名称",
+        "列标题使用 Table.Head，行标题设置 scope=row",
+        "numeric 只负责对齐，不替代字段标题"
+      ],
+      "related": ["Badge", "EmptyState", "Checkbox"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Empty",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Tabs",
+      "summary": "在同一页面区域内切换并列内容视图",
+      "status": "beta",
+      "import": "import { Tabs } from '@qhkg/react'",
+      "storybookId": "navigation-tabs",
+      "whenToUse": [
+        "内容属于同一级别且用户需要快速切换",
+        "切换不会改变页面地址"
+      ],
+      "avoidWhen": ["步骤有严格先后顺序", "内容需要独立链接和浏览器历史"],
+      "mobile": ["标签列表可水平滚动", "触发区域至少 44px 高"],
+      "accessibility": [
+        "Tabs.List 必须提供可访问名称",
+        "方向键移动焦点并在默认模式下激活标签",
+        "禁用标签会从键盘导航中跳过"
+      ],
+      "related": ["Menu", "Button"],
+      "stories": [
+        "Default",
+        "Playground",
+        "KeyboardNavigation",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Textarea",
+      "summary": "输入可换行的较长文本内容",
+      "status": "beta",
+      "import": "import { Textarea } from '@qhkg/react'",
+      "storybookId": "forms-textarea",
+      "whenToUse": ["输入备注、描述或反馈", "内容可能包含多行文本"],
+      "avoidWhen": ["输入简短的单行值", "编辑富文本内容"],
+      "mobile": ["使用 16px 字号并适应容器宽度", "默认允许用户纵向调整高度"],
+      "accessibility": [
+        "必须搭配可见 Label 或 aria-label",
+        "错误信息由 Field 自动关联"
+      ],
+      "related": ["Field", "Input"],
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "Invalid",
+        "Disabled",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "Toast",
+      "summary": "短暂反馈后台结果，并允许可选的轻量后续操作",
+      "status": "beta",
+      "import": "import { Toast } from '@qhkg/react'",
+      "storybookId": "feedback-toast",
+      "whenToUse": [
+        "操作结果无需阻断当前任务",
+        "反馈会自动消失且不要求立即处理"
+      ],
+      "avoidWhen": ["错误必须持续可见", "操作需要用户确认后才能继续"],
+      "mobile": ["通知位于安全区域上方并占据可用宽度", "支持向右滑动关闭"],
+      "accessibility": [
+        "应用根部放置一个 Toast.Provider",
+        "Action 必须提供描述替代操作方式的 altText",
+        "F8 可把焦点移动到通知区域"
+      ],
+      "related": ["Alert", "AlertDialog"],
+      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+    },
+    {
+      "name": "Tooltip",
+      "summary": "在悬停或键盘聚焦时显示简短的非交互说明",
+      "status": "beta",
+      "import": "import { Tooltip } from '@qhkg/react'",
+      "storybookId": "overlays-tooltip",
+      "whenToUse": ["解释图标按钮或陌生术语", "补充一句不影响任务的说明"],
+      "avoidWhen": ["提示包含按钮或链接", "信息对完成任务至关重要"],
+      "mobile": [
+        "不把 Tooltip 作为触屏用户获取关键信息的唯一方式",
+        "内容自动避让视口边缘"
+      ],
+      "accessibility": [
+        "键盘聚焦与悬停都可触发",
+        "内容通过描述关系关联触发器",
+        "Tooltip 内不放交互控件"
+      ],
+      "related": ["Popover", "IconButton"],
+      "stories": [
+        "Default",
+        "Playground",
+        "KeyboardFocus",
+        "LongContent",
+        "Mobile"
+      ]
+    },
+    {
+      "name": "VisuallyHidden",
+      "summary": "在视觉上隐藏内容，同时保留辅助技术可访问性",
+      "status": "stable",
+      "import": "import { VisuallyHidden } from '@qhkg/react'",
+      "storybookId": "foundation-visuallyhidden",
+      "whenToUse": ["图标控件需要额外可访问文本", "可见上下文不足以表达语义"],
+      "avoidWhen": ["内容也必须对视觉用户可见", "隐藏交互控件"],
+      "mobile": ["行为不随视口变化"],
+      "accessibility": [
+        "只隐藏视觉呈现，不使用 display none 或 visibility hidden"
+      ],
+      "related": ["Button"],
+      "stories": ["Default"]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@qhkg/create-qh-design",
+  "version": "0.0.0",
+  "description": "Deterministic QH Design onboarding for React projects and AI agents",
+  "license": "MIT",
+  "homepage": "https://design.qihao.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qihaokaigong/qh-design.git",
+    "directory": "packages/create-qh-design"
+  },
+  "bugs": {
+    "url": "https://github.com/qihaokaigong/qh-design/issues"
+  },
+  "type": "module",
+  "bin": {
+    "create-qh-design": "./bin/create-qh-design.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node --check bin/create-qh-design.mjs && node --check src/index.mjs",
+    "test": "node --test",
+    "typecheck": "node --check bin/create-qh-design.mjs && node --check src/index.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

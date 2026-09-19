@@ -1,0 +1,15 @@
+interface:
+  display_name: "QH Design"
+  short_description: "Use QH components with project-aware guidance"
+  default_prompt: "Use $qh-design to inspect this project and implement the requested UI with documented QH components."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "qhDesignDocs"
+      description: "QH Storybook component documentation"
+      transport: "streamable_http"
+      url: "https://design.qihao.dev/mcp"
+
+policy:
+  allow_implicit_invocation: true

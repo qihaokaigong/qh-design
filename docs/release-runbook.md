@@ -1,9 +1,9 @@
 # QH Design System 发布手册
 
 日期：2026-09-19
-状态：Storybook、Registry、AI 文档与 MCP 已上线；`@qhkg/react@0.1.0` 与 `@qhkg/tokens@0.1.0` 已公开发布；Trusted Publisher 待启用
+状态：Storybook、Registry、AI 文档与 MCP 已上线；`@qhkg/react@0.2.0` 与 `@qhkg/tokens@0.2.0` 已公开发布；Trusted Publisher 与 2FA 已启用
 
-本手册描述公共 npm 包、Storybook 与 MCP 的发布边界。公开仓库、Cloudflare Pages、自定义域名、MCP Worker 与 npm 首发包均已启用；后续自动发布仍需完成 Trusted Publisher 配置。
+本手册描述公共 npm 包、Storybook 与 MCP 的发布边界。公开仓库、Cloudflare Pages、自定义域名、MCP Worker、npm 公共包与 Trusted Publisher 均已启用。
 
 ## 自动化范围
 
@@ -26,7 +26,7 @@
 
 ### npm
 
-为 `@qhkg/react` 和 `@qhkg/tokens` 配置 Trusted Publisher：
+为 `@qhkg/react`、`@qhkg/tokens` 和 `@qhkg/create-qh-design` 配置 Trusted Publisher：
 
 - Provider：GitHub Actions
 - GitHub repository：实际公开仓库
@@ -84,6 +84,8 @@ pnpm release:verify
 
 - npm 包的公开访问与 provenance 配置。
 - 每个 exports 目标都存在并进入 tarball。
+- 每个命令行入口都存在并进入 tarball。
+- React tarball 包含与自身版本一致的 `qh-design` Skill。
 - tarball 不包含测试和 Story 源文件。
 - React 构建产物可以在 Node 环境导入。
 - Registry 依赖版本与 React 包版本一致。
