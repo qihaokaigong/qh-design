@@ -1,5 +1,10 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath } from "node:url";
+
+const reactSource = fileURLToPath(
+  new URL("../../../packages/react/src/index.ts", import.meta.url),
+);
 
 const config: StorybookConfig = {
   stories: [
@@ -23,6 +28,17 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     config.plugins ??= [];
     config.plugins.push(tailwindcss());
+    config.resolve ??= {};
+    const aliases = config.resolve.alias ?? [];
+    config.resolve.alias = [
+      ...(Array.isArray(aliases)
+        ? aliases
+        : Object.entries(aliases).map(([find, replacement]) => ({
+            find,
+            replacement,
+          }))),
+      { find: /^@qhkg\/react$/, replacement: reactSource },
+    ];
     config.optimizeDeps ??= {};
     config.optimizeDeps.include = [
       ...(config.optimizeDeps.include ?? []),
