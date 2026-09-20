@@ -1,5 +1,12 @@
 # @qhkg/react
 
+## 0.4.0
+
+### Minor Changes
+
+- 5bdda7d: Add a mobile-first Pagination component with controlled button and URL link modes, responsive page ranges, localized labels, and accessible current-page semantics.
+- d056378: Add a mobile-first Breadcrumb component with semantic hierarchy, automatic ancestor collapsing, localized expansion controls, custom separators, and RTL support.
+
 ## 0.3.0
 
 ### Minor Changes
