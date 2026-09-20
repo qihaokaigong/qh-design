@@ -107,3 +107,19 @@ import { Pagination } from "@qhkg/react";
 ```
 
 在小于 640px 的容器中，分页器只展示上一页、当前进度和下一页；更宽时自动展示边界页、相邻页和省略号。
+
+面包屑通过有序数据描述从最高层级到当前页面的路径。最后一项会自动标记为当前页面：
+
+```tsx
+import { Breadcrumb } from "@qhkg/react";
+
+<Breadcrumb
+  items={[
+    { id: "home", label: "首页", href: "/" },
+    { id: "components", label: "组件", href: "/components" },
+    { id: "breadcrumb", label: "面包屑" },
+  ]}
+/>;
+```
+
+祖先项应提供 `href`，当前项可以不提供。超过三个层级时，小于 640px 的视图会自动折叠中间层级；用户可通过省略按钮展开完整路径。组件不绑定 Next.js 或 React Router，业务项目负责自己的路由策略。

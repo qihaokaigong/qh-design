@@ -136,6 +136,29 @@ QH 采用的结论：
 - [MUI Pagination](https://mui.com/material-ui/react-pagination/)
 - [WAI-ARIA Navigation Landmark](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html)
 
+## 7. Breadcrumb 组件级参考
+
+面包屑采用开源社区中已经验证的语义结构与响应式收敛方式，不增加新的运行时依赖：
+
+- WAI-ARIA APG 定义了带名称的 `nav` 地标、有序路径和当前页 `aria-current="page"`。
+- shadcn/ui 将根节点、列表、链接、当前页、分隔符和折叠提示划分为明确职责，并支持自定义分隔符与 RTL。
+- MUI 使用首尾保留的折叠模型处理较长路径，并将装饰分隔符从辅助技术中隐藏。
+- React Spectrum 支持由有序数据动态生成路径，并在空间受限时自动收敛可见层级。
+
+QH 采用的结论：
+
+1. 使用有序 `items` 作为主 API，由组件统一生成语义、分隔符和当前页状态，减少 AI 组合错误。
+2. 最后一项自动视为当前页面；上级项目使用原生 `href`，组件不绑定任何路由框架。
+3. 320px 起，超过三个层级时保留根节点与当前页面，中间层级通过 44px 省略按钮展开；640px 起完整展示。
+4. 所有朗读文本均可本地化，并支持自定义分隔符、可链接当前页和 RTL。
+
+资料：
+
+- [WAI-ARIA Breadcrumb Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/)
+- [shadcn/ui Breadcrumb](https://ui.shadcn.com/docs/components/base/breadcrumb)
+- [MUI Breadcrumbs](https://mui.com/material-ui/react-breadcrumbs/)
+- [React Spectrum Breadcrumbs](https://react-spectrum.adobe.com/Breadcrumbs)
+
 ## 关键风险结论
 
 ### 不把 Tailwind 扫描责任交给使用方

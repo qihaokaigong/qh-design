@@ -7,6 +7,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Alert: 展示需要用户注意的持久反馈或状态说明 — https://design.qihao.dev/?path=/docs/feedback-alert--docs
 - AlertDialog: 要求用户明确确认或取消高风险、不可逆操作 — https://design.qihao.dev/?path=/docs/overlays-alertdialog--docs
 - Badge: 用紧凑标签显示状态、类别或少量元数据 — https://design.qihao.dev/?path=/docs/data-display-badge--docs
+- Breadcrumb: 显示当前页面在站点层级中的位置，并允许返回任一上级页面 — https://design.qihao.dev/?path=/docs/navigation-breadcrumb--docs
 - Button: 触发当前页面中的动作或提交表单 — https://design.qihao.dev/?path=/docs/actions-button--docs
 - ButtonLink: 以按钮视觉层级导航到一个 URL — https://design.qihao.dev/?path=/docs/actions-button--docs
 - Card: 将一组相关信息和操作组织成独立表面 — https://design.qihao.dev/?path=/docs/surfaces-card--docs

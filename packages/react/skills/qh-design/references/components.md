@@ -42,6 +42,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Related: Alert, Button
 - Storybook: https://design.qihao.dev/?path=/docs/data-display-badge--docs
 
+## Breadcrumb
+
+显示当前页面在站点层级中的位置，并允许返回任一上级页面
+
+- Import: `import { Breadcrumb } from '@qhkg/react'`
+- Status: beta
+- Use when: 页面位于两级或更深的信息层级中；用户需要理解当前位置并快速返回上级页面
+- Avoid when: 页面没有稳定的父子层级；仅需要在同级页面间切换，此时使用 Tabs 或主导航
+- Mobile: 超过三个层级时自动收起中间层级，保留根节点与当前页面；省略按钮保持 44px 触控尺寸，并可展开完整路径；长标签会截断，避免产生页面级横向滚动
+- Accessibility: 使用有名称的 nav 地标和有序列表表达路径层级；当前页面自动设置 aria-current=page；装饰分隔符从辅助技术中隐藏；折叠控制使用原生按钮并支持本地化名称
+- Related: Pagination, Tabs, Menu
+- Storybook: https://design.qihao.dev/?path=/docs/navigation-breadcrumb--docs
+
 ## Button
 
 触发当前页面中的动作或提交表单
