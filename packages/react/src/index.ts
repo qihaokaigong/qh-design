@@ -79,6 +79,14 @@ export { Input } from "./components/input";
 export type { InputProps } from "./components/input";
 export { PageContainer } from "./components/page-container";
 export type { PageContainerProps } from "./components/page-container";
+export { Pagination } from "./components/pagination";
+export type {
+  PaginationButtonProps,
+  PaginationItemAriaLabelContext,
+  PaginationItemType,
+  PaginationLinkProps,
+  PaginationProps,
+} from "./components/pagination";
 export { Popover } from "./components/popover";
 export type {
   PopoverCloseProps,

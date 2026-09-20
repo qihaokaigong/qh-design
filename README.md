@@ -43,7 +43,7 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 - Feedback：Alert、Progress、Skeleton、EmptyState
 - Data Display：Badge、Table
 - Layout：PageContainer、Stack、Inline、Grid
-- Navigation：Tabs、Menu
+- Navigation：Tabs、Menu、Pagination
 - Overlays：Popover、Tooltip、Dialog、AlertDialog、Drawer
 - Feedback（即时）：Toast
 
@@ -57,4 +57,4 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 
 Pattern 通过公开 shadcn Registry 交付，安装后代码归业务项目所有；它们组合 `@qhkg/react` 核心组件，但不复制核心组件实现。安装与接入方式见 [Registry 使用说明](registry/README.md)。
 
-所有核心组件均包含 TypeScript 类型、Story、测试和 AI 元数据；Pattern 包含可交互 Story、Registry 元数据和 AI 接入说明。`design.qihao.dev` 由 Cloudflare Pages 托管，`/mcp` 由独立 Cloudflare Worker 提供 Storybook 文档工具。仓库已具备跨浏览器 CI、部署检查、发布包契约检查和 npm OIDC 发布工作流；npm Trusted Publisher 与 2FA 已启用，`@qhkg/react@0.2.0` 和 `@qhkg/tokens@0.2.0` 已公开发布。
+所有核心组件均包含 TypeScript 类型、Story、测试和 AI 元数据；Pattern 包含可交互 Story、Registry 元数据和 AI 接入说明。`design.qihao.dev` 由 Cloudflare Pages 托管，`/mcp` 由独立 Cloudflare Worker 提供 Storybook 文档工具。仓库已具备跨浏览器 CI、部署检查、发布包契约检查和 npm OIDC 发布工作流；npm Trusted Publisher 与 2FA 已启用，`@qhkg/react@0.3.0` 和 `@qhkg/tokens@0.2.0` 已公开发布。

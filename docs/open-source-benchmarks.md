@@ -115,6 +115,27 @@ Storybook MCP 能从 TypeScript、JSDoc、Stories 和组件清单中暴露真实
 - [Storybook AI 文档最佳实践](https://storybook.js.org/docs/ai/best-practices)
 - [共享 Storybook MCP](https://storybook.js.org/docs/ai/mcp/sharing)
 
+## 6. Pagination 组件级参考
+
+分页器采用多个成熟方案中已经验证的职责边界，而不直接引入新的运行时依赖：
+
+- shadcn/ui 使用 `nav`、列表、链接和 `aria-current="page"` 组成分页导航，并将页码、上一页、下一页和省略号作为清晰的结构单元。
+- MUI 使用 `boundaryCount` 与 `siblingCount` 控制页码窗口，支持受控状态、URL 路由和可覆盖的可访问名称。
+- WAI-ARIA Authoring Practices 建议在页面存在多个导航区域时为导航地标提供可区分的名称。
+
+QH 采用的结论：
+
+1. API 使用从 1 开始的页码，避免 URL 页码与界面页码转换。
+2. 同时支持受控按钮模式和可抓取的 URL 链接模式，不绑定具体路由框架。
+3. 320px 起只显示上一页、当前进度和下一页；640px 起再显示页码窗口，避免页面横向溢出。
+4. 当前页使用 `aria-current="page"`，边界控件使用原生禁用按钮，并允许覆盖所有朗读文案。
+
+资料：
+
+- [shadcn/ui Pagination](https://ui.shadcn.com/docs/components/radix/pagination)
+- [MUI Pagination](https://mui.com/material-ui/react-pagination/)
+- [WAI-ARIA Navigation Landmark](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html)
+
 ## 关键风险结论
 
 ### 不把 Tailwind 扫描责任交给使用方

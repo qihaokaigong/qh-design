@@ -21,6 +21,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Input: 输入单行文本、邮箱、密码及其他原生输入值 — https://design.qihao.dev/?path=/docs/forms-input--docs
 - Menu: 从触发器打开一组临时操作或可选设置 — https://design.qihao.dev/?path=/docs/navigation-menu--docs
 - PageContainer: 限制页面内容宽度并提供移动端优先的标准页边距 — https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
+- Pagination: 在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件 — https://design.qihao.dev/?path=/docs/navigation-pagination--docs
 - Popover: 在触发器附近展示可交互的补充内容 — https://design.qihao.dev/?path=/docs/overlays-popover--docs
 - Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
 - RadioGroup: 从一组互斥选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
@@ -268,6 +269,19 @@ Avoid when: 组件内部的局部间距；需要排列兄弟元素
 Mobile: 默认使用 16px 页面边距；在更宽视口自动增加边距
 Accessibility: 不自动添加 main 等地标语义；调用方负责选择正确的页面结构元素
 Related: Stack, Grid
+
+### Pagination
+
+在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件
+
+Import: `import { Pagination } from '@qhkg/react'`
+Status: beta
+
+Use when: 列表、搜索结果或表格具有明确的总页数；每一页需要独立 URL 或受控的数据加载
+Avoid when: 内容更适合连续阅读或无限加载；数据量很小且可以在同一页面完整展示
+Mobile: 小于 640px 时只显示上一页、当前进度和下一页，避免横向溢出；所有可操作控件保持 44px 触控尺寸；640px 起显示边界页、相邻页和省略号
+Accessibility: 使用带可覆盖名称的 nav 地标和列表语义；当前页使用 aria-current=page；上一页和下一页在边界使用原生 disabled 按钮；getItemAriaLabel 和 formatPageStatus 支持本地化；移动端进度变化通过 polite live region 宣布
+Related: Table, Button, ButtonLink, Select
 
 ### Popover
 

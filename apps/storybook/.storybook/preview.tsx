@@ -1,5 +1,4 @@
 import "../../../packages/tokens/src/theme.css";
-import "@qhkg/react/styles.css";
 import "./preview.css";
 
 import type { Preview } from "@storybook/react-vite";

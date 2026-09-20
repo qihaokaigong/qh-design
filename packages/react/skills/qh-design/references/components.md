@@ -224,6 +224,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Related: Stack, Grid
 - Storybook: https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
 
+## Pagination
+
+在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件
+
+- Import: `import { Pagination } from '@qhkg/react'`
+- Status: beta
+- Use when: 列表、搜索结果或表格具有明确的总页数；每一页需要独立 URL 或受控的数据加载
+- Avoid when: 内容更适合连续阅读或无限加载；数据量很小且可以在同一页面完整展示
+- Mobile: 小于 640px 时只显示上一页、当前进度和下一页，避免横向溢出；所有可操作控件保持 44px 触控尺寸；640px 起显示边界页、相邻页和省略号
+- Accessibility: 使用带可覆盖名称的 nav 地标和列表语义；当前页使用 aria-current=page；上一页和下一页在边界使用原生 disabled 按钮；getItemAriaLabel 和 formatPageStatus 支持本地化；移动端进度变化通过 polite live region 宣布
+- Related: Table, Button, ButtonLink, Select
+- Storybook: https://design.qihao.dev/?path=/docs/navigation-pagination--docs
+
 ## Popover
 
 在触发器附近展示可交互的补充内容
