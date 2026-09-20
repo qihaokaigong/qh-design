@@ -13,6 +13,8 @@ export type {
 } from "./components/alert-dialog";
 export { Badge } from "./components/badge";
 export type { BadgeProps } from "./components/badge";
+export { Breadcrumb } from "./components/breadcrumb";
+export type { BreadcrumbItem, BreadcrumbProps } from "./components/breadcrumb";
 export { Button, ButtonLink } from "./components/button";
 export type { ButtonLinkProps, ButtonProps } from "./components/button";
 export { Card } from "./components/card";

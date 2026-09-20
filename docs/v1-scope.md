@@ -49,6 +49,7 @@
 - Tabs
 - Menu
 - Pagination
+- Breadcrumb
 - Popover
 - Tooltip
 - Dialog

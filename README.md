@@ -43,7 +43,7 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 - Feedback：Alert、Progress、Skeleton、EmptyState
 - Data Display：Badge、Table
 - Layout：PageContainer、Stack、Inline、Grid
-- Navigation：Tabs、Menu、Pagination
+- Navigation：Tabs、Menu、Pagination、Breadcrumb
 - Overlays：Popover、Tooltip、Dialog、AlertDialog、Drawer
 - Feedback（即时）：Toast
 
