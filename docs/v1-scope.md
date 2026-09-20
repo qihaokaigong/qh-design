@@ -48,6 +48,7 @@
 
 - Tabs
 - Menu
+- Pagination
 - Popover
 - Tooltip
 - Dialog

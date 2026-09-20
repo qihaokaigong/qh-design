@@ -21,6 +21,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Input: 输入单行文本、邮箱、密码及其他原生输入值 — https://design.qihao.dev/?path=/docs/forms-input--docs
 - Menu: 从触发器打开一组临时操作或可选设置 — https://design.qihao.dev/?path=/docs/navigation-menu--docs
 - PageContainer: 限制页面内容宽度并提供移动端优先的标准页边距 — https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
+- Pagination: 在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件 — https://design.qihao.dev/?path=/docs/navigation-pagination--docs
 - Popover: 在触发器附近展示可交互的补充内容 — https://design.qihao.dev/?path=/docs/overlays-popover--docs
 - Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
 - RadioGroup: 从一组互斥选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-radiogroup--docs

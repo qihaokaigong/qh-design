@@ -83,3 +83,27 @@ import { Table } from "@qhkg/react";
 ```
 
 `Table` 外层可聚焦，键盘用户可以在窄屏内横向滚动；可用 `scrollContainerLabel` 调整该区域的读屏名称。不要给页面根节点增加横向滚动来容纳表格。
+
+分页器使用从 1 开始的页码。数据驱动的列表使用受控按钮模式：
+
+```tsx
+import { Pagination } from "@qhkg/react";
+
+<Pagination
+  page={page}
+  totalPages={20}
+  onPageChange={(nextPage) => setPage(nextPage)}
+/>;
+```
+
+当每一页都有 URL 时，提供 `getPageHref` 切换为链接模式：
+
+```tsx
+<Pagination
+  page={page}
+  totalPages={20}
+  getPageHref={(nextPage) => `/articles?page=${nextPage}`}
+/>
+```
+
+在小于 640px 的容器中，分页器只展示上一页、当前进度和下一页；更宽时自动展示边界页、相邻页和省略号。
