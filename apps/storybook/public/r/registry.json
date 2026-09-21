@@ -8,7 +8,7 @@
       "type": "registry:block",
       "title": "Login Form",
       "description": "Mobile-first email and password login form using QH Field and form controls.",
-      "dependencies": ["@qhkg/react@^0.4.0"],
+      "dependencies": ["@qhkg/react@^0.5.0"],
       "files": [
         {
           "path": "registry/blocks/login-form/login-form.tsx",
@@ -29,7 +29,7 @@
       "type": "registry:block",
       "title": "Settings Form",
       "description": "Project settings form with native submission and QH validation relationships.",
-      "dependencies": ["@qhkg/react@^0.4.0"],
+      "dependencies": ["@qhkg/react@^0.5.0"],
       "files": [
         {
           "path": "registry/blocks/settings-form/settings-form.tsx",
@@ -50,7 +50,7 @@
       "type": "registry:block",
       "title": "Filter Bar",
       "description": "Responsive project filter bar that stacks on mobile and expands on wider screens.",
-      "dependencies": ["@qhkg/react@^0.4.0"],
+      "dependencies": ["@qhkg/react@^0.5.0"],
       "files": [
         {
           "path": "registry/blocks/filter-bar/filter-bar.tsx",
@@ -71,7 +71,7 @@
       "type": "registry:block",
       "title": "Delete Confirmation",
       "description": "Accessible destructive confirmation pattern built with QH AlertDialog.",
-      "dependencies": ["@qhkg/react@^0.4.0"],
+      "dependencies": ["@qhkg/react@^0.5.0"],
       "files": [
         {
           "path": "registry/blocks/delete-confirmation/delete-confirmation.tsx",
@@ -92,7 +92,7 @@
       "type": "registry:block",
       "title": "Mobile Bottom Action Bar",
       "description": "Safe-area-aware bottom action bar that becomes an inline panel on wider screens.",
-      "dependencies": ["@qhkg/react@^0.4.0"],
+      "dependencies": ["@qhkg/react@^0.5.0"],
       "files": [
         {
           "path": "registry/blocks/mobile-bottom-action-bar/mobile-bottom-action-bar.tsx",

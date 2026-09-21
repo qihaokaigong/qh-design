@@ -1,5 +1,11 @@
 # @qhkg/react
 
+## 0.5.0
+
+### Minor Changes
+
+- f66da07: Allow IconButton to display an optional visible label inline with its icon while preserving the existing icon-only API.
+
 ## 0.4.0
 
 ### Minor Changes

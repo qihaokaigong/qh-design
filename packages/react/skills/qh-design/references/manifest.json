@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "designSystem": "QH Design",
   "componentPackage": "@qhkg/react",
-  "componentVersion": "0.4.0",
+  "componentVersion": "0.5.0",
   "docsUrl": "https://design.qihao.dev/",
   "mcpUrl": "https://design.qihao.dev/mcp",
   "registryTemplate": "https://design.qihao.dev/r/{name}.json"

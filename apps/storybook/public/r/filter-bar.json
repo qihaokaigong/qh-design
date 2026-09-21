@@ -4,7 +4,7 @@
   "title": "Filter Bar",
   "description": "Responsive project filter bar that stacks on mobile and expands on wider screens.",
   "dependencies": [
-    "@qhkg/react@^0.4.0"
+    "@qhkg/react@^0.5.0"
   ],
   "files": [
     {
