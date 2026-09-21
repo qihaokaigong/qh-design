@@ -4,7 +4,7 @@
   "title": "Settings Form",
   "description": "Project settings form with native submission and QH validation relationships.",
   "dependencies": [
-    "@qhkg/react@^0.4.0"
+    "@qhkg/react@^0.5.0"
   ],
   "files": [
     {

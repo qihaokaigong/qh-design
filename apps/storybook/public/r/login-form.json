@@ -4,7 +4,7 @@
   "title": "Login Form",
   "description": "Mobile-first email and password login form using QH Field and form controls.",
   "dependencies": [
-    "@qhkg/react@^0.4.0"
+    "@qhkg/react@^0.5.0"
   ],
   "files": [
     {
