@@ -19,6 +19,21 @@ describe("IconButton", () => {
     expect(onClick).toHaveBeenCalledOnce();
   });
 
+  it("renders a visible label inline and uses it as the accessible name", () => {
+    const { container } = render(
+      <IconButton label="搜索">
+        <Search data-testid="search-icon" />
+      </IconButton>,
+    );
+
+    const button = screen.getByRole("button", { name: "搜索" });
+    expect(button).toHaveTextContent("搜索");
+    expect(button).toHaveAttribute("data-has-label", "true");
+    expect(container.querySelector("[aria-hidden='true']")).toContainElement(
+      screen.getByTestId("search-icon"),
+    );
+  });
+
   it("preserves loading semantics", () => {
     render(
       <IconButton aria-label="搜索" loading>

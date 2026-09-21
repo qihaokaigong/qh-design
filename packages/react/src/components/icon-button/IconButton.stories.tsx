@@ -15,6 +15,10 @@ const meta = {
   },
   argTypes: {
     children: { control: false },
+    label: {
+      control: "text",
+      description: "显示在图标后的可见文字标签",
+    },
     variant: {
       control: "select",
       options: ["primary", "secondary", "ghost", "danger"],
@@ -33,20 +37,42 @@ export const Default: Story = {
     await expect(args.onClick).toHaveBeenCalledOnce();
   },
 };
-export const Playground: Story = Default;
+export const Playground: Story = {
+  args: {
+    "aria-label": undefined,
+    label: "搜索",
+  },
+};
+export const WithLabel: Story = {
+  args: {
+    "aria-label": undefined,
+    label: "搜索",
+  },
+  play: async ({ canvasElement }) => {
+    await expect(
+      within(canvasElement).getByRole("button", { name: "搜索" }),
+    ).toBeVisible();
+  },
+};
 export const States: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: "var(--qh-space-3)" }}>
-      <IconButton aria-label="打开菜单" variant="primary">
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "var(--qh-space-3)",
+      }}
+    >
+      <IconButton label="打开菜单" variant="primary">
         <Menu />
       </IconButton>
-      <IconButton aria-label="更多操作" variant="secondary">
+      <IconButton label="更多操作" variant="secondary">
         <MoreHorizontal />
       </IconButton>
-      <IconButton aria-label="搜索" variant="ghost">
+      <IconButton label="搜索" variant="ghost">
         <Search />
       </IconButton>
-      <IconButton aria-label="删除" variant="danger">
+      <IconButton label="删除" variant="danger">
         <Trash2 />
       </IconButton>
     </div>
@@ -55,9 +81,16 @@ export const States: Story = {
 export const Loading: Story = { args: { loading: true } };
 export const Disabled: Story = { args: { disabled: true } };
 export const LongContent: Story = {
-  args: { "aria-label": "搜索全部项目、成员和最近访问的页面" },
+  args: {
+    "aria-label": undefined,
+    label: "搜索全部项目、成员和最近访问的页面",
+  },
 };
 export const Mobile: Story = {
-  args: { "aria-label": "打开移动端菜单", children: <Menu /> },
+  args: {
+    "aria-label": undefined,
+    children: <Menu />,
+    label: "打开菜单",
+  },
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };

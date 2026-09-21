@@ -9,21 +9,28 @@ import type { IconButtonProps } from "./IconButton.types";
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(
-    { children, className, loading, size = "md", ...props },
+    { children, className, label, loading, size = "md", ...props },
     ref,
   ) {
+    const hasLabel = label !== undefined && label !== null;
+    const icon = (
+      <span className={styles.icon} aria-hidden="true">
+        {children}
+      </span>
+    );
+
     return (
       <Button
         {...props}
         ref={ref}
         className={clsx(styles.root, className)}
+        data-has-label={hasLabel || undefined}
         data-size={size}
+        iconStart={hasLabel ? icon : undefined}
         loading={loading}
         size={size}
       >
-        <span className={styles.icon} aria-hidden="true">
-          {children}
-        </span>
+        {hasLabel ? label : icon}
       </Button>
     );
   },

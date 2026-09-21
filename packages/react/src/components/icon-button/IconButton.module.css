@@ -1,17 +1,17 @@
-.root {
+.root:not([data-has-label]) {
   padding: 0;
   aspect-ratio: 1;
 }
 
-.root[data-size="sm"] {
+.root:not([data-has-label])[data-size="sm"] {
   inline-size: var(--qh-control-sm);
 }
 
-.root[data-size="md"] {
+.root:not([data-has-label])[data-size="md"] {
   inline-size: var(--qh-control-md);
 }
 
-.root[data-size="lg"] {
+.root:not([data-has-label])[data-size="lg"] {
   inline-size: var(--qh-control-lg);
 }
 

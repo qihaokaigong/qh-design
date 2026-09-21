@@ -174,14 +174,14 @@ Use this index to choose a component, then confirm exact props from the installe
 
 ## IconButton
 
-以单个图标触发空间受限区域中的常用动作
+以图标触发常用动作，并可在图标后同行显示文字标签
 
 - Import: `import { IconButton } from '@qhkg/react'`
 - Status: beta
-- Use when: 工具栏中的熟悉动作；空间有限且图标含义清晰
-- Avoid when: 动作含义无法由常见图标表达；需要同时解释动作结果
-- Mobile: 默认触控区域为 44px 方形；不能只在悬停时显示
-- Accessibility: aria-label 是必填的类型属性；图标本身从辅助技术中隐藏；loading 时阻止重复激活
+- Use when: 工具栏中的熟悉动作；需要用文字标签补充图标含义的紧凑操作
+- Avoid when: 不包含图标的普通操作；用于页面导航
+- Mobile: 纯图标模式默认触控区域为 44px 方形；带标签模式保持图标与文字同行并允许容器自然扩展；不能只在悬停时显示
+- Accessibility: 纯图标模式必须提供 aria-label；带标签模式默认使用可见文字作为可访问名称；图标本身从辅助技术中隐藏；loading 时阻止重复激活
 - Related: Button, Tooltip
 - Storybook: https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
 

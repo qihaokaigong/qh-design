@@ -17,7 +17,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - EmptyState: 解释没有内容的原因并提供明确的下一步 — https://design.qihao.dev/?path=/docs/feedback-emptystate--docs
 - Field: 组合表单标签、说明、错误信息和控件的可访问容器 — https://design.qihao.dev/?path=/docs/forms-field--docs
 - Grid: 以移动端优先的受控列数排列二维内容 — https://design.qihao.dev/?path=/docs/layout-grid--docs
-- IconButton: 以单个图标触发空间受限区域中的常用动作 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
+- IconButton: 以图标触发常用动作，并可在图标后同行显示文字标签 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
 - Inline: 使用设计 Token 间距横向排列并按需换行 — https://design.qihao.dev/?path=/docs/layout-inline--docs
 - Input: 输入单行文本、邮箱、密码及其他原生输入值 — https://design.qihao.dev/?path=/docs/forms-input--docs
 - Menu: 从触发器打开一组临时操作或可选设置 — https://design.qihao.dev/?path=/docs/navigation-menu--docs

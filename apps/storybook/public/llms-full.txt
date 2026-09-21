@@ -17,7 +17,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - EmptyState: 解释没有内容的原因并提供明确的下一步 — https://design.qihao.dev/?path=/docs/feedback-emptystate--docs
 - Field: 组合表单标签、说明、错误信息和控件的可访问容器 — https://design.qihao.dev/?path=/docs/forms-field--docs
 - Grid: 以移动端优先的受控列数排列二维内容 — https://design.qihao.dev/?path=/docs/layout-grid--docs
-- IconButton: 以单个图标触发空间受限区域中的常用动作 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
+- IconButton: 以图标触发常用动作，并可在图标后同行显示文字标签 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
 - Inline: 使用设计 Token 间距横向排列并按需换行 — https://design.qihao.dev/?path=/docs/layout-inline--docs
 - Input: 输入单行文本、邮箱、密码及其他原生输入值 — https://design.qihao.dev/?path=/docs/forms-input--docs
 - Menu: 从触发器打开一组临时操作或可选设置 — https://design.qihao.dev/?path=/docs/navigation-menu--docs
@@ -221,15 +221,15 @@ Related: Stack, Inline, PageContainer, Card
 
 ### IconButton
 
-以单个图标触发空间受限区域中的常用动作
+以图标触发常用动作，并可在图标后同行显示文字标签
 
 Import: `import { IconButton } from '@qhkg/react'`
 Status: beta
 
-Use when: 工具栏中的熟悉动作；空间有限且图标含义清晰
-Avoid when: 动作含义无法由常见图标表达；需要同时解释动作结果
-Mobile: 默认触控区域为 44px 方形；不能只在悬停时显示
-Accessibility: aria-label 是必填的类型属性；图标本身从辅助技术中隐藏；loading 时阻止重复激活
+Use when: 工具栏中的熟悉动作；需要用文字标签补充图标含义的紧凑操作
+Avoid when: 不包含图标的普通操作；用于页面导航
+Mobile: 纯图标模式默认触控区域为 44px 方形；带标签模式保持图标与文字同行并允许容器自然扩展；不能只在悬停时显示
+Accessibility: 纯图标模式必须提供 aria-label；带标签模式默认使用可见文字作为可访问名称；图标本身从辅助技术中隐藏；loading 时阻止重复激活
 Related: Button, Tooltip
 
 ### Inline
