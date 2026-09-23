@@ -4,7 +4,7 @@
   "title": "Toolbar",
   "description": "Responsive list tool area for search, filters, status, and visible actions.",
   "dependencies": [
-    "@qhkg/react@^0.5.0"
+    "@qhkg/react@^0.6.0"
   ],
   "files": [
     {

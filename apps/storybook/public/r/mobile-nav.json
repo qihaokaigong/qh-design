@@ -4,7 +4,7 @@
   "title": "Mobile Navigation",
   "description": "Drawer-based mobile primary navigation with current-page state and focus restoration.",
   "dependencies": [
-    "@qhkg/react@^0.5.0"
+    "@qhkg/react@^0.6.0"
   ],
   "files": [
     {

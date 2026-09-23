@@ -4,7 +4,7 @@
   "title": "Project Detail Page",
   "description": "Complete project detail page with breadcrumbs, visible actions, overview data, activity, metadata, and resilient page states.",
   "dependencies": [
-    "@qhkg/react@^0.5.0"
+    "@qhkg/react@^0.6.0"
   ],
   "files": [
     {

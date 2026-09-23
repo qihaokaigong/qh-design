@@ -1,6 +1,6 @@
 # Component index
 
-Generated from QH component metadata for `@qhkg/react@0.5.0`.
+Generated from QH component metadata for `@qhkg/react@0.6.0`.
 Use this index to choose a component, then confirm exact props from the installed TypeScript declarations or Storybook MCP.
 
 ## AccessibleIcon

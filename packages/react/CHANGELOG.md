@@ -1,5 +1,18 @@
 # @qhkg/react
 
+## 0.6.0
+
+### Minor Changes
+
+- d9c61a7: Add ListBox, Combobox, and MultiSelect with a shared string option model, controlled and uncontrolled values, keyboard-accessible collection behavior, mobile-first popovers, stories, tests, and AI metadata.
+- d9c61a7: Add Avatar, DataList, Code, Kbd, and AspectRatio with native semantics, responsive stories, component tests, accessibility guidance, and AI metadata.
+- d9c61a7: Add InputGroup, SearchInput, PasswordInput, and NumberInput with native form semantics, accessible actions, mobile-first styling, stories, tests, and AI metadata.
+- d9c61a7: Add stable per-component JavaScript and CSS subpath exports, retain the existing aggregate entries, and verify on-demand bundle size and tree shaking during release checks.
+- d9c61a7: Add Fieldset and CheckboxGroup with native grouping semantics, controlled and uncontrolled multi-selection, inherited form states, stories, tests, and AI metadata.
+- d9c61a7: Add Calendar, DatePicker, DateRangePicker, and TimeField with serializable ISO string APIs, accessible keyboard behavior, Field integration, mobile-safe styling, stories, tests, metadata, and an explicit date/time architecture decision.
+- d9c61a7: Add Text, Heading, Link, AccessibleIcon, and Accordion components with mobile-first styles, accessible semantics, stories, tests, and AI metadata.
+- d9c61a7: Add FileUpload and Dropzone with accessible device selection, keyboard-aware drag and drop, controlled and uncontrolled file lists, type/size/count validation, stories, tests, metadata, and an explicit architecture decision that keeps network upload state outside the core package.
+
 ## 0.5.0
 
 ### Minor Changes
