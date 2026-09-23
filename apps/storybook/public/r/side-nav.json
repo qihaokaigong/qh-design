@@ -4,7 +4,7 @@
   "title": "Side Navigation",
   "description": "Persistent secondary navigation with explicit current-page state.",
   "dependencies": [
-    "@qhkg/react@^0.5.0"
+    "@qhkg/react@^0.6.0"
   ],
   "files": [
     {

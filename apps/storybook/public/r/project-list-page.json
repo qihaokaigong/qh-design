@@ -4,7 +4,7 @@
   "title": "Project List Page",
   "description": "Complete project list page combining hierarchy, visible creation action, filtering, data states, selection, and pagination.",
   "dependencies": [
-    "@qhkg/react@^0.5.0"
+    "@qhkg/react@^0.6.0"
   ],
   "files": [
     {

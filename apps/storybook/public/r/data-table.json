@@ -4,7 +4,7 @@
   "title": "Data Table",
   "description": "Project data table pattern with filtering, sorting, row selection, batch actions, states, and pagination.",
   "dependencies": [
-    "@qhkg/react@^0.5.0"
+    "@qhkg/react@^0.6.0"
   ],
   "files": [
     {
