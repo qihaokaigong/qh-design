@@ -427,6 +427,7 @@
         "Invalid",
         "Disabled",
         "LongContent",
+        "Compact",
         "Mobile"
       ]
     },

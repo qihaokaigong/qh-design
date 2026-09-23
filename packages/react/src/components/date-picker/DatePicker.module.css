@@ -54,7 +54,7 @@
   flex: 1;
   min-inline-size: 0;
   align-items: center;
-  padding: var(--qh-space-2) var(--qh-space-3);
+  padding: var(--qh-space-2) var(--qh-space-1);
   outline: none;
   font-size: var(--qh-text-base);
   line-height: var(--qh-leading-ui);
@@ -110,6 +110,7 @@
 }
 
 .popover {
+  inline-size: min(22rem, calc(100vw - (2 * var(--qh-space-4))));
   max-inline-size: calc(100vw - (2 * var(--qh-space-4)));
   max-block-size: min(28rem, calc(100dvh - (2 * var(--qh-space-4))));
   overflow: auto;

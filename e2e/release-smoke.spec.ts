@@ -33,6 +33,36 @@ test("serves the public Registry and AI discovery files", async ({
   expect(await llmsResponse.text()).toContain("## Registry patterns");
 });
 
+test("keeps a compact date complete and its calendar anchored", async ({
+  page,
+}) => {
+  await openStory(page, "forms-datepicker--compact");
+
+  const picker = page.getByRole("group", { name: "紧凑交付日期" });
+  const trigger = picker.getByRole("button", { name: "打开日历" });
+  const lastSegment = picker.getByRole("spinbutton").last();
+  const [lastSegmentBox, triggerBox] = await Promise.all([
+    lastSegment.boundingBox(),
+    trigger.boundingBox(),
+  ]);
+  expect(lastSegmentBox).not.toBeNull();
+  expect(triggerBox).not.toBeNull();
+  expect(
+    (lastSegmentBox?.x ?? 0) + (lastSegmentBox?.width ?? 0),
+  ).toBeLessThanOrEqual(triggerBox?.x ?? 0);
+
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "选择日期" });
+  await expect(dialog).toBeVisible();
+  const dialogBox = await dialog.boundingBox();
+  expect(dialogBox).not.toBeNull();
+  expect(dialogBox?.width).toBeLessThanOrEqual(352);
+  expect(dialogBox?.x).toBeLessThan(triggerBox?.x ?? 0);
+  expect((dialogBox?.x ?? 0) + (dialogBox?.width ?? 0)).toBeGreaterThan(
+    (triggerBox?.x ?? 0) + (triggerBox?.width ?? 0),
+  );
+});
+
 test.describe("320px release paths", () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ height: 720, width: 320 });

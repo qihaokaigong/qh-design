@@ -71,6 +71,16 @@ export const LongContent: Story = {
   },
 };
 
+export const Compact: Story = {
+  render: () => (
+    <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <div style={{ width: 128 }}>
+        <DatePicker aria-label="紧凑交付日期" defaultValue="2026-09-23" />
+      </div>
+    </div>
+  ),
+};
+
 export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile320" } },
