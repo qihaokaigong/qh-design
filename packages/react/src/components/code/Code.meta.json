@@ -1,0 +1,23 @@
+{
+  "name": "Code",
+  "summary": "展示行内代码或可聚焦、可滚动的代码块",
+  "status": "beta",
+  "import": "import { Code } from '@qhkg/react'",
+  "storybookId": "foundations-code",
+  "whenToUse": [
+    "正文需要标记标识符、命令或短代码",
+    "文档需要展示保留空白的多行代码"
+  ],
+  "avoidWhen": ["用户需要编辑代码", "需要语法高亮、运行器或复制工作流"],
+  "mobile": [
+    "代码块限制在容器宽度内并局部横向滚动",
+    "wrap 可用于必须在窄屏完整阅读的文本代码"
+  ],
+  "accessibility": [
+    "Code.Block 是带名称的可聚焦滚动区域",
+    "label 应描述代码用途而不是只写代码",
+    "内容继续使用原生 code 与 pre 语义"
+  ],
+  "related": ["Kbd", "Text"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

@@ -1,0 +1,109 @@
+.root {
+  inline-size: 100%;
+  color: var(--qh-color-text);
+  border-block-start: var(--qh-border-width) solid var(--qh-color-border);
+  font-family: var(--qh-font-sans);
+}
+
+.item {
+  border-block-end: var(--qh-border-width) solid var(--qh-color-border);
+}
+
+.header {
+  margin: 0;
+  font: inherit;
+}
+
+.trigger {
+  display: flex;
+  inline-size: 100%;
+  min-block-size: var(--qh-control-md);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--qh-space-3);
+  padding: var(--qh-space-3) 0;
+  color: var(--qh-color-text);
+  background: transparent;
+  border: 0;
+  border-radius: var(--qh-radius-md);
+  font: inherit;
+  font-weight: var(--qh-weight-medium);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    color var(--qh-duration-fast) var(--qh-ease),
+    background-color var(--qh-duration-fast) var(--qh-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.triggerLabel {
+  min-inline-size: 0;
+}
+
+.chevron {
+  inline-size: var(--qh-icon-md);
+  block-size: var(--qh-icon-md);
+  flex: none;
+  color: var(--qh-color-text-muted);
+  transition: transform var(--qh-duration-normal) var(--qh-ease);
+}
+
+.trigger[data-state="open"] .chevron {
+  transform: rotate(180deg);
+}
+
+.trigger:focus-visible {
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: var(--qh-focus-offset);
+}
+
+.trigger:disabled {
+  color: var(--qh-color-disabled-text);
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .trigger:hover:not(:disabled) {
+    color: var(--qh-color-action);
+    background: var(--qh-color-surface-subtle);
+  }
+}
+
+.content {
+  overflow: hidden;
+  color: var(--qh-color-text-muted);
+  font-size: var(--qh-text-base);
+  line-height: var(--qh-leading-body);
+}
+
+.content[data-state="open"] {
+  animation: accordion-open var(--qh-duration-normal) var(--qh-ease);
+}
+
+.content[data-state="closed"] {
+  animation: accordion-close var(--qh-duration-normal) var(--qh-ease);
+}
+
+.contentInner {
+  padding: 0 0 var(--qh-space-4);
+}
+
+@keyframes accordion-open {
+  from {
+    block-size: 0;
+  }
+
+  to {
+    block-size: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-close {
+  from {
+    block-size: var(--radix-accordion-content-height);
+  }
+
+  to {
+    block-size: 0;
+  }
+}

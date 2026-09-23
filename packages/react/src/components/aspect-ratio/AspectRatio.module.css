@@ -1,0 +1,20 @@
+.root {
+  position: relative;
+  inline-size: 100%;
+  min-inline-size: 0;
+  overflow: hidden;
+}
+
+.root > :where(img, video, iframe) {
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+}
+
+.cover > :where(img, video) {
+  object-fit: cover;
+}
+
+.contain > :where(img, video) {
+  object-fit: contain;
+}

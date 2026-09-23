@@ -1,0 +1,16 @@
+{
+  "name": "Heading",
+  "summary": "用明确的文档层级和受控视觉尺度呈现标题",
+  "status": "beta",
+  "import": "import { Heading } from '@qhkg/react'",
+  "storybookId": "foundation-heading",
+  "whenToUse": ["建立页面或区域的标题层级", "需要让视觉尺度与语义层级分别受控"],
+  "avoidWhen": ["内容是普通正文", "只需要加粗文字而不形成新章节"],
+  "mobile": ["大标题使用流式字号并允许自然换行"],
+  "accessibility": [
+    "level 必须符合页面标题层级",
+    "不要为了视觉大小跳过标题级别"
+  ],
+  "related": ["Text", "PageContainer"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

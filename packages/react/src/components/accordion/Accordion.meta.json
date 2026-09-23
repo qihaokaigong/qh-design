@@ -1,0 +1,30 @@
+{
+  "name": "Accordion",
+  "summary": "在有限空间中按标题展开或收起相关内容区块",
+  "status": "beta",
+  "import": "import { Accordion } from '@qhkg/react'",
+  "storybookId": "data-display-accordion",
+  "whenToUse": [
+    "FAQ 或设置分组需要渐进披露",
+    "用户可以独立查看一个或多个内容区块"
+  ],
+  "avoidWhen": [
+    "内容必须同时保持可见",
+    "步骤具有严格先后顺序，此时使用 Stepper"
+  ],
+  "mobile": ["触发区域至少 44px 高", "长标题换行且不会挤压展开图标"],
+  "accessibility": [
+    "Header 的 headingLevel 必须符合页面标题层级",
+    "方向键在触发器间移动焦点",
+    "Enter 和空格切换展开状态"
+  ],
+  "related": ["Tabs", "Heading"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "KeyboardNavigation",
+    "LongContent",
+    "Mobile"
+  ]
+}

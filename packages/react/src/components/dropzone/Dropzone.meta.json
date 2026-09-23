@@ -1,0 +1,34 @@
+{
+  "name": "Dropzone",
+  "summary": "接收文件拖放并返回已校验的文件与拒绝原因",
+  "status": "beta",
+  "import": "import { Dropzone } from '@qhkg/react'",
+  "storybookId": "forms-dropzone",
+  "whenToUse": [
+    "已有自定义文件流程，只需要可访问的拖放目标",
+    "需要在读取文件前统一校验类型、大小和数量"
+  ],
+  "avoidWhen": [
+    "需要同时提供设备文件选择和已选文件列表",
+    "需要组件直接发起上传请求"
+  ],
+  "mobile": [
+    "拖放不是移动端唯一入口，应同时提供文件选择按钮",
+    "内容和长文件说明在 320px 视口内换行"
+  ],
+  "accessibility": [
+    "必须通过 aria-label 或 aria-labelledby 提供名称",
+    "内置键盘与屏幕阅读器拖放入口，并支持粘贴文件",
+    "禁用状态阻止拖放、粘贴和键盘操作"
+  ],
+  "related": ["FileUpload", "Field", "Button"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

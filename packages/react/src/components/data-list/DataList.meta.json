@@ -1,0 +1,20 @@
+{
+  "name": "DataList",
+  "summary": "以原生描述列表语义展示标签和值组成的结构化数据",
+  "status": "beta",
+  "import": "import { DataList } from '@qhkg/react'",
+  "storybookId": "data-datalist",
+  "whenToUse": [
+    "详情页需要展示属性和值",
+    "信息不适合表格列结构但需要稳定标签关系"
+  ],
+  "avoidWhen": ["数据需要排序、选择或分页", "内容是连续段落而不是名称和值"],
+  "mobile": ["responsive 布局默认在窄屏纵向堆叠", "长标签和值允许安全换行"],
+  "accessibility": [
+    "根、标签和值分别输出 dl、dt、dd",
+    "不要用空标签模拟间距",
+    "同一项目允许值中组合 Badge、Link 等语义组件"
+  ],
+  "related": ["Table", "Badge", "Text"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

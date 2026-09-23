@@ -1,0 +1,25 @@
+{
+  "name": "Fieldset",
+  "summary": "使用原生分组语义组织一组相关表单控件",
+  "status": "beta",
+  "import": "import { Fieldset } from '@qhkg/react'",
+  "storybookId": "forms-fieldset",
+  "whenToUse": ["多个控件共享同一个组名称", "一组选项需要统一说明或错误信息"],
+  "avoidWhen": ["单个控件及其标签", "仅用于视觉分区而没有表单语义"],
+  "mobile": ["默认纵向排列并适应容器宽度", "组名称和长说明允许自然换行"],
+  "accessibility": [
+    "使用原生 fieldset 与 legend 提供组名称",
+    "自动关联说明和当前错误信息",
+    "disabled 状态传递给原生表单后代"
+  ],
+  "related": ["Field", "CheckboxGroup", "RadioGroup"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

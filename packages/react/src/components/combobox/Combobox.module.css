@@ -1,0 +1,203 @@
+.root {
+  display: grid;
+  inline-size: 100%;
+  min-inline-size: 0;
+  font-family: var(--qh-font-sans);
+}
+
+.control {
+  box-sizing: border-box;
+  display: flex;
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--qh-control-md);
+  overflow: hidden;
+  color: var(--qh-color-text);
+  background: var(--qh-input-bg);
+  border: var(--qh-border-width) solid var(--qh-input-border);
+  border-radius: var(--qh-input-radius);
+  transition:
+    border-color var(--qh-duration-fast) var(--qh-ease),
+    box-shadow var(--qh-duration-fast) var(--qh-ease);
+}
+
+.control[data-focus-within] {
+  border-color: var(--qh-color-focus);
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: var(--qh-focus-offset);
+}
+
+.root[data-invalid] .control {
+  border-color: var(--qh-color-danger);
+}
+
+.root[data-disabled] .control {
+  color: var(--qh-color-disabled-text);
+  background: var(--qh-color-disabled-bg);
+  cursor: not-allowed;
+}
+
+.sm {
+  min-block-size: var(--qh-control-sm);
+}
+
+.md {
+  min-block-size: var(--qh-control-md);
+}
+
+.lg {
+  min-block-size: var(--qh-control-lg);
+}
+
+.input {
+  box-sizing: border-box;
+  flex: 1;
+  min-inline-size: 0;
+  padding: var(--qh-space-2) var(--qh-space-3);
+  color: inherit;
+  background: transparent;
+  border: 0;
+  outline: none;
+  font: inherit;
+  font-size: var(--qh-text-base);
+  line-height: var(--qh-leading-ui);
+}
+
+.input::placeholder {
+  color: var(--qh-color-text-muted);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.trigger {
+  display: inline-flex;
+  flex: none;
+  inline-size: var(--qh-control-md);
+  min-block-size: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-inline-start: var(--qh-border-width) solid
+    var(--qh-color-border-control);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trigger[data-pressed] {
+  background: var(--qh-color-surface-subtle);
+}
+
+.trigger[data-disabled] {
+  cursor: not-allowed;
+}
+
+.trigger > svg {
+  inline-size: var(--qh-icon-sm);
+  block-size: var(--qh-icon-sm);
+}
+
+.popover {
+  box-sizing: border-box;
+  inline-size: var(--trigger-width);
+  max-inline-size: calc(100vw - (2 * var(--qh-space-4)));
+  max-block-size: min(20rem, 60dvh);
+  overflow: auto;
+  background: var(--qh-color-surface);
+  border: var(--qh-border-width) solid var(--qh-color-border-control);
+  border-radius: var(--qh-radius-md);
+  box-shadow: var(--qh-shadow-popover);
+  z-index: var(--qh-z-dropdown);
+}
+
+.list {
+  display: grid;
+  padding: var(--qh-space-1);
+  outline: none;
+}
+
+.item {
+  box-sizing: border-box;
+  display: flex;
+  min-block-size: var(--qh-control-md);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--qh-space-3);
+  padding: var(--qh-space-2) var(--qh-space-3);
+  border-radius: var(--qh-radius-sm);
+  cursor: pointer;
+  outline: none;
+}
+
+.item[data-focused] {
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: calc(-1 * var(--qh-focus-width));
+}
+
+.item[data-selected] {
+  color: var(--qh-color-on-selected);
+  background: var(--qh-color-selected);
+}
+
+.item[data-disabled] {
+  color: var(--qh-color-disabled-text);
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .trigger[data-hovered]:not([data-disabled]),
+  .item[data-hovered]:not([data-disabled]) {
+    background: var(--qh-color-surface-subtle);
+  }
+
+  .item[data-selected][data-hovered]:not([data-disabled]) {
+    background: var(--qh-color-selected);
+  }
+}
+
+.copy {
+  display: grid;
+  min-inline-size: 0;
+  gap: var(--qh-space-1);
+}
+
+.label,
+.description {
+  overflow-wrap: anywhere;
+}
+
+.description {
+  color: var(--qh-color-text-muted);
+  font-size: var(--qh-text-sm);
+}
+
+.indicator {
+  display: inline-flex;
+  flex: none;
+  inline-size: var(--qh-icon-md);
+  block-size: var(--qh-icon-md);
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator > svg {
+  inline-size: var(--qh-icon-sm);
+  block-size: var(--qh-icon-sm);
+}
+
+.empty {
+  padding: var(--qh-space-3);
+  color: var(--qh-color-text-muted);
+  font-size: var(--qh-text-sm);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control {
+    transition: none;
+  }
+}

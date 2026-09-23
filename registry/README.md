@@ -23,6 +23,15 @@ pnpm dlx shadcn@latest add @qh/login-form
 - `filter-bar`
 - `delete-confirmation`
 - `mobile-bottom-action-bar`
+- `data-table`
+- `mobile-nav`
+- `header`
+- `side-nav`
+- `page-header`
+- `toolbar`
+- `project-list-page`
+- `project-detail-page`
+- `search-results-page`
 
 ## 样式要求
 

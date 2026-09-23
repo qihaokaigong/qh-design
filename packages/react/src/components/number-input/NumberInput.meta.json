@@ -1,0 +1,25 @@
+{
+  "name": "NumberInput",
+  "summary": "支持键盘输入、原生数值约束和步进动作的数字输入",
+  "status": "beta",
+  "import": "import { NumberInput } from '@qhkg/react'",
+  "storybookId": "forms-numberinput",
+  "whenToUse": ["输入可计算的数值", "用户需要通过步进动作小幅调整数值"],
+  "avoidWhen": ["输入电话号码、邮编或其他数字格式文本", "从少量固定值中选择"],
+  "mobile": ["默认高度为 44px 且字号不小于 16px", "增减动作均具有完整触控区域"],
+  "accessibility": [
+    "保留原生 spinbutton 语义和键盘行为",
+    "增减动作具有可本地化的可访问名称",
+    "达到 min 或 max 时禁用对应动作"
+  ],
+  "related": ["Input", "InputGroup", "Field", "Select"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

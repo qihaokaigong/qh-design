@@ -21,9 +21,13 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 ## 决策文档
 
 - [ADR-0001：公共 React 组件库总体架构](docs/adr/0001-component-library-architecture.md)
+- [ADR-0002：集合型选择组件采用 React Aria](docs/adr/0002-react-aria-collection-primitives.md)
+- [ADR-0003：日期与时间组件采用 React Aria 和 ISO 字符串边界](docs/adr/0003-react-aria-date-time-primitives.md)
+- [ADR-0004：文件拖放采用 React Aria，文件选择保持原生语义](docs/adr/0004-react-aria-file-drop.md)
 - [开源案例审计](docs/open-source-benchmarks.md)
 - [组件 API 与 AI 可用性规范](docs/component-api-guidelines.md)
 - [v1 组件范围与实施顺序](docs/v1-scope.md)
+- [能力补齐路线图](docs/capability-roadmap.md)
 - [发布与外部配置手册](docs/release-runbook.md)
 
 ## 公共入口
@@ -37,12 +41,13 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 ## 当前组件
 
 - Actions：Button、ButtonLink、IconButton
-- Forms：Field、Input、Textarea、Checkbox、RadioGroup、Switch、Select
-- Foundation：VisuallyHidden
+- Forms：Field、Fieldset、Input、InputGroup、SearchInput、PasswordInput、NumberInput、Textarea、Checkbox、CheckboxGroup、RadioGroup、Switch、Select、ListBox、Combobox、MultiSelect、Calendar、DatePicker、DateRangePicker、TimeField、FileUpload、Dropzone
+- Foundation：Text、Heading、Link、Code、Kbd、AccessibleIcon、VisuallyHidden
 - Surfaces：Card、Separator
 - Feedback：Alert、Progress、Skeleton、EmptyState
-- Data Display：Badge、Table
-- Layout：PageContainer、Stack、Inline、Grid
+- Data Display：Avatar、Badge、DataList、Table
+- Disclosure：Accordion
+- Layout：PageContainer、Stack、Inline、Grid、AspectRatio
 - Navigation：Tabs、Menu、Pagination、Breadcrumb
 - Overlays：Popover、Tooltip、Dialog、AlertDialog、Drawer
 - Feedback（即时）：Toast

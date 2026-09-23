@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "side-nav",
+  "title": "Side Navigation",
+  "description": "Persistent secondary navigation with explicit current-page state.",
+  "dependencies": [
+    "@qhkg/react@^0.5.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/side-nav/side-nav.tsx",
+      "content": "import { ButtonLink, Heading } from \"@qhkg/react\";\n\nexport interface SideNavItem {\n  current?: boolean;\n  href: string;\n  label: string;\n}\n\nexport interface SideNavProps {\n  items: readonly SideNavItem[];\n  label?: string;\n  title?: string;\n}\n\n/** Secondary navigation for settings, project, and account sections. */\nexport function SideNav({\n  items,\n  label = \"页面内导航\",\n  title = \"本页内容\",\n}: SideNavProps) {\n  return (\n    <nav\n      aria-label={label}\n      className=\"grid gap-3 rounded-lg border border-border bg-surface p-3 md:w-64\"\n    >\n      <Heading level={2} size=\"sm\">\n        {title}\n      </Heading>\n      <ul className=\"grid list-none gap-1 p-0\">\n        {items.map((item) => (\n          <li key={item.href}>\n            <ButtonLink\n              aria-current={item.current ? \"page\" : undefined}\n              className=\"w-full justify-start\"\n              href={item.href}\n              variant={item.current ? \"secondary\" : \"ghost\"}\n            >\n              {item.label}\n            </ButtonLink>\n          </li>\n        ))}\n      </ul>\n    </nav>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/side-nav/side-nav.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "Heading",
+      "ButtonLink"
+    ]
+  },
+  "docs": "Use for secondary navigation within a stable application section. Derive the current item from the router and keep primary application destinations in Header or MobileNav.",
+  "categories": [
+    "navigation",
+    "layout"
+  ],
+  "type": "registry:block"
+}

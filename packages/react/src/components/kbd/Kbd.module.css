@@ -1,0 +1,28 @@
+.root {
+  box-sizing: border-box;
+  display: inline-flex;
+  min-inline-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--qh-color-text);
+  background: var(--qh-color-surface-subtle);
+  border: var(--qh-border-width) solid var(--qh-color-border-control);
+  border-block-end-width: 2px;
+  border-radius: var(--qh-radius-sm);
+  font-family: var(--qh-font-mono);
+  font-weight: var(--qh-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sm {
+  min-block-size: 1.5rem;
+  padding-inline: var(--qh-space-1);
+  font-size: var(--qh-text-xs);
+}
+
+.md {
+  min-block-size: var(--qh-control-sm);
+  padding-inline: var(--qh-space-2);
+  font-size: var(--qh-text-sm);
+}

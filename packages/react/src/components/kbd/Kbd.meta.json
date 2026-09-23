@@ -1,0 +1,20 @@
+{
+  "name": "Kbd",
+  "summary": "在说明文字中标记单个按键或键盘快捷键组合",
+  "status": "beta",
+  "import": "import { Kbd } from '@qhkg/react'",
+  "storybookId": "foundations-kbd",
+  "whenToUse": ["帮助内容需要说明快捷键", "操作提示需要区分按键和普通文字"],
+  "avoidWhen": ["内容是代码、变量或命令", "需要监听实际键盘输入"],
+  "mobile": [
+    "多个按键允许随周围文字换行",
+    "组件不暗示移动设备一定存在实体键盘"
+  ],
+  "accessibility": [
+    "输出原生 kbd 语义",
+    "组合键之间使用可朗读的加号或文字",
+    "平台不同的快捷键应提供对应文案"
+  ],
+  "related": ["Code", "Text"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

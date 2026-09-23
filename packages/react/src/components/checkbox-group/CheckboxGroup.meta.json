@@ -1,0 +1,25 @@
+{
+  "name": "CheckboxGroup",
+  "summary": "管理一组可以同时选择多个值的复选项",
+  "status": "beta",
+  "import": "import { CheckboxGroup } from '@qhkg/react'",
+  "storybookId": "forms-checkboxgroup",
+  "whenToUse": ["多个相关选项可以同时选择", "需要统一读取和更新一组选中值"],
+  "avoidWhen": ["选项之间互斥", "单个独立确认项"],
+  "mobile": ["每个选项整行可点击且触控高度不少于 44px", "长标签允许自然换行"],
+  "accessibility": [
+    "必须通过 Fieldset.Legend、aria-label 或 aria-labelledby 提供组名称",
+    "支持受控与非受控选中值",
+    "从 Fieldset 继承禁用、无效和说明关系"
+  ],
+  "related": ["Checkbox", "Fieldset", "RadioGroup"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

@@ -30,9 +30,26 @@ try {
       `Skill context ${report.qhDesign.skillContextVersion} does not match installed @qhkg/react ${report.qhDesign.installedReactVersion}`,
     );
   }
-  if (report.qhDesign.styleImportFiles.length === 0) {
+  const hasFullStyles = report.qhDesign.fullStyleImportFiles.length > 0;
+  const hasThemeStyles = report.qhDesign.themeStyleImportFiles.length > 0;
+  const hasAggregateComponentStyles =
+    report.qhDesign.aggregateComponentStyleImportFiles.length > 0;
+  const hasComponentStyles =
+    report.qhDesign.componentStyleImportFiles.length > 0;
+  const hasOnDemandStyles =
+    hasThemeStyles && (hasAggregateComponentStyles || hasComponentStyles);
+
+  if (!hasFullStyles && !hasOnDemandStyles) {
     warnings.push(
-      "@qhkg/react/styles.css is not imported; ask the project developer to choose the global style entry",
+      "QH styles are incomplete; import @qhkg/react/styles.css or combine @qhkg/react/theme.css with the required component CSS entries",
+    );
+  }
+  if (
+    hasFullStyles &&
+    (hasThemeStyles || hasAggregateComponentStyles || hasComponentStyles)
+  ) {
+    warnings.push(
+      "Full and on-demand QH style entries are both imported; choose one strategy to avoid duplicate CSS",
     );
   }
   if (!report.qhDesign.registryConfigured) {

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toolbar",
+  "title": "Toolbar",
+  "description": "Responsive list tool area for search, filters, status, and visible actions.",
+  "dependencies": [
+    "@qhkg/react@^0.5.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/toolbar/toolbar.tsx",
+      "content": "\"use client\";\n\nimport { SearchInput, Text } from \"@qhkg/react\";\nimport type { ReactNode } from \"react\";\n\nexport interface ToolbarProps {\n  actions?: ReactNode;\n  defaultQuery?: string;\n  filters?: ReactNode;\n  label?: string;\n  onQueryChange?: (query: string) => void;\n  query?: string;\n  searchLabel?: string;\n  searchPlaceholder?: string;\n  status?: ReactNode;\n}\n\n/**\n * Responsive page-tool composition. It intentionally uses a labelled group\n * instead of role=toolbar because its native controls remain independent tab\n * stops and do not implement the ARIA toolbar arrow-key model.\n */\nexport function Toolbar({\n  actions,\n  defaultQuery,\n  filters,\n  label = \"列表工具\",\n  onQueryChange,\n  query,\n  searchLabel = \"搜索\",\n  searchPlaceholder = \"输入关键词\",\n  status,\n}: ToolbarProps) {\n  return (\n    <section\n      aria-label={label}\n      className=\"grid gap-3 rounded-lg border border-border bg-surface p-4\"\n    >\n      <div className=\"grid gap-3 md:grid-cols-[minmax(12rem,1fr)_auto_auto] md:items-center\">\n        <SearchInput\n          aria-label={searchLabel}\n          defaultValue={defaultQuery}\n          placeholder={searchPlaceholder}\n          value={query}\n          onValueChange={onQueryChange}\n        />\n        {filters ? (\n          <div\n            aria-label=\"筛选条件\"\n            className=\"grid gap-2 sm:flex sm:flex-wrap\"\n            role=\"group\"\n          >\n            {filters}\n          </div>\n        ) : (\n          <span />\n        )}\n        {actions ? (\n          <div\n            aria-label=\"工具操作\"\n            className=\"grid gap-2 sm:flex sm:flex-wrap md:justify-end\"\n            role=\"group\"\n          >\n            {actions}\n          </div>\n        ) : null}\n      </div>\n      {status ? (\n        <Text aria-live=\"polite\" size=\"sm\" tone=\"muted\">\n          {status}\n        </Text>\n      ) : null}\n    </section>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/toolbar/toolbar.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "SearchInput",
+      "Text"
+    ]
+  },
+  "docs": "This pattern uses labelled native control groups rather than role=toolbar. Only add the ARIA toolbar role after implementing roving tabindex and arrow-key navigation for every contained control.",
+  "categories": [
+    "actions",
+    "filter",
+    "layout"
+  ],
+  "type": "registry:block"
+}

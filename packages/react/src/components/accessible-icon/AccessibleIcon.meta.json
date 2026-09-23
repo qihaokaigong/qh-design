@@ -1,0 +1,29 @@
+{
+  "name": "AccessibleIcon",
+  "summary": "为单独传达含义的图标提供一致尺寸和辅助技术名称",
+  "status": "beta",
+  "import": "import { AccessibleIcon } from '@qhkg/react'",
+  "storybookId": "foundation-accessibleicon",
+  "whenToUse": [
+    "图标没有相邻可见文字但必须传达含义",
+    "自定义图标需要统一 QH 尺寸"
+  ],
+  "avoidWhen": [
+    "图标纯装饰且已有相邻文字",
+    "IconButton 已通过 aria-label 提供名称"
+  ],
+  "mobile": ["图标尺寸不等于触控尺寸，交互时仍应放入至少 44px 的控件"],
+  "accessibility": [
+    "label 为必填且替代图标被朗读",
+    "视觉图标本身从辅助技术中隐藏"
+  ],
+  "related": ["IconButton", "VisuallyHidden"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "InControl",
+    "LongContent",
+    "Mobile"
+  ]
+}

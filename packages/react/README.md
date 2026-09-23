@@ -32,6 +32,22 @@ export function SaveAction() {
 }
 ```
 
+默认入口是最省心的接入方式。需要严格控制产物体积时，可以改用组件级 JavaScript 和 CSS 子路径：
+
+```tsx
+import "@qhkg/react/theme.css";
+import "@qhkg/react/avatar.css";
+import { Avatar } from "@qhkg/react/avatar";
+
+export function UserAvatar() {
+  return <Avatar name="齐浩" src="/avatar.jpg" />;
+}
+```
+
+`theme.css` 在应用入口只导入一次；随后按实际使用的组件导入对应的 `<component>.css`。组合组件的 CSS 入口会自动包含它依赖的 QH 基础组件样式。不要同时导入全量 `styles.css` 和组件级 CSS，否则会重复加载样式。
+
+组件子路径使用 kebab-case，例如 `@qhkg/react/alert-dialog`、`@qhkg/react/date-picker`。`@qhkg/react/components.css` 仍提供不含主题 Token 的全量组件样式，原有根入口保持兼容。
+
 公开文档和组件状态见 [design.qihao.dev](https://design.qihao.dev/)。
 
 核心组件的颜色、焦点、圆角和内部间距由 Design System 管理；`className` 用于页面布局和外部尺寸约束。

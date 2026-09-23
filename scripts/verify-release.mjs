@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -29,9 +29,9 @@ async function assertFile(file, message) {
 
 async function verifyPackage(packageDirectory) {
   const manifest = await readJson(path.join(packageDirectory, "package.json"));
-  const exportTargets = collectExportTargets(manifest.exports).map((target) =>
-    target.replace(/^\.\//, ""),
-  );
+  const exportTargets = collectExportTargets(manifest.exports)
+    .map((target) => target.replace(/^\.\//, ""))
+    .filter((target) => !target.includes("*"));
   const binTargets = Object.values(manifest.bin ?? {}).map((target) =>
     target.replace(/^\.\//, ""),
   );
@@ -158,9 +158,56 @@ const { stdout: reactPackOutput } = await execFileAsync(
   { cwd: path.join(root, "packages/react"), maxBuffer: 10 * 1024 * 1024 },
 );
 const [packedReact] = JSON.parse(reactPackOutput);
+const packedReactPaths = new Set(packedReact.files.map((file) => file.path));
 assert(
   packedReact.files.some((file) => file.path === "skills/qh-design/SKILL.md"),
   "React tarball is missing the QH Design Skill",
+);
+
+assert.deepEqual(
+  reactPackage.exports["./*"],
+  {
+    types: "./dist/components/*/index.d.ts",
+    import: "./dist/components/*/index.js",
+  },
+  "React package must expose stable component JavaScript subpaths",
+);
+assert.equal(
+  reactPackage.exports["./*.css"],
+  "./dist/component-styles/*.css",
+  "React package must expose stable component CSS subpaths",
+);
+
+const componentEntries = (
+  await readdir(path.join(root, "packages/react/src/components"), {
+    withFileTypes: true,
+  })
+)
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+  .sort((left, right) => left.localeCompare(right));
+
+for (const componentName of componentEntries) {
+  for (const target of [
+    `dist/components/${componentName}/index.js`,
+    `dist/components/${componentName}/index.d.ts`,
+    `dist/component-styles/${componentName}.css`,
+  ]) {
+    await assertFile(
+      path.join(root, "packages/react", target),
+      `React package is missing on-demand target ${target}`,
+    );
+    assert(
+      packedReactPaths.has(target),
+      `React tarball is missing on-demand target ${target}`,
+    );
+  }
+}
+
+await import("@qhkg/react/avatar");
+await import(
+  pathToFileURL(path.join(root, "packages/react/scripts/verify-bundle.mjs"))
+    .href + "?release-verify"
 );
 
 console.log(
@@ -168,6 +215,8 @@ console.log(
     {
       packages,
       registryItems: registry.items.length,
+      onDemandComponents: componentEntries.length,
+      onDemandExports: "passed",
       ssrImport: "passed",
       staticDocumentation: "passed",
     },

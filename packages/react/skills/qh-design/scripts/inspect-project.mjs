@@ -4,8 +4,15 @@ import { access, readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const STYLE_IMPORT_PATTERN =
-  /(?:import\s*["']@qhkg\/react\/styles\.css["']|@import\s*["']@qhkg\/react\/styles\.css["'])/;
+const STYLE_IMPORT_PATTERNS = {
+  aggregateComponents:
+    /(?:import\s*["']@qhkg\/react\/components\.css["']|@import\s*["']@qhkg\/react\/components\.css["'])/,
+  component:
+    /(?:import\s*["']@qhkg\/react\/(?!styles\.css|components\.css|theme\.css)[a-z0-9-]+\.css["']|@import\s*["']@qhkg\/react\/(?!styles\.css|components\.css|theme\.css)[a-z0-9-]+\.css["'])/,
+  full: /(?:import\s*["']@qhkg\/react\/styles\.css["']|@import\s*["']@qhkg\/react\/styles\.css["'])/,
+  theme:
+    /(?:import\s*["']@qhkg\/react\/theme\.css["']|@import\s*["']@qhkg\/react\/theme\.css["'])/,
+};
 const SOURCE_EXTENSIONS = new Set([
   ".cjs",
   ".css",
@@ -84,7 +91,16 @@ async function resolveInstalledPackage(projectRoot, packageName) {
   return null;
 }
 
-async function findStyleImports(directory, projectRoot, matches = []) {
+async function findStyleImports(
+  directory,
+  projectRoot,
+  matches = {
+    aggregateComponents: [],
+    component: [],
+    full: [],
+    theme: [],
+  },
+) {
   const entries = await readdir(directory, { withFileTypes: true });
 
   for (const entry of entries) {
@@ -98,8 +114,9 @@ async function findStyleImports(directory, projectRoot, matches = []) {
 
     if (!SOURCE_EXTENSIONS.has(path.extname(entry.name))) continue;
     const source = await readFile(entryPath, "utf8");
-    if (STYLE_IMPORT_PATTERN.test(source)) {
-      matches.push(path.relative(projectRoot, entryPath));
+    const relativePath = path.relative(projectRoot, entryPath);
+    for (const [kind, pattern] of Object.entries(STYLE_IMPORT_PATTERNS)) {
+      if (pattern.test(source)) matches[kind].push(relativePath);
     }
   }
 
@@ -144,6 +161,10 @@ export async function inspectProject(projectRoot) {
       exists: await fileExists(path.join(resolvedRoot, file)),
     })),
   );
+  const styleImports = await findStyleImports(resolvedRoot, resolvedRoot);
+  const styleImportFiles = [
+    ...new Set(Object.values(styleImports).flat()),
+  ].sort((left, right) => left.localeCompare(right));
 
   return {
     projectRoot: resolvedRoot,
@@ -155,7 +176,11 @@ export async function inspectProject(projectRoot) {
       skillContextVersion: skillManifest.componentVersion,
       registryConfigured:
         registry?.["@qh"] === "https://design.qihao.dev/r/{name}.json",
-      styleImportFiles: await findStyleImports(resolvedRoot, resolvedRoot),
+      styleImportFiles,
+      fullStyleImportFiles: styleImports.full,
+      themeStyleImportFiles: styleImports.theme,
+      aggregateComponentStyleImportFiles: styleImports.aggregateComponents,
+      componentStyleImportFiles: styleImports.component,
     },
     projectInstructions: instructionChecks
       .filter((entry) => entry.exists)

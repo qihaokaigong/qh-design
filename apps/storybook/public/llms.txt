@@ -4,28 +4,51 @@ Public React component documentation: https://design.qihao.dev/
 Before using a component, inspect its API and examples through Storybook MCP or the linked docs.
 Do not invent props, colors, dark mode, or replacements for existing QH components.
 
+- AccessibleIcon: 为单独传达含义的图标提供一致尺寸和辅助技术名称 — https://design.qihao.dev/?path=/docs/foundation-accessibleicon--docs
+- Accordion: 在有限空间中按标题展开或收起相关内容区块 — https://design.qihao.dev/?path=/docs/data-display-accordion--docs
 - Alert: 展示需要用户注意的持久反馈或状态说明 — https://design.qihao.dev/?path=/docs/feedback-alert--docs
 - AlertDialog: 要求用户明确确认或取消高风险、不可逆操作 — https://design.qihao.dev/?path=/docs/overlays-alertdialog--docs
+- AspectRatio: 为图片、视频、嵌入内容或占位区域维持稳定宽高比 — https://design.qihao.dev/?path=/docs/layout-aspectratio--docs
+- Avatar: 展示人物或实体图像，并在图像不可用时显示稳定回退内容 — https://design.qihao.dev/?path=/docs/data-avatar--docs
 - Badge: 用紧凑标签显示状态、类别或少量元数据 — https://design.qihao.dev/?path=/docs/data-display-badge--docs
 - Breadcrumb: 显示当前页面在站点层级中的位置，并允许返回任一上级页面 — https://design.qihao.dev/?path=/docs/navigation-breadcrumb--docs
 - Button: 触发当前页面中的动作或提交表单 — https://design.qihao.dev/?path=/docs/actions-button--docs
 - ButtonLink: 以按钮视觉层级导航到一个 URL — https://design.qihao.dev/?path=/docs/actions-button--docs
+- Calendar: 在月份网格中浏览并选择单个日期 — https://design.qihao.dev/?path=/docs/forms-calendar--docs
 - Card: 将一组相关信息和操作组织成独立表面 — https://design.qihao.dev/?path=/docs/surfaces-card--docs
 - Checkbox: 选择可独立开启或关闭的一个或多个选项 — https://design.qihao.dev/?path=/docs/forms-checkbox--docs
+- CheckboxGroup: 管理一组可以同时选择多个值的复选项 — https://design.qihao.dev/?path=/docs/forms-checkboxgroup--docs
+- Code: 展示行内代码或可聚焦、可滚动的代码块 — https://design.qihao.dev/?path=/docs/foundations-code--docs
+- Combobox: 通过输入筛选并从固定选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-combobox--docs
+- DataList: 以原生描述列表语义展示标签和值组成的结构化数据 — https://design.qihao.dev/?path=/docs/data-datalist--docs
+- DatePicker: 通过分段输入或日历弹层选择单个日期 — https://design.qihao.dev/?path=/docs/forms-datepicker--docs
+- DateRangePicker: 通过双日期输入和范围日历选择连续日期区间 — https://design.qihao.dev/?path=/docs/forms-daterangepicker--docs
 - Dialog: 在模态窗口中承载需要集中完成的普通任务 — https://design.qihao.dev/?path=/docs/overlays-dialog--docs
 - Drawer: 从屏幕底部展开适合移动端的模态任务面板 — https://design.qihao.dev/?path=/docs/overlays-drawer--docs
+- Dropzone: 接收文件拖放并返回已校验的文件与拒绝原因 — https://design.qihao.dev/?path=/docs/forms-dropzone--docs
 - EmptyState: 解释没有内容的原因并提供明确的下一步 — https://design.qihao.dev/?path=/docs/feedback-emptystate--docs
 - Field: 组合表单标签、说明、错误信息和控件的可访问容器 — https://design.qihao.dev/?path=/docs/forms-field--docs
+- Fieldset: 使用原生分组语义组织一组相关表单控件 — https://design.qihao.dev/?path=/docs/forms-fieldset--docs
+- FileUpload: 通过设备选择或拖放收集文件，并显示可移除的已选列表 — https://design.qihao.dev/?path=/docs/forms-fileupload--docs
 - Grid: 以移动端优先的受控列数排列二维内容 — https://design.qihao.dev/?path=/docs/layout-grid--docs
+- Heading: 用明确的文档层级和受控视觉尺度呈现标题 — https://design.qihao.dev/?path=/docs/foundation-heading--docs
 - IconButton: 以图标触发常用动作，并可在图标后同行显示文字标签 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
 - Inline: 使用设计 Token 间距横向排列并按需换行 — https://design.qihao.dev/?path=/docs/layout-inline--docs
 - Input: 输入单行文本、邮箱、密码及其他原生输入值 — https://design.qihao.dev/?path=/docs/forms-input--docs
+- InputGroup: 在单个输入边框内组合输入框、附加内容和图标动作 — https://design.qihao.dev/?path=/docs/forms-inputgroup--docs
+- Kbd: 在说明文字中标记单个按键或键盘快捷键组合 — https://design.qihao.dev/?path=/docs/foundations-kbd--docs
+- Link: 在正文或界面内容中导航到另一个 URL — https://design.qihao.dev/?path=/docs/foundation-link--docs
+- ListBox: 在始终可见的选项集合中完成单选或多选 — https://design.qihao.dev/?path=/docs/forms-listbox--docs
 - Menu: 从触发器打开一组临时操作或可选设置 — https://design.qihao.dev/?path=/docs/navigation-menu--docs
+- MultiSelect: 在收起的选项集合中选择并提交多个值 — https://design.qihao.dev/?path=/docs/forms-multiselect--docs
+- NumberInput: 支持键盘输入、原生数值约束和步进动作的数字输入 — https://design.qihao.dev/?path=/docs/forms-numberinput--docs
 - PageContainer: 限制页面内容宽度并提供移动端优先的标准页边距 — https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
 - Pagination: 在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件 — https://design.qihao.dev/?path=/docs/navigation-pagination--docs
+- PasswordInput: 带可访问显示与隐藏动作的密码输入 — https://design.qihao.dev/?path=/docs/forms-passwordinput--docs
 - Popover: 在触发器附近展示可交互的补充内容 — https://design.qihao.dev/?path=/docs/overlays-popover--docs
 - Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
 - RadioGroup: 从一组互斥选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
+- SearchInput: 带搜索图标和可访问清除动作的单行搜索输入 — https://design.qihao.dev/?path=/docs/forms-searchinput--docs
 - Select: 从较短的固定选项列表中选择一个值 — https://design.qihao.dev/?path=/docs/forms-select--docs
 - Separator: 在相邻内容区域之间提供视觉或语义分隔 — https://design.qihao.dev/?path=/docs/surfaces-separator--docs
 - Skeleton: 在内容加载时保留大致布局并降低视觉跳动 — https://design.qihao.dev/?path=/docs/feedback-skeleton--docs
@@ -33,7 +56,9 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Switch: 立即开启或关闭一个设置 — https://design.qihao.dev/?path=/docs/forms-switch--docs
 - Table: 使用原生表格语义展示需要按行列比较的结构化数据 — https://design.qihao.dev/?path=/docs/data-table--docs
 - Tabs: 在同一页面区域内切换并列内容视图 — https://design.qihao.dev/?path=/docs/navigation-tabs--docs
+- Text: 用受控字号、字重和语义颜色呈现正文或内联文本 — https://design.qihao.dev/?path=/docs/foundation-text--docs
 - Textarea: 输入可换行的较长文本内容 — https://design.qihao.dev/?path=/docs/forms-textarea--docs
+- TimeField: 通过可独立编辑的时、分、秒片段输入时间 — https://design.qihao.dev/?path=/docs/forms-timefield--docs
 - Toast: 短暂反馈后台结果，并允许可选的轻量后续操作 — https://design.qihao.dev/?path=/docs/feedback-toast--docs
 - Tooltip: 在悬停或键盘聚焦时显示简短的非交互说明 — https://design.qihao.dev/?path=/docs/overlays-tooltip--docs
 - VisuallyHidden: 在视觉上隐藏内容，同时保留辅助技术可访问性 — https://design.qihao.dev/?path=/docs/foundation-visuallyhidden--docs
@@ -42,8 +67,17 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 
 Install patterns through the public shadcn Registry. Inspect the pattern documentation and source before connecting application data or services.
 
+- Data Table: Project data table pattern with filtering, sorting, row selection, batch actions, states, and pagination. — https://design.qihao.dev/r/data-table.json
 - Delete Confirmation: Accessible destructive confirmation pattern built with QH AlertDialog. — https://design.qihao.dev/r/delete-confirmation.json
 - Filter Bar: Responsive project filter bar that stacks on mobile and expands on wider screens. — https://design.qihao.dev/r/filter-bar.json
+- Header: Responsive application header with synchronized desktop and mobile primary navigation. — https://design.qihao.dev/r/header.json
 - Login Form: Mobile-first email and password login form using QH Field and form controls. — https://design.qihao.dev/r/login-form.json
 - Mobile Bottom Action Bar: Safe-area-aware bottom action bar that becomes an inline panel on wider screens. — https://design.qihao.dev/r/mobile-bottom-action-bar.json
+- Mobile Navigation: Drawer-based mobile primary navigation with current-page state and focus restoration. — https://design.qihao.dev/r/mobile-nav.json
+- Page Header: Page title region combining breadcrumb hierarchy, supporting copy, and visible actions. — https://design.qihao.dev/r/page-header.json
+- Project Detail Page: Complete project detail page with breadcrumbs, visible actions, overview data, activity, metadata, and resilient page states. — https://design.qihao.dev/r/project-detail-page.json
+- Project List Page: Complete project list page combining hierarchy, visible creation action, filtering, data states, selection, and pagination. — https://design.qihao.dev/r/project-list-page.json
+- Search Results Page: Complete search results page with a labelled query, category filter, result cards, loading, error, empty state, and pagination. — https://design.qihao.dev/r/search-results-page.json
 - Settings Form: Project settings form with native submission and QH validation relationships. — https://design.qihao.dev/r/settings-form.json
+- Side Navigation: Persistent secondary navigation with explicit current-page state. — https://design.qihao.dev/r/side-nav.json
+- Toolbar: Responsive list tool area for search, filters, status, and visible actions. — https://design.qihao.dev/r/toolbar.json

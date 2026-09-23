@@ -1,0 +1,23 @@
+{
+  "name": "Avatar",
+  "summary": "展示人物或实体图像，并在图像不可用时显示稳定回退内容",
+  "status": "beta",
+  "import": "import { Avatar } from '@qhkg/react'",
+  "storybookId": "data-avatar",
+  "whenToUse": [
+    "列表、评论或账户区域需要识别人物或实体",
+    "远程图像需要加载失败回退"
+  ],
+  "avoidWhen": ["图像是内容主体而非身份标识", "只需要装饰性图标"],
+  "mobile": [
+    "尺寸保持固定，不因长名称压缩",
+    "与相邻名称组合时允许使用空 alt 避免重复朗读"
+  ],
+  "accessibility": [
+    "name 始终提供回退首字母来源",
+    "alt 默认使用 name；相邻文本已命名时显式传入空字符串",
+    "回退内容不重复进入辅助技术名称"
+  ],
+  "related": ["Badge", "Text"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Link",
+  "summary": "在正文或界面内容中导航到另一个 URL",
+  "status": "beta",
+  "import": "import { Link } from '@qhkg/react'",
+  "storybookId": "foundation-link",
+  "whenToUse": ["正文中导航到相关页面或资源", "导航不需要按钮级视觉强调"],
+  "avoidWhen": ["执行页面内动作", "主要导航需要按钮视觉层级"],
+  "mobile": ["内联链接随正文自然换行，不伪装成 44px 控件"],
+  "accessibility": [
+    "必须提供 href 以保留原生链接语义",
+    "链接文字应能描述目标，避免只写点击这里"
+  ],
+  "related": ["ButtonLink", "Text"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "KeyboardFocus",
+    "LongContent",
+    "Mobile"
+  ]
+}

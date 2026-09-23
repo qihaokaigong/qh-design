@@ -1,0 +1,31 @@
+{
+  "name": "DatePicker",
+  "summary": "通过分段输入或日历弹层选择单个日期",
+  "status": "beta",
+  "import": "import { DatePicker } from '@qhkg/react'",
+  "storybookId": "forms-datepicker",
+  "whenToUse": [
+    "日期既可键盘输入也可从日历选择",
+    "表单需要提交 ISO 日期字符串"
+  ],
+  "avoidWhen": ["日历需要持续可见", "需要选择连续日期范围"],
+  "mobile": [
+    "默认控件高度为 44px",
+    "弹层避让视口边缘并在 320px 视口内完整显示"
+  ],
+  "accessibility": [
+    "必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
+    "每个日期片段可独立编辑，日历支持完整键盘导航",
+    "选择完成或按 Escape 关闭后恢复焦点"
+  ],
+  "related": ["Calendar", "DateRangePicker", "TimeField", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

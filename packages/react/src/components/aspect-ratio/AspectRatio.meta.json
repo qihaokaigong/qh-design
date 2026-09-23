@@ -1,0 +1,20 @@
+{
+  "name": "AspectRatio",
+  "summary": "为图片、视频、嵌入内容或占位区域维持稳定宽高比",
+  "status": "beta",
+  "import": "import { AspectRatio } from '@qhkg/react'",
+  "storybookId": "layout-aspectratio",
+  "whenToUse": ["媒体加载前需要保留布局空间", "同类卡片预览需要一致比例"],
+  "avoidWhen": ["内容高度应由文本自然决定", "固定高度比比例更符合业务约束"],
+  "mobile": [
+    "宽度默认跟随容器并保持比例",
+    "直接图片或视频子元素填满区域且不造成页面溢出"
+  ],
+  "accessibility": [
+    "组件只处理布局，子媒体仍需提供 alt、标题或字幕",
+    "ratio 必须是正有限数",
+    "不要通过裁切隐藏传达必要信息的图像区域"
+  ],
+  "related": ["Card", "Skeleton"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

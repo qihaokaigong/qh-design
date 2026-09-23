@@ -1,0 +1,28 @@
+{
+  "name": "SearchInput",
+  "summary": "带搜索图标和可访问清除动作的单行搜索输入",
+  "status": "beta",
+  "import": "import { SearchInput } from '@qhkg/react'",
+  "storybookId": "forms-searchinput",
+  "whenToUse": ["输入关键词筛选当前内容", "搜索结果会随关键词或提交动作更新"],
+  "avoidWhen": ["选择固定选项", "执行站点主导航而没有搜索输入"],
+  "mobile": [
+    "默认高度为 44px 且字号不小于 16px",
+    "清除动作始终具有可见的触控目标"
+  ],
+  "accessibility": [
+    "必须通过 Field.Label 或 aria-label 提供名称",
+    "清除动作具有可本地化的可访问名称",
+    "清除后焦点返回搜索输入"
+  ],
+  "related": ["Input", "InputGroup", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

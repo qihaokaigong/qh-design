@@ -1,0 +1,31 @@
+{
+  "name": "MultiSelect",
+  "summary": "在收起的选项集合中选择并提交多个值",
+  "status": "beta",
+  "import": "import { MultiSelect } from '@qhkg/react'",
+  "storybookId": "forms-multiselect",
+  "whenToUse": [
+    "用户可从固定集合中选择多个值",
+    "页面空间不足以持续展示完整选项"
+  ],
+  "avoidWhen": ["只有一个值可以被选择", "选项很多且必须输入搜索"],
+  "mobile": [
+    "触发器默认高度为 44px",
+    "弹层受动态视口约束且选项触控高度不少于 44px"
+  ],
+  "accessibility": [
+    "必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
+    "支持键盘打开、方向键导航、切换选择和关闭",
+    "触发器以文本呈现当前全部选中值"
+  ],
+  "related": ["ListBox", "Combobox", "Select", "CheckboxGroup", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

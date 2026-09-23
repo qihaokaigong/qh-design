@@ -1,0 +1,28 @@
+{
+  "name": "Combobox",
+  "summary": "通过输入筛选并从固定选项中选择一个值",
+  "status": "beta",
+  "import": "import { Combobox } from '@qhkg/react'",
+  "storybookId": "forms-combobox",
+  "whenToUse": ["固定选项较多且用户需要搜索", "用户可能知道目标选项名称"],
+  "avoidWhen": ["允许提交任意自由文本", "只有少量选项且无需搜索"],
+  "mobile": [
+    "输入与展开动作保持 44px 默认高度",
+    "弹层宽度跟随触发器并避让视口边缘"
+  ],
+  "accessibility": [
+    "必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
+    "支持键盘筛选、方向键导航、Enter 选择和 Escape 关闭",
+    "焦点、无效、禁用和选中状态均具有非颜色反馈"
+  ],
+  "related": ["ListBox", "MultiSelect", "Select", "SearchInput", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

@@ -103,6 +103,263 @@
       "categories": ["mobile", "actions"],
       "docs": "Add bottom padding to the page content when this bar is fixed so the final content is not covered. Pass QH Button elements as actions.",
       "meta": { "status": "beta", "mobileFirst": true, "uses": ["Button"] }
+    },
+    {
+      "name": "data-table",
+      "type": "registry:block",
+      "title": "Data Table",
+      "description": "Project data table pattern with filtering, sorting, row selection, batch actions, states, and pagination.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/data-table/data-table.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/data-table/data-table.tsx"
+        },
+        {
+          "path": "registry/blocks/filter-bar/filter-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/filter-bar/filter-bar.tsx"
+        }
+      ],
+      "categories": ["data", "table"],
+      "docs": "Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": [
+          "Table",
+          "Pagination",
+          "Checkbox",
+          "Menu",
+          "FilterBar",
+          "Alert",
+          "EmptyState",
+          "Skeleton"
+        ]
+      }
+    },
+    {
+      "name": "mobile-nav",
+      "type": "registry:block",
+      "title": "Mobile Navigation",
+      "description": "Drawer-based mobile primary navigation with current-page state and focus restoration.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/mobile-nav/mobile-nav.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/mobile-nav/mobile-nav.tsx"
+        }
+      ],
+      "categories": ["navigation", "mobile"],
+      "docs": "Derive the current item from the consuming application's router. Keep every primary destination visible inside the Drawer and preserve the QH Drawer focus behavior.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Drawer", "Button", "ButtonLink", "IconButton"]
+      }
+    },
+    {
+      "name": "header",
+      "type": "registry:block",
+      "title": "Header",
+      "description": "Responsive application header with synchronized desktop and mobile primary navigation.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/header/header.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/header/header.tsx"
+        },
+        {
+          "path": "registry/blocks/mobile-nav/mobile-nav.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/mobile-nav/mobile-nav.tsx"
+        }
+      ],
+      "categories": ["navigation", "layout"],
+      "docs": "Pass route-aware items and URLs from the application. The primary action remains visible at every breakpoint, while navigation moves into MobileNav below the desktop breakpoint.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["PageContainer", "ButtonLink", "MobileNav"]
+      }
+    },
+    {
+      "name": "side-nav",
+      "type": "registry:block",
+      "title": "Side Navigation",
+      "description": "Persistent secondary navigation with explicit current-page state.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/side-nav/side-nav.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/side-nav/side-nav.tsx"
+        }
+      ],
+      "categories": ["navigation", "layout"],
+      "docs": "Use for secondary navigation within a stable application section. Derive the current item from the router and keep primary application destinations in Header or MobileNav.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Heading", "ButtonLink"]
+      }
+    },
+    {
+      "name": "page-header",
+      "type": "registry:block",
+      "title": "Page Header",
+      "description": "Page title region combining breadcrumb hierarchy, supporting copy, and visible actions.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/page-header/page-header.tsx"
+        }
+      ],
+      "categories": ["navigation", "layout"],
+      "docs": "Render one page-level h1. Keep actions visible, use Button for in-page actions and ButtonLink for URL navigation, and pass router-aware breadcrumb href values.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Breadcrumb", "Heading", "Text"]
+      }
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:block",
+      "title": "Toolbar",
+      "description": "Responsive list tool area for search, filters, status, and visible actions.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/toolbar/toolbar.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/toolbar/toolbar.tsx"
+        }
+      ],
+      "categories": ["actions", "filter", "layout"],
+      "docs": "This pattern uses labelled native control groups rather than role=toolbar. Only add the ARIA toolbar role after implementing roving tabindex and arrow-key navigation for every contained control.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["SearchInput", "Text"]
+      }
+    },
+    {
+      "name": "project-list-page",
+      "type": "registry:block",
+      "title": "Project List Page",
+      "description": "Complete project list page combining hierarchy, visible creation action, filtering, data states, selection, and pagination.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/project-list-page/project-list-page.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/project-list-page/project-list-page.tsx"
+        },
+        {
+          "path": "registry/blocks/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/page-header/page-header.tsx"
+        },
+        {
+          "path": "registry/blocks/data-table/data-table.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/data-table/data-table.tsx"
+        },
+        {
+          "path": "registry/blocks/filter-bar/filter-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/filter-bar/filter-bar.tsx"
+        }
+      ],
+      "categories": ["page", "data", "projects"],
+      "docs": "Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["PageContainer", "PageHeader", "ButtonLink", "DataTable"]
+      }
+    },
+    {
+      "name": "project-detail-page",
+      "type": "registry:block",
+      "title": "Project Detail Page",
+      "description": "Complete project detail page with breadcrumbs, visible actions, overview data, activity, metadata, and resilient page states.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/project-detail-page/project-detail-page.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/project-detail-page/project-detail-page.tsx"
+        },
+        {
+          "path": "registry/blocks/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/page-header/page-header.tsx"
+        }
+      ],
+      "categories": ["page", "detail", "projects"],
+      "docs": "Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": [
+          "PageContainer",
+          "PageHeader",
+          "Card",
+          "Badge",
+          "Alert",
+          "EmptyState",
+          "Skeleton"
+        ]
+      }
+    },
+    {
+      "name": "search-results-page",
+      "type": "registry:block",
+      "title": "Search Results Page",
+      "description": "Complete search results page with a labelled query, category filter, result cards, loading, error, empty state, and pagination.",
+      "dependencies": ["@qhkg/react@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/blocks/search-results-page/search-results-page.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/search-results-page/search-results-page.tsx"
+        },
+        {
+          "path": "registry/blocks/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/page-header/page-header.tsx"
+        },
+        {
+          "path": "registry/blocks/toolbar/toolbar.tsx",
+          "type": "registry:component",
+          "target": "@components/qh-patterns/toolbar/toolbar.tsx"
+        }
+      ],
+      "categories": ["page", "search", "results"],
+      "docs": "Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": [
+          "PageContainer",
+          "PageHeader",
+          "Toolbar",
+          "Select",
+          "Card",
+          "Link",
+          "Pagination",
+          "Alert",
+          "EmptyState",
+          "Skeleton"
+        ]
+      }
     }
   ]
 }

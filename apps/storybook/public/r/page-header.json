@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-header",
+  "title": "Page Header",
+  "description": "Page title region combining breadcrumb hierarchy, supporting copy, and visible actions.",
+  "dependencies": [
+    "@qhkg/react@^0.5.0"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/page-header/page-header.tsx",
+      "content": "import { Breadcrumb, Heading, Text } from \"@qhkg/react\";\nimport type { BreadcrumbItem } from \"@qhkg/react\";\nimport type { ReactNode } from \"react\";\n\nexport interface PageHeaderProps {\n  actions?: ReactNode;\n  breadcrumbs?: readonly BreadcrumbItem[];\n  description?: ReactNode;\n  title: ReactNode;\n}\n\n/** Page title region with hierarchy, supporting copy, and visible actions. */\nexport function PageHeader({\n  actions,\n  breadcrumbs,\n  description,\n  title,\n}: PageHeaderProps) {\n  return (\n    <header className=\"grid gap-4\">\n      {breadcrumbs && breadcrumbs.length > 0 ? (\n        <Breadcrumb items={breadcrumbs} />\n      ) : null}\n      <div className=\"grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start\">\n        <div className=\"grid min-w-0 gap-2\">\n          <Heading level={1}>{title}</Heading>\n          {description ? (\n            <Text as=\"p\" tone=\"muted\">\n              {description}\n            </Text>\n          ) : null}\n        </div>\n        {actions ? (\n          <div\n            aria-label=\"页面操作\"\n            className=\"grid gap-2 sm:flex sm:flex-wrap md:justify-end\"\n            role=\"group\"\n          >\n            {actions}\n          </div>\n        ) : null}\n      </div>\n    </header>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/qh-patterns/page-header/page-header.tsx"
+    }
+  ],
+  "meta": {
+    "status": "beta",
+    "mobileFirst": true,
+    "uses": [
+      "Breadcrumb",
+      "Heading",
+      "Text"
+    ]
+  },
+  "docs": "Render one page-level h1. Keep actions visible, use Button for in-page actions and ButtonLink for URL navigation, and pass router-aware breadcrumb href values.",
+  "categories": [
+    "navigation",
+    "layout"
+  ],
+  "type": "registry:block"
+}

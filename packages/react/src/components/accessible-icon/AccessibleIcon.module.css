@@ -1,0 +1,28 @@
+.root {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.root > svg {
+  inline-size: 100%;
+  block-size: 100%;
+  stroke-width: 2;
+}
+
+.sm {
+  inline-size: var(--qh-icon-sm);
+  block-size: var(--qh-icon-sm);
+}
+
+.md {
+  inline-size: var(--qh-icon-md);
+  block-size: var(--qh-icon-md);
+}
+
+.lg {
+  inline-size: var(--qh-icon-lg);
+  block-size: var(--qh-icon-lg);
+}

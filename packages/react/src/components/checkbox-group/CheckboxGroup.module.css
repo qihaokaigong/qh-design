@@ -1,0 +1,5 @@
+.root {
+  display: grid;
+  gap: var(--qh-space-1);
+  font-family: var(--qh-font-sans);
+}

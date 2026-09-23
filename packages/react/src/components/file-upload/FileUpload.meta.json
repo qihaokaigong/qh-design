@@ -1,0 +1,34 @@
+{
+  "name": "FileUpload",
+  "summary": "通过设备选择或拖放收集文件，并显示可移除的已选列表",
+  "status": "beta",
+  "import": "import { FileUpload } from '@qhkg/react'",
+  "storybookId": "forms-fileupload",
+  "whenToUse": [
+    "表单需要选择一个或多个本地文件",
+    "需要统一处理类型、大小、数量和重复文件校验"
+  ],
+  "avoidWhen": [
+    "只需要接收拖放而不需要设备文件选择",
+    "需要组件直接管理网络上传、进度或重试"
+  ],
+  "mobile": [
+    "设备文件选择按钮始终可见，不依赖拖放",
+    "长文件名截断且移除操作保持 44px 触控目标"
+  ],
+  "accessibility": [
+    "通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
+    "选择、拖放、粘贴和移除均有键盘路径",
+    "已选数量通过礼貌型实时区域播报，移除按钮包含文件名"
+  ],
+  "related": ["Dropzone", "Field", "Button", "IconButton"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

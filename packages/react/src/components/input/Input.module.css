@@ -38,6 +38,25 @@
   cursor: not-allowed;
 }
 
+.grouped {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  padding-inline: var(--qh-space-3);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+}
+
+.grouped:focus-visible {
+  border-color: transparent;
+  outline: 0;
+}
+
+.grouped:disabled {
+  background: transparent;
+}
+
 .sm {
   min-block-size: var(--qh-control-sm);
   padding-block: var(--qh-space-1);

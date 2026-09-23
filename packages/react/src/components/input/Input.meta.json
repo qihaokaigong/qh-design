@@ -15,7 +15,7 @@
     "invalid 时设置 aria-invalid",
     "保留原生 autocomplete、name 和 inputMode"
   ],
-  "related": ["Field", "Textarea", "Select"],
+  "related": ["Field", "InputGroup", "Textarea", "Select"],
   "stories": [
     "Default",
     "Playground",

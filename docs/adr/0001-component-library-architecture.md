@@ -131,6 +131,9 @@ MCP 是公开文档的增强入口；项目内随包安装的版本化 Skill 是
 @qhkg/react
 @qhkg/react/styles.css       # Token + 组件样式，默认入口
 @qhkg/react/components.css   # 仅组件样式，高级入口
+@qhkg/react/theme.css        # 仅 Token，按需加载公共入口
+@qhkg/react/<component>      # 组件级 ESM 与类型入口
+@qhkg/react/<component>.css  # 组件及其内部依赖的样式入口
 ```
 
 默认接入：
@@ -139,6 +142,16 @@ MCP 是公开文档的增强入口；项目内随包安装的版本化 Skill 是
 import "@qhkg/react/styles.css";
 import { Button } from "@qhkg/react";
 ```
+
+对产物体积有严格要求的应用可使用组件级入口：
+
+```tsx
+import "@qhkg/react/theme.css";
+import "@qhkg/react/button.css";
+import { Button } from "@qhkg/react/button";
+```
+
+组件子路径使用 kebab-case。每个组件样式入口包含其内部组合依赖的样式；`theme.css` 由应用统一导入一次。全量入口继续作为默认方案，组件级入口作为可验证的按需加载契约，两者不能在同一应用入口重复导入。
 
 React 和 React DOM 为 peer dependencies。Radix、CVA、clsx 等实现依赖由组件包管理，不要求使用方手工保持相同版本。
 
@@ -203,7 +216,7 @@ Field、Select、Tabs、Menu、Popover、Dialog、AlertDialog、Drawer、Alert�
 
 登录表单、设置表单、筛选栏、空状态、删除确认、移动端操作区等。Pattern 优先发布到 Registry；只有跨项目长期稳定后才考虑进入 React 包。
 
-组件 API 细则见[组件 API 与 AI 可用性规范](../component-api-guidelines.md)。
+组件 API 细则见[组件 API 与 AI 可用性规范](../component-api-guidelines.md)。集合型复杂选择组件的第二行为原语边界见 [ADR-0002](0002-react-aria-collection-primitives.md)。
 
 ## AI 使用体系
 

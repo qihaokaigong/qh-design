@@ -1,0 +1,51 @@
+.root {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 10rem;
+  display: grid;
+  place-items: center;
+  padding: var(--qh-space-6) var(--qh-space-4);
+  color: var(--qh-color-text);
+  background: var(--qh-color-surface-subtle);
+  border: var(--qh-border-width) dashed var(--qh-color-border-control);
+  border-radius: var(--qh-radius-lg);
+  font-family: var(--qh-font-sans);
+  transition:
+    background-color var(--qh-duration-fast) var(--qh-ease),
+    border-color var(--qh-duration-fast) var(--qh-ease),
+    box-shadow var(--qh-duration-fast) var(--qh-ease);
+}
+
+.root[data-hovered] {
+  border-color: var(--qh-color-action);
+}
+
+.root[data-focus-visible] {
+  border-color: var(--qh-color-focus);
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: var(--qh-focus-offset);
+}
+
+.root[data-drop-target] {
+  background: var(--qh-color-info-soft);
+  border-color: var(--qh-color-action);
+  border-style: solid;
+}
+
+.root[data-invalid] {
+  border-color: var(--qh-color-danger);
+}
+
+.root[data-disabled] {
+  color: var(--qh-color-disabled-text);
+  background: var(--qh-color-surface-subtle);
+  border-color: var(--qh-color-border);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
+}

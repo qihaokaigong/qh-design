@@ -1,0 +1,25 @@
+{
+  "name": "ListBox",
+  "summary": "在始终可见的选项集合中完成单选或多选",
+  "status": "beta",
+  "import": "import { ListBox } from '@qhkg/react'",
+  "storybookId": "forms-listbox",
+  "whenToUse": ["选项需要同时可见以便比较", "需要在同一集合中支持单选或多选"],
+  "avoidWhen": ["页面空间有限且选项应默认收起", "选项数量很大且需要搜索"],
+  "mobile": ["选项触控高度不少于 44px", "列表高度受动态视口约束并可滚动"],
+  "accessibility": [
+    "必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
+    "支持方向键、Home、End 和字符快速定位",
+    "选中、禁用和无效状态不仅依赖颜色表达"
+  ],
+  "related": ["Combobox", "MultiSelect", "Select", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

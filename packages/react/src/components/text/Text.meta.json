@@ -1,0 +1,16 @@
+{
+  "name": "Text",
+  "summary": "用受控字号、字重和语义颜色呈现正文或内联文本",
+  "status": "beta",
+  "import": "import { Text } from '@qhkg/react'",
+  "storybookId": "foundation-text",
+  "whenToUse": ["呈现正文、说明或辅助文本", "页面需要统一的文字尺度和语义颜色"],
+  "avoidWhen": ["内容是标题层级", "内容承担导航行为"],
+  "mobile": ["正文默认使用 16px 并自然换行"],
+  "accessibility": [
+    "通过 as 选择与内容相符的原生语义",
+    "状态信息不能只依赖 tone 表达"
+  ],
+  "related": ["Heading", "Link"],
+  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+}

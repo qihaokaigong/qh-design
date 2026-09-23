@@ -1,0 +1,27 @@
+.root {
+  margin: 0;
+  color: var(--qh-color-text);
+  font-family: var(--qh-font-sans);
+  font-weight: var(--qh-weight-semibold);
+  text-wrap: balance;
+}
+
+.sm {
+  font-size: var(--qh-text-base);
+  line-height: var(--qh-leading-h3);
+}
+
+.md {
+  font-size: var(--qh-text-lg);
+  line-height: var(--qh-leading-h3);
+}
+
+.lg {
+  font-size: var(--qh-text-h2);
+  line-height: var(--qh-leading-h2);
+}
+
+.xl {
+  font-size: var(--qh-text-h1);
+  line-height: var(--qh-leading-h1);
+}

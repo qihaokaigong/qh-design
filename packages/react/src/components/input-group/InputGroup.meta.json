@@ -1,0 +1,31 @@
+{
+  "name": "InputGroup",
+  "summary": "在单个输入边框内组合输入框、附加内容和图标动作",
+  "status": "beta",
+  "import": "import { InputGroup } from '@qhkg/react'",
+  "storybookId": "forms-inputgroup",
+  "whenToUse": [
+    "输入值需要固定前缀、后缀或单位",
+    "输入框需要紧密关联的图标动作"
+  ],
+  "avoidWhen": ["多个字段只是需要并排布局", "附加操作与输入值没有直接关系"],
+  "mobile": [
+    "默认高度为 44px 并适应容器宽度",
+    "输入区域可以收缩且不会造成页面横向溢出"
+  ],
+  "accessibility": [
+    "InputGroup.Input 必须通过 Field.Label 或 aria-label 获得名称",
+    "图标动作必须提供 aria-label",
+    "从 Field 继承禁用、必填、无效和说明关系"
+  ],
+  "related": ["Input", "Field", "IconButton", "SearchInput"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

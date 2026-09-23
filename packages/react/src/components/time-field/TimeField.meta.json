@@ -1,0 +1,25 @@
+{
+  "name": "TimeField",
+  "summary": "通过可独立编辑的时、分、秒片段输入时间",
+  "status": "beta",
+  "import": "import { TimeField } from '@qhkg/react'",
+  "storybookId": "forms-timefield",
+  "whenToUse": ["表单需要结构化时间值", "用户需要用键盘精确调整时间片段"],
+  "avoidWhen": ["需要选择日期", "时间只是自由文本说明"],
+  "mobile": ["默认控件高度为 44px", "所有片段在 320px 视口内保持可见"],
+  "accessibility": [
+    "必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
+    "每个时间片段支持数字输入、方向键增减和键盘导航",
+    "禁用、只读、无效、必填和焦点状态均可被辅助技术识别"
+  ],
+  "related": ["DatePicker", "DateRangePicker", "Field", "Input"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

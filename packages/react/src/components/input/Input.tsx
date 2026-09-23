@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import { forwardRef } from "react";
 
 import { useFieldControl } from "../field/useFieldControl";
+import { useInputGroupContext } from "../input-group/InputGroupContext";
 import styles from "./Input.module.css";
 import type { InputProps } from "./Input.types";
 
@@ -15,17 +16,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     id,
     invalid,
     required,
-    size = "md",
+    size,
     ...props
   },
   ref,
 ) {
+  const group = useInputGroupContext();
+  const resolvedSize = size ?? group?.size ?? "md";
   const field = useFieldControl({
     describedBy: ariaDescribedBy,
-    disabled,
+    disabled: disabled || group?.disabled,
     id,
-    invalid,
-    required,
+    invalid: invalid || group?.invalid,
+    required: required || group?.required,
   });
 
   return (
@@ -33,7 +36,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       {...props}
       ref={ref}
       id={field.id}
-      className={clsx(styles.root, styles[size], className)}
+      className={clsx(
+        styles.root,
+        styles[resolvedSize],
+        group && styles.grouped,
+        className,
+      )}
+      data-input-group-control={group ? "" : undefined}
       disabled={field.disabled}
       required={field.required}
       aria-invalid={field.invalid || undefined}

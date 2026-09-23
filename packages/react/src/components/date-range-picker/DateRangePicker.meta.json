@@ -1,0 +1,25 @@
+{
+  "name": "DateRangePicker",
+  "summary": "通过双日期输入和范围日历选择连续日期区间",
+  "status": "beta",
+  "import": "import { DateRangePicker } from '@qhkg/react'",
+  "storybookId": "forms-daterangepicker",
+  "whenToUse": ["需要选择开始与结束日期", "需要在日历中理解连续区间"],
+  "avoidWhen": ["只选择单个日期", "开始和结束时间不是连续日期概念"],
+  "mobile": ["双日期输入在窄屏中保持可编辑", "日历弹层在 320px 视口内完整显示"],
+  "accessibility": [
+    "必须通过 Field.Label、aria-label 或 aria-labelledby 提供整体名称",
+    "开始和结束输入具有独立可访问名称",
+    "范围起点、终点、中间日期、不可用日期和焦点状态均可识别"
+  ],
+  "related": ["Calendar", "DatePicker", "TimeField", "Field"],
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "Invalid",
+    "Disabled",
+    "LongContent",
+    "Mobile"
+  ]
+}

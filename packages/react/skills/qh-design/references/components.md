@@ -3,6 +3,32 @@
 Generated from QH component metadata for `@qhkg/react@0.5.0`.
 Use this index to choose a component, then confirm exact props from the installed TypeScript declarations or Storybook MCP.
 
+## AccessibleIcon
+
+为单独传达含义的图标提供一致尺寸和辅助技术名称
+
+- Import: `import { AccessibleIcon } from '@qhkg/react'`
+- Status: beta
+- Use when: 图标没有相邻可见文字但必须传达含义；自定义图标需要统一 QH 尺寸
+- Avoid when: 图标纯装饰且已有相邻文字；IconButton 已通过 aria-label 提供名称
+- Mobile: 图标尺寸不等于触控尺寸，交互时仍应放入至少 44px 的控件
+- Accessibility: label 为必填且替代图标被朗读；视觉图标本身从辅助技术中隐藏
+- Related: IconButton, VisuallyHidden
+- Storybook: https://design.qihao.dev/?path=/docs/foundation-accessibleicon--docs
+
+## Accordion
+
+在有限空间中按标题展开或收起相关内容区块
+
+- Import: `import { Accordion } from '@qhkg/react'`
+- Status: beta
+- Use when: FAQ 或设置分组需要渐进披露；用户可以独立查看一个或多个内容区块
+- Avoid when: 内容必须同时保持可见；步骤具有严格先后顺序，此时使用 Stepper
+- Mobile: 触发区域至少 44px 高；长标题换行且不会挤压展开图标
+- Accessibility: Header 的 headingLevel 必须符合页面标题层级；方向键在触发器间移动焦点；Enter 和空格切换展开状态
+- Related: Tabs, Heading
+- Storybook: https://design.qihao.dev/?path=/docs/data-display-accordion--docs
+
 ## Alert
 
 展示需要用户注意的持久反馈或状态说明
@@ -28,6 +54,32 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: 必须提供 Title 和 Description；打开后默认聚焦 Cancel；Escape 等同取消且不会执行 Action
 - Related: Dialog, Alert, Toast
 - Storybook: https://design.qihao.dev/?path=/docs/overlays-alertdialog--docs
+
+## AspectRatio
+
+为图片、视频、嵌入内容或占位区域维持稳定宽高比
+
+- Import: `import { AspectRatio } from '@qhkg/react'`
+- Status: beta
+- Use when: 媒体加载前需要保留布局空间；同类卡片预览需要一致比例
+- Avoid when: 内容高度应由文本自然决定；固定高度比比例更符合业务约束
+- Mobile: 宽度默认跟随容器并保持比例；直接图片或视频子元素填满区域且不造成页面溢出
+- Accessibility: 组件只处理布局，子媒体仍需提供 alt、标题或字幕；ratio 必须是正有限数；不要通过裁切隐藏传达必要信息的图像区域
+- Related: Card, Skeleton
+- Storybook: https://design.qihao.dev/?path=/docs/layout-aspectratio--docs
+
+## Avatar
+
+展示人物或实体图像，并在图像不可用时显示稳定回退内容
+
+- Import: `import { Avatar } from '@qhkg/react'`
+- Status: beta
+- Use when: 列表、评论或账户区域需要识别人物或实体；远程图像需要加载失败回退
+- Avoid when: 图像是内容主体而非身份标识；只需要装饰性图标
+- Mobile: 尺寸保持固定，不因长名称压缩；与相邻名称组合时允许使用空 alt 避免重复朗读
+- Accessibility: name 始终提供回退首字母来源；alt 默认使用 name；相邻文本已命名时显式传入空字符串；回退内容不重复进入辅助技术名称
+- Related: Badge, Text
+- Storybook: https://design.qihao.dev/?path=/docs/data-avatar--docs
 
 ## Badge
 
@@ -81,6 +133,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Related: Button, Link
 - Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
 
+## Calendar
+
+在月份网格中浏览并选择单个日期
+
+- Import: `import { Calendar } from '@qhkg/react'`
+- Status: beta
+- Use when: 需要持续展示可选日期；日期上下文和不可用日期需要直接比较
+- Avoid when: 表单空间有限且日历应按需展开；只需要输入时间
+- Mobile: 日期单元格保持 44px 高度；320px 视口内不产生横向溢出
+- Accessibility: 必须通过 aria-label 或 aria-labelledby 提供名称；支持方向键、Page Up、Page Down、Home 和 End 浏览日期；不可用、选中、今天、焦点和无效状态具有非颜色反馈
+- Related: DatePicker, DateRangePicker, TimeField
+- Storybook: https://design.qihao.dev/?path=/docs/forms-calendar--docs
+
 ## Card
 
 将一组相关信息和操作组织成独立表面
@@ -106,6 +171,84 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: children 提供可见且可点击的名称；支持 checked 和 indeterminate 语义；使用 Space 键切换
 - Related: RadioGroup, Switch, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-checkbox--docs
+
+## CheckboxGroup
+
+管理一组可以同时选择多个值的复选项
+
+- Import: `import { CheckboxGroup } from '@qhkg/react'`
+- Status: beta
+- Use when: 多个相关选项可以同时选择；需要统一读取和更新一组选中值
+- Avoid when: 选项之间互斥；单个独立确认项
+- Mobile: 每个选项整行可点击且触控高度不少于 44px；长标签允许自然换行
+- Accessibility: 必须通过 Fieldset.Legend、aria-label 或 aria-labelledby 提供组名称；支持受控与非受控选中值；从 Fieldset 继承禁用、无效和说明关系
+- Related: Checkbox, Fieldset, RadioGroup
+- Storybook: https://design.qihao.dev/?path=/docs/forms-checkboxgroup--docs
+
+## Code
+
+展示行内代码或可聚焦、可滚动的代码块
+
+- Import: `import { Code } from '@qhkg/react'`
+- Status: beta
+- Use when: 正文需要标记标识符、命令或短代码；文档需要展示保留空白的多行代码
+- Avoid when: 用户需要编辑代码；需要语法高亮、运行器或复制工作流
+- Mobile: 代码块限制在容器宽度内并局部横向滚动；wrap 可用于必须在窄屏完整阅读的文本代码
+- Accessibility: Code.Block 是带名称的可聚焦滚动区域；label 应描述代码用途而不是只写代码；内容继续使用原生 code 与 pre 语义
+- Related: Kbd, Text
+- Storybook: https://design.qihao.dev/?path=/docs/foundations-code--docs
+
+## Combobox
+
+通过输入筛选并从固定选项中选择一个值
+
+- Import: `import { Combobox } from '@qhkg/react'`
+- Status: beta
+- Use when: 固定选项较多且用户需要搜索；用户可能知道目标选项名称
+- Avoid when: 允许提交任意自由文本；只有少量选项且无需搜索
+- Mobile: 输入与展开动作保持 44px 默认高度；弹层宽度跟随触发器并避让视口边缘
+- Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称；支持键盘筛选、方向键导航、Enter 选择和 Escape 关闭；焦点、无效、禁用和选中状态均具有非颜色反馈
+- Related: ListBox, MultiSelect, Select, SearchInput, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-combobox--docs
+
+## DataList
+
+以原生描述列表语义展示标签和值组成的结构化数据
+
+- Import: `import { DataList } from '@qhkg/react'`
+- Status: beta
+- Use when: 详情页需要展示属性和值；信息不适合表格列结构但需要稳定标签关系
+- Avoid when: 数据需要排序、选择或分页；内容是连续段落而不是名称和值
+- Mobile: responsive 布局默认在窄屏纵向堆叠；长标签和值允许安全换行
+- Accessibility: 根、标签和值分别输出 dl、dt、dd；不要用空标签模拟间距；同一项目允许值中组合 Badge、Link 等语义组件
+- Related: Table, Badge, Text
+- Storybook: https://design.qihao.dev/?path=/docs/data-datalist--docs
+
+## DatePicker
+
+通过分段输入或日历弹层选择单个日期
+
+- Import: `import { DatePicker } from '@qhkg/react'`
+- Status: beta
+- Use when: 日期既可键盘输入也可从日历选择；表单需要提交 ISO 日期字符串
+- Avoid when: 日历需要持续可见；需要选择连续日期范围
+- Mobile: 默认控件高度为 44px；弹层避让视口边缘并在 320px 视口内完整显示
+- Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称；每个日期片段可独立编辑，日历支持完整键盘导航；选择完成或按 Escape 关闭后恢复焦点
+- Related: Calendar, DateRangePicker, TimeField, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-datepicker--docs
+
+## DateRangePicker
+
+通过双日期输入和范围日历选择连续日期区间
+
+- Import: `import { DateRangePicker } from '@qhkg/react'`
+- Status: beta
+- Use when: 需要选择开始与结束日期；需要在日历中理解连续区间
+- Avoid when: 只选择单个日期；开始和结束时间不是连续日期概念
+- Mobile: 双日期输入在窄屏中保持可编辑；日历弹层在 320px 视口内完整显示
+- Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供整体名称；开始和结束输入具有独立可访问名称；范围起点、终点、中间日期、不可用日期和焦点状态均可识别
+- Related: Calendar, DatePicker, TimeField, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-daterangepicker--docs
 
 ## Dialog
 
@@ -133,6 +276,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Related: Dialog, Popover
 - Storybook: https://design.qihao.dev/?path=/docs/overlays-drawer--docs
 
+## Dropzone
+
+接收文件拖放并返回已校验的文件与拒绝原因
+
+- Import: `import { Dropzone } from '@qhkg/react'`
+- Status: beta
+- Use when: 已有自定义文件流程，只需要可访问的拖放目标；需要在读取文件前统一校验类型、大小和数量
+- Avoid when: 需要同时提供设备文件选择和已选文件列表；需要组件直接发起上传请求
+- Mobile: 拖放不是移动端唯一入口，应同时提供文件选择按钮；内容和长文件说明在 320px 视口内换行
+- Accessibility: 必须通过 aria-label 或 aria-labelledby 提供名称；内置键盘与屏幕阅读器拖放入口，并支持粘贴文件；禁用状态阻止拖放、粘贴和键盘操作
+- Related: FileUpload, Field, Button
+- Storybook: https://design.qihao.dev/?path=/docs/forms-dropzone--docs
+
 ## EmptyState
 
 解释没有内容的原因并提供明确的下一步
@@ -159,6 +315,32 @@ Use this index to choose a component, then confirm exact props from the installe
 - Related: Input, Textarea, Select, RadioGroup
 - Storybook: https://design.qihao.dev/?path=/docs/forms-field--docs
 
+## Fieldset
+
+使用原生分组语义组织一组相关表单控件
+
+- Import: `import { Fieldset } from '@qhkg/react'`
+- Status: beta
+- Use when: 多个控件共享同一个组名称；一组选项需要统一说明或错误信息
+- Avoid when: 单个控件及其标签；仅用于视觉分区而没有表单语义
+- Mobile: 默认纵向排列并适应容器宽度；组名称和长说明允许自然换行
+- Accessibility: 使用原生 fieldset 与 legend 提供组名称；自动关联说明和当前错误信息；disabled 状态传递给原生表单后代
+- Related: Field, CheckboxGroup, RadioGroup
+- Storybook: https://design.qihao.dev/?path=/docs/forms-fieldset--docs
+
+## FileUpload
+
+通过设备选择或拖放收集文件，并显示可移除的已选列表
+
+- Import: `import { FileUpload } from '@qhkg/react'`
+- Status: beta
+- Use when: 表单需要选择一个或多个本地文件；需要统一处理类型、大小、数量和重复文件校验
+- Avoid when: 只需要接收拖放而不需要设备文件选择；需要组件直接管理网络上传、进度或重试
+- Mobile: 设备文件选择按钮始终可见，不依赖拖放；长文件名截断且移除操作保持 44px 触控目标
+- Accessibility: 通过 Field.Label、aria-label 或 aria-labelledby 提供名称；选择、拖放、粘贴和移除均有键盘路径；已选数量通过礼貌型实时区域播报，移除按钮包含文件名
+- Related: Dropzone, Field, Button, IconButton
+- Storybook: https://design.qihao.dev/?path=/docs/forms-fileupload--docs
+
 ## Grid
 
 以移动端优先的受控列数排列二维内容
@@ -171,6 +353,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: 视觉列数不会改变 DOM 和阅读顺序
 - Related: Stack, Inline, PageContainer, Card
 - Storybook: https://design.qihao.dev/?path=/docs/layout-grid--docs
+
+## Heading
+
+用明确的文档层级和受控视觉尺度呈现标题
+
+- Import: `import { Heading } from '@qhkg/react'`
+- Status: beta
+- Use when: 建立页面或区域的标题层级；需要让视觉尺度与语义层级分别受控
+- Avoid when: 内容是普通正文；只需要加粗文字而不形成新章节
+- Mobile: 大标题使用流式字号并允许自然换行
+- Accessibility: level 必须符合页面标题层级；不要为了视觉大小跳过标题级别
+- Related: Text, PageContainer
+- Storybook: https://design.qihao.dev/?path=/docs/foundation-heading--docs
 
 ## IconButton
 
@@ -208,8 +403,60 @@ Use this index to choose a component, then confirm exact props from the installe
 - Avoid when: 输入多行内容；从固定选项中选择
 - Mobile: 字号不小于 16px，避免移动端自动缩放；默认高度为 44px 且宽度适应容器
 - Accessibility: 必须搭配可见 Label 或 aria-label；invalid 时设置 aria-invalid；保留原生 autocomplete、name 和 inputMode
-- Related: Field, Textarea, Select
+- Related: Field, InputGroup, Textarea, Select
 - Storybook: https://design.qihao.dev/?path=/docs/forms-input--docs
+
+## InputGroup
+
+在单个输入边框内组合输入框、附加内容和图标动作
+
+- Import: `import { InputGroup } from '@qhkg/react'`
+- Status: beta
+- Use when: 输入值需要固定前缀、后缀或单位；输入框需要紧密关联的图标动作
+- Avoid when: 多个字段只是需要并排布局；附加操作与输入值没有直接关系
+- Mobile: 默认高度为 44px 并适应容器宽度；输入区域可以收缩且不会造成页面横向溢出
+- Accessibility: InputGroup.Input 必须通过 Field.Label 或 aria-label 获得名称；图标动作必须提供 aria-label；从 Field 继承禁用、必填、无效和说明关系
+- Related: Input, Field, IconButton, SearchInput
+- Storybook: https://design.qihao.dev/?path=/docs/forms-inputgroup--docs
+
+## Kbd
+
+在说明文字中标记单个按键或键盘快捷键组合
+
+- Import: `import { Kbd } from '@qhkg/react'`
+- Status: beta
+- Use when: 帮助内容需要说明快捷键；操作提示需要区分按键和普通文字
+- Avoid when: 内容是代码、变量或命令；需要监听实际键盘输入
+- Mobile: 多个按键允许随周围文字换行；组件不暗示移动设备一定存在实体键盘
+- Accessibility: 输出原生 kbd 语义；组合键之间使用可朗读的加号或文字；平台不同的快捷键应提供对应文案
+- Related: Code, Text
+- Storybook: https://design.qihao.dev/?path=/docs/foundations-kbd--docs
+
+## Link
+
+在正文或界面内容中导航到另一个 URL
+
+- Import: `import { Link } from '@qhkg/react'`
+- Status: beta
+- Use when: 正文中导航到相关页面或资源；导航不需要按钮级视觉强调
+- Avoid when: 执行页面内动作；主要导航需要按钮视觉层级
+- Mobile: 内联链接随正文自然换行，不伪装成 44px 控件
+- Accessibility: 必须提供 href 以保留原生链接语义；链接文字应能描述目标，避免只写点击这里
+- Related: ButtonLink, Text
+- Storybook: https://design.qihao.dev/?path=/docs/foundation-link--docs
+
+## ListBox
+
+在始终可见的选项集合中完成单选或多选
+
+- Import: `import { ListBox } from '@qhkg/react'`
+- Status: beta
+- Use when: 选项需要同时可见以便比较；需要在同一集合中支持单选或多选
+- Avoid when: 页面空间有限且选项应默认收起；选项数量很大且需要搜索
+- Mobile: 选项触控高度不少于 44px；列表高度受动态视口约束并可滚动
+- Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称；支持方向键、Home、End 和字符快速定位；选中、禁用和无效状态不仅依赖颜色表达
+- Related: Combobox, MultiSelect, Select, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-listbox--docs
 
 ## Menu
 
@@ -223,6 +470,32 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: 使用 Menu.Trigger 关联触发器；支持方向键、Home、End、Enter 和 Escape；关闭后焦点返回触发器
 - Related: Popover, Select, Button
 - Storybook: https://design.qihao.dev/?path=/docs/navigation-menu--docs
+
+## MultiSelect
+
+在收起的选项集合中选择并提交多个值
+
+- Import: `import { MultiSelect } from '@qhkg/react'`
+- Status: beta
+- Use when: 用户可从固定集合中选择多个值；页面空间不足以持续展示完整选项
+- Avoid when: 只有一个值可以被选择；选项很多且必须输入搜索
+- Mobile: 触发器默认高度为 44px；弹层受动态视口约束且选项触控高度不少于 44px
+- Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称；支持键盘打开、方向键导航、切换选择和关闭；触发器以文本呈现当前全部选中值
+- Related: ListBox, Combobox, Select, CheckboxGroup, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-multiselect--docs
+
+## NumberInput
+
+支持键盘输入、原生数值约束和步进动作的数字输入
+
+- Import: `import { NumberInput } from '@qhkg/react'`
+- Status: beta
+- Use when: 输入可计算的数值；用户需要通过步进动作小幅调整数值
+- Avoid when: 输入电话号码、邮编或其他数字格式文本；从少量固定值中选择
+- Mobile: 默认高度为 44px 且字号不小于 16px；增减动作均具有完整触控区域
+- Accessibility: 保留原生 spinbutton 语义和键盘行为；增减动作具有可本地化的可访问名称；达到 min 或 max 时禁用对应动作
+- Related: Input, InputGroup, Field, Select
+- Storybook: https://design.qihao.dev/?path=/docs/forms-numberinput--docs
 
 ## PageContainer
 
@@ -249,6 +522,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: 使用带可覆盖名称的 nav 地标和列表语义；当前页使用 aria-current=page；上一页和下一页在边界使用原生 disabled 按钮；getItemAriaLabel 和 formatPageStatus 支持本地化；移动端进度变化通过 polite live region 宣布
 - Related: Table, Button, ButtonLink, Select
 - Storybook: https://design.qihao.dev/?path=/docs/navigation-pagination--docs
+
+## PasswordInput
+
+带可访问显示与隐藏动作的密码输入
+
+- Import: `import { PasswordInput } from '@qhkg/react'`
+- Status: beta
+- Use when: 输入账号密码；用户需要临时核对已输入的敏感文本
+- Avoid when: 输入普通文本；展示已经保存的密码或密钥明文
+- Mobile: 默认高度为 44px 且字号不小于 16px；显示与隐藏动作具有完整触控区域
+- Accessibility: 必须通过 Field.Label 或 aria-label 提供名称；显示与隐藏动作通过 aria-pressed 暴露当前状态；动作名称可以本地化
+- Related: Input, InputGroup, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-passwordinput--docs
 
 ## Popover
 
@@ -288,6 +574,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: 支持方向键在选项间移动；必须通过 Field.Label 或 aria-label 提供组名称
 - Related: Checkbox, Select, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
+
+## SearchInput
+
+带搜索图标和可访问清除动作的单行搜索输入
+
+- Import: `import { SearchInput } from '@qhkg/react'`
+- Status: beta
+- Use when: 输入关键词筛选当前内容；搜索结果会随关键词或提交动作更新
+- Avoid when: 选择固定选项；执行站点主导航而没有搜索输入
+- Mobile: 默认高度为 44px 且字号不小于 16px；清除动作始终具有可见的触控目标
+- Accessibility: 必须通过 Field.Label 或 aria-label 提供名称；清除动作具有可本地化的可访问名称；清除后焦点返回搜索输入
+- Related: Input, InputGroup, Field
+- Storybook: https://design.qihao.dev/?path=/docs/forms-searchinput--docs
 
 ## Select
 
@@ -380,6 +679,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Related: Menu, Button
 - Storybook: https://design.qihao.dev/?path=/docs/navigation-tabs--docs
 
+## Text
+
+用受控字号、字重和语义颜色呈现正文或内联文本
+
+- Import: `import { Text } from '@qhkg/react'`
+- Status: beta
+- Use when: 呈现正文、说明或辅助文本；页面需要统一的文字尺度和语义颜色
+- Avoid when: 内容是标题层级；内容承担导航行为
+- Mobile: 正文默认使用 16px 并自然换行
+- Accessibility: 通过 as 选择与内容相符的原生语义；状态信息不能只依赖 tone 表达
+- Related: Heading, Link
+- Storybook: https://design.qihao.dev/?path=/docs/foundation-text--docs
+
 ## Textarea
 
 输入可换行的较长文本内容
@@ -392,6 +704,19 @@ Use this index to choose a component, then confirm exact props from the installe
 - Accessibility: 必须搭配可见 Label 或 aria-label；错误信息由 Field 自动关联
 - Related: Field, Input
 - Storybook: https://design.qihao.dev/?path=/docs/forms-textarea--docs
+
+## TimeField
+
+通过可独立编辑的时、分、秒片段输入时间
+
+- Import: `import { TimeField } from '@qhkg/react'`
+- Status: beta
+- Use when: 表单需要结构化时间值；用户需要用键盘精确调整时间片段
+- Avoid when: 需要选择日期；时间只是自由文本说明
+- Mobile: 默认控件高度为 44px；所有片段在 320px 视口内保持可见
+- Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称；每个时间片段支持数字输入、方向键增减和键盘导航；禁用、只读、无效、必填和焦点状态均可被辅助技术识别
+- Related: DatePicker, DateRangePicker, Field, Input
+- Storybook: https://design.qihao.dev/?path=/docs/forms-timefield--docs
 
 ## Toast
 

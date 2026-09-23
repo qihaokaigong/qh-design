@@ -1,0 +1,38 @@
+.inline,
+.block {
+  color: var(--qh-color-text);
+  background: var(--qh-color-surface-subtle);
+  font-family: var(--qh-font-mono);
+  font-size: 0.9em;
+}
+
+.inline {
+  padding: var(--qh-space-1) var(--qh-space-2);
+  border-radius: var(--qh-radius-sm);
+  overflow-wrap: anywhere;
+}
+
+.block {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  margin: 0;
+  padding: var(--qh-space-4);
+  overflow: auto;
+  border: var(--qh-border-width) solid var(--qh-color-border);
+  border-radius: var(--qh-radius-lg);
+  font-size: var(--qh-text-sm);
+  line-height: var(--qh-leading-body);
+  tab-size: 2;
+  white-space: pre;
+}
+
+.block[data-wrap] {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.block:focus-visible {
+  outline: var(--qh-focus-width) solid var(--qh-color-focus);
+  outline-offset: var(--qh-focus-offset);
+}
