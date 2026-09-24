@@ -4,7 +4,7 @@
   "title": "Header",
   "description": "Responsive application header with synchronized desktop and mobile primary navigation.",
   "dependencies": [
-    "@qhkg/react@^0.6.0"
+    "@qhkg/react@^0.6.1"
   ],
   "files": [
     {

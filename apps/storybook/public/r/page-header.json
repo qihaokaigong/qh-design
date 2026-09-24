@@ -4,7 +4,7 @@
   "title": "Page Header",
   "description": "Page title region combining breadcrumb hierarchy, supporting copy, and visible actions.",
   "dependencies": [
-    "@qhkg/react@^0.6.0"
+    "@qhkg/react@^0.6.1"
   ],
   "files": [
     {
