@@ -1,4 +1,5 @@
 .root {
+  container-type: inline-size;
   display: grid;
   inline-size: 100%;
   min-inline-size: 0;
@@ -54,7 +55,7 @@
   flex: 1;
   min-inline-size: 0;
   align-items: center;
-  padding: var(--qh-space-2) var(--qh-space-1);
+  padding: var(--qh-space-2) var(--qh-space-3);
   outline: none;
   font-size: var(--qh-text-base);
   line-height: var(--qh-leading-ui);
@@ -117,6 +118,12 @@
   border-radius: var(--qh-radius-md);
   box-shadow: var(--qh-shadow-popover);
   z-index: var(--qh-z-dropdown);
+}
+
+@container (max-width: 8rem) {
+  .input {
+    padding-inline: 0;
+  }
 }
 
 @media (hover: hover) {

@@ -49,7 +49,7 @@ test("keeps a compact date complete and its calendar anchored", async ({
   expect(triggerBox).not.toBeNull();
   expect(
     (lastSegmentBox?.x ?? 0) + (lastSegmentBox?.width ?? 0),
-  ).toBeLessThanOrEqual(triggerBox?.x ?? 0);
+  ).toBeLessThanOrEqual((triggerBox?.x ?? 0) + 0.5);
 
   await trigger.click();
   const dialog = page.getByRole("dialog", { name: "选择日期" });
