@@ -1,5 +1,11 @@
 # @qhkg/react
 
+## 0.6.1
+
+### Patch Changes
+
+- b9ef312: Prevent compact DatePicker values from overlapping the calendar trigger and keep the calendar popover sized and anchored to its trigger.
+
 ## 0.6.0
 
 ### Minor Changes
