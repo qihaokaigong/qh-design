@@ -1,5 +1,11 @@
 # @qhkg/react
 
+## 0.6.2
+
+### Patch Changes
+
+- 0588f72: Keep Dialog and Drawer compound slots isolated when both components are imported.
+
 ## 0.6.1
 
 ### Patch Changes
