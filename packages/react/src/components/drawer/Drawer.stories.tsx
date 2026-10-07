@@ -4,6 +4,7 @@ import { expect, userEvent, within } from "storybook/test";
 import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { Stack } from "../stack";
+import { Dialog } from "../dialog";
 import { Drawer } from "./Drawer";
 
 const meta = {
@@ -93,4 +94,23 @@ export const LongContent: Story = {
 export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
+};
+
+export const WithDialogLoaded: Story = {
+  render: () => (
+    <>
+      <Example />
+      <Dialog>
+        <Dialog.Trigger asChild>
+          <Button>打开对话框</Button>
+        </Dialog.Trigger>
+        <Dialog.Content>
+          <Dialog.Title>对话框内容</Dialog.Title>
+          <Dialog.Description>
+            验证对话框不会覆盖抽屉的组合子组件。
+          </Dialog.Description>
+        </Dialog.Content>
+      </Dialog>
+    </>
+  ),
 };

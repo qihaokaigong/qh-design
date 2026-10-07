@@ -20,5 +20,12 @@
     "关闭后焦点返回触发器"
   ],
   "related": ["AlertDialog", "Drawer", "Popover"],
-  "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+  "stories": [
+    "Default",
+    "Playground",
+    "Open",
+    "LongContent",
+    "Mobile",
+    "WithDrawerLoaded"
+  ]
 }

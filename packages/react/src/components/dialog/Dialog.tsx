@@ -10,8 +10,13 @@ import type {
   DialogContentProps,
   DialogDescriptionProps,
   DialogFooterProps,
+  DialogProps,
   DialogTitleProps,
 } from "./Dialog.types";
+
+function DialogRoot(props: DialogProps) {
+  return <DialogPrimitive.Root {...props} />;
+}
 
 const DialogContent = forwardRef<
   ComponentRef<typeof DialogPrimitive.Content>,
@@ -63,7 +68,7 @@ const DialogFooter = forwardRef<HTMLDivElement, DialogFooterProps>(
   },
 );
 
-export const Dialog = Object.assign(DialogPrimitive.Root, {
+export const Dialog = Object.assign(DialogRoot, {
   Close: DialogPrimitive.Close,
   Content: DialogContent,
   Description: DialogDescription,

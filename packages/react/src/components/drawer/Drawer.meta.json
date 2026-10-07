@@ -20,5 +20,12 @@
     "Escape 与关闭操作会还原焦点"
   ],
   "related": ["Dialog", "Popover"],
-  "stories": ["Default", "Playground", "Open", "LongContent", "Mobile"]
+  "stories": [
+    "Default",
+    "Playground",
+    "Open",
+    "LongContent",
+    "Mobile",
+    "WithDialogLoaded"
+  ]
 }

@@ -10,8 +10,13 @@ import type {
   DrawerContentProps,
   DrawerDescriptionProps,
   DrawerFooterProps,
+  DrawerProps,
   DrawerTitleProps,
 } from "./Drawer.types";
+
+function DrawerRoot(props: DrawerProps) {
+  return <DialogPrimitive.Root {...props} />;
+}
 
 const DrawerContent = forwardRef<
   ComponentRef<typeof DialogPrimitive.Content>,
@@ -66,7 +71,7 @@ const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
   },
 );
 
-export const Drawer = Object.assign(DialogPrimitive.Root, {
+export const Drawer = Object.assign(DrawerRoot, {
   Close: DialogPrimitive.Close,
   Content: DrawerContent,
   Description: DrawerDescription,
