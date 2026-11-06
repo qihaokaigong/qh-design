@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "componentPackage": "@qhkg/react",
-  "componentVersion": "0.7.0",
+  "componentVersion": "0.8.0",
   "components": [
     {
       "name": "AccessibleIcon",
