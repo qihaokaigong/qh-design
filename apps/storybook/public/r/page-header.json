@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/blocks/page-header/page-header.tsx",
-      "content": "import { Breadcrumb, Heading, Text } from \"@qhkg/react\";\nimport type { BreadcrumbItem } from \"@qhkg/react\";\nimport type { ReactNode } from \"react\";\n\nexport interface PageHeaderProps {\n  actions?: ReactNode;\n  breadcrumbs?: readonly BreadcrumbItem[];\n  description?: ReactNode;\n  title: ReactNode;\n}\n\n/** Page title region with hierarchy, supporting copy, and visible actions. */\nexport function PageHeader({\n  actions,\n  breadcrumbs,\n  description,\n  title,\n}: PageHeaderProps) {\n  return (\n    <header className=\"grid gap-4\">\n      {breadcrumbs && breadcrumbs.length > 0 ? (\n        <Breadcrumb items={breadcrumbs} />\n      ) : null}\n      <div className=\"flex min-w-0 flex-wrap items-start gap-4\">\n        <div className=\"grid min-w-0 grow basis-80 gap-2 [overflow-wrap:anywhere]\">\n          <Heading level={1}>{title}</Heading>\n          {description ? (\n            <Text as=\"p\" tone=\"muted\">\n              {description}\n            </Text>\n          ) : null}\n        </div>\n        {actions ? (\n          <div\n            aria-label=\"页面操作\"\n            className=\"flex min-w-0 max-w-full flex-wrap gap-2\"\n            role=\"group\"\n          >\n            {actions}\n          </div>\n        ) : null}\n      </div>\n    </header>\n  );\n}\n",
+      "content": "import { Breadcrumb, Heading, Text } from \"@qhkg/react\";\nimport type { BreadcrumbItem } from \"@qhkg/react\";\nimport type { ReactNode } from \"react\";\n\nexport interface PageHeaderProps {\n  actions?: ReactNode;\n  breadcrumbs?: readonly BreadcrumbItem[];\n  description?: ReactNode;\n  title: ReactNode;\n}\n\n/** Tool-page title region using a semantic h1, restrained type and visible actions. */\nexport function PageHeader({\n  actions,\n  breadcrumbs,\n  description,\n  title,\n}: PageHeaderProps) {\n  return (\n    <header className=\"grid gap-4\">\n      {breadcrumbs && breadcrumbs.length > 0 ? (\n        <Breadcrumb items={breadcrumbs} />\n      ) : null}\n      <div className=\"flex min-w-0 flex-wrap items-start gap-4\">\n        <div className=\"grid min-w-0 grow basis-80 gap-2 [overflow-wrap:anywhere]\">\n          <Heading level={1} size=\"lg\">\n            {title}\n          </Heading>\n          {description ? (\n            <Text as=\"p\" tone=\"muted\" variant=\"ui\">\n              {description}\n            </Text>\n          ) : null}\n        </div>\n        {actions ? (\n          <div\n            aria-label=\"页面操作\"\n            className=\"flex min-w-0 max-w-full flex-wrap gap-2\"\n            role=\"group\"\n          >\n            {actions}\n          </div>\n        ) : null}\n      </div>\n    </header>\n  );\n}\n",
       "type": "registry:component",
       "target": "@components/qh-patterns/page-header/page-header.tsx"
     }
@@ -23,7 +23,7 @@
       "Text"
     ]
   },
-  "docs": "Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.",
+  "docs": "Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs. Tool-page titles use Heading lg while preserving the semantic h1; supporting text uses Text variant=ui.",
   "categories": [
     "navigation",
     "layout"

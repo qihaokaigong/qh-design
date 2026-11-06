@@ -51,6 +51,12 @@ export const ClearAction: Story = {
   },
 };
 
+export const Plain: Story = {
+  args: { variant: "plain" },
+  render: Default.render,
+  play: Default.play,
+};
+
 export const NarrowContainer: Story = {
   render: (args) => (
     <div style={{ maxWidth: "22.5rem" }}>

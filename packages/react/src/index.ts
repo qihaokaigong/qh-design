@@ -232,6 +232,7 @@ export type {
   TextSize,
   TextTone,
   TextWeight,
+  TextVariant,
 } from "./components/text";
 export { Tooltip } from "./components/tooltip";
 export type {

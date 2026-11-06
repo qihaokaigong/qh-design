@@ -7,6 +7,7 @@ const meta = {
   title: "Patterns/ProjectDetailPage",
   component: ProjectDetailPage,
   tags: ["autodocs", "ai-generated"],
+  parameters: { layout: "fullscreen", qh: { page: true } },
   args: {
     onArchive: fn(),
     onRetry: fn(),

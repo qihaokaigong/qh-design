@@ -5,4 +5,5 @@ export type {
   TextSize,
   TextTone,
   TextWeight,
+  TextVariant,
 } from "./Text.types";

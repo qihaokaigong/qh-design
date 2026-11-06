@@ -161,76 +161,71 @@ export function ProjectDetailPage({
       ) : null}
 
       {state === "ready" ? (
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)] lg:items-start">
-          <div className="grid gap-4">
-            <section aria-labelledby="overview-heading">
-              <Card>
-                <Card.Header>
-                  <Heading id="overview-heading" level={2} size="md">
-                    项目概览
-                  </Heading>
-                </Card.Header>
-                <Card.Content className="grid gap-4">
-                  <Text as="p">{project.description}</Text>
-                  <dl className="grid gap-4 sm:grid-cols-2">
-                    <div className="grid gap-1">
-                      <dt className="text-sm text-muted-foreground">
-                        项目编号
-                      </dt>
-                      <dd>{project.id}</dd>
-                    </div>
-                    <div className="grid gap-1">
-                      <dt className="text-sm text-muted-foreground">状态</dt>
-                      <dd>
-                        <Badge tone={presentation.tone}>
-                          {presentation.label}
-                        </Badge>
-                      </dd>
-                    </div>
-                    <div className="grid gap-1">
-                      <dt className="text-sm text-muted-foreground">负责人</dt>
-                      <dd>{project.owner}</dd>
-                    </div>
-                    <div className="grid gap-1">
-                      <dt className="text-sm text-muted-foreground">
-                        创建时间
-                      </dt>
-                      <dd>{project.createdAt}</dd>
-                    </div>
-                  </dl>
-                </Card.Content>
-              </Card>
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)] lg:items-start">
+          <div className="grid min-w-0 gap-6">
+            <section aria-labelledby="overview-heading" className="grid gap-4">
+              <Heading id="overview-heading" level={2} size="md">
+                项目概览
+              </Heading>
+              <div className="grid gap-4">
+                <Text as="p" variant="ui">
+                  {project.description}
+                </Text>
+                <dl className="grid gap-4 sm:grid-cols-2">
+                  <div className="grid gap-1">
+                    <dt className="text-sm text-muted-foreground">项目编号</dt>
+                    <dd>{project.id}</dd>
+                  </div>
+                  <div className="grid gap-1">
+                    <dt className="text-sm text-muted-foreground">状态</dt>
+                    <dd>
+                      <Badge tone={presentation.tone}>
+                        {presentation.label}
+                      </Badge>
+                    </dd>
+                  </div>
+                  <div className="grid gap-1">
+                    <dt className="text-sm text-muted-foreground">负责人</dt>
+                    <dd>{project.owner}</dd>
+                  </div>
+                  <div className="grid gap-1">
+                    <dt className="text-sm text-muted-foreground">创建时间</dt>
+                    <dd>{project.createdAt}</dd>
+                  </div>
+                </dl>
+              </div>
             </section>
 
-            <section aria-labelledby="activity-heading">
-              <Card>
-                <Card.Header>
-                  <Heading id="activity-heading" level={2} size="md">
-                    最近动态
-                  </Heading>
-                </Card.Header>
-                <Card.Content>
-                  {project.activities.length > 0 ? (
-                    <ol className="grid list-none gap-4 p-0">
-                      {project.activities.map((activity) => (
-                        <li
-                          className="grid gap-1 border-b border-border pb-4 last:border-0 last:pb-0"
-                          key={activity.id}
-                        >
-                          <Text weight="medium">{activity.summary}</Text>
-                          <Text size="sm" tone="muted">
-                            {activity.time}
-                          </Text>
-                        </li>
-                      ))}
-                    </ol>
-                  ) : (
-                    <Text as="p" tone="muted">
-                      暂无项目动态。
-                    </Text>
-                  )}
-                </Card.Content>
-              </Card>
+            <section
+              aria-labelledby="activity-heading"
+              className="grid gap-4 border-t border-border pt-6"
+            >
+              <Heading id="activity-heading" level={2} size="md">
+                最近动态
+              </Heading>
+              <div>
+                {project.activities.length > 0 ? (
+                  <ol className="grid list-none gap-4 p-0">
+                    {project.activities.map((activity) => (
+                      <li
+                        className="grid gap-1 border-b border-border pb-4 last:border-0 last:pb-0"
+                        key={activity.id}
+                      >
+                        <Text weight="medium" variant="ui">
+                          {activity.summary}
+                        </Text>
+                        <Text size="sm" tone="muted" variant="ui">
+                          {activity.time}
+                        </Text>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <Text as="p" tone="muted" variant="ui">
+                    暂无项目动态。
+                  </Text>
+                )}
+              </div>
             </section>
           </div>
 

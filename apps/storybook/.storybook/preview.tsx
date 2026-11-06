@@ -5,8 +5,11 @@ import type { Preview } from "@storybook/react-vite";
 
 const preview: Preview = {
   decorators: [
-    (Story) => (
-      <main className="qh-story-canvas">
+    (Story, context) => (
+      <main
+        className="qh-story-canvas"
+        data-qh-page={context.parameters.qh?.page ? "true" : undefined}
+      >
         <Story />
       </main>
     ),

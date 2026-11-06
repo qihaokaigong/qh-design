@@ -61,10 +61,13 @@
     background: var(--qh-button-primary-hover);
   }
 
-  .secondary:hover:not(:disabled, [aria-disabled="true"]),
+  .secondary:hover:not(:disabled, [aria-disabled="true"]) {
+    background: var(--qh-color-surface-hover);
+    border-color: var(--qh-color-border-control-hover);
+  }
+
   .ghost:hover:not(:disabled, [aria-disabled="true"]) {
-    background: var(--qh-color-surface-subtle);
-    border-color: var(--qh-color-text-muted);
+    background: var(--qh-color-surface-hover);
   }
 
   .danger:hover:not(:disabled, [aria-disabled="true"]) {
@@ -76,10 +79,13 @@
   background: var(--qh-button-primary-pressed);
 }
 
-.secondary:active:not(:disabled, [aria-disabled="true"]),
-.ghost:active:not(:disabled, [aria-disabled="true"]) {
-  background: var(--qh-color-border);
+.secondary:active:not(:disabled, [aria-disabled="true"]) {
+  background: var(--qh-color-surface-pressed);
   box-shadow: inset 0 0 0 var(--qh-border-width) var(--qh-color-border-control);
+}
+
+.ghost:active:not(:disabled, [aria-disabled="true"]) {
+  background: var(--qh-color-surface-pressed);
 }
 
 .danger:active:not(:disabled, [aria-disabled="true"]) {

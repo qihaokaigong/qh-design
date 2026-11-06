@@ -224,8 +224,9 @@ export function DataTable({
   };
 
   return (
-    <section aria-label="项目数据表" className="grid gap-4">
+    <section aria-label="项目数据表" className="grid gap-6">
       <FilterBar
+        variant="plain"
         disabled={state === "loading"}
         query={draftQuery}
         status={draftStatus}
@@ -252,7 +253,7 @@ export function DataTable({
       {state === "ready" ? (
         <div className="grid gap-3">
           <div className="grid gap-2 sm:flex sm:items-center sm:justify-between">
-            <Text aria-live="polite" size="sm" tone="muted">
+            <Text aria-live="polite" size="sm" tone="muted" variant="ui">
               共 {filteredRows.length} 个项目，已选择 {selectedIds.size} 个
             </Text>
             <Menu>
@@ -374,8 +375,10 @@ export function DataTable({
                         </Table.Cell>
                         <Table.Cell>
                           <div className="grid gap-1">
-                            <Text weight="semibold">{row.name}</Text>
-                            <Text size="xs" tone="muted">
+                            <Text weight="semibold" variant="ui">
+                              {row.name}
+                            </Text>
+                            <Text size="xs" tone="muted" variant="ui">
                               {row.id}
                             </Text>
                           </div>

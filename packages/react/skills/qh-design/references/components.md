@@ -116,7 +116,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 提交表单；触发页面内动作；打开弹层
 - Avoid when: 导航到另一个 URL；仅展示状态
 - Mobile: 默认 md 尺寸为 44px 高；主要操作区域在窄屏可以由页面布局设为全宽
-- Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓
+- Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓；ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点
 - Related: ButtonLink, AlertDialog
 - Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
 
@@ -129,7 +129,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 主要或次要导航需要按钮视觉层级
 - Avoid when: 提交表单；执行无 URL 的页面动作
 - Mobile: 默认 md 尺寸为 44px 高
-- Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接
+- Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接；ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓
 - Related: Button, Link
 - Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
 
@@ -590,14 +590,14 @@ Use this index to choose a component, then confirm exact props from the installe
 
 ## Select
 
-从较短的固定选项列表中选择一个值
+从较短的固定选项列表中选择一个值；原生选择行为搭配统一 SVG 箭头
 
 - Import: `import { Select } from '@qhkg/react'`
 - Status: beta
 - Use when: 选项固定且数量较少；需要原生表单提交能力
 - Avoid when: 选项需要搜索；允许选择多个复杂对象；选项只有开和关两种状态
 - Mobile: 使用系统原生选择体验；默认高度 44px 且宽度适应容器
-- Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为
+- Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为；SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select；强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端；className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select
 - Related: Field, RadioGroup, Switch
 - Storybook: https://design.qihao.dev/?path=/docs/forms-select--docs
 
@@ -681,13 +681,13 @@ Use this index to choose a component, then confirm exact props from the installe
 
 ## Text
 
-用受控字号、字重和语义颜色呈现正文或内联文本
+用受控字号、字重和语义颜色呈现文本；body 用于阅读，ui 用于界面说明
 
 - Import: `import { Text } from '@qhkg/react'`
 - Status: beta
 - Use when: 呈现正文、说明或辅助文本；页面需要统一的文字尺度和语义颜色
 - Avoid when: 内容是标题层级；内容承担导航行为
-- Mobile: 正文默认使用 16px 并自然换行
+- Mobile: 正文默认使用 16px 并自然换行；variant 默认 body，界面说明显式使用 ui，不影响输入控件字号
 - Accessibility: 通过 as 选择与内容相符的原生语义；状态信息不能只依赖 tone 表达
 - Related: Heading, Link
 - Storybook: https://design.qihao.dev/?path=/docs/foundation-text--docs

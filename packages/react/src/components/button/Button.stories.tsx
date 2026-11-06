@@ -91,3 +91,25 @@ export const AsLink: Story = {
     <ButtonLink href="#button-link-target">查看使用说明</ButtonLink>
   ),
 };
+
+export const QuietActions: Story = {
+  tags: ["ai-generated"],
+  render: () => (
+    <div
+      style={{ display: "flex", flexWrap: "wrap", gap: "var(--qh-space-3)" }}
+    >
+      <Button variant="primary">保存设置</Button>
+      <Button variant="secondary">导出</Button>
+      <Button variant="ghost">清除筛选</Button>
+      <ButtonLink href="#details" variant="ghost">
+        查看详情
+      </ButtonLink>
+      <Button variant="ghost" disabled>
+        禁用操作
+      </Button>
+      <Button variant="ghost" loading loadingText="正在处理">
+        处理项目
+      </Button>
+    </div>
+  ),
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Field, SearchInput, Select } from "@qhkg/react";
+import { Button, Field, SearchInput, Select, Text } from "@qhkg/react";
 import type { FormEvent } from "react";
 
 export type ProjectFilterStatus = "all" | "active" | "completed" | "archived";
@@ -13,6 +13,8 @@ export interface FilterBarProps {
   onStatusChange?: (status: ProjectFilterStatus) => void;
   query?: string;
   status?: ProjectFilterStatus;
+  /** outlined is standalone; plain embeds in a page without a second frame. Defaults to outlined. */
+  variant?: "outlined" | "plain";
 }
 
 export function FilterBar({
@@ -23,15 +25,20 @@ export function FilterBar({
   onStatusChange,
   query,
   status,
+  variant = "outlined",
 }: FilterBarProps) {
   return (
     <form
       aria-label="项目筛选"
-      className="flex min-w-0 flex-wrap items-end gap-3 rounded-lg border border-border bg-surface p-4"
+      className={`flex min-w-0 flex-wrap items-end gap-3 ${variant === "outlined" ? "rounded-lg border border-border bg-surface p-4" : ""}`}
       onSubmit={onApply}
     >
       <Field className="min-w-0 basis-48 grow">
-        <Field.Label>搜索项目</Field.Label>
+        <Field.Label>
+          <Text size="sm" variant="ui" weight="medium">
+            搜索项目
+          </Text>
+        </Field.Label>
         <SearchInput
           disabled={disabled}
           name="query"
@@ -41,7 +48,11 @@ export function FilterBar({
         />
       </Field>
       <Field className="min-w-0 basis-48 grow">
-        <Field.Label>状态</Field.Label>
+        <Field.Label>
+          <Text size="sm" variant="ui" weight="medium">
+            状态
+          </Text>
+        </Field.Label>
         <Select
           disabled={disabled}
           name="status"
@@ -61,7 +72,7 @@ export function FilterBar({
         <Button
           disabled={disabled}
           type="reset"
-          variant="secondary"
+          variant="ghost"
           onClick={onClear}
         >
           清除

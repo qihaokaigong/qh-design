@@ -213,10 +213,18 @@
       "accessibility": [
         "默认 type 为 button",
         "loading 时设置 aria-busy 并阻止重复激活",
-        "保留可见的 focus-visible 轮廓"
+        "保留可见的 focus-visible 轮廓",
+        "ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点"
       ],
       "related": ["ButtonLink", "AlertDialog"],
-      "stories": ["Default", "Variants", "Loading", "Disabled", "Mobile"]
+      "stories": [
+        "Default",
+        "Variants",
+        "Loading",
+        "Disabled",
+        "Mobile",
+        "QuietActions"
+      ]
     },
     {
       "name": "ButtonLink",
@@ -227,9 +235,13 @@
       "whenToUse": ["主要或次要导航需要按钮视觉层级"],
       "avoidWhen": ["提交表单", "执行无 URL 的页面动作"],
       "mobile": ["默认 md 尺寸为 44px 高"],
-      "accessibility": ["保留原生链接语义和 href", "不模拟 disabled 链接"],
+      "accessibility": [
+        "保留原生链接语义和 href",
+        "不模拟 disabled 链接",
+        "ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓"
+      ],
       "related": ["Button", "Link"],
-      "stories": ["AsLink"]
+      "stories": ["AsLink", "QuietActions"]
     },
     {
       "name": "Calendar",
@@ -1152,7 +1164,7 @@
     },
     {
       "name": "Select",
-      "summary": "从较短的固定选项列表中选择一个值",
+      "summary": "从较短的固定选项列表中选择一个值；原生选择行为搭配统一 SVG 箭头",
       "status": "beta",
       "import": "import { Select } from '@qhkg/react'",
       "storybookId": "forms-select",
@@ -1165,7 +1177,10 @@
       "mobile": ["使用系统原生选择体验", "默认高度 44px 且宽度适应容器"],
       "accessibility": [
         "必须搭配可见 Label 或 aria-label",
-        "保留原生键盘和触屏行为"
+        "保留原生键盘和触屏行为",
+        "SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select",
+        "强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端",
+        "className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select"
       ],
       "related": ["Field", "RadioGroup", "Switch"],
       "stories": [
@@ -1175,7 +1190,10 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "Sizes",
+        "RightToLeft",
+        "Multiple"
       ]
     },
     {
@@ -1321,7 +1339,7 @@
     },
     {
       "name": "Text",
-      "summary": "用受控字号、字重和语义颜色呈现正文或内联文本",
+      "summary": "用受控字号、字重和语义颜色呈现文本；body 用于阅读，ui 用于界面说明",
       "status": "beta",
       "import": "import { Text } from '@qhkg/react'",
       "storybookId": "foundation-text",
@@ -1330,13 +1348,23 @@
         "页面需要统一的文字尺度和语义颜色"
       ],
       "avoidWhen": ["内容是标题层级", "内容承担导航行为"],
-      "mobile": ["正文默认使用 16px 并自然换行"],
+      "mobile": [
+        "正文默认使用 16px 并自然换行",
+        "variant 默认 body，界面说明显式使用 ui，不影响输入控件字号"
+      ],
       "accessibility": [
         "通过 as 选择与内容相符的原生语义",
         "状态信息不能只依赖 tone 表达"
       ],
       "related": ["Heading", "Link"],
-      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+      "stories": [
+        "Default",
+        "Playground",
+        "TypographyRoles",
+        "States",
+        "LongContent",
+        "Mobile"
+      ]
     },
     {
       "name": "Textarea",

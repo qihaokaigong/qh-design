@@ -49,14 +49,14 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
 - RadioGroup: 从一组互斥选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
 - SearchInput: 带搜索图标和可访问清除动作的单行搜索输入 — https://design.qihao.dev/?path=/docs/forms-searchinput--docs
-- Select: 从较短的固定选项列表中选择一个值 — https://design.qihao.dev/?path=/docs/forms-select--docs
+- Select: 从较短的固定选项列表中选择一个值；原生选择行为搭配统一 SVG 箭头 — https://design.qihao.dev/?path=/docs/forms-select--docs
 - Separator: 在相邻内容区域之间提供视觉或语义分隔 — https://design.qihao.dev/?path=/docs/surfaces-separator--docs
 - Skeleton: 在内容加载时保留大致布局并降低视觉跳动 — https://design.qihao.dev/?path=/docs/feedback-skeleton--docs
 - Stack: 使用设计 Token 间距纵向排列一组元素 — https://design.qihao.dev/?path=/docs/layout-stack--docs
 - Switch: 立即开启或关闭一个设置 — https://design.qihao.dev/?path=/docs/forms-switch--docs
 - Table: 使用原生表格语义展示需要按行列比较的结构化数据 — https://design.qihao.dev/?path=/docs/data-table--docs
 - Tabs: 在同一页面区域内切换并列内容视图 — https://design.qihao.dev/?path=/docs/navigation-tabs--docs
-- Text: 用受控字号、字重和语义颜色呈现正文或内联文本 — https://design.qihao.dev/?path=/docs/foundation-text--docs
+- Text: 用受控字号、字重和语义颜色呈现文本；body 用于阅读，ui 用于界面说明 — https://design.qihao.dev/?path=/docs/foundation-text--docs
 - Textarea: 输入可换行的较长文本内容 — https://design.qihao.dev/?path=/docs/forms-textarea--docs
 - TimeField: 通过可独立编辑的时、分、秒片段输入时间 — https://design.qihao.dev/?path=/docs/forms-timefield--docs
 - Toast: 短暂反馈后台结果，并允许可选的轻量后续操作 — https://design.qihao.dev/?path=/docs/feedback-toast--docs

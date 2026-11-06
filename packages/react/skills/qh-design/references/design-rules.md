@@ -27,3 +27,12 @@
 QH owns component visuals and interaction contracts. The consuming project owns
 business logic, application architecture, routing, authorization, persistence,
 and the location of its global style entry.
+
+## Tool-page visual hierarchy
+
+- Tool pages use a semantic h1 with Heading size=lg. Reserve xl for display content.
+- Text defaults to body for reading; use variant=ui for page descriptions and short status copy.
+- Use FilterBar/Toolbar variant=plain when embedded in a page, outlined for standalone blocks.
+- Let one PageContainer own the gutter. Prefer sections, spacing and dividers over repeated card frames.
+- Ghost actions remain quiet on hover and press; preserve focus-visible and disabled/loading behavior.
+- Select layout className/style apply to its container; native id, name, events and ref target the select. Its SVG arrow is decorative and logical-end aligned.

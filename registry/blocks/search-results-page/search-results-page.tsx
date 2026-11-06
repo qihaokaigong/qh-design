@@ -163,6 +163,7 @@ export function SearchResultsPage({
       />
 
       <Toolbar
+        variant="plain"
         filters={
           <Select
             aria-label="结果类型"
@@ -250,17 +251,20 @@ export function SearchResultsPage({
                         <Heading level={2} size="sm">
                           <Link href={result.href}>{result.title}</Link>
                         </Heading>
-                        <Badge tone={presentation.tone}>
+                        <Badge
+                          className="justify-self-start sm:justify-self-end"
+                          tone={presentation.tone}
+                        >
                           {presentation.label}
                         </Badge>
                       </Card.Header>
                       <Card.Content>
-                        <Text as="p" tone="muted">
+                        <Text as="p" tone="muted" variant="ui">
                           {result.description}
                         </Text>
                       </Card.Content>
                       <Card.Footer className="grid gap-2 sm:flex sm:items-center sm:justify-between">
-                        <Text size="sm" tone="muted">
+                        <Text size="sm" tone="muted" variant="ui">
                           更新于 {result.updatedAt}
                         </Text>
                         <ButtonLink

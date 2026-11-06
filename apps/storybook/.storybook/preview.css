@@ -24,3 +24,8 @@ body {
   font-size: var(--qh-text-base);
   line-height: var(--qh-leading-body);
 }
+
+/* Complete pages own their gutter through PageContainer. */
+.qh-story-canvas[data-qh-page="true"] {
+  padding: 0;
+}

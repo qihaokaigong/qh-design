@@ -15,7 +15,7 @@ Project data table pattern with filtering, sorting, row selection, batch actions
 - Status: beta
 - Mobile-first: yes
 - Uses: Table, Pagination, Checkbox, Menu, FilterBar, Alert, EmptyState, Skeleton
-- Integration: Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application.
+- Integration: Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary.
 
 ## Delete Confirmation
 
@@ -36,8 +36,8 @@ Content-driven project filter bar that wraps within its available container.
 - Registry JSON: https://design.qihao.dev/r/filter-bar.json
 - Status: beta
 - Mobile-first: yes
-- Uses: Field, SearchInput, Select, Button
-- Integration: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application.
+- Uses: Field, SearchInput, Select, Button, Text
+- Integration: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries.
 
 ## Header
 
@@ -92,7 +92,7 @@ Page title region combining breadcrumb hierarchy, supporting copy, and visible a
 - Status: beta
 - Mobile-first: yes
 - Uses: Breadcrumb, Heading, Text
-- Integration: Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.
+- Integration: Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs. Tool-page titles use Heading lg while preserving the semantic h1; supporting text uses Text variant=ui.
 
 ## Project Detail Page
 
@@ -103,7 +103,7 @@ Complete project detail page with breadcrumbs, visible actions, overview data, a
 - Status: beta
 - Mobile-first: yes
 - Uses: PageContainer, PageHeader, Card, Badge, Alert, EmptyState, Skeleton
-- Integration: Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible.
+- Integration: Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface.
 
 ## Project List Page
 
@@ -114,7 +114,7 @@ Complete project list page combining hierarchy, visible creation action, filteri
 - Status: beta
 - Mobile-first: yes
 - Uses: PageContainer, PageHeader, ButtonLink, DataTable
-- Integration: Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern.
+- Integration: Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern. PageContainer owns the page gutter; the repeated partition heading remains accessible while visually hidden.
 
 ## Search Results Page
 
@@ -125,7 +125,7 @@ Complete search results page with a labelled query, category filter, result card
 - Status: beta
 - Mobile-first: yes
 - Uses: PageContainer, PageHeader, Toolbar, Select, Card, Link, Pagination, Alert, EmptyState, Skeleton
-- Integration: Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain.
+- Integration: Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain. The toolbar embeds without a second frame; PageContainer owns the page gutter.
 
 ## Settings Form
 
@@ -136,7 +136,7 @@ Project settings form with native submission and QH validation relationships.
 - Status: beta
 - Mobile-first: yes
 - Uses: Card, Field, Input, Select, Switch, Button
-- Integration: Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails.
+- Integration: Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails. Keep a single form card, a separated action area and quiet reset action; native reset and submission remain available.
 
 ## Side Navigation
 
@@ -158,4 +158,4 @@ Responsive list tool area for search, filters, status, and visible actions.
 - Status: beta
 - Mobile-first: yes
 - Uses: SearchInput, Text
-- Integration: Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model.
+- Integration: Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model. Use variant=outlined (default) for standalone framing and variant=plain inside a complete page. Status copy uses the UI typography role.

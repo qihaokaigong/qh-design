@@ -29,6 +29,8 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 - [v1 组件范围与实施顺序](docs/v1-scope.md)
 - [能力补齐路线图](docs/capability-roadmap.md)
 - [响应式 UI 升级调研与改造方案](docs/responsive-ui-upgrade-plan.md)
+- [现代扁平化视觉审查与升级建议](docs/flat-visual-style-review.md)
+- [工具界面的扁平化规则与迁移说明](docs/visual-style-guidelines.md)
 - [发布与外部配置手册](docs/release-runbook.md)
 
 ## 公共入口
