@@ -118,6 +118,7 @@ export type { IconButtonProps } from "./components/icon-button";
 export { Grid } from "./components/grid";
 export type {
   GridColumnCount,
+  GridItemWidth,
   GridProps,
   ResponsiveGridColumns,
 } from "./components/grid";

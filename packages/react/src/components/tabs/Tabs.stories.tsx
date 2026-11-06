@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, userEvent, within } from "storybook/test";
+import { useState } from "react";
+import { Button } from "../button";
 
 import { Tabs } from "./Tabs";
 
@@ -75,4 +77,48 @@ export const LongContent: Story = {
 export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
+};
+
+const ControlledExample = () => {
+  const [value, setValue] = useState("one");
+  return (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <Button variant="secondary" onClick={() => setValue("three")}>
+        显示通知设置
+      </Button>
+      <Tabs value={value} onValueChange={setValue}>
+        <Tabs.List aria-label="可滚动的设置视图">
+          <Tabs.Trigger value="one">项目整体进展与关键指标</Tabs.Trigger>
+          <Tabs.Trigger value="two">成员权限与协作设置</Tabs.Trigger>
+          <Tabs.Trigger value="three">通知和自动化规则</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="one">概览内容</Tabs.Content>
+        <Tabs.Content value="two">成员设置</Tabs.Content>
+        <Tabs.Content value="three">通知设置</Tabs.Content>
+      </Tabs>
+    </div>
+  );
+};
+
+export const NarrowContainer: Story = {
+  render: ControlledExample,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button", { name: "显示通知设置" }));
+    const selected = canvas.getByRole("tab", { name: "通知和自动化规则" });
+    await expect(selected).toHaveAttribute("aria-selected", "true");
+    selected.focus();
+    await userEvent.keyboard("{Home}");
+    await expect(
+      canvas.getByRole("tab", { name: "项目整体进展与关键指标" }),
+    ).toHaveFocus();
+  },
+};
+
+export const RightToLeft: Story = {
+  render: () => (
+    <div dir="rtl">
+      <ControlledExample />
+    </div>
+  ),
 };

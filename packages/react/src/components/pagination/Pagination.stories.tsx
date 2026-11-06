@@ -113,6 +113,30 @@ export const Mobile: Story = {
   parameters: { viewport: { defaultViewport: "mobile320" } },
 };
 
+export const NarrowContainer: Story = {
+  render: () => (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <ControlledExample initialPage={5000} totalPages={9999} />
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button", { name: "下一页" }));
+    await expect(canvas.getByText("第 5001 / 9999 页")).toBeVisible();
+  },
+};
+
+export const ExpandedRange: Story = {
+  render: () => (
+    <ControlledExample
+      initialPage={50}
+      totalPages={100}
+      siblingCount={3}
+      boundaryCount={3}
+    />
+  ),
+};
+
 export const RightToLeft: Story = {
   render: () => (
     <div dir="rtl">

@@ -9,7 +9,22 @@ const meta = {
   tags: ["autodocs", "ai-generated"],
   args: { columns: { base: 1, md: 2, lg: 3 }, gap: "4" },
   argTypes: {
-    columns: { control: "object" },
+    columns: {
+      control: "object",
+      description:
+        '1–6, { base, md, lg }, or "auto". Only auto mode accepts minItemWidth; fixed columns retain viewport breakpoints.',
+      table: {
+        type: { summary: 'GridColumnCount | ResponsiveGridColumns | "auto"' },
+      },
+    },
+    minItemWidth: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+      if: { arg: "columns", eq: "auto" },
+      description:
+        'Only for columns="auto": sm = 12rem, md = 16rem (default), lg = 20rem. Smaller containers fall back to one column.',
+      table: { type: { summary: '"sm" | "md" | "lg" (auto mode only)' } },
+    },
     gap: { control: "select", options: ["1", "2", "3", "4", "6", "8"] },
   },
 } satisfies Meta<typeof Grid>;
@@ -57,4 +72,26 @@ export const LongContent: Story = {
 export const Mobile: Story = {
   ...Default,
   parameters: { viewport: { defaultViewport: "mobile375" } },
+};
+
+const AutoFitExample = () => (
+  <Grid columns="auto" minItemWidth="md">
+    {items.map((item) => (
+      <Card key={item}>
+        <Card.Title>{item}：跨团队协作计划</Card.Title>
+        <Card.Content>
+          卡片按容器可用空间排列，最小宽度为 16rem，小于此宽度时退回单列。
+        </Card.Content>
+      </Card>
+    ))}
+  </Grid>
+);
+
+export const AutoFit: Story = { render: AutoFitExample };
+export const NarrowContainer: Story = {
+  render: () => (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <AutoFitExample />
+    </div>
+  ),
 };

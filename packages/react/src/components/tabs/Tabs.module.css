@@ -10,11 +10,8 @@
   max-inline-size: 100%;
   overflow-x: auto;
   border-block-end: var(--qh-border-width) solid var(--qh-color-border);
-  scrollbar-width: none;
-}
-
-.list::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--qh-color-border-control) var(--qh-color-surface);
 }
 
 .trigger {

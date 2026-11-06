@@ -1,4 +1,7 @@
+"use client";
+
 import { ButtonLink, PageContainer } from "@qhkg/react";
+import { useRef } from "react";
 
 import { MobileNav, type NavigationItem } from "../mobile-nav/mobile-nav";
 
@@ -19,37 +22,56 @@ export function Header({
   homeHref = "#home",
   items,
 }: HeaderProps) {
+  const homeRef = useRef<HTMLAnchorElement>(null);
   return (
-    <header className="border-b border-border bg-surface">
-      <PageContainer className="grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-2 py-2">
-        <ButtonLink href={homeHref} variant="ghost">
-          {brandName}
+    <header className="@container/qh-header border-b border-border bg-surface">
+      <PageContainer className="flex min-h-16 min-w-0 flex-wrap items-center justify-between gap-2 py-2">
+        <ButtonLink
+          ref={homeRef}
+          className="min-w-0 max-w-full"
+          href={homeHref}
+          variant="ghost"
+        >
+          <span className="whitespace-normal text-start [overflow-wrap:anywhere]">
+            {brandName}
+          </span>
         </ButtonLink>
 
-        <nav aria-label="主导航" className="hidden md:block">
-          <ul className="flex list-none items-center justify-center gap-1 p-0">
+        <nav
+          aria-label="主导航"
+          className="hidden min-w-0 @min-[48rem]/qh-header:block"
+        >
+          <ul className="flex list-none flex-wrap items-center justify-center gap-1 p-0">
             {items.map((item) => (
               <li key={item.href}>
                 <ButtonLink
                   aria-current={item.current ? "page" : undefined}
+                  className="min-w-0 max-w-full"
                   href={item.href}
                   variant={item.current ? "secondary" : "ghost"}
                 >
-                  {item.label}
+                  <span className="whitespace-normal text-start [overflow-wrap:anywhere]">
+                    {item.label}
+                  </span>
                 </ButtonLink>
               </li>
             ))}
           </ul>
         </nav>
 
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex min-w-0 max-w-full flex-wrap items-center justify-end gap-2">
           {action ? (
-            <ButtonLink href={action.href}>{action.label}</ButtonLink>
+            <ButtonLink className="min-w-0 max-w-full" href={action.href}>
+              <span className="whitespace-normal text-start [overflow-wrap:anywhere]">
+                {action.label}
+              </span>
+            </ButtonLink>
           ) : null}
           <MobileNav
+            fallbackFocusRef={homeRef}
             items={items}
             title={`${brandName}导航`}
-            triggerClassName="md:hidden"
+            triggerClassName="@min-[48rem]/qh-header:hidden!"
           />
         </div>
       </PageContainer>

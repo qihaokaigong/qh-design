@@ -13,9 +13,25 @@ export interface ResponsiveGridColumns {
   lg?: GridColumnCount;
 }
 
-export interface GridProps extends HTMLAttributes<HTMLDivElement> {
-  /** Fixed or responsive column count. */
-  columns?: GridColumnCount | ResponsiveGridColumns;
+interface GridBaseProps extends HTMLAttributes<HTMLDivElement> {
   /** Space token between rows and columns. Defaults to 4. */
   gap?: LayoutGap;
 }
+
+/** Minimum card width in auto mode: sm = 12rem, md = 16rem, lg = 20rem. */
+export type GridItemWidth = "sm" | "md" | "lg";
+
+export type GridProps = GridBaseProps &
+  (
+    | {
+        /** Fixed or viewport-responsive column count. @default 1 */
+        columns?: GridColumnCount | ResponsiveGridColumns;
+        minItemWidth?: never;
+      }
+    | {
+        /** Fit as many columns as the container can comfortably hold. */
+        columns: "auto";
+        /** Minimum item width; shrinks to one column in smaller containers. @default md */
+        minItemWidth?: GridItemWidth;
+      }
+  );

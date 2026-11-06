@@ -21,7 +21,7 @@ export function SideNav({
   return (
     <nav
       aria-label={label}
-      className="grid gap-3 rounded-lg border border-border bg-surface p-3 md:w-64"
+      className="grid w-full min-w-0 gap-3 rounded-lg border border-border bg-surface p-3 md:max-w-64 [overflow-wrap:anywhere]"
     >
       <Heading level={2} size="sm">
         {title}
@@ -35,7 +35,9 @@ export function SideNav({
               href={item.href}
               variant={item.current ? "secondary" : "ghost"}
             >
-              {item.label}
+              <span className="whitespace-normal text-start [overflow-wrap:anywhere]">
+                {item.label}
+              </span>
             </ButtonLink>
           </li>
         ))}

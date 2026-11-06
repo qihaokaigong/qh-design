@@ -2,6 +2,8 @@
 
 import { Button, ButtonLink, Drawer, IconButton } from "@qhkg/react";
 import type { DrawerProps } from "@qhkg/react";
+import { useRef } from "react";
+import type { RefObject } from "react";
 
 export interface NavigationItem {
   current?: boolean;
@@ -17,6 +19,8 @@ export interface MobileNavProps
   title?: string;
   triggerClassName?: string;
   triggerLabel?: string;
+  /** Receives focus after closing if the trigger was hidden by a layout change. */
+  fallbackFocusRef?: RefObject<HTMLElement | null>;
 }
 
 /**
@@ -26,6 +30,7 @@ export interface MobileNavProps
 export function MobileNav({
   action,
   defaultOpen,
+  fallbackFocusRef,
   description = "选择要前往的工作区页面。",
   items,
   onOpenChange,
@@ -34,10 +39,12 @@ export function MobileNav({
   triggerClassName,
   triggerLabel = "打开主导航",
 }: MobileNavProps) {
+  const triggerRef = useRef<HTMLButtonElement>(null);
   return (
     <Drawer defaultOpen={defaultOpen} open={open} onOpenChange={onOpenChange}>
       <Drawer.Trigger asChild>
         <IconButton
+          ref={triggerRef}
           aria-label={triggerLabel}
           className={triggerClassName}
           variant="secondary"
@@ -51,7 +58,17 @@ export function MobileNav({
           </svg>
         </IconButton>
       </Drawer.Trigger>
-      <Drawer.Content>
+      <Drawer.Content
+        onCloseAutoFocus={(event) => {
+          if (
+            fallbackFocusRef?.current &&
+            !triggerRef.current?.getClientRects().length
+          ) {
+            event.preventDefault();
+            fallbackFocusRef.current.focus();
+          }
+        }}
+      >
         <Drawer.Title>{title}</Drawer.Title>
         <Drawer.Description>{description}</Drawer.Description>
         <nav aria-label="移动端主导航">
@@ -65,7 +82,9 @@ export function MobileNav({
                     href={item.href}
                     variant={item.current ? "secondary" : "ghost"}
                   >
-                    {item.label}
+                    <span className="whitespace-normal text-start [overflow-wrap:anywhere]">
+                      {item.label}
+                    </span>
                   </ButtonLink>
                 </Drawer.Close>
               </li>

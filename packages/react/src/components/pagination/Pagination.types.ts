@@ -25,7 +25,7 @@ interface PaginationBaseProps
   disabled?: boolean;
   /** Creates accessible labels for page, previous, and next controls. */
   getItemAriaLabel?: (context: PaginationItemAriaLabelContext) => string;
-  /** Formats the compact mobile page status. */
+  /** Formats the compact page status used in narrow containers. */
   formatPageStatus?: (page: number, totalPages: number) => string;
 }
 

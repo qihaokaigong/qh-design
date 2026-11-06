@@ -15,7 +15,7 @@
     "deploy:storybook": "pnpm build && wrangler pages deploy apps/storybook/storybook-static --project-name qh-design --branch main",
     "dev": "pnpm --filter @qhkg/storybook dev",
     "dev:packages": "turbo run dev",
-    "e2e:prepare": "pnpm ai:docs && pnpm registry:build && turbo run build --filter=@qhkg/react",
+    "e2e:prepare": "pnpm ai:docs && pnpm registry:build && turbo run build --filter=@qhkg/storybook",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",

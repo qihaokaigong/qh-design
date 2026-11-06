@@ -64,3 +64,12 @@ export const Mobile: Story = {
 export const LongBrand: Story = {
   args: { brandName: "QH 团队协作工作台" },
 };
+
+export const NarrowContainer: Story = {
+  render: (args) => (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <Header {...args} />
+    </div>
+  ),
+  play: Mobile.play,
+};

@@ -61,3 +61,13 @@ export const MultipleActions: Story = {
     ),
   },
 };
+
+export const NarrowContainer: Story = {
+  args: MultipleActions.args,
+  render: (args) => (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <Toolbar {...args} />
+    </div>
+  ),
+  play: Default.play,
+};

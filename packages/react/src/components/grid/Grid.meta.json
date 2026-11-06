@@ -1,13 +1,25 @@
 {
   "name": "Grid",
-  "summary": "以移动端优先的受控列数排列二维内容",
+  "summary": "以显式列数或按容器可用空间自动排列二维内容",
   "status": "beta",
   "import": "import { Grid } from '@qhkg/react'",
   "storybookId": "layout-grid",
   "whenToUse": ["卡片或数据块需要二维排列", "列数需要在标准断点变化"],
   "avoidWhen": ["只有单一纵向内容流", "项目宽度完全由内容决定"],
-  "mobile": ["base 默认一列", "md 从 768px、lg 从 1024px 生效"],
+  "mobile": [
+    "默认列数为 1；显式 md 从 768px、lg 从 1024px 生效",
+    "columns=\"auto\" 按容器排布；minItemWidth 的 sm/md/lg 分别为 12/16/20rem，默认 md",
+    "容器小于最小卡片宽度时退回单列；仅 auto 模式接受 minItemWidth"
+  ],
   "accessibility": ["视觉列数不会改变 DOM 和阅读顺序"],
   "related": ["Stack", "Inline", "PageContainer", "Card"],
-  "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+  "stories": [
+    "Default",
+    "Playground",
+    "States",
+    "LongContent",
+    "Mobile",
+    "AutoFit",
+    "NarrowContainer"
+  ]
 }

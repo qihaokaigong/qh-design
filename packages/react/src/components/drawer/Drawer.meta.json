@@ -10,9 +10,9 @@
   ],
   "avoidWhen": ["只是显示一句提示", "桌面端需要复杂且长期存在的侧栏"],
   "mobile": [
-    "从底部进入并适配安全区域",
-    "最大高度使用动态视口且内容可滚动",
-    "操作区域保持在内容底部"
+    "从底部进入，考虑四向安全区和动态视口高度",
+    "长内容可滚动，操作区保持在内容底部",
+    "窄屏按钮按 DOM 顺序纵向排列"
   ],
   "accessibility": [
     "语义和焦点行为与 Dialog 一致",
@@ -26,6 +26,7 @@
     "Open",
     "LongContent",
     "Mobile",
-    "WithDialogLoaded"
+    "WithDialogLoaded",
+    "LongForm"
   ]
 }

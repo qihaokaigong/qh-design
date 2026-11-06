@@ -4,6 +4,8 @@ import { expect, userEvent, within } from "storybook/test";
 import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { Stack } from "../stack";
+import { Field } from "../field";
+import { Input } from "../input";
 import { Dialog } from "../dialog";
 import { Drawer } from "./Drawer";
 
@@ -94,6 +96,50 @@ export const LongContent: Story = {
 export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
+};
+
+export const LongForm: Story = {
+  render: () => (
+    <Drawer>
+      <Drawer.Trigger asChild>
+        <Button>配置筛选条件</Button>
+      </Drawer.Trigger>
+      <Drawer.Content>
+        <Drawer.Title>筛选条件</Drawer.Title>
+        <Drawer.Description>
+          条件在尺寸变化时保留，关闭后返回原入口。
+        </Drawer.Description>
+        {Array.from({ length: 8 }, (_, index) => (
+          <Field key={index}>
+            <Field.Label>筛选条件 {index + 1}</Field.Label>
+            <Input />
+          </Field>
+        ))}
+        <Drawer.Footer>
+          <Drawer.Close asChild>
+            <Button variant="secondary">取消</Button>
+          </Drawer.Close>
+          <Drawer.Close asChild>
+            <Button>应用条件</Button>
+          </Drawer.Close>
+        </Drawer.Footer>
+      </Drawer.Content>
+    </Drawer>
+  ),
+  parameters: { viewport: { defaultViewport: "mobile375" } },
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole("button", {
+      name: "配置筛选条件",
+    });
+    await userEvent.click(trigger);
+    const page = within(canvasElement.ownerDocument.body);
+    await userEvent.type(
+      page.getByRole("textbox", { name: "筛选条件 8" }),
+      "设计系统",
+    );
+    await userEvent.click(page.getByRole("button", { name: "应用条件" }));
+    await expect(trigger).toHaveFocus();
+  },
 };
 
 export const WithDialogLoaded: Story = {

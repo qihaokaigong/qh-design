@@ -1,9 +1,27 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, expectTypeOf, it } from "vitest";
 
 import { Grid } from "./Grid";
+import type { GridProps } from "./Grid.types";
 
 describe("Grid", () => {
+  it("keeps auto sizing exclusive to auto columns and off the DOM", () => {
+    expectTypeOf<{
+      columns: 2;
+      minItemWidth: "md";
+    }>().not.toExtend<GridProps>();
+    expectTypeOf<{
+      columns: "auto";
+      minItemWidth: "lg";
+    }>().toExtend<GridProps>();
+    render(
+      <Grid columns="auto" minItemWidth="lg" data-testid="auto-grid">
+        内容
+      </Grid>,
+    );
+    expect(screen.getByTestId("auto-grid")).not.toHaveAttribute("minItemWidth");
+    expect(screen.getByText("内容")).toBeVisible();
+  });
   it("writes controlled responsive column variables", () => {
     render(
       <Grid data-testid="grid" columns={{ base: 1, md: 2, lg: 3 }}>

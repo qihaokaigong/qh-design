@@ -50,3 +50,18 @@ export const ClearAction: Story = {
     await expect(args.onClear).toHaveBeenCalledOnce();
   },
 };
+
+export const NarrowContainer: Story = {
+  render: (args) => (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <FilterBar
+        {...args}
+        onApply={(event) => {
+          event.preventDefault();
+          args.onApply?.(event);
+        }}
+      />
+    </div>
+  ),
+  play: Default.play,
+};

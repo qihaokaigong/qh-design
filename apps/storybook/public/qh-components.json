@@ -471,9 +471,9 @@
       ],
       "avoidWhen": ["确认不可逆或高风险操作", "内容复杂到需要独立页面"],
       "mobile": [
-        "宽度保留 16px 视口边距",
-        "最大高度使用动态视口并在内容区滚动",
-        "操作按钮在窄屏纵向排列"
+        "宽度保留至少 16px 边距并考虑四向安全区",
+        "最大高度使用动态视口且长内容可滚动",
+        "窄屏操作按 DOM 顺序纵向排列；不自动转换为 Drawer"
       ],
       "accessibility": [
         "必须同时提供 Dialog.Title 和 Dialog.Description",
@@ -487,7 +487,8 @@
         "Open",
         "LongContent",
         "Mobile",
-        "WithDrawerLoaded"
+        "WithDrawerLoaded",
+        "LongForm"
       ]
     },
     {
@@ -502,9 +503,9 @@
       ],
       "avoidWhen": ["只是显示一句提示", "桌面端需要复杂且长期存在的侧栏"],
       "mobile": [
-        "从底部进入并适配安全区域",
-        "最大高度使用动态视口且内容可滚动",
-        "操作区域保持在内容底部"
+        "从底部进入，考虑四向安全区和动态视口高度",
+        "长内容可滚动，操作区保持在内容底部",
+        "窄屏按钮按 DOM 顺序纵向排列"
       ],
       "accessibility": [
         "语义和焦点行为与 Dialog 一致",
@@ -518,7 +519,8 @@
         "Open",
         "LongContent",
         "Mobile",
-        "WithDialogLoaded"
+        "WithDialogLoaded",
+        "LongForm"
       ]
     },
     {
@@ -660,16 +662,28 @@
     },
     {
       "name": "Grid",
-      "summary": "以移动端优先的受控列数排列二维内容",
+      "summary": "以显式列数或按容器可用空间自动排列二维内容",
       "status": "beta",
       "import": "import { Grid } from '@qhkg/react'",
       "storybookId": "layout-grid",
       "whenToUse": ["卡片或数据块需要二维排列", "列数需要在标准断点变化"],
       "avoidWhen": ["只有单一纵向内容流", "项目宽度完全由内容决定"],
-      "mobile": ["base 默认一列", "md 从 768px、lg 从 1024px 生效"],
+      "mobile": [
+        "默认列数为 1；显式 md 从 768px、lg 从 1024px 生效",
+        "columns=\"auto\" 按容器排布；minItemWidth 的 sm/md/lg 分别为 12/16/20rem，默认 md",
+        "容器小于最小卡片宽度时退回单列；仅 auto 模式接受 minItemWidth"
+      ],
       "accessibility": ["视觉列数不会改变 DOM 和阅读顺序"],
       "related": ["Stack", "Inline", "PageContainer", "Card"],
-      "stories": ["Default", "Playground", "States", "LongContent", "Mobile"]
+      "stories": [
+        "Default",
+        "Playground",
+        "States",
+        "LongContent",
+        "Mobile",
+        "AutoFit",
+        "NarrowContainer"
+      ]
     },
     {
       "name": "Heading",
@@ -971,7 +985,7 @@
     },
     {
       "name": "Pagination",
-      "summary": "在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件",
+      "summary": "按可用容器宽度在完整页码与紧凑进度导航间切换",
       "status": "beta",
       "import": "import { Pagination } from '@qhkg/react'",
       "storybookId": "navigation-pagination",
@@ -984,9 +998,10 @@
         "数据量很小且可以在同一页面完整展示"
       ],
       "mobile": [
-        "小于 640px 时只显示上一页、当前进度和下一页，避免横向溢出",
-        "所有可操作控件保持 44px 触控尺寸",
-        "640px 起显示边界页、相邻页和省略号"
+        "容器小于 40rem 时显示上一页、当前进度和下一页",
+        "容器达到 40rem 时显示页码，扩大的页码范围允许换行",
+        "长状态文案可换行；控件保持默认 44px 触控尺寸",
+        "收窄时若焦点所在页码被隐藏，将焦点移到可用的前后页控件"
       ],
       "accessibility": [
         "使用带可覆盖名称的 nav 地标和列表语义",
@@ -1003,7 +1018,9 @@
         "LinkNavigation",
         "LongContent",
         "Mobile",
-        "RightToLeft"
+        "RightToLeft",
+        "NarrowContainer",
+        "ExpandedRange"
       ]
     },
     {
@@ -1280,7 +1297,11 @@
         "切换不会改变页面地址"
       ],
       "avoidWhen": ["步骤有严格先后顺序", "内容需要独立链接和浏览器历史"],
-      "mobile": ["标签列表可水平滚动", "触发区域至少 44px 高"],
+      "mobile": [
+        "标签列表可水平滚动并保留系统滚动提示",
+        "键盘焦点与受控选中标签自动滚入可见范围，支持 RTL",
+        "触发区域至少 44px 高"
+      ],
       "accessibility": [
         "Tabs.List 必须提供可访问名称",
         "方向键移动焦点并在默认模式下激活标签",
@@ -1293,7 +1314,9 @@
         "KeyboardNavigation",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "NarrowContainer",
+        "RightToLeft"
       ]
     },
     {

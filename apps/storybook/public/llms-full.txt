@@ -30,7 +30,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Field: 组合表单标签、说明、错误信息和控件的可访问容器 — https://design.qihao.dev/?path=/docs/forms-field--docs
 - Fieldset: 使用原生分组语义组织一组相关表单控件 — https://design.qihao.dev/?path=/docs/forms-fieldset--docs
 - FileUpload: 通过设备选择或拖放收集文件，并显示可移除的已选列表 — https://design.qihao.dev/?path=/docs/forms-fileupload--docs
-- Grid: 以移动端优先的受控列数排列二维内容 — https://design.qihao.dev/?path=/docs/layout-grid--docs
+- Grid: 以显式列数或按容器可用空间自动排列二维内容 — https://design.qihao.dev/?path=/docs/layout-grid--docs
 - Heading: 用明确的文档层级和受控视觉尺度呈现标题 — https://design.qihao.dev/?path=/docs/foundation-heading--docs
 - IconButton: 以图标触发常用动作，并可在图标后同行显示文字标签 — https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
 - Inline: 使用设计 Token 间距横向排列并按需换行 — https://design.qihao.dev/?path=/docs/layout-inline--docs
@@ -43,7 +43,7 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - MultiSelect: 在收起的选项集合中选择并提交多个值 — https://design.qihao.dev/?path=/docs/forms-multiselect--docs
 - NumberInput: 支持键盘输入、原生数值约束和步进动作的数字输入 — https://design.qihao.dev/?path=/docs/forms-numberinput--docs
 - PageContainer: 限制页面内容宽度并提供移动端优先的标准页边距 — https://design.qihao.dev/?path=/docs/layout-pagecontainer--docs
-- Pagination: 在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件 — https://design.qihao.dev/?path=/docs/navigation-pagination--docs
+- Pagination: 按可用容器宽度在完整页码与紧凑进度导航间切换 — https://design.qihao.dev/?path=/docs/navigation-pagination--docs
 - PasswordInput: 带可访问显示与隐藏动作的密码输入 — https://design.qihao.dev/?path=/docs/forms-passwordinput--docs
 - Popover: 在触发器附近展示可交互的补充内容 — https://design.qihao.dev/?path=/docs/overlays-popover--docs
 - Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
@@ -69,10 +69,10 @@ Install patterns through the public shadcn Registry. Inspect the pattern documen
 
 - Data Table: Project data table pattern with filtering, sorting, row selection, batch actions, states, and pagination. — https://design.qihao.dev/r/data-table.json
 - Delete Confirmation: Accessible destructive confirmation pattern built with QH AlertDialog. — https://design.qihao.dev/r/delete-confirmation.json
-- Filter Bar: Responsive project filter bar that stacks on mobile and expands on wider screens. — https://design.qihao.dev/r/filter-bar.json
+- Filter Bar: Content-driven project filter bar that wraps within its available container. — https://design.qihao.dev/r/filter-bar.json
 - Header: Responsive application header with synchronized desktop and mobile primary navigation. — https://design.qihao.dev/r/header.json
 - Login Form: Mobile-first email and password login form using QH Field and form controls. — https://design.qihao.dev/r/login-form.json
-- Mobile Bottom Action Bar: Safe-area-aware bottom action bar that becomes an inline panel on wider screens. — https://design.qihao.dev/r/mobile-bottom-action-bar.json
+- Mobile Bottom Action Bar: Safe-area-aware fixed mobile actions with automatic dynamic-height content reservation. — https://design.qihao.dev/r/mobile-bottom-action-bar.json
 - Mobile Navigation: Drawer-based mobile primary navigation with current-page state and focus restoration. — https://design.qihao.dev/r/mobile-nav.json
 - Page Header: Page title region combining breadcrumb hierarchy, supporting copy, and visible actions. — https://design.qihao.dev/r/page-header.json
 - Project Detail Page: Complete project detail page with breadcrumbs, visible actions, overview data, activity, metadata, and resilient page states. — https://design.qihao.dev/r/project-detail-page.json
@@ -340,7 +340,7 @@ Status: beta
 
 Use when: 用户需要完成一个短任务而不离开当前页面；需要暂时阻断背景交互
 Avoid when: 确认不可逆或高风险操作；内容复杂到需要独立页面
-Mobile: 宽度保留 16px 视口边距；最大高度使用动态视口并在内容区滚动；操作按钮在窄屏纵向排列
+Mobile: 宽度保留至少 16px 边距并考虑四向安全区；最大高度使用动态视口且长内容可滚动；窄屏操作按 DOM 顺序纵向排列；不自动转换为 Drawer
 Accessibility: 必须同时提供 Dialog.Title 和 Dialog.Description；打开后锁定焦点，Escape 关闭；关闭后焦点返回触发器
 Related: AlertDialog, Drawer, Popover
 
@@ -353,7 +353,7 @@ Status: beta
 
 Use when: 移动端需要展示筛选、分享或短表单；内容比 Popover 多但仍属于当前上下文
 Avoid when: 只是显示一句提示；桌面端需要复杂且长期存在的侧栏
-Mobile: 从底部进入并适配安全区域；最大高度使用动态视口且内容可滚动；操作区域保持在内容底部
+Mobile: 从底部进入，考虑四向安全区和动态视口高度；长内容可滚动，操作区保持在内容底部；窄屏按钮按 DOM 顺序纵向排列
 Accessibility: 语义和焦点行为与 Dialog 一致；必须提供 Title 和 Description；Escape 与关闭操作会还原焦点
 Related: Dialog, Popover
 
@@ -424,14 +424,14 @@ Related: Dropzone, Field, Button, IconButton
 
 ### Grid
 
-以移动端优先的受控列数排列二维内容
+以显式列数或按容器可用空间自动排列二维内容
 
 Import: `import { Grid } from '@qhkg/react'`
 Status: beta
 
 Use when: 卡片或数据块需要二维排列；列数需要在标准断点变化
 Avoid when: 只有单一纵向内容流；项目宽度完全由内容决定
-Mobile: base 默认一列；md 从 768px、lg 从 1024px 生效
+Mobile: 默认列数为 1；显式 md 从 768px、lg 从 1024px 生效；columns="auto" 按容器排布；minItemWidth 的 sm/md/lg 分别为 12/16/20rem，默认 md；容器小于最小卡片宽度时退回单列；仅 auto 模式接受 minItemWidth
 Accessibility: 视觉列数不会改变 DOM 和阅读顺序
 Related: Stack, Inline, PageContainer, Card
 
@@ -593,14 +593,14 @@ Related: Stack, Grid
 
 ### Pagination
 
-在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件
+按可用容器宽度在完整页码与紧凑进度导航间切换
 
 Import: `import { Pagination } from '@qhkg/react'`
 Status: beta
 
 Use when: 列表、搜索结果或表格具有明确的总页数；每一页需要独立 URL 或受控的数据加载
 Avoid when: 内容更适合连续阅读或无限加载；数据量很小且可以在同一页面完整展示
-Mobile: 小于 640px 时只显示上一页、当前进度和下一页，避免横向溢出；所有可操作控件保持 44px 触控尺寸；640px 起显示边界页、相邻页和省略号
+Mobile: 容器小于 40rem 时显示上一页、当前进度和下一页；容器达到 40rem 时显示页码，扩大的页码范围允许换行；长状态文案可换行；控件保持默认 44px 触控尺寸；收窄时若焦点所在页码被隐藏，将焦点移到可用的前后页控件
 Accessibility: 使用带可覆盖名称的 nav 地标和列表语义；当前页使用 aria-current=page；上一页和下一页在边界使用原生 disabled 按钮；getItemAriaLabel 和 formatPageStatus 支持本地化；移动端进度变化通过 polite live region 宣布
 Related: Table, Button, ButtonLink, Select
 
@@ -756,7 +756,7 @@ Status: beta
 
 Use when: 内容属于同一级别且用户需要快速切换；切换不会改变页面地址
 Avoid when: 步骤有严格先后顺序；内容需要独立链接和浏览器历史
-Mobile: 标签列表可水平滚动；触发区域至少 44px 高
+Mobile: 标签列表可水平滚动并保留系统滚动提示；键盘焦点与受控选中标签自动滚入可见范围，支持 RTL；触发区域至少 44px 高
 Accessibility: Tabs.List 必须提供可访问名称；方向键移动焦点并在默认模式下激活标签；禁用标签会从键盘导航中跳过
 Related: Menu, Button
 
@@ -868,14 +868,14 @@ Integration guidance: Use only for irreversible or high-risk deletion. Keep the 
 
 ### Filter Bar
 
-Responsive project filter bar that stacks on mobile and expands on wider screens.
+Content-driven project filter bar that wraps within its available container.
 
 Registry: https://design.qihao.dev/r/filter-bar.json
 Install: `pnpm dlx shadcn@latest add @qh/filter-bar`
 Status: beta
 Mobile-first: yes
-Uses: Field, Input, Select, Button
-Integration guidance: Use URL search parameters or application state as the source of truth. The pattern intentionally does not fetch data or assume a router.
+Uses: Field, SearchInput, Select, Button
+Integration guidance: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application.
 
 ### Header
 
@@ -886,7 +886,7 @@ Install: `pnpm dlx shadcn@latest add @qh/header`
 Status: beta
 Mobile-first: yes
 Uses: PageContainer, ButtonLink, MobileNav
-Integration guidance: Pass route-aware items and URLs from the application. The primary action remains visible at every breakpoint, while navigation moves into MobileNav below the desktop breakpoint.
+Integration guidance: Pass route-aware items and URLs from the application. Navigation switches by header container width at 48rem; the primary action remains visible and wraps with the header when space is limited.
 
 ### Login Form
 
@@ -901,14 +901,14 @@ Integration guidance: Import @qhkg/react/styles.css once at the application entr
 
 ### Mobile Bottom Action Bar
 
-Safe-area-aware bottom action bar that becomes an inline panel on wider screens.
+Safe-area-aware fixed mobile actions with automatic dynamic-height content reservation.
 
 Registry: https://design.qihao.dev/r/mobile-bottom-action-bar.json
 Install: `pnpm dlx shadcn@latest add @qh/mobile-bottom-action-bar`
 Status: beta
 Mobile-first: yes
 Uses: Button
-Integration guidance: Add bottom padding to the page content when this bar is fixed so the final content is not covered. Pass QH Button elements as actions.
+Integration guidance: Render at the end of the page content in the main scrolling flow. The pattern reserves its measured mobile height; remove previous manual bottom padding. Keep a single bar per page and do not place it in a transformed or separately scrolling ancestor. It becomes inline from 768px. Pass QH Button elements as actions; a single action fills the row.
 
 ### Mobile Navigation
 
@@ -919,7 +919,7 @@ Install: `pnpm dlx shadcn@latest add @qh/mobile-nav`
 Status: beta
 Mobile-first: yes
 Uses: Drawer, Button, ButtonLink, IconButton
-Integration guidance: Derive the current item from the consuming application's router. Keep every primary destination visible inside the Drawer and preserve the QH Drawer focus behavior.
+Integration guidance: Derive current destinations from the application router. Keep navigation labels visible and preserve Drawer focus behavior. When a responsive layout can hide the trigger while open, pass fallbackFocusRef to a visible focusable entry; Header wires its home link automatically.
 
 ### Page Header
 
@@ -930,7 +930,7 @@ Install: `pnpm dlx shadcn@latest add @qh/page-header`
 Status: beta
 Mobile-first: yes
 Uses: Breadcrumb, Heading, Text
-Integration guidance: Render one page-level h1. Keep actions visible, use Button for in-page actions and ButtonLink for URL navigation, and pass router-aware breadcrumb href values.
+Integration guidance: Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.
 
 ### Project Detail Page
 
@@ -985,7 +985,7 @@ Install: `pnpm dlx shadcn@latest add @qh/side-nav`
 Status: beta
 Mobile-first: yes
 Uses: Heading, ButtonLink
-Integration guidance: Use for secondary navigation within a stable application section. Derive the current item from the router and keep primary application destinations in Header or MobileNav.
+Integration guidance: Use for secondary navigation within a stable application section. Labels wrap within the available width; derive the current item from the router and keep primary destinations in Header or MobileNav.
 
 ### Toolbar
 
@@ -996,5 +996,5 @@ Install: `pnpm dlx shadcn@latest add @qh/toolbar`
 Status: beta
 Mobile-first: yes
 Uses: SearchInput, Text
-Integration guidance: This pattern uses labelled native control groups rather than role=toolbar. Only add the ARIA toolbar role after implementing roving tabindex and arrow-key navigation for every contained control.
+Integration guidance: Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model.
 

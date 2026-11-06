@@ -1,6 +1,6 @@
 {
   "name": "Pagination",
-  "summary": "在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件",
+  "summary": "按可用容器宽度在完整页码与紧凑进度导航间切换",
   "status": "beta",
   "import": "import { Pagination } from '@qhkg/react'",
   "storybookId": "navigation-pagination",
@@ -13,9 +13,10 @@
     "数据量很小且可以在同一页面完整展示"
   ],
   "mobile": [
-    "小于 640px 时只显示上一页、当前进度和下一页，避免横向溢出",
-    "所有可操作控件保持 44px 触控尺寸",
-    "640px 起显示边界页、相邻页和省略号"
+    "容器小于 40rem 时显示上一页、当前进度和下一页",
+    "容器达到 40rem 时显示页码，扩大的页码范围允许换行",
+    "长状态文案可换行；控件保持默认 44px 触控尺寸",
+    "收窄时若焦点所在页码被隐藏，将焦点移到可用的前后页控件"
   ],
   "accessibility": [
     "使用带可覆盖名称的 nav 地标和列表语义",
@@ -32,6 +33,8 @@
     "LinkNavigation",
     "LongContent",
     "Mobile",
-    "RightToLeft"
+    "RightToLeft",
+    "NarrowContainer",
+    "ExpandedRange"
   ]
 }

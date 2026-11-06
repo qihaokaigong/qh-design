@@ -16,7 +16,7 @@ const longPath = [
   { id: "projects", label: "项目", href: "/workspace/projects" },
   {
     id: "design-system",
-    label: "齐皓设计系统",
+    label: "QH 设计系统",
     href: "/workspace/projects/qh-design",
   },
   { id: "components", label: "组件", href: "/components" },

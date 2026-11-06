@@ -1,10 +1,13 @@
 .root {
+  container: qh-pagination / inline-size;
+  min-inline-size: 0;
   inline-size: 100%;
   font-family: var(--qh-font-sans);
 }
 
 .list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: var(--qh-space-1);
@@ -38,7 +41,8 @@
 }
 
 .statusItem {
-  min-inline-size: 7rem;
+  min-inline-size: 0;
+  flex: 0 1 auto;
   text-align: center;
 }
 
@@ -47,7 +51,7 @@
   font-size: var(--qh-text-sm);
   font-variant-numeric: tabular-nums;
   line-height: var(--qh-leading-ui);
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .ellipsis {
@@ -65,7 +69,7 @@
   transform: scaleX(-1);
 }
 
-@media (min-width: 40rem) {
+@container qh-pagination (min-width: 40rem) {
   .pageItem,
   .ellipsisItem {
     display: list-item;
