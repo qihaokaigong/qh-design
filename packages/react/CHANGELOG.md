@@ -1,5 +1,17 @@
 # @qhkg/react
 
+## 0.8.0
+
+### Minor Changes
+
+- 817d9cc: Add an opt-in Text ui typography variant while preserving the body default. Keep ghost buttons and button links quiet on hover and press, with independent focus feedback, and introduce semantic surface interaction and control hover tokens using existing QH colors. Registry tool pages use restrained titles, embedded filters and a single page gutter; standalone filter and toolbar frames remain available.
+
+### Patch Changes
+
+- 817d9cc: Replace the platform-dependent Select arrow with a decorative Lucide SVG, inset 12px (16px for lg) from the logical end. Reserve text space, support RTL and disabled states, and restore the native indicator in forced-colors mode. Native selection, form attributes and refs remain on the select; className and style now apply to its outer layout container.
+- Updated dependencies [817d9cc]
+  - @qhkg/tokens@0.8.0
+
 ## 0.7.0
 
 ### Minor Changes
