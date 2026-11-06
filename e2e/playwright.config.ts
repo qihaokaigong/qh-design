@@ -9,6 +9,7 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
   workers: 1,
+  timeout: 60_000,
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL,
@@ -17,7 +18,9 @@ export default defineConfig({
   },
   webServer: {
     command:
-      "pnpm --filter @qhkg/storybook exec storybook dev -p " + port + " --ci",
+      "pnpm --filter @qhkg/storybook exec vite preview --outDir storybook-static --host 127.0.0.1 --port " +
+      port +
+      " --strictPort",
     reuseExistingServer: false,
     timeout: 120_000,
     url: baseURL,

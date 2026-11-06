@@ -258,7 +258,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Status: beta
 - Use when: 用户需要完成一个短任务而不离开当前页面；需要暂时阻断背景交互
 - Avoid when: 确认不可逆或高风险操作；内容复杂到需要独立页面
-- Mobile: 宽度保留 16px 视口边距；最大高度使用动态视口并在内容区滚动；操作按钮在窄屏纵向排列
+- Mobile: 宽度保留至少 16px 边距并考虑四向安全区；最大高度使用动态视口且长内容可滚动；窄屏操作按 DOM 顺序纵向排列；不自动转换为 Drawer
 - Accessibility: 必须同时提供 Dialog.Title 和 Dialog.Description；打开后锁定焦点，Escape 关闭；关闭后焦点返回触发器
 - Related: AlertDialog, Drawer, Popover
 - Storybook: https://design.qihao.dev/?path=/docs/overlays-dialog--docs
@@ -271,7 +271,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Status: beta
 - Use when: 移动端需要展示筛选、分享或短表单；内容比 Popover 多但仍属于当前上下文
 - Avoid when: 只是显示一句提示；桌面端需要复杂且长期存在的侧栏
-- Mobile: 从底部进入并适配安全区域；最大高度使用动态视口且内容可滚动；操作区域保持在内容底部
+- Mobile: 从底部进入，考虑四向安全区和动态视口高度；长内容可滚动，操作区保持在内容底部；窄屏按钮按 DOM 顺序纵向排列
 - Accessibility: 语义和焦点行为与 Dialog 一致；必须提供 Title 和 Description；Escape 与关闭操作会还原焦点
 - Related: Dialog, Popover
 - Storybook: https://design.qihao.dev/?path=/docs/overlays-drawer--docs
@@ -343,13 +343,13 @@ Use this index to choose a component, then confirm exact props from the installe
 
 ## Grid
 
-以移动端优先的受控列数排列二维内容
+以显式列数或按容器可用空间自动排列二维内容
 
 - Import: `import { Grid } from '@qhkg/react'`
 - Status: beta
 - Use when: 卡片或数据块需要二维排列；列数需要在标准断点变化
 - Avoid when: 只有单一纵向内容流；项目宽度完全由内容决定
-- Mobile: base 默认一列；md 从 768px、lg 从 1024px 生效
+- Mobile: 默认列数为 1；显式 md 从 768px、lg 从 1024px 生效；columns="auto" 按容器排布；minItemWidth 的 sm/md/lg 分别为 12/16/20rem，默认 md；容器小于最小卡片宽度时退回单列；仅 auto 模式接受 minItemWidth
 - Accessibility: 视觉列数不会改变 DOM 和阅读顺序
 - Related: Stack, Inline, PageContainer, Card
 - Storybook: https://design.qihao.dev/?path=/docs/layout-grid--docs
@@ -512,13 +512,13 @@ Use this index to choose a component, then confirm exact props from the installe
 
 ## Pagination
 
-在多页内容之间导航，并在移动端自动收敛为紧凑的上一页、进度和下一页控件
+按可用容器宽度在完整页码与紧凑进度导航间切换
 
 - Import: `import { Pagination } from '@qhkg/react'`
 - Status: beta
 - Use when: 列表、搜索结果或表格具有明确的总页数；每一页需要独立 URL 或受控的数据加载
 - Avoid when: 内容更适合连续阅读或无限加载；数据量很小且可以在同一页面完整展示
-- Mobile: 小于 640px 时只显示上一页、当前进度和下一页，避免横向溢出；所有可操作控件保持 44px 触控尺寸；640px 起显示边界页、相邻页和省略号
+- Mobile: 容器小于 40rem 时显示上一页、当前进度和下一页；容器达到 40rem 时显示页码，扩大的页码范围允许换行；长状态文案可换行；控件保持默认 44px 触控尺寸；收窄时若焦点所在页码被隐藏，将焦点移到可用的前后页控件
 - Accessibility: 使用带可覆盖名称的 nav 地标和列表语义；当前页使用 aria-current=page；上一页和下一页在边界使用原生 disabled 按钮；getItemAriaLabel 和 formatPageStatus 支持本地化；移动端进度变化通过 polite live region 宣布
 - Related: Table, Button, ButtonLink, Select
 - Storybook: https://design.qihao.dev/?path=/docs/navigation-pagination--docs
@@ -674,7 +674,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Status: beta
 - Use when: 内容属于同一级别且用户需要快速切换；切换不会改变页面地址
 - Avoid when: 步骤有严格先后顺序；内容需要独立链接和浏览器历史
-- Mobile: 标签列表可水平滚动；触发区域至少 44px 高
+- Mobile: 标签列表可水平滚动并保留系统滚动提示；键盘焦点与受控选中标签自动滚入可见范围，支持 RTL；触发区域至少 44px 高
 - Accessibility: Tabs.List 必须提供可访问名称；方向键移动焦点并在默认模式下激活标签；禁用标签会从键盘导航中跳过
 - Related: Menu, Button
 - Storybook: https://design.qihao.dev/?path=/docs/navigation-tabs--docs

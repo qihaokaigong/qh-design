@@ -2,7 +2,7 @@
 
 import { clsx } from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
 import { Button, ButtonLink } from "../button";
 import styles from "./Pagination.module.css";
@@ -82,8 +82,8 @@ const defaultFormatPageStatus = (page: number, totalPages: number) =>
   `第 ${page} / ${totalPages} 页`;
 
 /**
- * Navigates a one-based page collection with compact mobile controls and a
- * wider numbered view. Use getPageHref for URL navigation.
+ * Navigates a one-based page collection with compact controls in narrow
+ * containers and a wider numbered view. Use getPageHref for URL navigation.
  */
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(
   function Pagination(
@@ -103,6 +103,46 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     },
     ref,
   ) {
+    const rootRef = useRef<HTMLElement>(null);
+    useImperativeHandle(ref, () => rootRef.current!, []);
+    useEffect(() => {
+      const root = rootRef.current;
+      if (!root) return;
+      const document = root.ownerDocument;
+      let focused: HTMLElement | null = null;
+      const rememberFocus = (event: FocusEvent) => {
+        focused = root.contains(event.target as Node)
+          ? (event.target as HTMLElement)
+          : null;
+      };
+      const forgetOutsidePointer = (event: PointerEvent) => {
+        if (!root.contains(event.target as Node)) focused = null;
+      };
+      const observer = new ResizeObserver(() => {
+        if (
+          focused &&
+          !focused.getClientRects().length &&
+          (document.activeElement === focused ||
+            document.activeElement === document.body)
+        ) {
+          [
+            ...root.querySelectorAll<HTMLElement>(
+              "button:not(:disabled), a[href]",
+            ),
+          ]
+            .find((element) => element.getClientRects().length > 0)
+            ?.focus();
+        }
+      });
+      observer.observe(root);
+      document.addEventListener("focusin", rememberFocus);
+      document.addEventListener("pointerdown", forgetOutsidePointer);
+      return () => {
+        observer.disconnect();
+        document.removeEventListener("focusin", rememberFocus);
+        document.removeEventListener("pointerdown", forgetOutsidePointer);
+      };
+    }, []);
     const totalPages = Math.max(1, normalizeCount(totalPagesProp, 1));
     const page = Math.min(totalPages, Math.max(1, normalizeCount(pageProp, 1)));
     const boundaryCount = normalizeCount(boundaryCountProp, 1);
@@ -163,7 +203,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     return (
       <nav
         {...props}
-        ref={ref}
+        ref={rootRef}
         aria-label={ariaLabel}
         className={clsx(styles.root, className)}
       >

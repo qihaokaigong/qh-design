@@ -43,3 +43,12 @@ export const LongLabels: Story = {
     ],
   },
 };
+
+export const NarrowContainer: Story = {
+  args: LongLabels.args,
+  render: (args) => (
+    <div style={{ maxWidth: "12rem" }}>
+      <SideNav {...args} />
+    </div>
+  ),
+};

@@ -1,6 +1,12 @@
 .root {
   display: grid;
+  min-inline-size: 0;
   grid-template-columns: repeat(var(--qh-grid-columns-base), minmax(0, 1fr));
+}
+
+.root > * {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 .gap1 {
@@ -23,7 +29,7 @@
 }
 
 @media (min-width: 768px) {
-  .root {
+  .root:not(.auto) {
     grid-template-columns: repeat(
       var(--qh-grid-columns-md, var(--qh-grid-columns-base)),
       minmax(0, 1fr)
@@ -32,7 +38,7 @@
 }
 
 @media (min-width: 1024px) {
-  .root {
+  .root:not(.auto) {
     grid-template-columns: repeat(
       var(
         --qh-grid-columns-lg,
@@ -41,4 +47,21 @@
       minmax(0, 1fr)
     );
   }
+}
+
+.auto {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--qh-grid-item-min)), 1fr)
+  );
+}
+
+.itemsm {
+  --qh-grid-item-min: 12rem;
+}
+.itemmd {
+  --qh-grid-item-min: 16rem;
+}
+.itemlg {
+  --qh-grid-item-min: 20rem;
 }

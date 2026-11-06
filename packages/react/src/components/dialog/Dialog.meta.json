@@ -10,9 +10,9 @@
   ],
   "avoidWhen": ["确认不可逆或高风险操作", "内容复杂到需要独立页面"],
   "mobile": [
-    "宽度保留 16px 视口边距",
-    "最大高度使用动态视口并在内容区滚动",
-    "操作按钮在窄屏纵向排列"
+    "宽度保留至少 16px 边距并考虑四向安全区",
+    "最大高度使用动态视口且长内容可滚动",
+    "窄屏操作按 DOM 顺序纵向排列；不自动转换为 Drawer"
   ],
   "accessibility": [
     "必须同时提供 Dialog.Title 和 Dialog.Description",
@@ -26,6 +26,7 @@
     "Open",
     "LongContent",
     "Mobile",
-    "WithDrawerLoaded"
+    "WithDrawerLoaded",
+    "LongForm"
   ]
 }

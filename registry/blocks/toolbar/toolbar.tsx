@@ -34,31 +34,31 @@ export function Toolbar({
   return (
     <section
       aria-label={label}
-      className="grid gap-3 rounded-lg border border-border bg-surface p-4"
+      className="grid min-w-0 gap-3 rounded-lg border border-border bg-surface p-4"
     >
-      <div className="grid gap-3 md:grid-cols-[minmax(12rem,1fr)_auto_auto] md:items-center">
-        <SearchInput
-          aria-label={searchLabel}
-          defaultValue={defaultQuery}
-          placeholder={searchPlaceholder}
-          value={query}
-          onValueChange={onQueryChange}
-        />
+      <div className="flex min-w-0 flex-wrap items-center gap-3">
+        <div className="min-w-0 basis-48 grow">
+          <SearchInput
+            aria-label={searchLabel}
+            defaultValue={defaultQuery}
+            placeholder={searchPlaceholder}
+            value={query}
+            onValueChange={onQueryChange}
+          />
+        </div>
         {filters ? (
           <div
             aria-label="筛选条件"
-            className="grid gap-2 sm:flex sm:flex-wrap"
+            className="flex min-w-0 max-w-full flex-wrap gap-2"
             role="group"
           >
             {filters}
           </div>
-        ) : (
-          <span />
-        )}
+        ) : null}
         {actions ? (
           <div
             aria-label="工具操作"
-            className="grid gap-2 sm:flex sm:flex-wrap md:justify-end"
+            className="flex min-w-0 max-w-full flex-wrap gap-2"
             role="group"
           >
             {actions}

@@ -28,6 +28,7 @@ Skill 安装到项目的 `.agents/skills/qh-design`。它不会判断框架、�
 - [组件 API 与 AI 可用性规范](docs/component-api-guidelines.md)
 - [v1 组件范围与实施顺序](docs/v1-scope.md)
 - [能力补齐路线图](docs/capability-roadmap.md)
+- [响应式 UI 升级调研与改造方案](docs/responsive-ui-upgrade-plan.md)
 - [发布与外部配置手册](docs/release-runbook.md)
 
 ## 公共入口

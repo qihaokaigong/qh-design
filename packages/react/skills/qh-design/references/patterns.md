@@ -30,14 +30,14 @@ Accessible destructive confirmation pattern built with QH AlertDialog.
 
 ## Filter Bar
 
-Responsive project filter bar that stacks on mobile and expands on wider screens.
+Content-driven project filter bar that wraps within its available container.
 
 - Registry name: `@qh/filter-bar`
 - Registry JSON: https://design.qihao.dev/r/filter-bar.json
 - Status: beta
 - Mobile-first: yes
-- Uses: Field, Input, Select, Button
-- Integration: Use URL search parameters or application state as the source of truth. The pattern intentionally does not fetch data or assume a router.
+- Uses: Field, SearchInput, Select, Button
+- Integration: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application.
 
 ## Header
 
@@ -48,7 +48,7 @@ Responsive application header with synchronized desktop and mobile primary navig
 - Status: beta
 - Mobile-first: yes
 - Uses: PageContainer, ButtonLink, MobileNav
-- Integration: Pass route-aware items and URLs from the application. The primary action remains visible at every breakpoint, while navigation moves into MobileNav below the desktop breakpoint.
+- Integration: Pass route-aware items and URLs from the application. Navigation switches by header container width at 48rem; the primary action remains visible and wraps with the header when space is limited.
 
 ## Login Form
 
@@ -63,14 +63,14 @@ Mobile-first email and password login form using QH Field and form controls.
 
 ## Mobile Bottom Action Bar
 
-Safe-area-aware bottom action bar that becomes an inline panel on wider screens.
+Safe-area-aware fixed mobile actions with automatic dynamic-height content reservation.
 
 - Registry name: `@qh/mobile-bottom-action-bar`
 - Registry JSON: https://design.qihao.dev/r/mobile-bottom-action-bar.json
 - Status: beta
 - Mobile-first: yes
 - Uses: Button
-- Integration: Add bottom padding to the page content when this bar is fixed so the final content is not covered. Pass QH Button elements as actions.
+- Integration: Render at the end of the page content in the main scrolling flow. The pattern reserves its measured mobile height; remove previous manual bottom padding. Keep a single bar per page and do not place it in a transformed or separately scrolling ancestor. It becomes inline from 768px. Pass QH Button elements as actions; a single action fills the row.
 
 ## Mobile Navigation
 
@@ -81,7 +81,7 @@ Drawer-based mobile primary navigation with current-page state and focus restora
 - Status: beta
 - Mobile-first: yes
 - Uses: Drawer, Button, ButtonLink, IconButton
-- Integration: Derive the current item from the consuming application's router. Keep every primary destination visible inside the Drawer and preserve the QH Drawer focus behavior.
+- Integration: Derive current destinations from the application router. Keep navigation labels visible and preserve Drawer focus behavior. When a responsive layout can hide the trigger while open, pass fallbackFocusRef to a visible focusable entry; Header wires its home link automatically.
 
 ## Page Header
 
@@ -92,7 +92,7 @@ Page title region combining breadcrumb hierarchy, supporting copy, and visible a
 - Status: beta
 - Mobile-first: yes
 - Uses: Breadcrumb, Heading, Text
-- Integration: Render one page-level h1. Keep actions visible, use Button for in-page actions and ButtonLink for URL navigation, and pass router-aware breadcrumb href values.
+- Integration: Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.
 
 ## Project Detail Page
 
@@ -147,7 +147,7 @@ Persistent secondary navigation with explicit current-page state.
 - Status: beta
 - Mobile-first: yes
 - Uses: Heading, ButtonLink
-- Integration: Use for secondary navigation within a stable application section. Derive the current item from the router and keep primary application destinations in Header or MobileNav.
+- Integration: Use for secondary navigation within a stable application section. Labels wrap within the available width; derive the current item from the router and keep primary destinations in Header or MobileNav.
 
 ## Toolbar
 
@@ -158,4 +158,4 @@ Responsive list tool area for search, filters, status, and visible actions.
 - Status: beta
 - Mobile-first: yes
 - Uses: SearchInput, Text
-- Integration: This pattern uses labelled native control groups rather than role=toolbar. Only add the ARIA toolbar role after implementing roving tabindex and arrow-key navigation for every contained control.
+- Integration: Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model.

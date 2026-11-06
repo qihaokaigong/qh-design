@@ -12,11 +12,15 @@ interface GridStyle extends CSSProperties {
 }
 
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
-  { className, columns = 1, gap = "4", style, ...props },
+  { className, columns = 1, gap = "4", minItemWidth = "md", style, ...props },
   ref,
 ) {
   const responsive: ResponsiveGridColumns =
-    typeof columns === "number" ? { base: columns } : columns;
+    columns === "auto"
+      ? {}
+      : typeof columns === "number"
+        ? { base: columns }
+        : columns;
   const gridStyle: GridStyle = {
     "--qh-grid-columns-base": responsive.base ?? 1,
     "--qh-grid-columns-lg": responsive.lg,
@@ -28,7 +32,12 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
     <div
       {...props}
       ref={ref}
-      className={clsx(styles.root, styles[`gap${gap}`], className)}
+      className={clsx(
+        styles.root,
+        styles[`gap${gap}`],
+        columns === "auto" && [styles.auto, styles[`item${minItemWidth}`]],
+        className,
+      )}
       style={gridStyle}
     />
   );

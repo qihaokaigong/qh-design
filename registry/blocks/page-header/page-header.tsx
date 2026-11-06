@@ -21,8 +21,8 @@ export function PageHeader({
       {breadcrumbs && breadcrumbs.length > 0 ? (
         <Breadcrumb items={breadcrumbs} />
       ) : null}
-      <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start">
-        <div className="grid min-w-0 gap-2">
+      <div className="flex min-w-0 flex-wrap items-start gap-4">
+        <div className="grid min-w-0 grow basis-80 gap-2 [overflow-wrap:anywhere]">
           <Heading level={1}>{title}</Heading>
           {description ? (
             <Text as="p" tone="muted">
@@ -33,7 +33,7 @@ export function PageHeader({
         {actions ? (
           <div
             aria-label="页面操作"
-            className="grid gap-2 sm:flex sm:flex-wrap md:justify-end"
+            className="flex min-w-0 max-w-full flex-wrap gap-2"
             role="group"
           >
             {actions}

@@ -27,10 +27,10 @@ export function FilterBar({
   return (
     <form
       aria-label="项目筛选"
-      className="grid gap-3 rounded-lg border border-border bg-surface p-4 md:grid-cols-[minmax(12rem,1fr)_12rem_auto] md:items-end"
+      className="flex min-w-0 flex-wrap items-end gap-3 rounded-lg border border-border bg-surface p-4"
       onSubmit={onApply}
     >
-      <Field>
+      <Field className="min-w-0 basis-48 grow">
         <Field.Label>搜索项目</Field.Label>
         <SearchInput
           disabled={disabled}
@@ -40,7 +40,7 @@ export function FilterBar({
           onValueChange={onQueryChange}
         />
       </Field>
-      <Field>
+      <Field className="min-w-0 basis-48 grow">
         <Field.Label>状态</Field.Label>
         <Select
           disabled={disabled}
@@ -57,7 +57,7 @@ export function FilterBar({
           <option value="archived">已归档</option>
         </Select>
       </Field>
-      <div className="grid grid-cols-2 gap-2 md:flex">
+      <div className="flex min-w-0 grow basis-48 flex-wrap gap-2 [&>*]:grow">
         <Button
           disabled={disabled}
           type="reset"

@@ -58,3 +58,12 @@ export const LongContent: Story = {
 export const WithoutBreadcrumbs: Story = {
   args: { breadcrumbs: undefined },
 };
+
+export const NarrowContainer: Story = {
+  args: LongContent.args,
+  render: (args) => (
+    <div style={{ maxWidth: "22.5rem" }}>
+      <PageHeader {...args} />
+    </div>
+  ),
+};

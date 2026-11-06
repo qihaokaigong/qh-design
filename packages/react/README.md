@@ -52,6 +52,21 @@ export function UserAvatar() {
 
 核心组件的颜色、焦点、圆角和内部间距由 Design System 管理；`className` 用于页面布局和外部尺寸约束。
 
+响应式卡片可以按容器可用空间自动排布：
+
+```tsx
+import { Card, Grid } from "@qhkg/react";
+
+<Grid columns="auto" minItemWidth="md">
+  <Card>项目一</Card>
+  <Card>项目二</Card>
+</Grid>;
+```
+
+`minItemWidth` 只适用于 `columns="auto"`，`sm` / `md` / `lg` 分别为 12 / 16 / 20rem，默认 `md`。容器小于该宽度时仍能退回单列。现有数字列数及 `{ base, md, lg }` 继续遵循显式列数和 768 / 1024px 视口断点，不自动改变语义。
+
+Pagination 根据自己的容器宽度切换布局：小于 40rem 显示紧凑进度，足够宽时显示页码。Tabs 将受控选中项和键盘焦点滚入标签列表，不依赖隐藏滚动条来节省空间。Dialog 和 Drawer 保持各自语义，长内容在弹层内滚动，窄屏按钮顺序与 DOM 顺序一致。
+
 浮层组件使用复合 API，并在内部统一处理 Portal、层级、Escape 和焦点还原：
 
 ```tsx

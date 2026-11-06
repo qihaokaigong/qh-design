@@ -49,7 +49,7 @@
       "name": "filter-bar",
       "type": "registry:block",
       "title": "Filter Bar",
-      "description": "Responsive project filter bar that stacks on mobile and expands on wider screens.",
+      "description": "Content-driven project filter bar that wraps within its available container.",
       "dependencies": ["@qhkg/react@^0.6.2"],
       "files": [
         {
@@ -59,11 +59,11 @@
         }
       ],
       "categories": ["filter", "data"],
-      "docs": "Use URL search parameters or application state as the source of truth. The pattern intentionally does not fetch data or assume a router.",
+      "docs": "Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
-        "uses": ["Field", "Input", "Select", "Button"]
+        "uses": ["Field", "SearchInput", "Select", "Button"]
       }
     },
     {
@@ -91,7 +91,7 @@
       "name": "mobile-bottom-action-bar",
       "type": "registry:block",
       "title": "Mobile Bottom Action Bar",
-      "description": "Safe-area-aware bottom action bar that becomes an inline panel on wider screens.",
+      "description": "Safe-area-aware fixed mobile actions with automatic dynamic-height content reservation.",
       "dependencies": ["@qhkg/react@^0.6.2"],
       "files": [
         {
@@ -101,8 +101,12 @@
         }
       ],
       "categories": ["mobile", "actions"],
-      "docs": "Add bottom padding to the page content when this bar is fixed so the final content is not covered. Pass QH Button elements as actions.",
-      "meta": { "status": "beta", "mobileFirst": true, "uses": ["Button"] }
+      "docs": "Render at the end of the page content in the main scrolling flow. The pattern reserves its measured mobile height; remove previous manual bottom padding. Keep a single bar per page and do not place it in a transformed or separately scrolling ancestor. It becomes inline from 768px. Pass QH Button elements as actions; a single action fills the row.",
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Button"]
+      }
     },
     {
       "name": "data-table",
@@ -153,7 +157,7 @@
         }
       ],
       "categories": ["navigation", "mobile"],
-      "docs": "Derive the current item from the consuming application's router. Keep every primary destination visible inside the Drawer and preserve the QH Drawer focus behavior.",
+      "docs": "Derive current destinations from the application router. Keep navigation labels visible and preserve Drawer focus behavior. When a responsive layout can hide the trigger while open, pass fallbackFocusRef to a visible focusable entry; Header wires its home link automatically.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -179,7 +183,7 @@
         }
       ],
       "categories": ["navigation", "layout"],
-      "docs": "Pass route-aware items and URLs from the application. The primary action remains visible at every breakpoint, while navigation moves into MobileNav below the desktop breakpoint.",
+      "docs": "Pass route-aware items and URLs from the application. Navigation switches by header container width at 48rem; the primary action remains visible and wraps with the header when space is limited.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -200,7 +204,7 @@
         }
       ],
       "categories": ["navigation", "layout"],
-      "docs": "Use for secondary navigation within a stable application section. Derive the current item from the router and keep primary application destinations in Header or MobileNav.",
+      "docs": "Use for secondary navigation within a stable application section. Labels wrap within the available width; derive the current item from the router and keep primary destinations in Header or MobileNav.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -221,7 +225,7 @@
         }
       ],
       "categories": ["navigation", "layout"],
-      "docs": "Render one page-level h1. Keep actions visible, use Button for in-page actions and ButtonLink for URL navigation, and pass router-aware breadcrumb href values.",
+      "docs": "Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -242,7 +246,7 @@
         }
       ],
       "categories": ["actions", "filter", "layout"],
-      "docs": "This pattern uses labelled native control groups rather than role=toolbar. Only add the ARIA toolbar role after implementing roving tabindex and arrow-key navigation for every contained control.",
+      "docs": "Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,

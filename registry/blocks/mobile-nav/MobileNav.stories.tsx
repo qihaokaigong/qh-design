@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
+import { useRef, useState } from "react";
+import { ButtonLink } from "@qhkg/react";
 
 import { MobileNav } from "./mobile-nav";
 
@@ -53,5 +55,44 @@ export const LongLabels: Story = {
       { href: "#projects", label: "跨部门协作项目与计划" },
       { href: "#members", label: "成员、角色与访问权限" },
     ],
+  },
+};
+
+const FallbackFocusExample = () => {
+  const fallbackRef = useRef<HTMLAnchorElement>(null);
+  const [hideTrigger, setHideTrigger] = useState(false);
+  return (
+    <>
+      <ButtonLink ref={fallbackRef} href="#home">
+        工作台首页
+      </ButtonLink>
+      <MobileNav
+        items={items}
+        fallbackFocusRef={fallbackRef}
+        triggerClassName={hideTrigger ? "hidden!" : undefined}
+        onOpenChange={(open) => {
+          if (open) setHideTrigger(true);
+        }}
+      />
+    </>
+  );
+};
+
+export const HiddenTriggerFocus: Story = {
+  render: FallbackFocusExample,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole("button", { name: "打开主导航" });
+    await userEvent.click(trigger);
+    const dialog = await within(canvasElement.ownerDocument.body).findByRole(
+      "dialog",
+      { name: "主导航" },
+    );
+    await waitFor(() => expect(trigger).not.toBeVisible());
+    await userEvent.click(within(dialog).getByRole("button", { name: "关闭" }));
+    await waitFor(() => expect(dialog).not.toBeInTheDocument());
+    await waitFor(() =>
+      expect(canvas.getByRole("link", { name: "工作台首页" })).toHaveFocus(),
+    );
   },
 };
