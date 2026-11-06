@@ -4,7 +4,7 @@
   "title": "Filter Bar",
   "description": "Content-driven project filter bar that wraps within its available container.",
   "dependencies": [
-    "@qhkg/react@^0.6.2"
+    "@qhkg/react@^0.7.0"
   ],
   "files": [
     {
