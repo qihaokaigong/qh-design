@@ -23,3 +23,27 @@ test("theme does not define an automatic dark mode", async () => {
   assert.doesNotMatch(css, /prefers-color-scheme:\s*dark/);
   assert.doesNotMatch(css, /\.dark\b/);
 });
+
+test("semantic colors resolve to defined tokens without alias cycles", async () => {
+  const css = await readFile(path.join(packageRoot, "src/theme.css"), "utf8");
+  const tokens = new Map(
+    [...css.matchAll(/(--qh-[\w-]+):\s*([^;]+);/g)].map((match) => [
+      match[1],
+      match[2],
+    ]),
+  );
+  function resolve(name, ancestors = []) {
+    assert.ok(tokens.has(name), `Missing token ${name}`);
+    assert.ok(
+      !ancestors.includes(name),
+      `Alias cycle: ${[...ancestors, name].join(" -> ")}`,
+    );
+    for (const [, dependency] of tokens
+      .get(name)
+      .matchAll(/var\((--qh-[\w-]+)\)/g)) {
+      resolve(dependency, [...ancestors, name]);
+    }
+  }
+  for (const name of tokens.keys())
+    if (name.startsWith("--qh-color-")) resolve(name);
+});

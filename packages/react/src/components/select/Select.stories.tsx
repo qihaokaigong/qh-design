@@ -64,9 +64,37 @@ export const Disabled: Story = {
 };
 export const LongContent: Story = {
   render: () => (
-    <Select aria-label="项目">
-      <option>请选择</option>
+    <Select aria-label="项目" style={{ maxWidth: 280 }}>
       <option>这是一个名称很长、用于测试窄屏显示效果的跨部门协作项目</option>
+    </Select>
+  ),
+};
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-4)", maxWidth: 360 }}>
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <Field key={size}>
+          <Field.Label>团队（{size}）</Field.Label>
+          <Select size={size} defaultValue="design">
+            {options}
+          </Select>
+        </Field>
+      ))}
+    </div>
+  ),
+};
+export const RightToLeft: Story = {
+  render: () => (
+    <Select aria-label="الفريق" dir="rtl" style={{ maxWidth: 280 }}>
+      <option value="design">فريق التصميم</option>
+      <option value="engineering">فريق الهندسة</option>
+    </Select>
+  ),
+};
+export const Multiple: Story = {
+  render: () => (
+    <Select aria-label="团队多选" multiple defaultValue={["design"]}>
+      {options}
     </Select>
   ),
 };

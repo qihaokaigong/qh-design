@@ -9,7 +9,7 @@ export interface PageHeaderProps {
   title: ReactNode;
 }
 
-/** Page title region with hierarchy, supporting copy, and visible actions. */
+/** Tool-page title region using a semantic h1, restrained type and visible actions. */
 export function PageHeader({
   actions,
   breadcrumbs,
@@ -23,9 +23,11 @@ export function PageHeader({
       ) : null}
       <div className="flex min-w-0 flex-wrap items-start gap-4">
         <div className="grid min-w-0 grow basis-80 gap-2 [overflow-wrap:anywhere]">
-          <Heading level={1}>{title}</Heading>
+          <Heading level={1} size="lg">
+            {title}
+          </Heading>
           {description ? (
-            <Text as="p" tone="muted">
+            <Text as="p" tone="muted" variant="ui">
               {description}
             </Text>
           ) : null}

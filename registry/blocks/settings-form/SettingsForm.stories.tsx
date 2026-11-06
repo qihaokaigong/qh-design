@@ -28,6 +28,10 @@ export const Default: Story = {
     const name = canvas.getByRole("textbox", { name: "项目名称" });
     await userEvent.clear(name);
     await userEvent.type(name, "新的项目名称");
+    await userEvent.click(canvas.getByRole("button", { name: "重置" }));
+    await expect(name).toHaveValue("移动端应用");
+    await userEvent.clear(name);
+    await userEvent.type(name, "新的项目名称");
     await userEvent.click(canvas.getByRole("button", { name: "保存设置" }));
     await expect(args.onSubmit).toHaveBeenCalledOnce();
   },

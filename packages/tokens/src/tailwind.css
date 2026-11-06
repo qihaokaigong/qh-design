@@ -2,6 +2,8 @@
   --color-canvas: var(--qh-color-canvas);
   --color-surface: var(--qh-color-surface);
   --color-surface-subtle: var(--qh-color-surface-subtle);
+  --color-surface-hover: var(--qh-color-surface-hover);
+  --color-surface-pressed: var(--qh-color-surface-pressed);
   --color-foreground: var(--qh-color-text);
   --color-muted-foreground: var(--qh-color-text-muted);
   --color-brand: var(--qh-color-brand);
@@ -14,6 +16,7 @@
   --color-on-selected: var(--qh-color-on-selected);
   --color-border: var(--qh-color-border);
   --color-border-control: var(--qh-color-border-control);
+  --color-border-control-hover: var(--qh-color-border-control-hover);
   --color-focus: var(--qh-color-focus);
   --color-danger: var(--qh-color-danger);
   --color-danger-soft: var(--qh-color-danger-soft);

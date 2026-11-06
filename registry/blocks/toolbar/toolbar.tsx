@@ -13,6 +13,8 @@ export interface ToolbarProps {
   searchLabel?: string;
   searchPlaceholder?: string;
   status?: ReactNode;
+  /** outlined is standalone; plain embeds in a page without a second frame. Defaults to outlined. */
+  variant?: "outlined" | "plain";
 }
 
 /**
@@ -30,11 +32,12 @@ export function Toolbar({
   searchLabel = "搜索",
   searchPlaceholder = "输入关键词",
   status,
+  variant = "outlined",
 }: ToolbarProps) {
   return (
     <section
       aria-label={label}
-      className="grid min-w-0 gap-3 rounded-lg border border-border bg-surface p-4"
+      className={`grid min-w-0 gap-3 ${variant === "outlined" ? "rounded-lg border border-border bg-surface p-4" : ""}`}
     >
       <div className="flex min-w-0 flex-wrap items-center gap-3">
         <div className="min-w-0 basis-48 grow">
@@ -66,7 +69,7 @@ export function Toolbar({
         ) : null}
       </div>
       {status ? (
-        <Text aria-live="polite" size="sm" tone="muted">
+        <Text aria-live="polite" size="sm" tone="muted" variant="ui">
           {status}
         </Text>
       ) : null}

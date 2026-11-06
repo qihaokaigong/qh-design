@@ -1,6 +1,6 @@
 {
   "name": "Select",
-  "summary": "从较短的固定选项列表中选择一个值",
+  "summary": "从较短的固定选项列表中选择一个值；原生选择行为搭配统一 SVG 箭头",
   "status": "beta",
   "import": "import { Select } from '@qhkg/react'",
   "storybookId": "forms-select",
@@ -13,7 +13,10 @@
   "mobile": ["使用系统原生选择体验", "默认高度 44px 且宽度适应容器"],
   "accessibility": [
     "必须搭配可见 Label 或 aria-label",
-    "保留原生键盘和触屏行为"
+    "保留原生键盘和触屏行为",
+    "SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select",
+    "强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端",
+    "className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select"
   ],
   "related": ["Field", "RadioGroup", "Switch"],
   "stories": [
@@ -23,6 +26,9 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "Sizes",
+    "RightToLeft",
+    "Multiple"
   ]
 }

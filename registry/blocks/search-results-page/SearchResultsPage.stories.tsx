@@ -7,6 +7,7 @@ const meta = {
   title: "Patterns/SearchResultsPage",
   component: SearchResultsPage,
   tags: ["autodocs", "ai-generated"],
+  parameters: { layout: "fullscreen", qh: { page: true } },
   args: {
     onRetry: fn(),
     pageSize: 3,

@@ -11,6 +11,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(
     size = "md",
     tone = "default",
     weight = "regular",
+    variant = "body",
     ...props
   },
   ref,
@@ -24,6 +25,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(
         styles[size],
         styles[tone],
         styles[weight],
+        styles[variant],
         className,
       )}
     />

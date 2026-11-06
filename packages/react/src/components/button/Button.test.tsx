@@ -30,6 +30,25 @@ describe("Button", () => {
     await user.click(button);
     expect(onClick).not.toHaveBeenCalled();
   });
+
+  it("keeps quiet actions keyboard operable while skipping disabled actions", async () => {
+    const onClick = vi.fn();
+    const user = userEvent.setup();
+    render(
+      <>
+        <Button variant="ghost" disabled>
+          禁用操作
+        </Button>
+        <Button variant="ghost" onClick={onClick}>
+          清除筛选
+        </Button>
+      </>,
+    );
+    await user.tab();
+    expect(screen.getByRole("button", { name: "清除筛选" })).toHaveFocus();
+    await user.keyboard("{Enter}");
+    expect(onClick).toHaveBeenCalledOnce();
+  });
 });
 
 describe("ButtonLink", () => {

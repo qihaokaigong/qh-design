@@ -13,8 +13,16 @@
   "accessibility": [
     "默认 type 为 button",
     "loading 时设置 aria-busy 并阻止重复激活",
-    "保留可见的 focus-visible 轮廓"
+    "保留可见的 focus-visible 轮廓",
+    "ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点"
   ],
   "related": ["ButtonLink", "AlertDialog"],
-  "stories": ["Default", "Variants", "Loading", "Disabled", "Mobile"]
+  "stories": [
+    "Default",
+    "Variants",
+    "Loading",
+    "Disabled",
+    "Mobile",
+    "QuietActions"
+  ]
 }

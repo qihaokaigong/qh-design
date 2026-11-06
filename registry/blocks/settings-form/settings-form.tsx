@@ -33,8 +33,8 @@ export function SettingsForm({ onSubmit }: SettingsFormProps) {
           <Switch name="notifications" defaultChecked>
             项目更新时发送通知
           </Switch>
-          <div className="grid gap-2 sm:flex sm:justify-end">
-            <Button type="reset" variant="secondary">
+          <div className="grid gap-2 border-t border-border pt-6 sm:flex sm:justify-end">
+            <Button type="reset" variant="ghost">
               重置
             </Button>
             <Button type="submit">保存设置</Button>

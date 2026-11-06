@@ -44,8 +44,13 @@ export function ProjectListPage({
         title="项目"
       />
 
-      <section aria-labelledby="project-list-heading" className="grid gap-4">
-        <Heading id="project-list-heading" level={2} size="md">
+      <section aria-labelledby="project-list-heading" className="grid">
+        <Heading
+          className="sr-only"
+          id="project-list-heading"
+          level={2}
+          size="md"
+        >
           项目列表
         </Heading>
         <DataTable

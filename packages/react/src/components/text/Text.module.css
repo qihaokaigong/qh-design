@@ -1,7 +1,14 @@
 .root {
   margin: 0;
   font-family: var(--qh-font-sans);
+}
+
+.body {
   line-height: var(--qh-leading-body);
+}
+
+.ui {
+  line-height: var(--qh-leading-ui);
 }
 
 .xs {

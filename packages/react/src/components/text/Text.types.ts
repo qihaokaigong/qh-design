@@ -4,6 +4,7 @@ export type TextElement = "div" | "p" | "span";
 export type TextSize = "xs" | "sm" | "md" | "lg";
 export type TextTone = "default" | "muted" | "danger" | "success" | "warning";
 export type TextWeight = "regular" | "medium" | "semibold";
+export type TextVariant = "body" | "ui";
 
 export interface TextProps extends HTMLAttributes<HTMLElement> {
   /** Semantic element. Defaults to span. */
@@ -14,4 +15,6 @@ export interface TextProps extends HTMLAttributes<HTMLElement> {
   tone?: TextTone;
   /** Font weight from the QH type scale. Defaults to regular. */
   weight?: TextWeight;
+  /** Typography role. body preserves reading line-height; ui uses the tighter UI rhythm. Defaults to body. */
+  variant?: TextVariant;
 }

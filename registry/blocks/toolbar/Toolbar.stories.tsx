@@ -62,6 +62,11 @@ export const MultipleActions: Story = {
   },
 };
 
+export const Plain: Story = {
+  args: { variant: "plain" },
+  play: Default.play,
+};
+
 export const NarrowContainer: Story = {
   args: MultipleActions.args,
   render: (args) => (

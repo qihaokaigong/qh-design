@@ -9,6 +9,7 @@ const meta = {
   args: { children: "清晰、一致的正文内容。" },
   argTypes: {
     as: { control: "select", options: ["span", "p", "div"] },
+    variant: { control: "select", options: ["body", "ui"] },
     size: { control: "select", options: ["xs", "sm", "md", "lg"] },
     tone: {
       control: "select",
@@ -26,6 +27,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 export const Playground: Story = {};
+export const TypographyRoles: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-6)", maxWidth: 360 }}>
+      <Text as="p">阅读正文保留舒展的行高，适合说明文档与持续阅读的内容。</Text>
+      <Text as="p" variant="ui" tone="muted">
+        界面说明采用紧凑的行高，适合页面描述、结果统计与短消息。
+      </Text>
+    </div>
+  ),
+};
 export const States: Story = {
   render: () => (
     <div style={{ display: "grid", gap: "var(--qh-space-2)" }}>

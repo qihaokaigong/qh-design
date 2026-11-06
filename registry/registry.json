@@ -38,7 +38,7 @@
         }
       ],
       "categories": ["settings", "form"],
-      "docs": "Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails.",
+      "docs": "Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails. Keep a single form card, a separated action area and quiet reset action; native reset and submission remain available.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -59,11 +59,11 @@
         }
       ],
       "categories": ["filter", "data"],
-      "docs": "Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application.",
+      "docs": "Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
-        "uses": ["Field", "SearchInput", "Select", "Button"]
+        "uses": ["Field", "SearchInput", "Select", "Button", "Text"]
       }
     },
     {
@@ -102,7 +102,11 @@
       ],
       "categories": ["mobile", "actions"],
       "docs": "Render at the end of the page content in the main scrolling flow. The pattern reserves its measured mobile height; remove previous manual bottom padding. Keep a single bar per page and do not place it in a transformed or separately scrolling ancestor. It becomes inline from 768px. Pass QH Button elements as actions; a single action fills the row.",
-      "meta": { "status": "beta", "mobileFirst": true, "uses": ["Button"] }
+      "meta": {
+        "status": "beta",
+        "mobileFirst": true,
+        "uses": ["Button"]
+      }
     },
     {
       "name": "data-table",
@@ -123,7 +127,7 @@
         }
       ],
       "categories": ["data", "table"],
-      "docs": "Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application.",
+      "docs": "Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -221,7 +225,7 @@
         }
       ],
       "categories": ["navigation", "layout"],
-      "docs": "Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.",
+      "docs": "Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs. Tool-page titles use Heading lg while preserving the semantic h1; supporting text uses Text variant=ui.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -242,7 +246,7 @@
         }
       ],
       "categories": ["actions", "filter", "layout"],
-      "docs": "Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model.",
+      "docs": "Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model. Use variant=outlined (default) for standalone framing and variant=plain inside a complete page. Status copy uses the UI typography role.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -278,7 +282,7 @@
         }
       ],
       "categories": ["page", "data", "projects"],
-      "docs": "Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern.",
+      "docs": "Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern. PageContainer owns the page gutter; the repeated partition heading remains accessible while visually hidden.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -304,7 +308,7 @@
         }
       ],
       "categories": ["page", "detail", "projects"],
-      "docs": "Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible.",
+      "docs": "Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -343,7 +347,7 @@
         }
       ],
       "categories": ["page", "search", "results"],
-      "docs": "Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain.",
+      "docs": "Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain. The toolbar embeds without a second frame; PageContainer owns the page gutter.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,

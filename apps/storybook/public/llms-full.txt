@@ -49,14 +49,14 @@ Do not invent props, colors, dark mode, or replacements for existing QH componen
 - Progress: 显示一个持续任务的完成比例或未知时长状态 — https://design.qihao.dev/?path=/docs/feedback-progress--docs
 - RadioGroup: 从一组互斥选项中选择一个值 — https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
 - SearchInput: 带搜索图标和可访问清除动作的单行搜索输入 — https://design.qihao.dev/?path=/docs/forms-searchinput--docs
-- Select: 从较短的固定选项列表中选择一个值 — https://design.qihao.dev/?path=/docs/forms-select--docs
+- Select: 从较短的固定选项列表中选择一个值；原生选择行为搭配统一 SVG 箭头 — https://design.qihao.dev/?path=/docs/forms-select--docs
 - Separator: 在相邻内容区域之间提供视觉或语义分隔 — https://design.qihao.dev/?path=/docs/surfaces-separator--docs
 - Skeleton: 在内容加载时保留大致布局并降低视觉跳动 — https://design.qihao.dev/?path=/docs/feedback-skeleton--docs
 - Stack: 使用设计 Token 间距纵向排列一组元素 — https://design.qihao.dev/?path=/docs/layout-stack--docs
 - Switch: 立即开启或关闭一个设置 — https://design.qihao.dev/?path=/docs/forms-switch--docs
 - Table: 使用原生表格语义展示需要按行列比较的结构化数据 — https://design.qihao.dev/?path=/docs/data-table--docs
 - Tabs: 在同一页面区域内切换并列内容视图 — https://design.qihao.dev/?path=/docs/navigation-tabs--docs
-- Text: 用受控字号、字重和语义颜色呈现正文或内联文本 — https://design.qihao.dev/?path=/docs/foundation-text--docs
+- Text: 用受控字号、字重和语义颜色呈现文本；body 用于阅读，ui 用于界面说明 — https://design.qihao.dev/?path=/docs/foundation-text--docs
 - Textarea: 输入可换行的较长文本内容 — https://design.qihao.dev/?path=/docs/forms-textarea--docs
 - TimeField: 通过可独立编辑的时、分、秒片段输入时间 — https://design.qihao.dev/?path=/docs/forms-timefield--docs
 - Toast: 短暂反馈后台结果，并允许可选的轻量后续操作 — https://design.qihao.dev/?path=/docs/feedback-toast--docs
@@ -198,7 +198,7 @@ Status: beta
 Use when: 提交表单；触发页面内动作；打开弹层
 Avoid when: 导航到另一个 URL；仅展示状态
 Mobile: 默认 md 尺寸为 44px 高；主要操作区域在窄屏可以由页面布局设为全宽
-Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓
+Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓；ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点
 Related: ButtonLink, AlertDialog
 
 ### ButtonLink
@@ -211,7 +211,7 @@ Status: beta
 Use when: 主要或次要导航需要按钮视觉层级
 Avoid when: 提交表单；执行无 URL 的页面动作
 Mobile: 默认 md 尺寸为 44px 高
-Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接
+Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接；ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓
 Related: Button, Link
 
 ### Calendar
@@ -671,7 +671,7 @@ Related: Input, InputGroup, Field
 
 ### Select
 
-从较短的固定选项列表中选择一个值
+从较短的固定选项列表中选择一个值；原生选择行为搭配统一 SVG 箭头
 
 Import: `import { Select } from '@qhkg/react'`
 Status: beta
@@ -679,7 +679,7 @@ Status: beta
 Use when: 选项固定且数量较少；需要原生表单提交能力
 Avoid when: 选项需要搜索；允许选择多个复杂对象；选项只有开和关两种状态
 Mobile: 使用系统原生选择体验；默认高度 44px 且宽度适应容器
-Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为
+Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为；SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select；强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端；className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select
 Related: Field, RadioGroup, Switch
 
 ### Separator
@@ -762,14 +762,14 @@ Related: Menu, Button
 
 ### Text
 
-用受控字号、字重和语义颜色呈现正文或内联文本
+用受控字号、字重和语义颜色呈现文本；body 用于阅读，ui 用于界面说明
 
 Import: `import { Text } from '@qhkg/react'`
 Status: beta
 
 Use when: 呈现正文、说明或辅助文本；页面需要统一的文字尺度和语义颜色
 Avoid when: 内容是标题层级；内容承担导航行为
-Mobile: 正文默认使用 16px 并自然换行
+Mobile: 正文默认使用 16px 并自然换行；variant 默认 body，界面说明显式使用 ui，不影响输入控件字号
 Accessibility: 通过 as 选择与内容相符的原生语义；状态信息不能只依赖 tone 表达
 Related: Heading, Link
 
@@ -853,7 +853,7 @@ Install: `pnpm dlx shadcn@latest add @qh/data-table`
 Status: beta
 Mobile-first: yes
 Uses: Table, Pagination, Checkbox, Menu, FilterBar, Alert, EmptyState, Skeleton
-Integration guidance: Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application.
+Integration guidance: Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary.
 
 ### Delete Confirmation
 
@@ -874,8 +874,8 @@ Registry: https://design.qihao.dev/r/filter-bar.json
 Install: `pnpm dlx shadcn@latest add @qh/filter-bar`
 Status: beta
 Mobile-first: yes
-Uses: Field, SearchInput, Select, Button
-Integration guidance: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application.
+Uses: Field, SearchInput, Select, Button, Text
+Integration guidance: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries.
 
 ### Header
 
@@ -930,7 +930,7 @@ Install: `pnpm dlx shadcn@latest add @qh/page-header`
 Status: beta
 Mobile-first: yes
 Uses: Breadcrumb, Heading, Text
-Integration guidance: Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs.
+Integration guidance: Render one page-level h1. Title and action groups wrap by available space. Keep actions visible; use Button for actions and ButtonLink for navigation, with router-aware breadcrumb URLs. Tool-page titles use Heading lg while preserving the semantic h1; supporting text uses Text variant=ui.
 
 ### Project Detail Page
 
@@ -941,7 +941,7 @@ Install: `pnpm dlx shadcn@latest add @qh/project-detail-page`
 Status: beta
 Mobile-first: yes
 Uses: PageContainer, PageHeader, Card, Badge, Alert, EmptyState, Skeleton
-Integration guidance: Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible.
+Integration guidance: Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface.
 
 ### Project List Page
 
@@ -952,7 +952,7 @@ Install: `pnpm dlx shadcn@latest add @qh/project-list-page`
 Status: beta
 Mobile-first: yes
 Uses: PageContainer, PageHeader, ButtonLink, DataTable
-Integration guidance: Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern.
+Integration guidance: Replace ProjectRow with the consuming application's domain model. Keep router state, authorization, fetching, mutations, and destructive confirmation outside this copy-first page pattern. PageContainer owns the page gutter; the repeated partition heading remains accessible while visually hidden.
 
 ### Search Results Page
 
@@ -963,7 +963,7 @@ Install: `pnpm dlx shadcn@latest add @qh/search-results-page`
 Status: beta
 Mobile-first: yes
 Uses: PageContainer, PageHeader, Toolbar, Select, Card, Link, Pagination, Alert, EmptyState, Skeleton
-Integration guidance: Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain.
+Integration guidance: Use URL search parameters as the application source of truth and move filtering and pagination to the server when the result set requires it. Replace demo result categories and URLs with the local search domain. The toolbar embeds without a second frame; PageContainer owns the page gutter.
 
 ### Settings Form
 
@@ -974,7 +974,7 @@ Install: `pnpm dlx shadcn@latest add @qh/settings-form`
 Status: beta
 Mobile-first: yes
 Uses: Card, Field, Input, Select, Switch, Button
-Integration guidance: Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails.
+Integration guidance: Keep validation and persistence in the consuming application. Pass invalid to Field and render Field.Error when server or client validation fails. Keep a single form card, a separated action area and quiet reset action; native reset and submission remain available.
 
 ### Side Navigation
 
@@ -996,5 +996,5 @@ Install: `pnpm dlx shadcn@latest add @qh/toolbar`
 Status: beta
 Mobile-first: yes
 Uses: SearchInput, Text
-Integration guidance: Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model.
+Integration guidance: Search, filters and actions wrap by available container space. This uses labelled native control groups rather than role=toolbar; do not add the toolbar role without implementing its keyboard model. Use variant=outlined (default) for standalone framing and variant=plain inside a complete page. Status copy uses the UI typography role.
 

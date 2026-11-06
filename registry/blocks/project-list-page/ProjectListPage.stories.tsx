@@ -2,11 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
 
 import { ProjectListPage } from "./project-list-page";
+import { demoProjectRows } from "../data-table/data-table";
 
 const meta = {
   title: "Patterns/ProjectListPage",
   component: ProjectListPage,
   tags: ["autodocs", "ai-generated"],
+  parameters: { layout: "fullscreen", qh: { page: true } },
   args: {
     onBulkArchive: fn(),
     onRetry: fn(),
@@ -53,4 +55,13 @@ export const Error: Story = {
 
 export const Empty: Story = {
   args: { rows: [] },
+};
+
+export const LongContent: Story = {
+  args: {
+    rows: demoProjectRows.map((row) => ({
+      ...row,
+      name: `${row.name}：跨部门组件标准化与国际化体验优化项目`,
+    })),
+  },
 };
