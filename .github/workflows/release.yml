@@ -32,6 +32,8 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
+      - name: Use Ubuntu archive for browser dependencies
+        run: bash .github/scripts/use-ubuntu-archive.sh
       - run: pnpm exec playwright install --with-deps
       - run: pnpm check
       - run: pnpm test:e2e

@@ -29,6 +29,8 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
+      - name: Use Ubuntu archive for browser dependencies
+        run: bash .github/scripts/use-ubuntu-archive.sh
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm check
       - run: pnpm release:verify
@@ -56,6 +58,8 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
+      - name: Use Ubuntu archive for browser dependencies
+        run: bash .github/scripts/use-ubuntu-archive.sh
       - run: pnpm exec playwright install --with-deps ${{ matrix.browser }}
       - run: pnpm test:e2e --project=${{ matrix.browser }}
       - if: always()
