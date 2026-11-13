@@ -13,7 +13,8 @@
   "accessibility": [
     "必须搭配可见 Label 或 aria-label",
     "invalid 时设置 aria-invalid",
-    "保留原生 autocomplete、name 和 inputMode"
+    "保留原生 autocomplete、name 和 inputMode",
+    "hover/active 不覆盖 invalid；组合框内部只由外框呈现边界与焦点"
   ],
   "related": ["Field", "InputGroup", "Textarea", "Select"],
   "stories": [
@@ -23,6 +24,7 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "InteractionStates"
   ]
 }

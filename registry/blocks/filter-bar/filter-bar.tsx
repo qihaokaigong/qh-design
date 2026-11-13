@@ -77,7 +77,7 @@ export function FilterBar({
         >
           清除
         </Button>
-        <Button disabled={disabled} type="submit">
+        <Button disabled={disabled} type="submit" variant="soft">
           应用筛选
         </Button>
       </div>

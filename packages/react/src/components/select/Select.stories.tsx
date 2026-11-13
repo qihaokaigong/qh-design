@@ -98,6 +98,20 @@ export const Multiple: Story = {
     </Select>
   ),
 };
+
+export const InteractionStates: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-4)", maxWidth: 360 }}>
+      <Select aria-label="正常选择">{options}</Select>
+      <Select aria-label="无效选择" invalid>
+        {options}
+      </Select>
+      <Select aria-label="禁用选择" disabled>
+        {options}
+      </Select>
+    </div>
+  ),
+};
 export const Mobile: Story = {
   ...Default,
   parameters: { viewport: { defaultViewport: "mobile375" } },

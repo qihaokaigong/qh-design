@@ -10,8 +10,9 @@
   "accessibility": [
     "保留原生链接语义和 href",
     "不模拟 disabled 链接",
-    "ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓"
+    "ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓",
+    "支持 soft/outline 导航层级，保留原生 href 与焦点"
   ],
   "related": ["Button", "Link"],
-  "stories": ["AsLink", "QuietActions"]
+  "stories": ["AsLink", "QuietActions", "Emphasis"]
 }

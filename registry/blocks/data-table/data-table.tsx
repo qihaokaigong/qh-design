@@ -258,7 +258,7 @@ export function DataTable({
             </Text>
             <Menu>
               <Menu.Trigger asChild>
-                <Button disabled={selectedIds.size === 0} variant="secondary">
+                <Button disabled={selectedIds.size === 0} variant="outline">
                   批量操作
                 </Button>
               </Menu.Trigger>

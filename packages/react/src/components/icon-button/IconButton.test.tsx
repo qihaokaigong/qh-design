@@ -6,6 +6,22 @@ import { describe, expect, it, vi } from "vitest";
 import { IconButton } from "./IconButton";
 
 describe("IconButton", () => {
+  it.each(["soft", "outline"] as const)(
+    "keeps names and activation for %s icons",
+    async (variant) => {
+      const onClick = vi.fn();
+      const user = userEvent.setup();
+      render(
+        <IconButton variant={variant} aria-label="搜索项目" onClick={onClick}>
+          <Search />
+        </IconButton>,
+      );
+      await user.tab();
+      expect(screen.getByRole("button", { name: "搜索项目" })).toHaveFocus();
+      await user.keyboard("{Enter}");
+      expect(onClick).toHaveBeenCalledOnce();
+    },
+  );
   it("uses the required aria-label as its accessible name", async () => {
     const onClick = vi.fn();
     const user = userEvent.setup();

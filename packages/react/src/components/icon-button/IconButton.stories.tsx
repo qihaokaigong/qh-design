@@ -21,7 +21,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "ghost", "danger"],
+      options: ["primary", "soft", "outline", "secondary", "ghost", "danger"],
     },
     size: { control: "select", options: ["sm", "md", "lg"] },
   },
@@ -93,4 +93,20 @@ export const Mobile: Story = {
     label: "打开菜单",
   },
   parameters: { viewport: { defaultViewport: "mobile375" } },
+};
+
+export const Emphasis: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "var(--qh-space-3)" }}>
+      <IconButton variant="soft" aria-label="搜索项目">
+        <Search />
+      </IconButton>
+      <IconButton variant="outline" aria-label="更多项目操作">
+        <MoreHorizontal />
+      </IconButton>
+      <IconButton variant="soft" aria-label="禁用搜索" disabled>
+        <Search />
+      </IconButton>
+    </div>
+  ),
 };

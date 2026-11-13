@@ -16,7 +16,8 @@
   "accessibility": [
     "InputGroup.Input 必须通过 Field.Label 或 aria-label 获得名称",
     "图标动作必须提供 aria-label",
-    "从 Field 继承禁用、必填、无效和说明关系"
+    "从 Field 继承禁用、必填、无效和说明关系",
+    "输入、图标和操作按同一尺寸组合；默认外框 44px，action 保留完整点击尺寸"
   ],
   "related": ["Input", "Field", "IconButton", "SearchInput"],
   "stories": [
@@ -26,6 +27,7 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "Sizes"
   ]
 }

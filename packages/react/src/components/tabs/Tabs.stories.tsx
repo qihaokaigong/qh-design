@@ -36,6 +36,22 @@ export const Default: Story = {
   },
 };
 export const Playground: Story = Default;
+export const InteractionStates: Story = {
+  render: () => (
+    <Tabs defaultValue="one">
+      <Tabs.List aria-label="状态视图">
+        <Tabs.Trigger value="one">概览</Tabs.Trigger>
+        <Tabs.Trigger value="two">活动</Tabs.Trigger>
+        <Tabs.Trigger value="three" disabled>
+          已归档
+        </Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="one">项目概览</Tabs.Content>
+      <Tabs.Content value="two">最近活动</Tabs.Content>
+      <Tabs.Content value="three">归档信息</Tabs.Content>
+    </Tabs>
+  ),
+};
 export const KeyboardNavigation: Story = {
   render: Example,
   play: async ({ canvasElement }) => {

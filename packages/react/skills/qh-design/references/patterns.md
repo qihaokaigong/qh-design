@@ -15,7 +15,7 @@ Project data table pattern with filtering, sorting, row selection, batch actions
 - Status: beta
 - Mobile-first: yes
 - Uses: Table, Pagination, Checkbox, Menu, FilterBar, Alert, EmptyState, Skeleton
-- Integration: Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary.
+- Integration: Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary. Batch actions use an outline trigger with persistent open feedback.
 
 ## Delete Confirmation
 
@@ -37,7 +37,7 @@ Content-driven project filter bar that wraps within its available container.
 - Status: beta
 - Mobile-first: yes
 - Uses: Field, SearchInput, Select, Button, Text
-- Integration: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries.
+- Integration: Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries. Apply uses a soft action so the page primary action remains prominent.
 
 ## Header
 
@@ -103,7 +103,7 @@ Complete project detail page with breadcrumbs, visible actions, overview data, a
 - Status: beta
 - Mobile-first: yes
 - Uses: PageContainer, PageHeader, Card, Badge, Alert, EmptyState, Skeleton
-- Integration: Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface.
+- Integration: Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface. Keep editing as primary and archiving as outline; confirm destructive changes through AlertDialog when required.
 
 ## Project List Page
 

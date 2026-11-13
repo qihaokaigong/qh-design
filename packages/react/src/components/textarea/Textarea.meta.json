@@ -9,7 +9,8 @@
   "mobile": ["使用 16px 字号并适应容器宽度", "默认允许用户纵向调整高度"],
   "accessibility": [
     "必须搭配可见 Label 或 aria-label",
-    "错误信息由 Field 自动关联"
+    "错误信息由 Field 自动关联",
+    "hover/active 保留 invalid 边界与独立焦点轮廓"
   ],
   "related": ["Field", "Input"],
   "stories": [
@@ -19,6 +20,7 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "InteractionStates"
   ]
 }

@@ -1,5 +1,18 @@
 # @qhkg/react
 
+## 0.9.0
+
+### Minor Changes
+
+- Align QH's visual language with Radix Themes while retaining its approved Paper and Blue palette and mobile sizing. Add shared soft/outline button variants with persistent open feedback, unify form and selection-control interaction states, stabilize InputGroup/SearchInput heights including clear actions, correct Select sm sizing, retain the active Tabs accent on hover, and keep Switch thumbs inside their track in RTL layouts. Existing button variants, native form behavior and accessible interaction primitives remain supported.
+
+  Allow constrained Button content to shrink so application-owned truncated task labels preserve adjacent icons and counts on narrow screens.
+
+### Patch Changes
+
+- Updated dependencies
+  - @qhkg/tokens@0.9.0
+
 ## 0.8.0
 
 ### Minor Changes

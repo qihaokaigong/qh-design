@@ -14,7 +14,8 @@
   "accessibility": [
     "Tabs.List 必须提供可访问名称",
     "方向键移动焦点并在默认模式下激活标签",
-    "禁用标签会从键盘导航中跳过"
+    "禁用标签会从键盘导航中跳过",
+    "活动标签在 hover/pressed 时保留强调色与下划线"
   ],
   "related": ["Menu", "Button"],
   "stories": [
@@ -25,6 +26,7 @@
     "LongContent",
     "Mobile",
     "NarrowContainer",
-    "RightToLeft"
+    "RightToLeft",
+    "InteractionStates"
   ]
 }

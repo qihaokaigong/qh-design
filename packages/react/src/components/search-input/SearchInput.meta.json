@@ -13,7 +13,9 @@
   "accessibility": [
     "必须通过 Field.Label 或 aria-label 提供名称",
     "清除动作具有可本地化的可访问名称",
-    "清除后焦点返回搜索输入"
+    "清除后焦点返回搜索输入",
+    "输入或清除按钮出现时外框高度稳定，清除后恢复输入焦点",
+    "由单一显式清除按钮提供清除动作，不重复显示浏览器原生清除装饰"
   ],
   "related": ["Input", "InputGroup", "Field"],
   "stories": [
@@ -23,6 +25,7 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "Sizes"
   ]
 }

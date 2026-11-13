@@ -41,7 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         <span className={clsx(styles.content, loading && styles.contentHidden)}>
           {iconStart ? <span className={styles.icon}>{iconStart}</span> : null}
-          <span>{children}</span>
+          <span className={styles.label}>{children}</span>
           {iconEnd ? <span className={styles.icon}>{iconEnd}</span> : null}
         </span>
         {loading ? (

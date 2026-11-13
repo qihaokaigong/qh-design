@@ -8,7 +8,7 @@
       "type": "registry:block",
       "title": "Login Form",
       "description": "Mobile-first email and password login form using QH Field and form controls.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/login-form/login-form.tsx",
@@ -29,7 +29,7 @@
       "type": "registry:block",
       "title": "Settings Form",
       "description": "Project settings form with native submission and QH validation relationships.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/settings-form/settings-form.tsx",
@@ -50,7 +50,7 @@
       "type": "registry:block",
       "title": "Filter Bar",
       "description": "Content-driven project filter bar that wraps within its available container.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/filter-bar/filter-bar.tsx",
@@ -59,7 +59,7 @@
         }
       ],
       "categories": ["filter", "data"],
-      "docs": "Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries.",
+      "docs": "Search and status fields wrap by available space, including desktop side panels. Use URL parameters or application state as the source of truth; fetching and routing stay in the application. Use variant=outlined (default) for a standalone block and variant=plain when embedded in a page. Controls retain their own boundaries. Apply uses a soft action so the page primary action remains prominent.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -71,7 +71,7 @@
       "type": "registry:block",
       "title": "Delete Confirmation",
       "description": "Accessible destructive confirmation pattern built with QH AlertDialog.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/delete-confirmation/delete-confirmation.tsx",
@@ -92,7 +92,7 @@
       "type": "registry:block",
       "title": "Mobile Bottom Action Bar",
       "description": "Safe-area-aware fixed mobile actions with automatic dynamic-height content reservation.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/mobile-bottom-action-bar/mobile-bottom-action-bar.tsx",
@@ -109,7 +109,7 @@
       "type": "registry:block",
       "title": "Data Table",
       "description": "Project data table pattern with filtering, sorting, row selection, batch actions, states, and pagination.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/data-table/data-table.tsx",
@@ -123,7 +123,7 @@
         }
       ],
       "categories": ["data", "table"],
-      "docs": "Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary.",
+      "docs": "Copy and adapt the ProjectRow model and columns to the application's domain. Keep server fetching, URL state, authorization, and destructive confirmation in the consuming application. Embedded filters use the plain variant so the table remains the main data boundary. Batch actions use an outline trigger with persistent open feedback.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -144,7 +144,7 @@
       "type": "registry:block",
       "title": "Mobile Navigation",
       "description": "Drawer-based mobile primary navigation with current-page state and focus restoration.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/mobile-nav/mobile-nav.tsx",
@@ -165,7 +165,7 @@
       "type": "registry:block",
       "title": "Header",
       "description": "Responsive application header with synchronized desktop and mobile primary navigation.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/header/header.tsx",
@@ -191,7 +191,7 @@
       "type": "registry:block",
       "title": "Side Navigation",
       "description": "Persistent secondary navigation with explicit current-page state.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/side-nav/side-nav.tsx",
@@ -212,7 +212,7 @@
       "type": "registry:block",
       "title": "Page Header",
       "description": "Page title region combining breadcrumb hierarchy, supporting copy, and visible actions.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/page-header/page-header.tsx",
@@ -233,7 +233,7 @@
       "type": "registry:block",
       "title": "Toolbar",
       "description": "Responsive list tool area for search, filters, status, and visible actions.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/toolbar/toolbar.tsx",
@@ -254,7 +254,7 @@
       "type": "registry:block",
       "title": "Project List Page",
       "description": "Complete project list page combining hierarchy, visible creation action, filtering, data states, selection, and pagination.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/project-list-page/project-list-page.tsx",
@@ -290,7 +290,7 @@
       "type": "registry:block",
       "title": "Project Detail Page",
       "description": "Complete project detail page with breadcrumbs, visible actions, overview data, activity, metadata, and resilient page states.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/project-detail-page/project-detail-page.tsx",
@@ -304,7 +304,7 @@
         }
       ],
       "categories": ["page", "detail", "projects"],
-      "docs": "Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface.",
+      "docs": "Adapt ProjectDetail to the application's domain. Resolve permissions before passing visible actions, keep loading and error state ownership in the route, and use AlertDialog if archive becomes irreversible. Primary sections use spacing and dividers; the auxiliary information card retains a subtle Warm surface. Keep editing as primary and archiving as outline; confirm destructive changes through AlertDialog when required.",
       "meta": {
         "status": "beta",
         "mobileFirst": true,
@@ -324,7 +324,7 @@
       "type": "registry:block",
       "title": "Search Results Page",
       "description": "Complete search results page with a labelled query, category filter, result cards, loading, error, empty state, and pagination.",
-      "dependencies": ["@qhkg/react@^0.8.0"],
+      "dependencies": ["@qhkg/react@^0.9.0"],
       "files": [
         {
           "path": "registry/blocks/search-results-page/search-results-page.tsx",

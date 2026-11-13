@@ -8,13 +8,16 @@
   "avoidWhen": ["导航到另一个 URL", "仅展示状态"],
   "mobile": [
     "默认 md 尺寸为 44px 高",
-    "主要操作区域在窄屏可以由页面布局设为全宽"
+    "主要操作区域在窄屏可以由页面布局设为全宽",
+    "受限宽度中的长标签可由调用方省略，图标与数量仍保持可见"
   ],
   "accessibility": [
     "默认 type 为 button",
     "loading 时设置 aria-busy 并阻止重复激活",
     "保留可见的 focus-visible 轮廓",
-    "ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点"
+    "ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点",
+    "soft/outline 用于低强调与描边操作；primary 保持默认",
+    "打开态保持 pressed 层级，禁用和 loading 优先于打开态"
   ],
   "related": ["ButtonLink", "AlertDialog"],
   "stories": [
@@ -23,6 +26,8 @@
     "Loading",
     "Disabled",
     "Mobile",
-    "QuietActions"
+    "QuietActions",
+    "Emphasis",
+    "TruncatedLabel"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "componentPackage": "@qhkg/react",
-  "componentVersion": "0.8.0",
+  "componentVersion": "0.9.0",
   "components": [
     {
       "name": "AccessibleIcon",
@@ -211,13 +211,16 @@
       "avoidWhen": ["导航到另一个 URL", "仅展示状态"],
       "mobile": [
         "默认 md 尺寸为 44px 高",
-        "主要操作区域在窄屏可以由页面布局设为全宽"
+        "主要操作区域在窄屏可以由页面布局设为全宽",
+        "受限宽度中的长标签可由调用方省略，图标与数量仍保持可见"
       ],
       "accessibility": [
         "默认 type 为 button",
         "loading 时设置 aria-busy 并阻止重复激活",
         "保留可见的 focus-visible 轮廓",
-        "ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点"
+        "ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点",
+        "soft/outline 用于低强调与描边操作；primary 保持默认",
+        "打开态保持 pressed 层级，禁用和 loading 优先于打开态"
       ],
       "related": ["ButtonLink", "AlertDialog"],
       "stories": [
@@ -226,7 +229,9 @@
         "Loading",
         "Disabled",
         "Mobile",
-        "QuietActions"
+        "QuietActions",
+        "Emphasis",
+        "TruncatedLabel"
       ]
     },
     {
@@ -241,10 +246,11 @@
       "accessibility": [
         "保留原生链接语义和 href",
         "不模拟 disabled 链接",
-        "ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓"
+        "ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓",
+        "支持 soft/outline 导航层级，保留原生 href 与焦点"
       ],
       "related": ["Button", "Link"],
-      "stories": ["AsLink", "QuietActions"]
+      "stories": ["AsLink", "QuietActions", "Emphasis"]
     },
     {
       "name": "Calendar",
@@ -302,7 +308,8 @@
       "accessibility": [
         "children 提供可见且可点击的名称",
         "支持 checked 和 indeterminate 语义",
-        "使用 Space 键切换"
+        "使用 Space 键切换",
+        "标签区域支持 hover/pressed 反馈，invalid 与 disabled 优先"
       ],
       "related": ["RadioGroup", "Switch", "Field"],
       "stories": [
@@ -312,7 +319,8 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "InteractionStates"
       ]
     },
     {
@@ -739,7 +747,8 @@
         "纯图标模式必须提供 aria-label",
         "带标签模式默认使用可见文字作为可访问名称",
         "图标本身从辅助技术中隐藏",
-        "loading 时阻止重复激活"
+        "loading 时阻止重复激活",
+        "共享 Button 的 soft/outline、打开态与焦点规则"
       ],
       "related": ["Button", "Tooltip"],
       "stories": [
@@ -750,7 +759,8 @@
         "Loading",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "Emphasis"
       ]
     },
     {
@@ -781,7 +791,8 @@
       "accessibility": [
         "必须搭配可见 Label 或 aria-label",
         "invalid 时设置 aria-invalid",
-        "保留原生 autocomplete、name 和 inputMode"
+        "保留原生 autocomplete、name 和 inputMode",
+        "hover/active 不覆盖 invalid；组合框内部只由外框呈现边界与焦点"
       ],
       "related": ["Field", "InputGroup", "Textarea", "Select"],
       "stories": [
@@ -791,7 +802,8 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "InteractionStates"
       ]
     },
     {
@@ -812,7 +824,8 @@
       "accessibility": [
         "InputGroup.Input 必须通过 Field.Label 或 aria-label 获得名称",
         "图标动作必须提供 aria-label",
-        "从 Field 继承禁用、必填、无效和说明关系"
+        "从 Field 继承禁用、必填、无效和说明关系",
+        "输入、图标和操作按同一尺寸组合；默认外框 44px，action 保留完整点击尺寸"
       ],
       "related": ["Input", "Field", "IconButton", "SearchInput"],
       "stories": [
@@ -822,7 +835,8 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "Sizes"
       ]
     },
     {
@@ -1121,7 +1135,8 @@
       ],
       "accessibility": [
         "支持方向键在选项间移动",
-        "必须通过 Field.Label 或 aria-label 提供组名称"
+        "必须通过 Field.Label 或 aria-label 提供组名称",
+        "标签区域支持 hover/pressed，禁用选中指示降为禁用语义色"
       ],
       "related": ["Checkbox", "Select", "Field"],
       "stories": [
@@ -1131,7 +1146,8 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "InteractionStates"
       ]
     },
     {
@@ -1152,7 +1168,9 @@
       "accessibility": [
         "必须通过 Field.Label 或 aria-label 提供名称",
         "清除动作具有可本地化的可访问名称",
-        "清除后焦点返回搜索输入"
+        "清除后焦点返回搜索输入",
+        "输入或清除按钮出现时外框高度稳定，清除后恢复输入焦点",
+        "由单一显式清除按钮提供清除动作，不重复显示浏览器原生清除装饰"
       ],
       "related": ["Input", "InputGroup", "Field"],
       "stories": [
@@ -1162,7 +1180,8 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "Sizes"
       ]
     },
     {
@@ -1183,7 +1202,8 @@
         "保留原生键盘和触屏行为",
         "SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select",
         "强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端",
-        "className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select"
+        "className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select",
+        "sm/md/lg 高度与控件尺度一致；保留系统原生选择行为"
       ],
       "related": ["Field", "RadioGroup", "Switch"],
       "stories": [
@@ -1196,7 +1216,8 @@
         "Mobile",
         "Sizes",
         "RightToLeft",
-        "Multiple"
+        "Multiple",
+        "InteractionStates"
       ]
     },
     {
@@ -1263,7 +1284,8 @@
       "mobile": ["标签与开关组成不少于 44px 高的点击区域"],
       "accessibility": [
         "使用 switch 语义并公开 checked 状态",
-        "children 提供可见且可点击的名称"
+        "children 提供可见且可点击的名称",
+        "hover/pressed 与 checked 层级一致；invalid 与 focus 独立可见；支持语义 RTL"
       ],
       "related": ["Checkbox", "Field"],
       "stories": [
@@ -1273,7 +1295,9 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "InteractionStates",
+        "RightToLeft"
       ]
     },
     {
@@ -1326,7 +1350,8 @@
       "accessibility": [
         "Tabs.List 必须提供可访问名称",
         "方向键移动焦点并在默认模式下激活标签",
-        "禁用标签会从键盘导航中跳过"
+        "禁用标签会从键盘导航中跳过",
+        "活动标签在 hover/pressed 时保留强调色与下划线"
       ],
       "related": ["Menu", "Button"],
       "stories": [
@@ -1337,7 +1362,8 @@
         "LongContent",
         "Mobile",
         "NarrowContainer",
-        "RightToLeft"
+        "RightToLeft",
+        "InteractionStates"
       ]
     },
     {
@@ -1380,7 +1406,8 @@
       "mobile": ["使用 16px 字号并适应容器宽度", "默认允许用户纵向调整高度"],
       "accessibility": [
         "必须搭配可见 Label 或 aria-label",
-        "错误信息由 Field 自动关联"
+        "错误信息由 Field 自动关联",
+        "hover/active 保留 invalid 边界与独立焦点轮廓"
       ],
       "related": ["Field", "Input"],
       "stories": [
@@ -1390,7 +1417,8 @@
         "Invalid",
         "Disabled",
         "LongContent",
-        "Mobile"
+        "Mobile",
+        "InteractionStates"
       ]
     },
     {

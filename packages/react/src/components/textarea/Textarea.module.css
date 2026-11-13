@@ -23,6 +23,16 @@
   opacity: 1;
 }
 
+@media (hover: hover) {
+  .root:hover:not(:disabled, :focus-visible, [aria-invalid="true"]) {
+    border-color: var(--qh-color-border-control-hover);
+  }
+}
+
+.root:active:not(:disabled, [aria-invalid="true"]) {
+  border-color: var(--qh-color-focus);
+}
+
 .root:focus-visible {
   border-color: var(--qh-color-focus);
   outline: var(--qh-focus-width) solid var(--qh-color-focus);

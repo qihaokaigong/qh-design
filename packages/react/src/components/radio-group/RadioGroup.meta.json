@@ -9,7 +9,8 @@
   "mobile": ["每个选项整行可点击且触控高度不少于 44px", "长标签允许自然换行"],
   "accessibility": [
     "支持方向键在选项间移动",
-    "必须通过 Field.Label 或 aria-label 提供组名称"
+    "必须通过 Field.Label 或 aria-label 提供组名称",
+    "标签区域支持 hover/pressed，禁用选中指示降为禁用语义色"
   ],
   "related": ["Checkbox", "Select", "Field"],
   "stories": [
@@ -19,6 +20,7 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "InteractionStates"
   ]
 }

@@ -22,6 +22,27 @@
   opacity: 1;
 }
 
+/* SearchInput supplies its own accessible clear action. */
+.root[data-qh-search-clear]::-webkit-search-cancel-button {
+  appearance: none;
+  display: none;
+}
+
+@media (hover: hover) {
+  .root:hover:not(
+      :disabled,
+      :focus-visible,
+      [aria-invalid="true"],
+      [data-input-group-control]
+    ) {
+    border-color: var(--qh-color-border-control-hover);
+  }
+}
+
+.root:active:not(:disabled, [aria-invalid="true"], [data-input-group-control]) {
+  border-color: var(--qh-color-focus);
+}
+
 .root:focus-visible {
   border-color: var(--qh-color-focus);
   outline: var(--qh-focus-width) solid var(--qh-color-focus);
@@ -38,7 +59,7 @@
   cursor: not-allowed;
 }
 
-.grouped {
+.root.grouped {
   flex: 1 1 auto;
   min-block-size: 0;
   padding-inline: var(--qh-space-3);
