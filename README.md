@@ -2,6 +2,8 @@
 
 QH Design System 是面向多个 React + TypeScript 项目的公共组件库。项目采用移动端优先设计，并把“人类可读、AI 可查询、示例可执行”作为同一套文档体系的要求。
 
+[![QH Design System on StartupScores](https://startupscores.com/badge/qh-design-system.svg?style=shield&v=combo&theme=dark)](https://startupscores.com/open-source/qh-design-system)
+
 当前状态：**Batch 0–4 与首批业务 Pattern 已进入 beta；Storybook、Registry、AI 文档和 Storybook MCP 已公开部署。**
 
 ## 在项目中接入
