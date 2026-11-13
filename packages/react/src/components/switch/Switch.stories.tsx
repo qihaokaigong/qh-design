@@ -50,3 +50,24 @@ export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };
+
+export const InteractionStates: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-3)" }}>
+      <Switch>项目通知</Switch>
+      <Switch defaultChecked>已启用通知</Switch>
+      <Switch invalid>无效通知</Switch>
+      <Switch disabled defaultChecked>
+        禁用通知
+      </Switch>
+    </div>
+  ),
+};
+
+export const RightToLeft: Story = {
+  render: () => (
+    <div dir="rtl">
+      <Switch defaultChecked>إشعارات المشروع</Switch>
+    </div>
+  ),
+};

@@ -44,6 +44,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         </InputGroup.Addon>
         <InputGroup.Input
           {...props}
+          data-qh-search-clear=""
           ref={(node) => {
             inputRef.current = node;
             if (typeof forwardedRef === "function") forwardedRef(node);

@@ -40,6 +40,34 @@
   border-color: var(--qh-color-action);
 }
 
+@media (hover: hover) {
+  .label:hover:not([data-disabled]) .control:not(:disabled, [data-invalid]) {
+    border-color: var(--qh-color-border-control-hover);
+  }
+
+  .label:hover:not([data-disabled])
+    .control:is([data-state="checked"], [data-state="indeterminate"]):not(
+      :disabled,
+      [data-invalid]
+    ) {
+    background: var(--qh-color-action-hover);
+    border-color: var(--qh-color-action-hover);
+  }
+}
+
+.label:active:not([data-disabled]) .control:not(:disabled, [data-invalid]) {
+  border-color: var(--qh-color-border-control-pressed);
+}
+
+.label:active:not([data-disabled])
+  .control:is([data-state="checked"], [data-state="indeterminate"]):not(
+    :disabled,
+    [data-invalid]
+  ) {
+  background: var(--qh-color-action-pressed);
+  border-color: var(--qh-color-action-pressed);
+}
+
 .control[data-invalid] {
   border-color: var(--qh-color-danger);
 }

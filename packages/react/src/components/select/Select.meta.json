@@ -16,7 +16,8 @@
     "保留原生键盘和触屏行为",
     "SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select",
     "强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端",
-    "className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select"
+    "className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select",
+    "sm/md/lg 高度与控件尺度一致；保留系统原生选择行为"
   ],
   "related": ["Field", "RadioGroup", "Switch"],
   "stories": [
@@ -29,6 +30,7 @@
     "Mobile",
     "Sizes",
     "RightToLeft",
-    "Multiple"
+    "Multiple",
+    "InteractionStates"
   ]
 }

@@ -7,6 +7,8 @@ export const buttonVariants = cva(styles.root, {
     variant: {
       primary: styles.primary,
       secondary: styles.secondary,
+      soft: styles.soft,
+      outline: styles.outline,
       ghost: styles.ghost,
       danger: styles.danger,
     },

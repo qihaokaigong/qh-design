@@ -10,7 +10,8 @@
   "accessibility": [
     "children 提供可见且可点击的名称",
     "支持 checked 和 indeterminate 语义",
-    "使用 Space 键切换"
+    "使用 Space 键切换",
+    "标签区域支持 hover/pressed 反馈，invalid 与 disabled 优先"
   ],
   "related": ["RadioGroup", "Switch", "Field"],
   "stories": [
@@ -20,6 +21,7 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "InteractionStates"
   ]
 }

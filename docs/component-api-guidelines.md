@@ -23,7 +23,7 @@
 
 ```ts
 type ButtonProps = {
-  variant?: "primary" | "secondary" | "ghost" | "danger";
+  variant?: "primary" | "soft" | "outline" | "secondary" | "ghost" | "danger";
   size?: "sm" | "md" | "lg";
   loading?: boolean;
   loadingText?: string;

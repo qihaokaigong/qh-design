@@ -20,6 +20,16 @@
   outline-offset: var(--qh-focus-offset);
 }
 
+@media (hover: hover) {
+  .root:hover:not([data-disabled], [data-invalid], :focus-within) {
+    border-color: var(--qh-color-border-control-hover);
+  }
+}
+
+.root:active:not([data-disabled], [data-invalid], :focus-within) {
+  border-color: var(--qh-color-focus);
+}
+
 .root[data-invalid] {
   border-color: var(--qh-color-danger);
 }
@@ -66,6 +76,7 @@
 .action {
   flex: none;
   border-radius: calc(var(--qh-input-radius) - var(--qh-border-width));
+  margin-block: calc(-1 * var(--qh-border-width));
 }
 
 .action:focus-visible {

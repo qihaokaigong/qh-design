@@ -35,4 +35,7 @@ and the location of its global style entry.
 - Use FilterBar/Toolbar variant=plain when embedded in a page, outlined for standalone blocks.
 - Let one PageContainer own the gutter. Prefer sections, spacing and dividers over repeated card frames.
 - Ghost actions remain quiet on hover and press; preserve focus-visible and disabled/loading behavior.
+- Use primary for the main action, soft for lower emphasis, outline for a visible secondary action, and ghost for quiet utilities. Existing secondary remains supported. Button, ButtonLink and IconButton share these variants.
+- Native fields have one Paper surface; preserve invalid boundaries independently of focus. InputGroup and SearchInput sizes match standalone controls (sm 36px, md 44px, lg 48px); use md by default for touch. SearchInput owns its clear action.
+- Keep the selected Tabs accent during hover. Selection controls distinguish hover, pressed, checked, invalid and disabled; do not replace these states with layout classes.
 - Select layout className/style apply to its container; native id, name, events and ref target the select. Its SVG arrow is decorative and logical-end aligned.

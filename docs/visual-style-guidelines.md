@@ -15,7 +15,7 @@
 
 - FilterBar 和 Toolbar 默认 `variant="outlined"`，供独立区块使用；嵌入完整页面时使用 `variant="plain"`，通过间距组织，不再增加一层外框。
 - 项目列表保留表格边界与行分隔。详情主内容使用语义 section、标题与必要分隔线；辅助信息可以放入 Warm 填充卡片。普通内容区不使用 elevation 强调，真正浮层保留阴影。
-- 每个任务区域用 primary 突出主要操作，secondary 表达次要操作，ghost 用于清除、重置、查看等辅助动作。ghost 在 hover/pressed 时改变轻量背景，保留透明边框；focus-visible 始终有独立轮廓。
+- 每个任务区域用 primary 突出主要操作，soft 表达低强调操作，outline 表达需要明确边界的次要操作，ghost 用于清除、重置等辅助动作。既有 secondary 保留兼容。Button、ButtonLink、IconButton 共享这些变体。ghost 在 hover/pressed 时改变轻量背景，保留透明边框；focus-visible 始终有独立轮廓。最新实现与验收见 [Radix Themes 对齐审查](radix-themes-alignment-review.md)。
 - 交互背景使用 `--qh-color-surface-hover`、`--qh-color-surface-pressed`；控件 hover 边界使用 `--qh-color-border-control-hover`。这些别名复用已批准颜色，不增加原始色值。
 
 ## 下拉选择与移动端

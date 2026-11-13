@@ -33,10 +33,53 @@
   border: var(--qh-border-width) solid var(--qh-input-border);
   border-radius: var(--qh-radius-full);
   cursor: inherit;
+  transition:
+    background-color var(--qh-duration-fast) var(--qh-ease),
+    border-color var(--qh-duration-fast) var(--qh-ease);
 }
 
 .item[data-state="checked"] {
   border-color: var(--qh-color-action);
+}
+
+@media (hover: hover) {
+  .root:not([data-invalid])
+    .itemLabel:hover:not([data-disabled])
+    .item:not(:disabled) {
+    border-color: var(--qh-color-border-control-hover);
+  }
+
+  .root:not([data-invalid])
+    .itemLabel:hover:not([data-disabled])
+    .item[data-state="checked"]:not(:disabled) {
+    border-color: var(--qh-color-action-hover);
+  }
+
+  .root:not([data-invalid])
+    .itemLabel:hover:not([data-disabled])
+    .item[data-state="checked"]:not(:disabled)
+    .indicator {
+    background: var(--qh-color-action-hover);
+  }
+}
+
+.root:not([data-invalid])
+  .itemLabel:active:not([data-disabled])
+  .item:not(:disabled) {
+  border-color: var(--qh-color-border-control-pressed);
+}
+
+.root:not([data-invalid])
+  .itemLabel:active:not([data-disabled])
+  .item[data-state="checked"]:not(:disabled) {
+  border-color: var(--qh-color-action-pressed);
+}
+
+.root:not([data-invalid])
+  .itemLabel:active:not([data-disabled])
+  .item[data-state="checked"]:not(:disabled)
+  .indicator {
+  background: var(--qh-color-action-pressed);
 }
 
 .root[data-invalid] .item {
@@ -48,9 +91,13 @@
   outline-offset: var(--qh-focus-offset);
 }
 
-.item:disabled {
+.root .item:disabled {
   background: var(--qh-color-disabled-bg);
   border-color: var(--qh-color-disabled-bg);
+}
+
+.item:disabled .indicator {
+  background: var(--qh-color-disabled-text);
 }
 
 .indicator {

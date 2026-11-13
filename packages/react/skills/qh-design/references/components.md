@@ -1,6 +1,6 @@
 # Component index
 
-Generated from QH component metadata for `@qhkg/react@0.8.0`.
+Generated from QH component metadata for `@qhkg/react@0.9.0`.
 Use this index to choose a component, then confirm exact props from the installed TypeScript declarations or Storybook MCP.
 
 ## AccessibleIcon
@@ -115,8 +115,8 @@ Use this index to choose a component, then confirm exact props from the installe
 - Status: beta
 - Use when: 提交表单；触发页面内动作；打开弹层
 - Avoid when: 导航到另一个 URL；仅展示状态
-- Mobile: 默认 md 尺寸为 44px 高；主要操作区域在窄屏可以由页面布局设为全宽
-- Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓；ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点
+- Mobile: 默认 md 尺寸为 44px 高；主要操作区域在窄屏可以由页面布局设为全宽；受限宽度中的长标签可由调用方省略，图标与数量仍保持可见
+- Accessibility: 默认 type 为 button；loading 时设置 aria-busy 并阻止重复激活；保留可见的 focus-visible 轮廓；ghost 以轻量背景表达 hover 与 pressed，保持透明边框和独立键盘焦点；soft/outline 用于低强调与描边操作；primary 保持默认；打开态保持 pressed 层级，禁用和 loading 优先于打开态
 - Related: ButtonLink, AlertDialog
 - Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
 
@@ -129,7 +129,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 主要或次要导航需要按钮视觉层级
 - Avoid when: 提交表单；执行无 URL 的页面动作
 - Mobile: 默认 md 尺寸为 44px 高
-- Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接；ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓
+- Accessibility: 保留原生链接语义和 href；不模拟 disabled 链接；ghost 以轻量背景表达交互，保留独立 focus-visible 轮廓；支持 soft/outline 导航层级，保留原生 href 与焦点
 - Related: Button, Link
 - Storybook: https://design.qihao.dev/?path=/docs/actions-button--docs
 
@@ -168,7 +168,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 多个选项可以同时选择；用户需要确认一个独立条件
 - Avoid when: 一组选项只能选择一个；立即控制系统功能的开关
 - Mobile: 整行标签均可点击且触控高度不少于 44px
-- Accessibility: children 提供可见且可点击的名称；支持 checked 和 indeterminate 语义；使用 Space 键切换
+- Accessibility: children 提供可见且可点击的名称；支持 checked 和 indeterminate 语义；使用 Space 键切换；标签区域支持 hover/pressed 反馈，invalid 与 disabled 优先
 - Related: RadioGroup, Switch, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-checkbox--docs
 
@@ -376,7 +376,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 工具栏中的熟悉动作；需要用文字标签补充图标含义的紧凑操作
 - Avoid when: 不包含图标的普通操作；用于页面导航
 - Mobile: 纯图标模式默认触控区域为 44px 方形；带标签模式保持图标与文字同行并允许容器自然扩展；不能只在悬停时显示
-- Accessibility: 纯图标模式必须提供 aria-label；带标签模式默认使用可见文字作为可访问名称；图标本身从辅助技术中隐藏；loading 时阻止重复激活
+- Accessibility: 纯图标模式必须提供 aria-label；带标签模式默认使用可见文字作为可访问名称；图标本身从辅助技术中隐藏；loading 时阻止重复激活；共享 Button 的 soft/outline、打开态与焦点规则
 - Related: Button, Tooltip
 - Storybook: https://design.qihao.dev/?path=/docs/actions-iconbutton--docs
 
@@ -402,7 +402,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 输入单行文本；需要保留原生 input 表单能力
 - Avoid when: 输入多行内容；从固定选项中选择
 - Mobile: 字号不小于 16px，避免移动端自动缩放；默认高度为 44px 且宽度适应容器
-- Accessibility: 必须搭配可见 Label 或 aria-label；invalid 时设置 aria-invalid；保留原生 autocomplete、name 和 inputMode
+- Accessibility: 必须搭配可见 Label 或 aria-label；invalid 时设置 aria-invalid；保留原生 autocomplete、name 和 inputMode；hover/active 不覆盖 invalid；组合框内部只由外框呈现边界与焦点
 - Related: Field, InputGroup, Textarea, Select
 - Storybook: https://design.qihao.dev/?path=/docs/forms-input--docs
 
@@ -415,7 +415,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 输入值需要固定前缀、后缀或单位；输入框需要紧密关联的图标动作
 - Avoid when: 多个字段只是需要并排布局；附加操作与输入值没有直接关系
 - Mobile: 默认高度为 44px 并适应容器宽度；输入区域可以收缩且不会造成页面横向溢出
-- Accessibility: InputGroup.Input 必须通过 Field.Label 或 aria-label 获得名称；图标动作必须提供 aria-label；从 Field 继承禁用、必填、无效和说明关系
+- Accessibility: InputGroup.Input 必须通过 Field.Label 或 aria-label 获得名称；图标动作必须提供 aria-label；从 Field 继承禁用、必填、无效和说明关系；输入、图标和操作按同一尺寸组合；默认外框 44px，action 保留完整点击尺寸
 - Related: Input, Field, IconButton, SearchInput
 - Storybook: https://design.qihao.dev/?path=/docs/forms-inputgroup--docs
 
@@ -571,7 +571,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 选项互斥且需要同时展示；选项数量较少并需要快速比较
 - Avoid when: 允许同时选择多个选项；选项很多或需要搜索
 - Mobile: 每个选项整行可点击且触控高度不少于 44px；长标签允许自然换行
-- Accessibility: 支持方向键在选项间移动；必须通过 Field.Label 或 aria-label 提供组名称
+- Accessibility: 支持方向键在选项间移动；必须通过 Field.Label 或 aria-label 提供组名称；标签区域支持 hover/pressed，禁用选中指示降为禁用语义色
 - Related: Checkbox, Select, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-radiogroup--docs
 
@@ -584,7 +584,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 输入关键词筛选当前内容；搜索结果会随关键词或提交动作更新
 - Avoid when: 选择固定选项；执行站点主导航而没有搜索输入
 - Mobile: 默认高度为 44px 且字号不小于 16px；清除动作始终具有可见的触控目标
-- Accessibility: 必须通过 Field.Label 或 aria-label 提供名称；清除动作具有可本地化的可访问名称；清除后焦点返回搜索输入
+- Accessibility: 必须通过 Field.Label 或 aria-label 提供名称；清除动作具有可本地化的可访问名称；清除后焦点返回搜索输入；输入或清除按钮出现时外框高度稳定，清除后恢复输入焦点；由单一显式清除按钮提供清除动作，不重复显示浏览器原生清除装饰
 - Related: Input, InputGroup, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-searchinput--docs
 
@@ -597,7 +597,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 选项固定且数量较少；需要原生表单提交能力
 - Avoid when: 选项需要搜索；允许选择多个复杂对象；选项只有开和关两种状态
 - Mobile: 使用系统原生选择体验；默认高度 44px 且宽度适应容器
-- Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为；SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select；强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端；className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select
+- Accessibility: 必须搭配可见 Label 或 aria-label；保留原生键盘和触屏行为；SVG 箭头不进入焦点或可访问名称，点击穿透到原生 select；强制颜色模式恢复原生箭头；RTL 时箭头位于逻辑末端；className 与 style 用于外层布局容器；id、name、事件和 ref 保留在原生 select；sm/md/lg 高度与控件尺度一致；保留系统原生选择行为
 - Related: Field, RadioGroup, Switch
 - Storybook: https://design.qihao.dev/?path=/docs/forms-select--docs
 
@@ -649,7 +649,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 切换会立即生效的设置；表达清晰的开关状态
 - Avoid when: 需要提交表单后才生效；一组选项需要多选
 - Mobile: 标签与开关组成不少于 44px 高的点击区域
-- Accessibility: 使用 switch 语义并公开 checked 状态；children 提供可见且可点击的名称
+- Accessibility: 使用 switch 语义并公开 checked 状态；children 提供可见且可点击的名称；hover/pressed 与 checked 层级一致；invalid 与 focus 独立可见；支持语义 RTL
 - Related: Checkbox, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-switch--docs
 
@@ -675,7 +675,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 内容属于同一级别且用户需要快速切换；切换不会改变页面地址
 - Avoid when: 步骤有严格先后顺序；内容需要独立链接和浏览器历史
 - Mobile: 标签列表可水平滚动并保留系统滚动提示；键盘焦点与受控选中标签自动滚入可见范围，支持 RTL；触发区域至少 44px 高
-- Accessibility: Tabs.List 必须提供可访问名称；方向键移动焦点并在默认模式下激活标签；禁用标签会从键盘导航中跳过
+- Accessibility: Tabs.List 必须提供可访问名称；方向键移动焦点并在默认模式下激活标签；禁用标签会从键盘导航中跳过；活动标签在 hover/pressed 时保留强调色与下划线
 - Related: Menu, Button
 - Storybook: https://design.qihao.dev/?path=/docs/navigation-tabs--docs
 
@@ -701,7 +701,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Use when: 输入备注、描述或反馈；内容可能包含多行文本
 - Avoid when: 输入简短的单行值；编辑富文本内容
 - Mobile: 使用 16px 字号并适应容器宽度；默认允许用户纵向调整高度
-- Accessibility: 必须搭配可见 Label 或 aria-label；错误信息由 Field 自动关联
+- Accessibility: 必须搭配可见 Label 或 aria-label；错误信息由 Field 自动关联；hover/active 保留 invalid 边界与独立焦点轮廓
 - Related: Field, Input
 - Storybook: https://design.qihao.dev/?path=/docs/forms-textarea--docs
 

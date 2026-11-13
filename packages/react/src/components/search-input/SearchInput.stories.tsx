@@ -71,3 +71,18 @@ export const Mobile: Story = {
   ...Default,
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-4)", maxWidth: 360 }}>
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <SearchInput
+          key={size}
+          aria-label={`搜索（${size}）`}
+          size={size}
+          placeholder="搜索项目"
+        />
+      ))}
+    </div>
+  ),
+};

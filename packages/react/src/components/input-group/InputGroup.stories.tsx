@@ -96,3 +96,24 @@ export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-4)", maxWidth: 360 }}>
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <InputGroup key={size} size={size}>
+          <InputGroup.Addon>
+            <Search aria-hidden="true" />
+          </InputGroup.Addon>
+          <InputGroup.Input
+            aria-label={`搜索（${size}）`}
+            placeholder="搜索项目"
+          />
+          <InputGroup.Action aria-label={`执行搜索（${size}）`}>
+            <Search />
+          </InputGroup.Action>
+        </InputGroup>
+      ))}
+    </div>
+  ),
+};

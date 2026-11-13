@@ -15,7 +15,8 @@
     "纯图标模式必须提供 aria-label",
     "带标签模式默认使用可见文字作为可访问名称",
     "图标本身从辅助技术中隐藏",
-    "loading 时阻止重复激活"
+    "loading 时阻止重复激活",
+    "共享 Button 的 soft/outline、打开态与焦点规则"
   ],
   "related": ["Button", "Tooltip"],
   "stories": [
@@ -26,6 +27,7 @@
     "Loading",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "Emphasis"
   ]
 }

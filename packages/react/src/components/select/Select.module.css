@@ -74,6 +74,7 @@
 
 .sm {
   min-block-size: var(--qh-control-sm);
+  padding-block: var(--qh-space-1);
 }
 
 .md {

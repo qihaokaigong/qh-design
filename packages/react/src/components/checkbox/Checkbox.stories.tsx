@@ -54,3 +54,16 @@ export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };
+
+export const InteractionStates: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-3)" }}>
+      <Checkbox>选择项目</Checkbox>
+      <Checkbox defaultChecked>已选择项目</Checkbox>
+      <Checkbox invalid>无效项目</Checkbox>
+      <Checkbox disabled defaultChecked>
+        禁用项目
+      </Checkbox>
+    </div>
+  ),
+};

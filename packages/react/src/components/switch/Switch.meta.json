@@ -9,7 +9,8 @@
   "mobile": ["标签与开关组成不少于 44px 高的点击区域"],
   "accessibility": [
     "使用 switch 语义并公开 checked 状态",
-    "children 提供可见且可点击的名称"
+    "children 提供可见且可点击的名称",
+    "hover/pressed 与 checked 层级一致；invalid 与 focus 独立可见；支持语义 RTL"
   ],
   "related": ["Checkbox", "Field"],
   "stories": [
@@ -19,6 +20,8 @@
     "Invalid",
     "Disabled",
     "LongContent",
-    "Mobile"
+    "Mobile",
+    "InteractionStates",
+    "RightToLeft"
   ]
 }

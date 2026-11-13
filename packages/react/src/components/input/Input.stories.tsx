@@ -61,3 +61,13 @@ export const Mobile: Story = {
   ...Default,
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };
+
+export const InteractionStates: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-4)", maxWidth: 360 }}>
+      <Input aria-label="正常输入" placeholder="输入项目名称" />
+      <Input aria-label="无效输入" invalid defaultValue="错误内容" />
+      <Input aria-label="禁用输入" disabled defaultValue="不可修改" />
+    </div>
+  ),
+};

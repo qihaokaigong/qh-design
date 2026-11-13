@@ -67,9 +67,16 @@
 
 @media (hover: hover) {
   .trigger:hover:not(:disabled) {
-    color: var(--qh-color-text);
-    background: var(--qh-color-surface-subtle);
+    background: var(--qh-color-surface-hover);
   }
+
+  .trigger[data-state="inactive"]:hover:not(:disabled) {
+    color: var(--qh-color-text);
+  }
+}
+
+.trigger:active:not(:disabled) {
+  background: var(--qh-color-surface-pressed);
 }
 
 .content {

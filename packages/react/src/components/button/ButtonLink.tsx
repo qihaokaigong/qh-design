@@ -23,7 +23,7 @@ export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       >
         <span className={styles.content}>
           {iconStart ? <span className={styles.icon}>{iconStart}</span> : null}
-          <span>{children}</span>
+          <span className={styles.label}>{children}</span>
           {iconEnd ? <span className={styles.icon}>{iconEnd}</span> : null}
         </span>
       </a>

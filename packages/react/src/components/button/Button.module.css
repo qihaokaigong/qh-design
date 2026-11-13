@@ -51,6 +51,17 @@
   background: transparent;
 }
 
+.soft {
+  color: var(--qh-color-on-action-soft);
+  background: var(--qh-color-action-soft);
+}
+
+.outline {
+  color: var(--qh-color-on-action-soft);
+  background: transparent;
+  border-color: var(--qh-color-action);
+}
+
 .danger {
   color: var(--qh-color-on-action);
   background: var(--qh-color-danger);
@@ -70,26 +81,57 @@
     background: var(--qh-color-surface-hover);
   }
 
+  .soft:hover:not(:disabled, [aria-disabled="true"]),
+  .outline:hover:not(:disabled, [aria-disabled="true"]) {
+    color: var(--qh-color-on-action-soft-hover);
+    background: var(--qh-color-action-soft);
+  }
+
   .danger:hover:not(:disabled, [aria-disabled="true"]) {
     background: var(--qh-color-danger-hover);
   }
 }
 
-.primary:active:not(:disabled, [aria-disabled="true"]) {
+.primary:is(:active, [data-state="open"], [aria-expanded="true"]):not(
+    :disabled,
+    [aria-disabled="true"]
+  ) {
   background: var(--qh-button-primary-pressed);
 }
 
-.secondary:active:not(:disabled, [aria-disabled="true"]) {
+.secondary:is(:active, [data-state="open"], [aria-expanded="true"]):not(
+    :disabled,
+    [aria-disabled="true"]
+  ) {
   background: var(--qh-color-surface-pressed);
   box-shadow: inset 0 0 0 var(--qh-border-width) var(--qh-color-border-control);
 }
 
-.ghost:active:not(:disabled, [aria-disabled="true"]) {
+.ghost:is(:active, [data-state="open"], [aria-expanded="true"]):not(
+    :disabled,
+    [aria-disabled="true"]
+  ) {
   background: var(--qh-color-surface-pressed);
 }
 
-.danger:active:not(:disabled, [aria-disabled="true"]) {
+.danger:is(:active, [data-state="open"], [aria-expanded="true"]):not(
+    :disabled,
+    [aria-disabled="true"]
+  ) {
   background: var(--qh-color-danger-pressed);
+}
+
+.soft:is(:active, [data-state="open"], [aria-expanded="true"]):not(
+    :disabled,
+    [aria-disabled="true"]
+  ),
+.outline:is(:active, [data-state="open"], [aria-expanded="true"]):not(
+    :disabled,
+    [aria-disabled="true"]
+  ) {
+  color: var(--qh-color-on-action);
+  background: var(--qh-color-action-pressed);
+  border-color: var(--qh-color-action-pressed);
 }
 
 .sm {
@@ -106,6 +148,17 @@
 .lg {
   min-height: var(--qh-control-lg);
   padding: var(--qh-space-2) var(--qh-space-6);
+}
+
+.content {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.label {
+  display: flex;
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 .content,

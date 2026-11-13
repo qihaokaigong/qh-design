@@ -67,3 +67,23 @@ export const Mobile: Story = {
   ...LongContent,
   parameters: { viewport: { defaultViewport: "mobile375" } },
 };
+
+export const InteractionStates: Story = {
+  render: () => (
+    <div style={{ display: "grid", gap: "var(--qh-space-4)" }}>
+      <RadioGroup aria-label="项目范围" defaultValue="team">
+        <RadioGroup.Item value="team">团队项目</RadioGroup.Item>
+        <RadioGroup.Item value="private">私有项目</RadioGroup.Item>
+        <RadioGroup.Item value="disabled" disabled>
+          禁用项目
+        </RadioGroup.Item>
+      </RadioGroup>
+      <RadioGroup aria-label="无效范围" invalid>
+        <RadioGroup.Item value="one">无效项目</RadioGroup.Item>
+      </RadioGroup>
+      <RadioGroup aria-label="禁用范围" disabled defaultValue="one">
+        <RadioGroup.Item value="one">禁用已选项目</RadioGroup.Item>
+      </RadioGroup>
+    </div>
+  ),
+};

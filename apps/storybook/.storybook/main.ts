@@ -8,6 +8,7 @@ const reactSource = fileURLToPath(
 
 const config: StorybookConfig = {
   stories: [
+    "../stories/**/*.stories.@(ts|tsx|mdx)",
     "../../../packages/react/src/**/*.stories.@(ts|tsx|mdx)",
     "../../../registry/**/*.stories.@(ts|tsx|mdx)",
   ],

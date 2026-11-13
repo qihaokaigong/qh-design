@@ -98,10 +98,7 @@ export function ProjectDetailPage({
         actions={
           state === "ready" ? (
             <>
-              <Button
-                variant="secondary"
-                onClick={() => onArchive?.(project.id)}
-              >
+              <Button variant="outline" onClick={() => onArchive?.(project.id)}>
                 归档项目
               </Button>
               <ButtonLink href={editHref}>编辑项目</ButtonLink>
