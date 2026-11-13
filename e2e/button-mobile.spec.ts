@@ -21,5 +21,8 @@ test("constrained button labels preserve their icon and count on mobile", async 
   );
   expect(buttonBox.height).toBeGreaterThanOrEqual(44);
   await button.click();
+  // Safari intentionally does not focus native buttons on pointer activation.
+  await button.focus();
+  await button.press("Space");
   await expect(button).toBeFocused();
 });
