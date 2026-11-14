@@ -1,6 +1,6 @@
 # Component index
 
-Generated from QH component metadata for `@qhkg/react@0.9.0`.
+Generated from QH component metadata for `@qhkg/react@0.9.1`.
 Use this index to choose a component, then confirm exact props from the installed TypeScript declarations or Storybook MCP.
 
 ## AccessibleIcon
@@ -232,7 +232,7 @@ Use this index to choose a component, then confirm exact props from the installe
 - Status: beta
 - Use when: 日期既可键盘输入也可从日历选择；表单需要提交 ISO 日期字符串
 - Avoid when: 日历需要持续可见；需要选择连续日期范围
-- Mobile: 默认控件高度为 44px；弹层避让视口边缘并在 320px 视口内完整显示
+- Mobile: 默认控件高度为 44px；弹层避让视口边缘并在 320px 视口内完整显示；160px 及以下容器收起输入区横向留白，完整保留宽系统字体的日期段与 44px 日历触发器
 - Accessibility: 必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称；每个日期片段可独立编辑，日历支持完整键盘导航；选择完成或按 Escape 关闭后恢复焦点
 - Related: Calendar, DateRangePicker, TimeField, Field
 - Storybook: https://design.qihao.dev/?path=/docs/forms-datepicker--docs

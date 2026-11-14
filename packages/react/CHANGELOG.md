@@ -1,5 +1,11 @@
 # @qhkg/react
 
+## 0.9.1
+
+### Patch Changes
+
+- Keep compact DatePicker segments separate from the calendar trigger at 144px widths with wider system fonts. Remove input gutters up to 160px while preserving native segment editing, the 44px trigger, and calendar focus behavior.
+
 ## 0.9.0
 
 ### Minor Changes

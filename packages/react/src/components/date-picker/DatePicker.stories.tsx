@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { CSSProperties } from "react";
 import { expect, fn, userEvent, within } from "storybook/test";
 
 import { Field } from "../field";
@@ -79,6 +80,28 @@ export const Compact: Story = {
       </div>
     </div>
   ),
+};
+
+export const CompactWithWideFont: Story = {
+  render: () => (
+    <div
+      style={
+        { width: 144, "--qh-font-sans": "Verdana, sans-serif" } as CSSProperties
+      }
+    >
+      <DatePicker aria-label="紧凑宽字体日期" defaultValue="2026-11-14" />
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const picker = within(canvasElement).getByRole("group", {
+      name: "紧凑宽字体日期",
+    });
+    const lastSegment = within(picker).getAllByRole("spinbutton").at(-1)!;
+    const trigger = within(picker).getByRole("button", { name: /打开日历/ });
+    await expect(lastSegment.getBoundingClientRect().right).toBeLessThanOrEqual(
+      trigger.getBoundingClientRect().left,
+    );
+  },
 };
 
 export const Mobile: Story = {
