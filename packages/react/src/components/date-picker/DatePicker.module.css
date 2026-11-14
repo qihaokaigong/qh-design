@@ -120,7 +120,7 @@
   z-index: var(--qh-z-dropdown);
 }
 
-@container (max-width: 8rem) {
+@container (max-width: 10rem) {
   .input {
     padding-inline: 0;
   }

@@ -63,6 +63,24 @@ test("keeps a compact date complete and its calendar anchored", async ({
   );
 });
 
+test("keeps a 144px date complete with a wider system font", async ({
+  page,
+}) => {
+  await openStory(page, "forms-datepicker--compact-with-wide-font");
+  const picker = page.getByRole("group", { name: "紧凑宽字体日期" });
+  const trigger = picker.getByRole("button", { name: /打开日历/ });
+  const lastSegment = picker.getByRole("spinbutton").last();
+  const segmentBox = (await lastSegment.boundingBox())!;
+  const triggerBox = (await trigger.boundingBox())!;
+  expect(segmentBox.x + segmentBox.width).toBeLessThanOrEqual(triggerBox.x);
+  expect(triggerBox.width).toBeGreaterThanOrEqual(44);
+  await trigger.click();
+  await expect(page.getByRole("dialog", { name: "选择日期" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(trigger).toBeFocused();
+  await expectNoPageOverflow(page);
+});
+
 test.describe("320px release paths", () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ height: 720, width: 320 });

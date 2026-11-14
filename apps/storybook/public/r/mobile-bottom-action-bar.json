@@ -4,7 +4,7 @@
   "title": "Mobile Bottom Action Bar",
   "description": "Safe-area-aware fixed mobile actions with automatic dynamic-height content reservation.",
   "dependencies": [
-    "@qhkg/react@^0.9.0"
+    "@qhkg/react@^0.9.1"
   ],
   "files": [
     {

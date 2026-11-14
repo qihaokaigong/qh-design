@@ -11,7 +11,8 @@
   "avoidWhen": ["日历需要持续可见", "需要选择连续日期范围"],
   "mobile": [
     "默认控件高度为 44px",
-    "弹层避让视口边缘并在 320px 视口内完整显示"
+    "弹层避让视口边缘并在 320px 视口内完整显示",
+    "160px 及以下容器收起输入区横向留白，完整保留宽系统字体的日期段与 44px 日历触发器"
   ],
   "accessibility": [
     "必须通过 Field.Label、aria-label 或 aria-labelledby 提供名称",
@@ -27,6 +28,7 @@
     "Disabled",
     "LongContent",
     "Compact",
+    "CompactWithWideFont",
     "Mobile"
   ]
 }
