@@ -1,5 +1,11 @@
 # @qhkg/react
 
+## 0.9.2
+
+### Patch Changes
+
+- e3e93b8: Document grouped disclosure lists in the shipped QH skill: separate summary actions, stable aggregate columns, nested details, responsive wrapping, keyboard focus, and reduced motion. No component API or runtime changes.
+
 ## 0.9.1
 
 ### Patch Changes
