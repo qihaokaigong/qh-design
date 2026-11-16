@@ -4,6 +4,8 @@
 
 设计依据与前后草案见[视觉审查](flat-visual-style-review.md)。保留 Paper、Warm 与 QH Blue 品牌；主要操作继续使用 Blue Dark 与 Paper。本文规定组合方式，API 以对应 TypeScript 和 Story 为准。
 
+带摘要、汇总和独立操作的分组列表遵循[折叠列表组合规范](collapsible-lists.md)，包括开源参考、摘要与明细层级、窄屏换行及键盘焦点规则。
+
 ## 排版与页面
 
 - 工具页面使用语义 h1 与 `Heading size="lg"`，在默认字号下手机约 24px、桌面最高 32px。展示型页面可继续使用 xl，Heading 全局默认值保持不变。

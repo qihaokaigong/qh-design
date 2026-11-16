@@ -39,3 +39,15 @@ and the location of its global style entry.
 - Native fields have one Paper surface; preserve invalid boundaries independently of focus. InputGroup and SearchInput sizes match standalone controls (sm 36px, md 44px, lg 48px); use md by default for touch. SearchInput owns its clear action.
 - Keep the selected Tabs accent during hover. Selection controls distinguish hover, pressed, checked, invalid and disabled; do not replace these states with layout classes.
 - Select layout className/style apply to its container; native id, name, events and ref target the select. Its SVG arrow is decorative and logical-end aligned.
+
+## Grouped disclosure lists
+
+- Use QH Accordion for heading/content sections. For a summary with independent business actions, keep one disclosure trigger and sibling actions; never nest buttons inside the trigger or use a centered Button label as a row layout.
+- Arrange a left-aligned title and metadata, an aligned aggregate, then actions. Keep the aggregate and primary action visible in both states; share columns with ungrouped rows and reserve non-focusable empty action slots when needed.
+- Default repeated groups to collapsed; show a single record directly. Pair the chevron with the title and explicit expand/collapse copy. Let long labels wrap.
+- Indent details on a subtle semantic surface with separators; add a light rail and sequence labels when order matters. Avoid repeated group titles and nested cards; preserve full/cross-day values, sync, conflict and error information.
+- Use QH outline Button for the frequent labelled action and a persistent ghost IconButton + Menu for editing/deletion. Menu trigger names identify both the group and the detail. Expansion must not mutate data or change business disabled/loading rules.
+- At 320px, give titles reading space and move actions to another row. Preserve 44px targets, readable values, and 200% text scaling without clipping or page overflow. Keep QH component visuals intact; put columns and wrapping on application-owned containers.
+- Reuse an installed disclosure primitive when the QH API cannot express independent summary actions. Keep business composition in the application; do not add another primitive dependency or core API solely for one list.
+- Preserve native list/button semantics, aria-expanded/aria-controls, Enter/Space toggling and normal Tab order. Hidden details cannot receive focus. Menus restore focus on Escape; editing focuses its form and returns focus to the surviving row trigger on completion/cancel.
+- Use a short height/chevron transition (180ms is suitable); disable both under prefers-reduced-motion. Check narrow/wide layouts, keyboard/menu focus, correct detail mutation identity and non-mutating expansion.
